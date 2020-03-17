@@ -113,7 +113,7 @@
 						<th scope="col">Email</th>
 					</tr>
 				</thead>
-				<tbody class="table-bordered" >
+				<tbody class="table-sm table-hover form-control-sm" >
 					@foreach($data_karyawan as $karyawan)
 					<tr align="left">
 						<td>{{$karyawan->nik}}</td>
