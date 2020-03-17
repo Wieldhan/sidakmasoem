@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use RealRashid\SweetAlert\Facades\Alert;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-route::get('admin', 'adminController@index');
+route::get('/admin', 'adminController@index');
 route::get('master', 'masterController@index');
 
 // Routes Karyawan

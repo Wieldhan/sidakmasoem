@@ -208,5 +208,8 @@
   <script src="/adminlte/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="/adminlte/js/demo.js"></script>
+  <script src="/sweetalert/src/js/sweetalert.all.js"></script>
+@include('sweetalert::alert')
 </body>
+
 </html>

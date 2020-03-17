@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\karyawan;
+use App\Karyawan;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KaryawanController extends Controller
 {
@@ -30,6 +31,7 @@ class KaryawanController extends Controller
 			'no_telepon' => $request->no_telepon,
 			'email' => $request->email
 		]);
+		alert()->success('SUCCES.','DATA BERHASIL DITAMBAHKAN!');
 		return redirect('/karyawan');
 	}
 }
