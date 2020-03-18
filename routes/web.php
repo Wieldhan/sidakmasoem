@@ -24,3 +24,5 @@ route::get('master', 'masterController@index');
 // Routes Karyawan
 route::get('/karyawan', 'karyawanController@index');
 route::post('/karyawan/simpan', 'karyawanController@simpan');
+route::get('karyawan/edit/{id}', 'karyawanController@update');
+route::get('karyawan/hapus/{id}', 'karyawanController@delete');
