@@ -21,7 +21,7 @@
 				</div>
 				<div class="card-body">
 					<form action="/karyawan/simpan" method="POST">
-						{{ csrf_field() }}
+						{{csrf_field()}}
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label>NIK</label>
@@ -91,17 +91,17 @@
 			</div>
 		</div>
 		<div>
-			<div class="col">
+			<div class="col-md-auto" >
 				<div class="card card-success">
 					<div class="card-header">
 						<h3 class="card-title">KELOLA DATA KARYAWAN</h3>
-						<div class="card-tools">
+						<div class="card-tools ">
 							<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
 							</button>
 						</div>
 					</div>
 					<div class="card-body">
-						<table class="table table-hover form-control-sm">
+						<table class="table table-sm table-hover">
 							<thead>
 								<tr align="center">
 									<th scope="col">NIK</th>
@@ -118,7 +118,7 @@
 									<th scope="col">Action</th>
 								</tr>
 							</thead>
-							<tbody class="table table-hover form-control-sm" >
+							<tbody>
 								@foreach($data_karyawan as $karyawan)
 								<tr align="left">
 									<td>{{$karyawan->nik}}</td>
@@ -133,7 +133,7 @@
 									<td>{{$karyawan->no_telepon}}</td>
 									<td>{{$karyawan->email}}</td>
 									<td>
-										<a href="/karyawan/edit/{{$karyawan->id}}" class="btn btn-warning">Edit</a>
+										<a href="#" class="btn btn-warning">Edit</a>
 										<a href="/karyawan/hapus/{{$karyawan->id}}" class="btn btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
 									</td>
 								</tr>

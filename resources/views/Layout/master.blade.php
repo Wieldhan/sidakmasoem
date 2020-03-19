@@ -64,10 +64,10 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="/adminLTE/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="" class="img-circle elevation-2" alt="#">
           </div>
           <div class="info">
-            <a href="#" class="d-block">ADMINISTRATOR</a>
+            <a href="{{url('admin')}}" class="d-block">DASHBOARD</a>
           </div>
         </div>
         <!-- Sidebar Menu -->
@@ -85,7 +85,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('karyawan')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Karyawan</p>
                 </a>
@@ -107,10 +107,8 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
-              <p>
-                Transaksi
-                <i class="right fas fa-angle-left"></i>
-              </p>
+              <p>Transaksi</p>
+              <i class="right fas fa-angle-left"></i>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
