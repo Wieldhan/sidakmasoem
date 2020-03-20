@@ -25,16 +25,22 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label>NIK</label>
-								<input name="nik" type="text" class="form-control" placeholder="Nomor Induk Karyawan" >
+								<input name="nik" type="text" class="form-control">
 							</div>
 							<div class="form-group col-md-6">
 								<label>NO KTP</label>
-								<input name="no_ktp" type="text" class="form-control" placeholder="No Identitas KTP">
+								<input name="no_ktp" type="text" class="form-control">
 							</div>
 						</div>
-						<div class="form-group">
-							<label>Nama Lengkap</label>
-							<input name="nama" type="text" class="form-control" placeholder="Nama Lengkap">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label>Nama Lengkap</label>
+								<input name="nama" type="text" class="form-control">
+							</div>
+							<div class="form-group col-md-6">
+								<label>Nama Panggilan</label>
+								<input name="nama" type="text" class="form-control">
+							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">

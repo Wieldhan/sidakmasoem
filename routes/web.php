@@ -15,14 +15,15 @@ use RealRashid\SweetAlert\Facades\Alert;
 */
 
 Route::get('/', function () {
-	return view('welcome');
+	return view('home');
 });
-
-route::get('/admin', 'adminController@index');
-route::get('master', 'masterController@index');
+route::get('/login', 'authController@login');
+route::post('/postlogin', 'authController@postlogin');
+route::get('/dashboard', 'dashboardController@index');
 
 // Routes Karyawan
 route::get('/karyawan', 'karyawanController@index');
 route::post('/karyawan/simpan', 'karyawanController@simpan');
-route::get('karyawan/edit/{id}', 'karyawanController@update');
-route::get('karyawan/hapus/{id}', 'karyawanController@delete');
+route::get('/karyawan/edit/{id}', 'karyawanController@edit');
+route::get('/karyawan/update/{id}', 'karyawanController@update');
+route::get('/karyawan/hapus/{id}', 'karyawanController@delete');

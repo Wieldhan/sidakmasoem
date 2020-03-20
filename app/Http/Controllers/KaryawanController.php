@@ -40,6 +40,5 @@ class KaryawanController extends Controller
 		$karyawan->delete();
 		alert()->success('SUCCES.','DATA BERHASIL DIHAPUS!');
 		return redirect('/karyawan');
-
 	}
 }

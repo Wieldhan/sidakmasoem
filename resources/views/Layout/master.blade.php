@@ -67,7 +67,7 @@
             <img src="" class="img-circle elevation-2" alt="#">
           </div>
           <div class="info">
-            <a href="{{url('admin')}}" class="d-block">DASHBOARD</a>
+            <a href="#" class="d-block">DASHBOARD</a>
           </div>
         </div>
         <!-- Sidebar Menu -->
