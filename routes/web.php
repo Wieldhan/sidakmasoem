@@ -27,3 +27,10 @@ route::post('/karyawan/simpan', 'karyawanController@simpan');
 route::get('/karyawan/edit/{id}', 'karyawanController@edit');
 route::get('/karyawan/update/{id}', 'karyawanController@update');
 route::get('/karyawan/hapus/{id}', 'karyawanController@delete');
+
+// Routes Golongan
+route::get('golongan', 'golonganController@index');
+route::post('/golongan/simpan', 'golonganController@simpan');
+route::get('/golongan/edit/{id}', 'golonganController@edit');
+route::get('/golongan/update/{id}', 'golonganController@update');
+route::get('/golongan/hapus/{id}', 'golonganController@delete');

@@ -3,9 +3,9 @@
 <head>
   @include('layout.head')
 </head>
-<body class="hold-transition sidebar-mini layoutltexed">
+<body class="hold-transition sidebar-mini layout-fixed">
   <!-- Site wrapper -->
-  <div class="wrapper" style="width: auto;">
+  <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->

@@ -15,7 +15,7 @@
 <body class="align-content-center login-page" style="background-image: url('../images/bg-login.jpg')";>
   <div class="col-lg-4 mx-auto login-box" style="width: 650px; align-content: center;">
     <div class="login-logo">
-      <h2 style=" font-size:35px; font-family:'Oswald',sans-serif; color: white;">SISTEM INFORMASI DATA KARYAWAN (SIDAK)</h2>
+      <h1 style=" font-size:35px; font-family:'Oswald',sans-serif; color: white;">SISTEM INFORMASI DATA KARYAWAN ( SIDAK )</h1>
     </div>
     <div class="container-fluid card card-primary">
       <div class="card-body">

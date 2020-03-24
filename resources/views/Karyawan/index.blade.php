@@ -13,7 +13,7 @@
 		<div class="col">
 			<div class="card card-primary collapsed-card">
 				<div class="card-header">
-					<h3 class="card-title align-middle">TAMBAH KARYAWAN</h3>
+					<h2 class="card-title align-middle">TAMBAH KARYAWAN</h2>
 					<div class="card-tools">
 						<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
 						</button>
@@ -89,7 +89,7 @@
 							<input name="email" type="email" class="form-control">
 						</div>								
 						<div class="float-right">
-							<button type="button" class="btn btn-secondary" data-dismiss="card">BATAL</button>
+							<button type="reset" class="btn btn-info" data-dismiss="card">BATAL</button>
 							<button type="submit" class="btn btn-primary">SIMPAN</button>
 						</div>
 					</form>
@@ -98,16 +98,16 @@
 		</div>
 		<div>
 			<div class="col-md-auto" >
-				<div class="card card-success">
+				<div class="card card-info">
 					<div class="card-header">
-						<h3 class="card-title">KELOLA DATA KARYAWAN</h3>
+						<h2 class="card-title">KELOLA DATA KARYAWAN</h2>
 						<div class="card-tools ">
 							<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
 							</button>
 						</div>
 					</div>
 					<div class="card-body">
-						<table class="table table-sm table-hover">
+						<table class="table table-sm table-responsive table-hover">
 							<thead>
 								<tr align="center">
 									<th scope="col">NIK</th>
@@ -121,7 +121,6 @@
 									<th scope="col">Alamat</th>
 									<th scope="col">No Telepon</th>
 									<th scope="col">Email</th>
-									<th scope="col">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -139,8 +138,20 @@
 									<td>{{$karyawan->no_telepon}}</td>
 									<td>{{$karyawan->email}}</td>
 									<td>
-										<a href="#" class="btn btn-warning">Edit</a>
-										<a href="/karyawan/hapus/{{$karyawan->id}}" class="btn btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
+										<a >
+											<div class="btn-group">
+												<button type="button" class="btn btn-info btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<div class="dropdown-menu">
+														<a class="dropdown-item" href="#"><i class="fas fa-bars"></i> Detail</a>
+														<a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Edit</a>
+														<a class="dropdown-item" href="#"><i class="fas fa-trash"></i> Delete</a>
+													</div>
+													Action
+												</button>
+											</div>
+										</a>
+										<!-- <a href="#" class="btn btn-warning">Edit</a> -->
+										<!-- <a href="/karyawan/hapus/{{$karyawan->id}}" class="btn btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a> -->
 									</td>
 								</tr>
 								@endforeach
