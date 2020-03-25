@@ -28,4 +28,12 @@ class GolonganController extends Controller
 		alert()->success('SUCCES.','DATA BERHASIL DIHAPUS!');
 		return redirect('/golongan');
 	}
+
+	public function update(Request $request, $id)
+	{
+		$golongan = golongan::find($id);
+		$golongan->update($request->all());
+		alert()->success('SUCCES.','DATA BERHASIL UPDATE!');
+		return redirect('/golongan');
+	}
 }

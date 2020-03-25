@@ -2,7 +2,7 @@
 	@section ('content')
 	<div class="content-header">
 		<div class="container-fluid">
-			<div class="row mb-2">
+			<div class="row">
 				<div class="col-6">
 					<h1 style="font-size: 30px">DATA KARYAWAN</h1>
 				</div>
@@ -12,7 +12,7 @@
 	<div class ="container-fluid">
 		<div class="col">
 			<div class="card card-primary collapsed-card">
-				<div class="card-header">
+				<div class="card-header" style="height: 50px;">
 					<h2 class="card-title align-middle">TAMBAH KARYAWAN</h2>
 					<div class="card-tools">
 						<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
@@ -96,71 +96,67 @@
 				</div>
 			</div>
 		</div>
-		<div>
-			<div class="col-md-auto" >
-				<div class="card card-info">
-					<div class="card-header">
-						<h2 class="card-title">KELOLA DATA KARYAWAN</h2>
-						<div class="card-tools ">
-							<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-							</button>
-						</div>
-					</div>
-					<div class="card-body">
-						<table class="table table-sm table-responsive table-hover">
-							<thead>
-								<tr align="center">
-									<th scope="col">NIK</th>
-									<th scope="col">NO KTP</th>
-									<th scope="col">Nama</th>
-									<th scope="col">Tempat Lahir</th>
-									<th scope="col">Tanggal Lahir</th>
-									<th scope="col">Agama</th>
-									<th scope="col">Golongan</th>
-									<th scope="col">Jabatan</th>
-									<th scope="col">Alamat</th>
-									<th scope="col">No Telepon</th>
-									<th scope="col">Email</th>
-								</tr>
-							</thead>
-							<tbody>
-								@foreach($data_karyawan as $karyawan)
-								<tr align="left">
-									<td>{{$karyawan->nik}}</td>
-									<td>{{$karyawan->no_ktp}}</td>
-									<td>{{$karyawan->nama}}</td>
-									<td>{{$karyawan->tempat_lahir}}</td>
-									<td>{{$karyawan->tanggal_lahir}}</td>
-									<td>{{$karyawan->agama}}</td>
-									<td>{{$karyawan->golongan}}</td>
-									<td>{{$karyawan->jabatan}}</td>
-									<td>{{$karyawan->alamat}}</td>
-									<td>{{$karyawan->no_telepon}}</td>
-									<td>{{$karyawan->email}}</td>
-									<td>
-										<a >
-											<div class="btn-group">
-												<button type="button" class="btn btn-info btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													<div class="dropdown-menu">
-														<a class="dropdown-item" href="#"><i class="fas fa-bars"></i> Detail</a>
-														<a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Edit</a>
-														<a class="dropdown-item" href="#"><i class="fas fa-trash"></i> Delete</a>
-													</div>
-													Action
-												</button>
-											</div>
-										</a>
-										<!-- <a href="#" class="btn btn-warning">Edit</a> -->
-										<!-- <a href="/karyawan/hapus/{{$karyawan->id}}" class="btn btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a> -->
-									</td>
-								</tr>
-								@endforeach
-							</tbody>
-						</table>
-					</div>
+		<div class="col" >
+			<div class="card card-info">
+				<div class="card-header" style="height: 50px;">
+					<h2 class="card-title">KELOLA DATA KARYAWAN</h2>
+					<div class="card-tools ">
+						<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+						</button>
+					</div>					
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover" style="font-size: 14px;">
+						<thead>
+							<tr align="center">
+								<th>NIK</th>
+								<th>NO KTP</th>
+								<th>Nama</th>
+								<th>Tempat Lahir</th>
+								<th>Tanggal Lahir</th>
+								<!-- <th>Agama</th> -->
+								<th>Golongan</th>
+								<th>Jabatan</th>
+								<th>Alamat</th>
+								<th>No Telepon</th>
+								<!-- <th>Email</th> -->
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($data_karyawan as $kar)
+							<tr align="left">
+								<td>{{$kar->nik}}</td>
+								<td>{{$kar->no_ktp}}</td>
+								<td>{{$kar->nama}}</td>
+								<td>{{$kar->tempat_lahir}}</td>
+								<td>{{$kar->tanggal_lahir}}</td>
+								<!-- <td>{{$kar->agama}}</td> -->
+								<td>{{$kar->golongan}}</td>
+								<td>{{$kar->jabatan}}</td>
+								<td>{{$kar->alamat}}</td>
+								<td>{{$kar->no_telepon}}</td>
+								<!-- <td>{{$kar->email}}</td> -->
+								<td>
+									<a >
+										<div class="btn-group dropleft">
+											<button type="button" class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+												<div class="dropdown-menu" x-placement="bottom-left" style="font-size: 12px;position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+													<a class="dropdown-item" href="#"><i class="fas fa-bars"></i> Detail</a>
+													<a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Edit</a>
+													<a class="dropdown-item" href="/karyawan/hapus/{{$kar->id}}" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')"><i class="fas fa-trash"></i> Delete</a>
+												</div>
+												Action
+											</button>
+										</div>
+									</a>
+								</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
 	</div>
 	@endsection
-	<!-- /.content-wrapper -->

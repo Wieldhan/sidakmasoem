@@ -25,12 +25,12 @@ route::get('/dashboard', 'dashboardController@index');
 route::get('/karyawan', 'karyawanController@index');
 route::post('/karyawan/simpan', 'karyawanController@simpan');
 route::get('/karyawan/edit/{id}', 'karyawanController@edit');
-route::get('/karyawan/update/{id}', 'karyawanController@update');
+route::post('/karyawan/update/{id}', 'karyawanController@update');
 route::get('/karyawan/hapus/{id}', 'karyawanController@delete');
 
 // Routes Golongan
 route::get('golongan', 'golonganController@index');
 route::post('/golongan/simpan', 'golonganController@simpan');
-route::get('/golongan/edit/{id}', 'golonganController@edit');
-route::get('/golongan/update/{id}', 'golonganController@update');
-route::get('/golongan/hapus/{id}', 'golonganController@delete');
+route::get('/golongan/{id}/edit', 'golonganController@edit');
+route::post('/golongan/{id}/update', 'golonganController@update');
+route::get('/golongan/{id}/hapus', 'golonganController@delete');

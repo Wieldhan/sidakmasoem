@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         localhost
 -- Server version:               5.7.24 - MySQL Community Server (GPL)
--- Server OS:                    Win32
--- HeidiSQL Version:             10.3.0.5771
+-- Server OS:                    Win64
+-- HeidiSQL Version:             11.0.0.5919
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -43,17 +43,19 @@ CREATE TABLE IF NOT EXISTS `golongan` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.golongan: ~0 rows (approximately)
+-- Dumping data for table sidakmasoem.golongan: ~1 rows (approximately)
 /*!40000 ALTER TABLE `golongan` DISABLE KEYS */;
+REPLACE INTO `golongan` (`id`, `golongan`, `gaji_pokok`, `uang_makan`, `transport`, `created_at`, `updated_at`) VALUES
+	(1, 'IIIB', 1400000, 13000, 15000, '2020-03-25 14:08:17', '2020-03-25 14:53:59');
 /*!40000 ALTER TABLE `golongan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.karyawan
 CREATE TABLE IF NOT EXISTS `karyawan` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nik` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_ktp` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nik` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `no_ktp` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tempat_lahir` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_lahir` date NOT NULL,
@@ -61,8 +63,8 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   `golongan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jabatan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_telepon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_telepon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -70,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
 
 -- Dumping data for table sidakmasoem.karyawan: ~2 rows (approximately)
 /*!40000 ALTER TABLE `karyawan` DISABLE KEYS */;
-INSERT INTO `karyawan` (`id`, `nik`, `no_ktp`, `username`, `password`, `nama`, `tempat_lahir`, `tanggal_lahir`, `agama`, `golongan`, `jabatan`, `alamat`, `no_telepon`, `email`, `created_at`, `updated_at`) VALUES
+REPLACE INTO `karyawan` (`id`, `nik`, `no_ktp`, `username`, `password`, `nama`, `tempat_lahir`, `tanggal_lahir`, `agama`, `golongan`, `jabatan`, `alamat`, `no_telepon`, `email`, `created_at`, `updated_at`) VALUES
 	(30, '1', '1', 'SR', 'asd', 'Serizawa', 'Tokyo', '2020-03-01', 'Khatolik', 'IIIB3', 'Montir', 'asd', '123', 'serizawa@gmail.com', '2020-03-19 08:49:21', '2020-03-19 08:49:21'),
 	(31, '0497', '13312322131', 'wieldhan', 'asd2', 'Wildan Yanuarsyah Tanjung', 'Sumedang', '2020-03-03', 'Islam', 'IIIB3', 'Staff EDP & SID', 'Bandung', '0823158421236', 'wieldhan.android@gmail.com', '2020-03-19 08:55:36', '2020-03-19 08:55:36');
 /*!40000 ALTER TABLE `karyawan` ENABLE KEYS */;
@@ -83,9 +85,9 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.migrations: ~2 rows (approximately)
+-- Dumping data for table sidakmasoem.migrations: ~3 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
 	(2, '2019_08_19_000000_create_failed_jobs_table', 1),
 	(3, '2020_03_11_041921_create_karyawan_table', 1);
