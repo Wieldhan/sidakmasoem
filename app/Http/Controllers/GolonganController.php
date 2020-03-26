@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\ServiceProvider;
 use App\Golongan;
 use RealRashid\SweetAlert\Facades\Alert;
 

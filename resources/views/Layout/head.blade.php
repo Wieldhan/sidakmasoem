@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/adminlte/overlayScrollbars/css/OverlayScrollbars.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/adminlte/css/adminlte.min.css">
+<link rel="stylesheet" href="/adminlte/js/adminlte.min.js">
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Merriweather|Oswald&display=swap" rel="stylesheet">

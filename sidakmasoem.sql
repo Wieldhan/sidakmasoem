@@ -1,7 +1,7 @@
 -- --------------------------------------------------------
 -- Host:                         localhost
 -- Server version:               5.7.24 - MySQL Community Server (GPL)
--- Server OS:                    Win64
+-- Server OS:                    Win32
 -- HeidiSQL Version:             11.0.0.5919
 -- --------------------------------------------------------
 
@@ -43,19 +43,38 @@ CREATE TABLE IF NOT EXISTS `golongan` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.golongan: ~1 rows (approximately)
+-- Dumping data for table sidakmasoem.golongan: ~0 rows (approximately)
 /*!40000 ALTER TABLE `golongan` DISABLE KEYS */;
 REPLACE INTO `golongan` (`id`, `golongan`, `gaji_pokok`, `uang_makan`, `transport`, `created_at`, `updated_at`) VALUES
-	(1, 'IIIB', 1400000, 13000, 15000, '2020-03-25 14:08:17', '2020-03-25 14:53:59');
+	(1, 'IIIB', 1400000, 13000, 15000, '2020-03-25 14:08:17', '2020-03-25 14:53:59'),
+	(2, 'IIIB5', 970000, 14000, 0, '2020-03-26 07:41:12', '2020-03-26 07:41:12');
 /*!40000 ALTER TABLE `golongan` ENABLE KEYS */;
+
+-- Dumping structure for table sidakmasoem.jabatan
+CREATE TABLE IF NOT EXISTS `jabatan` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `jabatan` varchar(50) NOT NULL DEFAULT '0',
+  `transport` int(15) NOT NULL DEFAULT '0',
+  `pulsa` int(15) NOT NULL DEFAULT '0',
+  `tunj_jab` int(15) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table sidakmasoem.jabatan: ~0 rows (approximately)
+/*!40000 ALTER TABLE `jabatan` DISABLE KEYS */;
+REPLACE INTO `jabatan` (`id`, `jabatan`, `transport`, `pulsa`, `tunj_jab`, `created_at`, `updated_at`) VALUES
+	(1, 'Direktur', 50000, 150000, 2500000, '2020-03-26 04:04:06', '2020-03-26 04:04:06');
+/*!40000 ALTER TABLE `jabatan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.karyawan
 CREATE TABLE IF NOT EXISTS `karyawan` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nik` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `no_ktp` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `nik` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_ktp` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tempat_lahir` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_lahir` date NOT NULL,
@@ -63,8 +82,8 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   `golongan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jabatan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_telepon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `no_telepon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -85,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.migrations: ~3 rows (approximately)
+-- Dumping data for table sidakmasoem.migrations: ~2 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),

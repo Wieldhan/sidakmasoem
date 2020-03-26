@@ -34,3 +34,10 @@ route::post('/golongan/simpan', 'golonganController@simpan');
 route::get('/golongan/{id}/edit', 'golonganController@edit');
 route::post('/golongan/{id}/update', 'golonganController@update');
 route::get('/golongan/{id}/hapus', 'golonganController@delete');
+
+// Routes Jabatan
+route::get('jabatan', 'jabatanController@index');
+route::post('/jabatan/simpan', 'jabatanController@simpan');
+route::get('/jabatan/{id}/edit', 'jabatanController@edit');
+route::post('/jabatan/{id}/update', 'jabatanController@update');
+route::get('/jabatan/{id}/hapus', 'jabatanController@delete');

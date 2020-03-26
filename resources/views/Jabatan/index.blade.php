@@ -4,34 +4,38 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-6">
-				<h1 style="font-size: 30px">DATA GOLONGAN</h1>
+				<h1 style="font-size: 30px">DATA JABATAN</h1>
 			</div>
 			<div class="col-6">
-				<button style="margin-right: 10px;" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
+				<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
 				<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h4>Tambah Data Golongan</h4>
+								<h4>Tambah Data jabatan</h4>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="modal-body">
-								<form action="/golongan/simpan" method="POST">
+								<form action="/jabatan/simpan" method="POST">
 									{{csrf_field()}}										
 									<div class="form-group col-sm-auto">
-										<label>Kode Golongan</label>
-										<input name="golongan" id="golongan" type="text" class="form-control">
+										<label>Nama jabatan</label>
+										<input name="jabatan" id="jabatan" type="text" class="form-control">
 									</div>
 									<div class="form-group col-sm-auto">
-										<label>Gaji Pokok</label>
-										<input name="gaji_pokok" id="gaji" type="text" class="form-control">
+										<label>Transport</label>
+										<input name="transport" id="transport" type="text" class="form-control">
 									</div>					
 									<div class="form-group col-sm-auto">
-										<label>Uang Makan</label>
-										<input name="uang_makan" id="uang_makan" type="text" class="form-control">
-									</div>																														
+										<label>Pulsa</label>
+										<input name="pulsa" id="pulsa" type="text" class="form-control">
+									</div>	
+									<div class="form-group col-sm-auto">
+										<label>Tunjangan Jabatan</label>
+										<input name="tunj_jab" id="tunj_jab" type="text" class="form-control">
+									</div>																												
 									<div class="float-right" style="margin-right: 15px;">
 										<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
 										<button type="submit" class="btn btn-primary">SIMPAN</button>
@@ -49,7 +53,7 @@
 	<div class="col-sm-auto" >
 		<div class="card-primary">
 			<div class="card-header" style="height: 50px;">
-				<h3 class="card-title" style="font-size: 15;">KELOLA DATA GOLONGAN</h3>
+				<h3 class="card-title" style="font-size: 15;">KELOLA DATA JABATAN</h3>
 				<div class="card-tools ">
 					<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
 					</button>
@@ -59,43 +63,49 @@
 				<table class="table table-sm table-hover">
 					<thead>
 						<tr align="center">
-							<th>Nama Golongan</th>
-							<th>Gaji Pokok</th>
-							<th>Uang Makan</th>
+							<th>Nama jabatan</th>
+							<th>Transport</th>
+							<th>Pulsa</th>
+							<th>Tunjangan Jabatan</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($data_golongan as $gol)
+						@foreach($data_jabatan as $jabat)
 						<tr align="center">
-							<td>{{$gol->golongan}}</td>
-							<td>@currency($gol->gaji_pokok)</td>
-							<td>@currency($gol->uang_makan)</td>
+							<td>{{$jabat->jabatan}}</td>
+							<td>@currency($jabat->transport)</td>
+							<td>@currency($jabat->pulsa)</td>
+							<td>@currency($jabat->tunj_jab)</td>
 							<td>
-								<a class="btn btn-sm btn-warning" data-toggle="modal" data-target=".gol-edit">Edit</a>
-								<div class="modal fade gol-edit" tabindex="-1" role="dialog" aria-labelledby="gol-edit" aria-hidden="true">
+								<a class="btn btn-sm btn-warning" data-toggle="modal" data-target=".jabat-edit">Edit</a>
+								<div class="modal fade jabat-edit" tabindex="-1" role="dialog" aria-labelledby="jabat-edit" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h2 style="font-size: 25px;">Update Data Golongan</h2>
+												<h2 style="font-size: 25px;">Update Data jabatan</h2>
 												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 													<span aria-hidden="true">&times;</span>
 												</button>
 											</div>
 											<div class="modal-body" style="text-align: left;">
-												<form action="/golongan/{{$gol->id}}/update" method="POST">
+												<form action="/jabatan/{{$jabat->id}}/update" method="POST">
 													{{csrf_field()}}										
 													<div class="form-group col-sm-auto">
-														<label>Kode Golongan</label>
-														<input name="golongan" id="golongan" type="text" class="form-control" value="{{$gol->golongan}}">
+														<label>Nama jabatan</label>
+														<input name="jabatan" id="jabatan" type="text" class="form-control" value="{{$jabat->jabatan}}">
 													</div>
 													<div class="form-group col-sm-auto">
-														<label>Gaji Pokok</label>
-														<input name="gaji_pokok" id="gaji" type="text" class="form-control" value="{{$gol->gaji_pokok}}">
+														<label>Transport</label>
+														<input name="transport" id="transport" type="text" class="form-control" value="{{$jabat->transport}}">
 													</div>					
 													<div class="form-group col-sm-auto">
-														<label>Uang Makan</label>
-														<input name="uang_makan" id="uang_makan" type="text" class="form-control" value="{{$gol->uang_makan}}">
+														<label>Pulsa</label>
+														<input name="pulsa" id="pulsa" type="text" class="form-control" value="{{$jabat->pulsa}}">
+													</div>
+													<div class="form-group col-sm-auto">
+														<label>Tunjangan Jabatan</label>
+														<input name="tunj_jab" id="tunj_jab" type="text" class="form-control" value="{{$jabat->tunj_jab}}">
 													</div>
 													<div class="float-right" style="margin-right: 15px;">
 														<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
@@ -106,7 +116,7 @@
 										</div>
 									</div>
 								</div>
-								<a href="/golongan/{{$gol->id}}/hapus" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
+								<a href="/jabatan/{{$jabat->id}}/hapus" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
 							</td>
 						</tr>
 						@endforeach

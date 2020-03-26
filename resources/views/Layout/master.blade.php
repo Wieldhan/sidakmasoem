@@ -2,6 +2,7 @@
 <html>
 <head>
   @include('layout.head')
+  @include('layout.script')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <!-- Site wrapper -->
