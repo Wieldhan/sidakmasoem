@@ -34,6 +34,10 @@ class KaryawanController extends Controller
 		alert()->success('SUCCES.','DATA BERHASIL DITAMBAHKAN!');
 		return redirect('/karyawan');
 	}
+	public function edit()
+	{
+		return view('karyawan.karEdit');
+	}
 	public function delete($id)
 	{
 		$karyawan = karyawan::find($id);

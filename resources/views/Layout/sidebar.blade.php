@@ -1,18 +1,13 @@
 <!-- Sidebar user (optional) -->
 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-  <div class="image">
-    <img src="" class="img-circle elevation-2" alt="#">
-  </div>
-  <div class="info">
-    <a href="#" class="d-block">DASHBOARD</a>
-  </div>
+  <img src="/images/logo-png.png" class="brand-image" style="left:12px; width: 220px;"> 
 </div>
 <!-- Sidebar Menu -->
 <nav class="mt-2">
   <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
-           <li class="nav-item has-treeview">
+           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -21,12 +16,6 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('karyawan')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Karyawan</p>
-                </a>
-              </li>
               <li class="nav-item">
                 <a href="{{url('golongan')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -37,6 +26,12 @@
                 <a href="{{url('jabatan')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jabatan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('karyawan')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Karyawan</p>
                 </a>
               </li>
             </ul>
@@ -68,7 +63,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -84,7 +79,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>NONE</p>
                 </a>

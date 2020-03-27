@@ -22,19 +22,19 @@
 									{{csrf_field()}}										
 									<div class="form-group col-sm-auto">
 										<label>Nama jabatan</label>
-										<input name="jabatan" id="jabatan" type="text" class="form-control">
+										<input name="jabatan" type="text" class="form-control">
 									</div>
 									<div class="form-group col-sm-auto">
 										<label>Transport</label>
-										<input name="transport" id="transport" type="text" class="form-control">
+										<input name="transport" type="text" class="form-control">
 									</div>					
 									<div class="form-group col-sm-auto">
 										<label>Pulsa</label>
-										<input name="pulsa" id="pulsa" type="text" class="form-control">
+										<input name="pulsa" type="text" class="form-control">
 									</div>	
 									<div class="form-group col-sm-auto">
 										<label>Tunjangan Jabatan</label>
-										<input name="tunj_jab" id="tunj_jab" type="text" class="form-control">
+										<input name="tunj_jab" type="text" class="form-control">
 									</div>																												
 									<div class="float-right" style="margin-right: 15px;">
 										<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
@@ -51,12 +51,12 @@
 </div>
 <div class ="container-fluid">
 	<div class="col-sm-auto" >
-		<div class="card-primary">
+		<div class="card card-primary">
 			<div class="card-header" style="height: 50px;">
 				<h3 class="card-title" style="font-size: 15;">KELOLA DATA JABATAN</h3>
 				<div class="card-tools ">
 					<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-					</button>
+						</button>
 				</div>
 			</div>
 			<div class="card-body">

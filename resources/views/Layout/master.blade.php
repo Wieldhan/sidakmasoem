@@ -2,13 +2,15 @@
 <html>
 <head>
   @include('layout.head')
+
   @include('layout.script')
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <!-- Site wrapper -->
   <div class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -67,12 +69,6 @@
     </aside>
     <!-- /.control-sidebar -->
   </div>
-  <script src="/adminlte/jquery/jquery.min.js"></script>
-  <script src="/adminlte/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/adminlte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-  <script src="/adminlte/js/adminlte.min.js"></script>
-  <script src="/adminlte/js/demo.js"></script>
-  <script src="/sweetalert/src/js/sweetalert.all.js"></script>
   @include('sweetalert::alert')
 </body>
 </html>

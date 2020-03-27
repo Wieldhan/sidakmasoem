@@ -142,8 +142,8 @@
 										<div class="btn-group dropleft">
 											<button type="button" class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 												<div class="dropdown-menu" x-placement="bottom-left" style="font-size: 12px;position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
-													<a class="dropdown-item" href="#"><i class="fas fa-bars"></i> Detail</a>
-													<a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Edit</a>
+													<a class="dropdown-item" href="#">Detail</a>
+													<a class="dropdown-item" href="#">Edit</a>
 													<a class="dropdown-item" href="/karyawan/hapus/{{$kar->id}}" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')"><i class="fas fa-trash"></i> Delete</a>
 												</div>
 												Action
