@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  @include('layout.head')
-
-  @include('layout.script')
-
+  @include('layout.head') 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <!-- Site wrapper -->
@@ -71,4 +68,5 @@
   </div>
   @include('sweetalert::alert')
 </body>
+  @include('layout.script')
 </html>

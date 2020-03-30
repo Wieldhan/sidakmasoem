@@ -37,17 +37,18 @@ CREATE TABLE IF NOT EXISTS `golongan` (
   `golongan` varchar(12) NOT NULL,
   `gaji_pokok` int(12) NOT NULL DEFAULT '0',
   `uang_makan` int(12) NOT NULL DEFAULT '0',
-  `transport` int(12) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.golongan: ~0 rows (approximately)
+-- Dumping data for table sidakmasoem.golongan: ~4 rows (approximately)
 /*!40000 ALTER TABLE `golongan` DISABLE KEYS */;
-REPLACE INTO `golongan` (`id`, `golongan`, `gaji_pokok`, `uang_makan`, `transport`, `created_at`, `updated_at`) VALUES
-	(1, 'IIIB', 1400000, 13000, 15000, '2020-03-25 14:08:17', '2020-03-25 14:53:59'),
-	(2, 'IIIB5', 970000, 14000, 0, '2020-03-26 07:41:12', '2020-03-26 07:41:12');
+REPLACE INTO `golongan` (`id`, `golongan`, `gaji_pokok`, `uang_makan`, `created_at`, `updated_at`) VALUES
+	(1, 'IIIB', 1400000, 13000, '2020-03-25 14:08:17', '2020-03-25 14:53:59'),
+	(2, 'IIIB5', 970000, 14000, '2020-03-26 07:41:12', '2020-03-26 07:41:12'),
+	(3, 'III.B4', 250000, 25000, '2020-03-27 07:43:25', '2020-03-27 07:43:25'),
+	(4, 'III.B2', 3000000, 25000, '2020-03-27 08:10:18', '2020-03-27 08:10:18');
 /*!40000 ALTER TABLE `golongan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.jabatan
@@ -62,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `jabatan` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.jabatan: ~0 rows (approximately)
+-- Dumping data for table sidakmasoem.jabatan: ~1 rows (approximately)
 /*!40000 ALTER TABLE `jabatan` DISABLE KEYS */;
 REPLACE INTO `jabatan` (`id`, `jabatan`, `transport`, `pulsa`, `tunj_jab`, `created_at`, `updated_at`) VALUES
 	(1, 'Direktur', 50000, 150000, 2500000, '2020-03-26 04:04:06', '2020-03-26 04:04:06');
@@ -73,12 +74,13 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nik` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_ktp` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_lengkap` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_panggilan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `agama` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `st_nikah` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tempat_lahir` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_lahir` date NOT NULL,
-  `agama` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `golongan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jabatan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -91,9 +93,9 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
 
 -- Dumping data for table sidakmasoem.karyawan: ~2 rows (approximately)
 /*!40000 ALTER TABLE `karyawan` DISABLE KEYS */;
-REPLACE INTO `karyawan` (`id`, `nik`, `no_ktp`, `username`, `password`, `nama`, `tempat_lahir`, `tanggal_lahir`, `agama`, `golongan`, `jabatan`, `alamat`, `no_telepon`, `email`, `created_at`, `updated_at`) VALUES
-	(30, '1', '1', 'SR', 'asd', 'Serizawa', 'Tokyo', '2020-03-01', 'Khatolik', 'IIIB3', 'Montir', 'asd', '123', 'serizawa@gmail.com', '2020-03-19 08:49:21', '2020-03-19 08:49:21'),
-	(31, '0497', '13312322131', 'wieldhan', 'asd2', 'Wildan Yanuarsyah Tanjung', 'Sumedang', '2020-03-03', 'Islam', 'IIIB3', 'Staff EDP & SID', 'Bandung', '0823158421236', 'wieldhan.android@gmail.com', '2020-03-19 08:55:36', '2020-03-19 08:55:36');
+REPLACE INTO `karyawan` (`id`, `nik`, `no_ktp`, `nama_lengkap`, `nama_panggilan`, `jk`, `agama`, `st_nikah`, `tempat_lahir`, `tanggal_lahir`, `golongan`, `jabatan`, `alamat`, `no_telepon`, `email`, `created_at`, `updated_at`) VALUES
+	(30, '1', '1', 'Serizawa', '', '', 'Khatolik', '', 'Tokyo', '2020-03-01', 'IIIB3', 'Montir', 'asd', '123', 'serizawa@gmail.com', '2020-03-19 08:49:21', '2020-03-19 08:49:21'),
+	(31, '0497', '13312322131', 'Wildan Yanuarsyah Tanjung', '', '', 'Islam', '', 'Sumedang', '2020-03-03', 'IIIB3', 'Staff EDP & SID', 'Bandung', '0823158421236', 'wieldhan.android@gmail.com', '2020-03-19 08:55:36', '2020-03-19 08:55:36');
 /*!40000 ALTER TABLE `karyawan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.migrations
@@ -104,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.migrations: ~2 rows (approximately)
+-- Dumping data for table sidakmasoem.migrations: ~3 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
