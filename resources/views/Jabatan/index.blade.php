@@ -1,8 +1,8 @@
 @extends ('layout.master')
 <!-- SPACE -->
 @section ('link')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css">
+<link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 <!-- SPACE -->
 @section ('content')
@@ -55,8 +55,8 @@
 		</div>
 	</div>
 </div>
-<div class ="container">
-	<div class="col-sm" >
+<div class ="container-fluid">
+	<div class="col-sm-auto" >
 		<div class="card card-primary">
 			<div class="card-header" style="height: 50px;">
 				<h3 class="card-title" style="font-size: 15;">KELOLA DATA JABATAN</h3>
@@ -66,7 +66,7 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<table id="datatable" class="table table-sm table-hover">
+				<table id="datatable" class="table table-sm">
 					<thead>
 						<tr>
 							<th>ID</th>
@@ -137,8 +137,8 @@
 @endsection
 <!-- SPACE -->
 @section ('javascript')
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="/datatables/datatables.min.js"></script>
+<script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		

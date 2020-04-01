@@ -1,4 +1,10 @@
 	@extends ('layout.master')
+
+	@section ('link')
+	<link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
+	@endsection
+
 	@section ('content')
 	<div class="content-header">
 		<div class="container-fluid">
@@ -76,18 +82,25 @@
 								<input name="jabatan" type="text" class="form-control form-control-sm">
 							</div>
 						</div>
-						<div class="form-group">
-							<label>Alamat</label>
-							<textarea name="alamat" class="form-control"></textarea>
+						<div class="form-row">
+							<div class="form-group col-sm-6">
+								<label>Alamat</label>
+								<textarea name="alamat" class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-6">
+								
+							</div>
 						</div>
-						<div class="form-group">
-							<label>No Telepon</label>
-							<input name="no_telepon" type="text" class="form-control form-control-sm" >
-						</div>
-						<div class="form-group">
-							<label>E-Mail</label>
-							<input name="email" type="email" class="form-control form-control-sm">
-						</div>								
+						<div class="form-row">
+							<div class="form-group col-sm-6">
+								<label>No Telepon</label>
+								<input name="no_telepon" type="text" class="form-control form-control-sm" >
+							</div>
+							<div class="form-group col-sm-6">
+								<label>E-Mail</label>
+								<input name="email" type="email" class="form-control form-control-sm">
+							</div>
+						</div>	
 						<div class="float-right">
 							<button type="reset" class="btn btn-info" data-dismiss="card">BATAL</button>
 							<button type="submit" class="btn btn-primary">SIMPAN</button>
@@ -106,9 +119,10 @@
 					</div>					
 				</div>
 				<div class="card-body">
-					<table class="table table-sm table-hover" style="font-size: 14px;">
+					<table id="datatable" class="table table-sm table-hover" style="font-size: 14px;">
 						<thead>
 							<tr align="center">
+								<th>ID</th>
 								<th>NIK</th>
 								<th>NO KTP</th>
 								<th>Nama</th>
@@ -138,19 +152,9 @@
 								<td>{{$kar->no_telepon}}</td>
 								<!-- <td>{{$kar->email}}</td> -->
 								<td>
-									<a >
-										<div class="btn-group dropleft">
-											<button type="button" class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-												<div class="dropdown-menu" x-placement="bottom-left" style="font-size: 12px;position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
-													<a class="dropdown-item" href="#">Detail</a>
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="/karyawan/hapus/{{$kar->id}}" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')"><i class="fas fa-trash"></i> Delete</a>
-												</div>
-												Action
-											</button>
-										</div>
-									</a>
-								</td>
+									<a href="#" class="btn btn-sm btn-warning edit">Edit</a>
+									<a href="/jabatan/hapus/{{$jabat->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
+								</td>								
 							</tr>
 							@endforeach
 						</tbody>
@@ -159,4 +163,22 @@
 			</div>
 		</div>
 	</div>
+	@endsection
+
+	@section ('javascript')
+	<script type="text/javascript" src="/datatables/datatables.min.js"></script>
+	<script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			var table = $('#datatable').DataTable();
+			table.on('click','.edit', function(){
+				$tr = $(this).closest('tr');
+				if ($($tr).hasClass('child')){
+					$tr = $tr.prev('.parent');
+				}
+				var data = table.row($tr).data();
+			});	
+		});
+	</script>
 	@endsection
