@@ -25,55 +25,55 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label>NIK</label>
-								<input name="nik" type="text" class="form-control">
+								<input name="nik" type="text" class="form-control form-control-sm">
 							</div>
 							<div class="form-group col-md-6">
 								<label>NO KTP</label>
-								<input name="no_ktp" type="text" class="form-control">
+								<input name="no_ktp" type="text" class="form-control form-control-sm">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label>Nama Lengkap</label>
-								<input name="nama" type="text" class="form-control">
+								<input name="nama" type="text" class="form-control form-control-sm">
 							</div>
 							<div class="form-group col-md-6">
 								<label>Nama Panggilan</label>
-								<input name="nama" type="text" class="form-control">
+								<input name="nama" type="text" class="form-control form-control-sm">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label>Username</label>
-								<input name="username" type="text" class="form-control" placeholder="Username" >
+								<input name="username" type="text" class="form-control form-control-sm" placeholder="Username" >
 							</div>
 							<div class="form-group col-md-6">
 								<label>Password</label>
-								<input name="password" type="password" class="form-control" placeholder="Type Here">
+								<input name="password" type="password" class="form-control form-control-sm" placeholder="Type Here">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label>Tempat Lahir</label>
-								<input name="tempat_lahir" type="text" class="form-control" placeholder="Tempat Lahir">
+								<input name="tempat_lahir" type="text" class="form-control form-control-sm" placeholder="Tempat Lahir">
 							</div>
 							<div class="form-group col-md-6">
 								<label>Tanggal Lahir</label>
-								<input name="tanggal_lahir" type="date" class="form-control">
+								<input name="tanggal_lahir" type="date" class="form-control form-control-sm">
 							</div>	
 						</div>
 						<div class="form-group">
 							<label>Agama</label>
-							<input name="agama" type="text" class="form-control">
+							<input name="agama" type="text" class="form-control form-control-sm">
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label>Golongan</label>
-								<input name="golongan" type="text" class="form-control">
+								<input name="golongan" type="text" class="form-control form-control-sm">
 							</div>
 							<div class="form-group col-md-6">
 								<label>Jabatan</label>
-								<input name="jabatan" type="text" class="form-control">
+								<input name="jabatan" type="text" class="form-control form-control-sm">
 							</div>
 						</div>
 						<div class="form-group">
@@ -82,11 +82,11 @@
 						</div>
 						<div class="form-group">
 							<label>No Telepon</label>
-							<input name="no_telepon" type="text" class="form-control" >
+							<input name="no_telepon" type="text" class="form-control form-control-sm" >
 						</div>
 						<div class="form-group">
 							<label>E-Mail</label>
-							<input name="email" type="email" class="form-control">
+							<input name="email" type="email" class="form-control form-control-sm">
 						</div>								
 						<div class="float-right">
 							<button type="reset" class="btn btn-info" data-dismiss="card">BATAL</button>

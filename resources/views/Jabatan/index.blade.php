@@ -1,4 +1,10 @@
 @extends ('layout.master')
+<!-- SPACE -->
+@section ('link')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css">
+@endsection
+<!-- SPACE -->
 @section ('content')
 <div class="content-header">
 	<div class="container-fluid">
@@ -26,15 +32,15 @@
 									</div>
 									<div class="form-group col-sm-auto">
 										<label>Transport</label>
-										<input name="transport" type="text" class="form-control currency">
+										<input name="transport" type="text" class="form-control ">
 									</div>					
 									<div class="form-group col-sm-auto">
 										<label>Pulsa</label>
-										<input name="pulsa" type="text" class="form-control currency">
+										<input name="pulsa" type="text" class="form-control ">
 									</div>	
 									<div class="form-group col-sm-auto">
 										<label>Tunjangan Jabatan</label>
-										<input name="tunj_jab" type="text" class="form-control currency">
+										<input name="tunj_jab" type="text" class="form-control ">
 									</div>																												
 									<div class="float-right" style="margin-right: 15px;">
 										<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
@@ -49,20 +55,21 @@
 		</div>
 	</div>
 </div>
-<div class ="container-fluid">
-	<div class="col-sm-auto" >
+<div class ="container">
+	<div class="col-sm" >
 		<div class="card card-primary">
 			<div class="card-header" style="height: 50px;">
 				<h3 class="card-title" style="font-size: 15;">KELOLA DATA JABATAN</h3>
 				<div class="card-tools ">
 					<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-						</button>
+					</button>
 				</div>
 			</div>
 			<div class="card-body">
-				<table class="table table-sm table-hover">
+				<table id="datatable" class="table table-sm table-hover">
 					<thead>
-						<tr align="center">
+						<tr>
+							<th>ID</th>
 							<th>Nama jabatan</th>
 							<th>Transport</th>
 							<th>Pulsa</th>
@@ -72,40 +79,41 @@
 					</thead>
 					<tbody>
 						@foreach($data_jabatan as $jabat)
-						<tr align="center">
+						<tr>
+							<td>{{$jabat->id}}</td>
 							<td>{{$jabat->jabatan}}</td>
-							<td>@currency($jabat->transport)</td>
-							<td>@currency($jabat->pulsa)</td>
-							<td>@currency($jabat->tunj_jab)</td>
+							<td>{{$jabat->transport}}</td>
+							<td>{{$jabat->pulsa}}</td>
+							<td>{{$jabat->tunj_jab}}</td>
 							<td>
-								<a class="btn btn-sm btn-warning" data-toggle="modal" data-target=".jabat-edit">Edit</a>
-								<div class="modal fade jabat-edit" tabindex="-1" role="dialog" aria-labelledby="jabat-edit" aria-hidden="true">
+								<button class="btn btn-sm btn-warning edit">Edit</button>
+								<div id="editmodal" class="modal fade" tabindex="-1" role="dialog">
 									<div class="modal-dialog modal-dialog-centered" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
 												<h2 style="font-size: 25px;">Update Data jabatan</h2>
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<button type="button" class="close" data-dismiss="modal">
 													<span aria-hidden="true">&times;</span>
 												</button>
 											</div>
 											<div class="modal-body" style="text-align: left;">
-												<form action="/jabatan/{{$jabat->id}}/update" method="POST">
-													{{csrf_field()}}										
+												<form method="POST" id="editform">
+													{{csrf_field()}}
 													<div class="form-group col-sm-auto">
 														<label>Nama jabatan</label>
-														<input name="jabatan" id="jabatan" type="text" class="form-control" value="{{$jabat->jabatan}}">
+														<input name="jabatan" id="jabatan" type="text" class="form-control">
 													</div>
 													<div class="form-group col-sm-auto">
 														<label>Transport</label>
-														<input name="transport" id="transport" type="text" class="form-control currency" value="{{$jabat->transport}}">
+														<input name="transport" id="transport" type="text" class="form-control">
 													</div>					
 													<div class="form-group col-sm-auto">
 														<label>Pulsa</label>
-														<input name="pulsa" id="pulsa" type="text" class="form-control currency" value="{{$jabat->pulsa}}">
+														<input name="pulsa" id="pulsa" type="text" class="form-control">
 													</div>
 													<div class="form-group col-sm-auto">
 														<label>Tunjangan Jabatan</label>
-														<input name="tunj_jab" id="tunj_jab" type="text" class="form-control currency" value="{{$jabat->tunj_jab}}">
+														<input name="tunj_jab" id="tunjangan" type="text" class="form-control">
 													</div>
 													<div class="float-right" style="margin-right: 15px;">
 														<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
@@ -116,7 +124,7 @@
 										</div>
 									</div>
 								</div>
-								<a href="/jabatan/{{$jabat->id}}/hapus" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
+								<a href="/jabatan/hapus/{{$jabat->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
 							</td>
 						</tr>
 						@endforeach
@@ -127,3 +135,31 @@
 	</div>
 </div>
 @endsection
+<!-- SPACE -->
+@section ('javascript')
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		var table = $('#datatable').DataTable();
+		table.on('click','.edit', function(){
+			$tr = $(this).closest('tr');
+			if ($($tr).hasClass('child')){
+				$tr = $tr.prev('.parent');
+			}
+			
+			var data = table.row($tr).data();
+			
+			console.log(data);
+			$('#jabatan').val(data[1]);
+			$('#transport').val(data[2]);
+			$('#pulsa').val(data[3]);
+			$('#tunjangan').val(data[4]);
+			$('#editform').attr('action', '/jabatan/update/'+data[0]);
+			$('#editmodal').modal('show');
+		});	
+	});
+</script>
+@endsection
+<!-- SPACE -->

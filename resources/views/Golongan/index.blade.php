@@ -22,15 +22,15 @@
 										{{csrf_field()}}										
 										<div class="form-group col-sm-auto">
 											<label>Kode Golongan</label>
-											<input name="golongan" type="text" class="form-control">
+											<input name="golongan"type="text" class="form-control">
 										</div>
 										<div class="form-group col-sm-auto">
 											<label>Gaji Pokok</label>
-											<input name="gaji_pokok" type="text" class="form-control currency">
+											<input name="gaji_pokok" type="text" class="form-control">
 										</div>					
 										<div class="form-group col-sm-auto">
 											<label>Uang Makan</label>
-											<input name="uang_makan" type="text" class="form-control currency">
+											<input name="uang_makan" type="text" class="form-control">
 										</div>																														
 										<div class="float-right" style="margin-right: 15px;">
 											<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
@@ -73,8 +73,8 @@
 								<td>{{"Rp ".rupiah($gol->uang_makan)}}</td>
 								<td>
 									<a class="btn btn-sm btn-warning" data-toggle="modal" data-target=".gol-edit">Edit</a>
-									<div class="modal fade gol-edit" tabindex="-1" role="dialog" aria-labelledby="gol-edit" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
+									<div id="editmodal" class="modal fade gol-edit" tabindex="-1" role="dialog" aria-labelledby="gol-edit" aria-hidden="true">
+										<div  class="modal-dialog modal-dialog-centered" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
 													<h2 style="font-size: 25px;">Update Data Golongan</h2>
@@ -83,19 +83,19 @@
 													</button>
 												</div>
 												<div class="modal-body" style="text-align: left;">
-													<form action="/golongan/{{$gol->id}}/update" method="POST">
+													<form method="POST" id="editform">
 														{{csrf_field()}}										
 														<div class="form-group col-sm-auto">
 															<label>Kode Golongan</label>
-															<input name="golongan" type="text" class="form-control" value="{{$gol->golongan}}">
+															<input id="golongan" type="text" class="form-control">
 														</div>
 														<div class="form-group col-sm-auto">
 															<label>Gaji Pokok</label>
-															<input name="gaji_pokok" type="text" class="form-control currency" value="{{$gol->gaji_pokok}}">
+															<input id="gaji_pokok" type="text" class="form-control">
 														</div>					
 														<div class="form-group col-sm-auto">
 															<label>Uang Makan</label>
-															<input name="uang_makan" type="text" class="form-control currency" value="{{$gol->uang_makan}}">
+															<input id="uang_makan" type="text" class="form-control">
 														</div>
 														<div class="float-right" style="margin-right: 15px;">
 															<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
@@ -106,7 +106,7 @@
 											</div>
 										</div>
 									</div>
-									<a href="/golongan/{{$gol->id}}/hapus" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
+									<a href="/golongan/hapus/{{$gol->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
 								</td>
 							</tr>
 							@endforeach

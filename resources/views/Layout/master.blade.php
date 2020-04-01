@@ -2,6 +2,7 @@
 <html>
 <head>
   @include('layout.head') 
+  @yield('link')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <!-- Site wrapper -->
@@ -69,4 +70,5 @@
   @include('sweetalert::alert')
 </body>
   @include('layout.script')
+  @yield('javascript')
 </html>
