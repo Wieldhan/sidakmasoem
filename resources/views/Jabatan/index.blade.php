@@ -1,10 +1,10 @@
 @extends ('layout.master')
-<!-- SPACE -->
+
 @section ('link')
 <link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
-<!-- SPACE -->
+
 @section ('content')
 <div class="content-header">
 	<div class="container-fluid">
@@ -124,7 +124,7 @@
 										</div>
 									</div>
 								</div>
-								<a href="/jabatan/hapus/{{$jabat->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
+								<button class="btn btn-sm btn-danger hapus" jabat-id="{{$jabat->id}}">Hapus</button>
 							</td>
 						</tr>
 						@endforeach
@@ -135,22 +135,19 @@
 	</div>
 </div>
 @endsection
-<!-- SPACE -->
+
 @section ('javascript')
 <script type="text/javascript" src="/datatables/datatables.min.js"></script>
 <script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
-<script type="text/javascript">
+<script>
 	$(document).ready(function(){
-		
 		var table = $('#datatable').DataTable();
 		table.on('click','.edit', function(){
 			$tr = $(this).closest('tr');
 			if ($($tr).hasClass('child')){
 				$tr = $tr.prev('.parent');
 			}
-			
 			var data = table.row($tr).data();
-			
 			console.log(data);
 			$('#jabatan').val(data[1]);
 			$('#transport').val(data[2]);
@@ -160,6 +157,21 @@
 			$('#editmodal').modal('show');
 		});	
 	});
+
+	$('.hapus').click(function(){
+		var jabat_id = $(this).attr('jabat-id');
+		Swal.fire({
+			title: 'ATTENTION !!',
+			text: "Yakin Ingin Menghapus Data ID "+jabat_id+"",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: 'Hapus',
+			cancelButtonText:'Batal'
+		}).then((result) => {
+			if (result.value) {
+				window.location ="/jabatan/hapus/"+jabat_id+"";
+			}
+		});
+	});
 </script>
 @endsection
-<!-- SPACE -->

@@ -15,7 +15,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 */
 
 Route::get('/', function () {
-	return view('home');
+	return view('dashboard.index');
 });
 route::get('/login', 'authController@login');
 route::post('/postlogin', 'authController@postlogin');
@@ -37,5 +37,5 @@ route::get('/golongan/hapus/{id}', 'golonganController@delete');
 // Routes Jabatan
 route::get('jabatan', 'jabatanController@index');
 route::post('/jabatan/simpan', 'jabatanController@simpan');
-route::post('/jabatan/update/{id}', 'jabatanController@update');
-route::get('/jabatan/hapus/{id}', 'jabatanController@delete');
+route::post('/jabatan/update/{jabatan}', 'jabatanController@update');
+route::get('/jabatan/hapus/{jabatan}', 'jabatanController@delete');

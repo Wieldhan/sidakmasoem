@@ -22,17 +22,17 @@ class JabatanController extends Controller
 		return redirect('/jabatan');
 	}
 
-	public function delete($id)
+	public function delete(jabatan $jabatan)
 	{
-		$jabatan = jabatan::find($id);
+		// $jabatan = jabatan::find($id);
 		$jabatan->delete();
 		alert()->success('SUCCES.','DATA BERHASIL DIHAPUS!');
 		return redirect('/jabatan');
 	}
 
-	public function update(Request $request, $id)
+	public function update(Request $request, jabatan $jabatan)
 	{
-		$jabatan = jabatan::find($id);
+		// $jabatan = jabatan::find($id);
 		$jabatan->update($request->all());
 		alert()->success('SUCCES.','DATA BERHASIL UPDATE!');
 		return redirect('/jabatan');
