@@ -99,11 +99,11 @@
 													</div>
 													<div class="form-group col-sm-auto">
 														<label>Gaji Pokok</label>
-														<input name="gaji_pokok" id="gaji" type="text" class="form-control">
+														<input name="gaji_pokok" id="gaji" type="text" class="form-control currency">
 													</div>					
 													<div class="form-group col-sm-auto">
 														<label>Uang Makan</label>
-														<input name="uang_makan" id="makan" type="text" class="form-control">
+														<input name="uang_makan" id="makan" type="text" class="form-control currency">
 													</div>
 													<div class="float-right" style="margin-right: 15px;">
 														<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>

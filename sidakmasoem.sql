@@ -40,10 +40,13 @@ CREATE TABLE IF NOT EXISTS `golongan` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.golongan: ~3 rows (approximately)
+-- Dumping data for table sidakmasoem.golongan: ~2 rows (approximately)
 /*!40000 ALTER TABLE `golongan` DISABLE KEYS */;
+REPLACE INTO `golongan` (`id`, `golongan`, `gaji_pokok`, `uang_makan`, `created_at`, `updated_at`) VALUES
+	(1, 'I.A1', 1000000, 16500, '2020-04-02 03:28:39', '2020-04-02 03:28:39'),
+	(2, 'I.A2', 950000, 16500, '2020-04-02 03:29:03', '2020-04-02 03:29:03');
 /*!40000 ALTER TABLE `golongan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.jabatan
@@ -56,14 +59,13 @@ CREATE TABLE IF NOT EXISTS `jabatan` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.jabatan: ~2 rows (approximately)
+-- Dumping data for table sidakmasoem.jabatan: ~1 rows (approximately)
 /*!40000 ALTER TABLE `jabatan` DISABLE KEYS */;
 REPLACE INTO `jabatan` (`id`, `jabatan`, `transport`, `pulsa`, `tunj_jab`, `created_at`, `updated_at`) VALUES
-	(11, 'MANAJER', 10, 10, 10, '2020-04-01 09:09:10', '2020-04-01 09:11:59'),
-	(12, 'STAFF', 15, 15, 15, '2020-04-01 09:09:21', '2020-04-01 09:11:20'),
-	(13, 'DIREKTUR', 25, 25, 25, '2020-04-01 09:09:46', '2020-04-01 09:11:38');
+	(21, 'DIREKTUR', 150000, 100000, 3000000, '2020-04-02 08:42:05', '2020-04-02 08:42:05'),
+	(22, 'MANAJER', 50000, 100000, 2000000, '2020-04-02 09:34:14', '2020-04-02 09:34:14');
 /*!40000 ALTER TABLE `jabatan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.karyawan
@@ -90,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   KEY `jabatan_id` (`jabatan_id`),
   CONSTRAINT `FK_karyawan_golongan` FOREIGN KEY (`golongan_id`) REFERENCES `golongan` (`id`),
   CONSTRAINT `FK_karyawan_jabatan` FOREIGN KEY (`jabatan_id`) REFERENCES `jabatan` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table sidakmasoem.karyawan: ~0 rows (approximately)
 /*!40000 ALTER TABLE `karyawan` DISABLE KEYS */;
@@ -117,9 +119,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gambar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `level` enum('superadmin','admin','user') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),

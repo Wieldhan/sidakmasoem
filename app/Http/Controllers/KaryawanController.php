@@ -19,8 +19,6 @@ class KaryawanController extends Controller
 		Karyawan::create([
 			'nik' => $request->nik,
 			'no_ktp' => $request->no_ktp,
-			'username' => $request->username,
-			'password' => $request->password,
 			'nama' => $request->nama,
 			'tempat_lahir' => $request->tempat_lahir,
 			'tanggal_lahir' => $request->tanggal_lahir,
