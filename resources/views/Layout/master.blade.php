@@ -4,7 +4,7 @@
   @include('layout.head') 
   @yield('link')
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" style="font-family:'Oswald',sans-serif;">
   <div class="wrapper">
     <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
       <ul class="navbar-nav">

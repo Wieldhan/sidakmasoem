@@ -12,14 +12,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Merriweather|Oswald&display=swap" rel="stylesheet">
 </head>
-<body class="align-content-center login-page" style="background-image: url('../images/bg-login.jpg')";>
+<body class="align-content-center login-page" style="font-family:'Oswald',sans-serif; background-image: url('../images/bg-login.jpg')";>
   <div class="col-lg-4 mx-auto login-box" style="width: 650px; align-content: center;">
     <div class="login-logo">
-      <h1 style=" font-size:35px; font-family:'Source Sans Pro',sans-serif; color: white;">SISTEM INFORMASI DATA KARYAWAN ( SIDAK )</h1>
+      <h1 style=" font-size:35px; color: white;">SISTEM INFORMASI DATA KARYAWAN ( SIDAK )</h1>
     </div>
-    <div class="container-fluid card card-primary" style="font-family:'Oswald',sans-serif;">
+    <div class="container-fluid card card-primary">
       <div class="card-body">
-        <p class="login-box-msg" style="font-family:'Merriweather',serif;">LOGIN Untuk Masuk Kedalam Sistem</p>
+        <p class="login-box-msg">LOGIN Untuk Masuk Kedalam Sistem</p>
         <form action="/postlogin" method="POST">
           {{csrf_field()}}
           <div class="input-group mb-4">
@@ -40,10 +40,13 @@
           </div>
           <div class="row">
             <div class="col-6">
-              <strong style="font-family:'Oswald',sans-serif;">Copyright &copy; 2019-2020</strong>
+              <strong>Copyright &copy; 2019-2020</strong>
             </div>
-            <div class="col-6">
-              <button type="submit" class="btn btn-primary float-right">LOGIN</button>
+            <div class="col-3">
+              <button type="submit" class="btn btn-primary btn-block float-right">LOGIN</button>
+            </div>
+            <div class="col-3">
+              <a href="#" class="btn btn-info btn-block float-right">DAFTAR</a>
             </div>
           </div>
         </form>
