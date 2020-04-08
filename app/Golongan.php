@@ -8,4 +8,9 @@ class Golongan extends Model
 {
 	protected $table ='golongan';
 	protected $fillable = ['golongan','gaji_pokok','uang_makan'];
+
+	public function karyawan()
+	{
+		return $this->hasMany(karyawan::class);
+	}
 }

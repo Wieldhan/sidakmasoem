@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Karyawan;
+use App\Golongan;
+use App\Jabatan;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class KaryawanController extends Controller
@@ -11,7 +13,9 @@ class KaryawanController extends Controller
 	public function index()
 	{
 		$data_karyawan = karyawan::all();
-		return view('karyawan.index',['data_karyawan'=> $data_karyawan]);
+		$data_golongan = golongan::all();
+		$data_jabatan = jabatan::all();
+		return view('karyawan.index',['data_karyawan'=> $data_karyawan, 'data_golongan'=>$data_golongan,'data_jabatan'=> $data_jabatan]);
 	}
 	public function simpan(Request $request)
 	{

@@ -68,6 +68,19 @@ REPLACE INTO `jabatan` (`id`, `jabatan`, `transport`, `pulsa`, `tunj_jab`, `crea
 	(22, 'MANAJER', 50000, 100000, 2000000, '2020-04-02 09:34:14', '2020-04-02 09:34:14');
 /*!40000 ALTER TABLE `jabatan` ENABLE KEYS */;
 
+-- Dumping structure for table sidakmasoem.jenjang_karir
+CREATE TABLE IF NOT EXISTS `jenjang_karir` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `karyawan_id` int(11) NOT NULL,
+  `jabatan_id` int(11) NOT NULL,
+  `thn_perubahan` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table sidakmasoem.jenjang_karir: ~0 rows (approximately)
+/*!40000 ALTER TABLE `jenjang_karir` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jenjang_karir` ENABLE KEYS */;
+
 -- Dumping structure for table sidakmasoem.karyawan
 CREATE TABLE IF NOT EXISTS `karyawan` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
@@ -79,6 +92,7 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   `agama` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tempat_lahir` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_lahir` date NOT NULL,
+  `ibukandung` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_nikah` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_pasangan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `golongan_id` int(10) NOT NULL DEFAULT '0',
@@ -113,6 +127,18 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   `or3_jenis` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `or3_status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `or3_periode` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr_jabatan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr_thmasuk` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr_thkeluar` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr2_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr2_jabatan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr2_thmasuk` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr2_thkeluar` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr3_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr3_jabatan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr3_thmasuk` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pr3_thkeluar` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -145,7 +171,7 @@ REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Dumping structure for table sidakmasoem.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_lengkap` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,

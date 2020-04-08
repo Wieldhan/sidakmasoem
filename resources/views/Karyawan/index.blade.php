@@ -60,7 +60,7 @@
 							</div>
 							<div class="form-group col-sm-3">
 								<label for="formcontrolagama">Agama</label>
-								<select class="form-control form-control-sm" id="formcontrolagama" >
+								<select name="agama" class="form-control form-control-sm" id="formcontrolagama" >
 									<option>Islam</option>
 									<option>Protestan</option>
 									<option>Khatolik</option>
@@ -84,7 +84,7 @@
 							</div>
 							<div class="form-group col-sm-4">
 								<label for="formcontrolpernikahan">Status Pernikahan</label>
-								<select class="form-control form-control-sm" id="formcontrolpernikahan">
+								<select name="status_nikah" class="form-control form-control-sm" id="formcontrolpernikahan">
 									<option>Belum Menikah</option>
 									<option>Menikah</option>
 									<option>Cerai</option>
@@ -92,29 +92,25 @@
 							</div>
 							<div class="form-group col-sm-4">
 								<label>Nama Pasangan</label>
-								<input name="pasangan" type="text" class="form-control form-control-sm" placeholder="Nama Suami / Istri">
+								<input name="nama_pasangan" type="text" class="form-control form-control-sm" placeholder="Nama Suami / Istri">
 							</div>
 						</div>
 						<hr>
 						<div class="form-row">							
 							<div class="form-group col-sm-4">
 								<label for="formcontrolgolongan">Golongan</label>
-								<select class="form-control form-control-sm" id="formcontrolgolongan">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+								<select name="golongan_id" class="form-control form-control-sm" id="formcontrolgolongan" >
+									@foreach($data_golongan as $dg)
+									<option value="{{$dg->id}}">{{$dg->golongan}}</option>
+									@endforeach
 								</select>
 							</div>
 							<div class="form-group col-sm-4">
 								<label for="formcontroljabatan">Jabatan</label>
-								<select class="form-control form-control-sm" id="formcontroljabatan">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+								<select name="jabatan_id" class="form-control form-control-sm" id="formcontroljabatan" >
+									@foreach($data_jabatan as $dj)
+									<option value="{{$dj->id}}">{{$dj->jabatan}}</option>
+									@endforeach
 								</select>
 							</div>
 						</div>
@@ -143,7 +139,7 @@
 							</div>
 							<div class="form-group col-sm-4">
 								<label>No Telepon Keluarga</label>
-								<input name="teleponkeluarga" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
+								<input name="no_keluarga" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
 							</div>
 						</div>
 						<hr>
@@ -164,16 +160,16 @@
 										<span>SMA / SMK</span>
 									</td>
 									<td>
-										<input name="tingkatsma" type="text" class="form-control form-control-sm">
+										<input name="sma_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="jurusansma" type="text" class="form-control form-control-sm">
+										<input name="sam_jurusan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="lulussma" type="text" class="form-control form-control-sm">
+										<input name="sma_lulus" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="nilaisma" type="text" class="form-control form-control-sm">
+										<input name="sma_nilai" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -181,16 +177,16 @@
 										<span>PERGURUAN TINGGI</span>
 									</td>
 									<td>
-										<input name="tingkatUniv" type="text" class="form-control form-control-sm">
+										<input name="s1_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="jurusanUniv" type="text" class="form-control form-control-sm">
+										<input name="s1_jurusan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="lulusUniv" type="text" class="form-control form-control-sm">
+										<input name="s1_lulus" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="nilaiUniv" type="text" class="form-control form-control-sm">
+										<input name="s1_nilai" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -198,16 +194,16 @@
 										<span>PERGURUAN TINGGI (S2)</span>
 									</td>
 									<td>
-										<input name="tingkatUniv2" type="text" class="form-control form-control-sm">
+										<input name="s2_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="jurusanUniv2" type="text" class="form-control form-control-sm">
+										<input name="s2_jurusan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="lulusUniv2" type="text" class="form-control form-control-sm">
+										<input name="s2_lulus" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="nilaiUniv2" type="text" class="form-control form-control-sm">
+										<input name="s2_nilai" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 							</tbody>
@@ -230,16 +226,16 @@
 										<span>1</span>
 									</td>
 									<td>
-										<input name="organisasi1" type="text" class="form-control form-control-sm">
+										<input name="or_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="jenis1" type="text" class="form-control form-control-sm">
+										<input name="or_jenis" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="status1" type="text" class="form-control form-control-sm">
+										<input name="or_status" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="periode1" type="text" class="form-control form-control-sm">
+										<input name="or_periode" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -247,16 +243,16 @@
 										<span>2</span>
 									</td>
 									<td>
-										<input name="organisasi2" type="text" class="form-control form-control-sm">
+										<input name="or2_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="jenis2" type="text" class="form-control form-control-sm">
+										<input name="or2_jenis" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="status2" type="text" class="form-control form-control-sm">
+										<input name="or2_status" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="periode2" type="text" class="form-control form-control-sm">
+										<input name="or2_periode" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -264,16 +260,16 @@
 										<span>3</span>
 									</td>
 									<td>
-										<input name="organisasi3" type="text" class="form-control form-control-sm">
+										<input name="or3_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="jenis3" type="text" class="form-control form-control-sm">
+										<input name="or3_jenis" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="status3" type="text" class="form-control form-control-sm">
+										<input name="or3_status" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="periode3" type="text" class="form-control form-control-sm">
+										<input name="or3_periode" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 							</tbody>
@@ -286,8 +282,8 @@
 									<th>NO</th>
 									<th>NAMA PERUSAHAAN</th>
 									<th>JABATAN TERAKHIR</th>
-									<th>STATUS</th>
-									<th>PERIODE KERJA</th>
+									<th>TAHUN MASUK</th>
+									<th>TAHUN KELUAR</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -296,16 +292,16 @@
 										<span>1</span>
 									</td>
 									<td>
-										<input name="organisasi1" type="text" class="form-control form-control-sm">
+										<input name="pr_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="jenis1" type="text" class="form-control form-control-sm">
+										<input name="pr_jabatan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="status1" type="text" class="form-control form-control-sm">
+										<input name="pr_thmasuk" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="periode1" type="text" class="form-control form-control-sm">
+										<input name="pr_thkeluar" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -313,16 +309,16 @@
 										<span>2</span>
 									</td>
 									<td>
-										<input name="organisasi2" type="text" class="form-control form-control-sm">
+										<input name="pr2_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="jenis2" type="text" class="form-control form-control-sm">
+										<input name="pr2_jabatan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="status2" type="text" class="form-control form-control-sm">
+										<input name="pr2_thmasuk" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="periode2" type="text" class="form-control form-control-sm">
+										<input name="pr2_thkeluar" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -330,16 +326,16 @@
 										<span>3</span>
 									</td>
 									<td>
-										<input name="organisasi3" type="text" class="form-control form-control-sm">
+										<input name="pr3_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="jenis3" type="text" class="form-control form-control-sm">
+										<input name="pr3_jabatan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="status3" type="text" class="form-control form-control-sm">
+										<input name="pr3_thmasuk" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="periode3" type="text" class="form-control form-control-sm">
+										<input name="pr3_thkeluar" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 							</tbody>
