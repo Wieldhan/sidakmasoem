@@ -84,6 +84,7 @@ CREATE TABLE IF NOT EXISTS `jenjang_karir` (
 -- Dumping structure for table sidakmasoem.karyawan
 CREATE TABLE IF NOT EXISTS `karyawan` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
+  `user_id` int(15) NOT NULL,
   `nik` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_ktp` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_lengkap` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -95,13 +96,12 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   `ibukandung` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_nikah` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_pasangan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `golongan_id` int(10) NOT NULL DEFAULT '0',
-  `jabatan_id` int(10) NOT NULL DEFAULT '0',
+  `golongan_id` int(10) NOT NULL,
+  `jabatan_id` int(10) NOT NULL,
   `alamat` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `visi` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `misi` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_telepon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_keluarga` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sma_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sma_jurusan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   KEY `jabatan_id` (`jabatan_id`),
   CONSTRAINT `FK_karyawan_golongan` FOREIGN KEY (`golongan_id`) REFERENCES `golongan` (`id`),
   CONSTRAINT `FK_karyawan_jabatan` FOREIGN KEY (`jabatan_id`) REFERENCES `jabatan` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table sidakmasoem.karyawan: ~0 rows (approximately)
 /*!40000 ALTER TABLE `karyawan` DISABLE KEYS */;
@@ -171,17 +171,17 @@ REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Dumping structure for table sidakmasoem.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `nama_lengkap` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_panggilan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gambar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `level` enum('superadmin','admin','user') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table sidakmasoem.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;

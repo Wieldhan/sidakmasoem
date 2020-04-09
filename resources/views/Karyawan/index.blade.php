@@ -53,19 +53,19 @@
 						<div class="form-row">
 							<div class="form-group col-sm-3">
 								<label for="formcontroljk">Jenis Kelamin</label>
-								<select class="form-control form-control-sm" id="formcontroljk">
-									<option>Laki-Laki</option>
+								<select name="jk" class="form-control form-control-sm" id="formcontroljk">
+									<option>Laki Laki</option>
 									<option>Perempuan</option>
 								</select>
 							</div>
 							<div class="form-group col-sm-3">
 								<label for="formcontrolagama">Agama</label>
 								<select name="agama" class="form-control form-control-sm" id="formcontrolagama" >
-									<option>Islam</option>
-									<option>Protestan</option>
-									<option>Khatolik</option>
-									<option>Hindu</option>
-									<option>Buddha</option>
+									<option >Islam</option>
+									<option >Protestan</option>
+									<option >Khatolik</option>
+									<option >Hindu</option>
+									<option >Buddha</option>
 								</select>
 							</div>
 							<div class="form-group col-sm-3">
@@ -380,20 +380,21 @@
 						<tbody>
 							@foreach($data_karyawan as $kar)
 							<tr align="left">
+								<td>{{$kar->id}}</td>
 								<td>{{$kar->nik}}</td>
 								<td>{{$kar->no_ktp}}</td>
-								<td>{{$kar->nama}}</td>
+								<td>{{$kar->nama_lengkap}}</td>
 								<td>{{$kar->tempat_lahir}}</td>
 								<td>{{$kar->tanggal_lahir}}</td>
 								<!-- <td>{{$kar->agama}}</td> -->
-								<td>{{$kar->golongan}}</td>
-								<td>{{$kar->jabatan}}</td>
+								<td>{{$kar->golongan->golongan}}</td>
+								<td>{{$kar->jabatan->jabatan}}</td>
 								<td>{{$kar->alamat}}</td>
 								<td>{{$kar->no_telepon}}</td>
 								<!-- <td>{{$kar->email}}</td> -->
 								<td>
 									<a href="#" class="btn btn-sm btn-warning edit">Edit</a>
-									<a href="/jabatan/hapus/{{$jabat->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
+									<a href="/karyawan/hapus/{{$kar->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
 								</td>								
 							</tr>
 							@endforeach
