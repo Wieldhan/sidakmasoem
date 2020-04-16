@@ -38,7 +38,7 @@ class KaryawanController extends Controller
 	}
 	public function edit()
 	{
-		return view('karyawan.karEdit');
+		return view('karyawan.edit');
 	}
 	public function delete($id)
 	{

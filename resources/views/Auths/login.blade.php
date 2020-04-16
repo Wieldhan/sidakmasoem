@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Merriweather|Oswald&display=swap" rel="stylesheet">
 </head>
-<body class="align-content-center login-page" style="font-family:'Oswald',sans-serif; background-image: url('../images/bg-login.jpg')";>
+<body class="align-content-center login-page" style="font-family:'Oswald',sans-serif; background-image: url('../images/bg-login.jpg'); background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;">
   <div class="col-lg-4 mx-auto login-box" style="width: 650px; align-content: center;">
     <div class="login-logo">
       <h1 style=" font-size:35px; color: white;">SISTEM INFORMASI DATA KARYAWAN ( SIDAK )</h1>
