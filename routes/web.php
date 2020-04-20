@@ -20,6 +20,7 @@ Route::get('/', function () {
 route::get('/login', 'authController@login');
 route::post('/postlogin', 'authController@postlogin');
 route::get('/daftar', 'authController@daftar');
+route::post('/simpandaftar', 'authController@simpandaftar');
 route::get('/dashboard', 'dashboardController@index');
 
 // Routes Karyawan

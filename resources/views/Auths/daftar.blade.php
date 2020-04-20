@@ -19,7 +19,7 @@
         <h2 class="card-subtitle align-middle">INPUT DATA DIRI</h2>
       </div>
       <div class="card-body">
-            <form action="/karyawan/simpan" method="POST">
+            <form action="/simpandaftar" method="POST">
         {{csrf_field()}}
         <div class="form-row">
           <div class="form-group col-sm-3">
@@ -349,5 +349,6 @@
 <script src="/adminlte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <script src="/adminlte/js/adminlte.min.js"></script>
 <script src="/adminlte/js/demo.js"></script>
+@include('sweetalert::alert')
 </body>
 </html>

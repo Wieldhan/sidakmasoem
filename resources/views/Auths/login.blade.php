@@ -46,7 +46,7 @@
               <button type="submit" class="btn btn-primary btn-block float-right">LOGIN</button>
             </div>
             <div class="col-3">
-              <a href="#" class="btn btn-info btn-block float-right">DAFTAR</a>
+              <a href="{{url('daftar')}}" class="btn btn-info btn-block float-right">DAFTAR</a>
             </div>
           </div>
         </form>
@@ -59,5 +59,6 @@
 <script src="/adminlte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <script src="/adminlte/js/adminlte.min.js"></script>
 <script src="/adminlte/js/demo.js"></script>
+@include('sweetalert::alert')
 </body>
 </html>
