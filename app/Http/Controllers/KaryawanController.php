@@ -36,10 +36,23 @@ class KaryawanController extends Controller
 		alert()->success('SUCCES.','DATA BERHASIL DITAMBAHKAN!');
 		return redirect('/karyawan');
 	}
-	public function edit()
+	public function edit($id)
 	{
-		return view('karyawan.edit');
+		$karyawan = karyawan::find($id);
+		$data_karyawan = karyawan::all();
+		$data_golongan = golongan::all();
+		$data_jabatan = jabatan::all();
+		return view('karyawan.edit',['data_karyawan'=> $data_karyawan, 'data_golongan'=>$data_golongan,'data_jabatan'=> $data_jabatan]);
 	}
+
+	public function update(Request $request, $id)
+	{
+		$karyawan = karyawan::find($id);
+		$karyawan->update($request->all());
+		alert()->success('SUCCES.','DATA BERHASIL UPDATE!');
+		return redirect('/karyawan');
+	}
+	
 	public function delete($id)
 	{
 		$user = user::find($id);

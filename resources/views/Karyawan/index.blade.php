@@ -17,7 +17,7 @@
 	</div>
 	<div class ="container-fluid">
 		<div class ="col">
-			<div class="card card-primary">
+			<div class="card card-primary collapsed-card">
 				<div class="card-header" style="height: 50px;">
 					<h2 class="card-title align-middle">TAMBAH KARYAWAN</h2>
 					<div class="card-tools">
@@ -393,7 +393,7 @@
 								<td>{{$kar->no_telepon}}</td>
 								<!-- <td>{{$kar->email}}</td> -->
 								<td>
-									<a href="#" class="btn btn-sm btn-warning edit">Edit</a>
+									<a href="/karyawan/edit/{{$kar->id}}" class="btn btn-sm btn-warning edit">Edit</a>
 									<a href="/karyawan/hapus/{{$kar->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
 								</td>								
 							</tr>

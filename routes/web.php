@@ -17,6 +17,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 Route::get('/', function () {
 	return view('dashboard.index');
 });
+//Routes Auth
 route::get('/login', 'authController@login');
 route::post('/postlogin', 'authController@postlogin');
 route::get('/daftar', 'authController@daftar');

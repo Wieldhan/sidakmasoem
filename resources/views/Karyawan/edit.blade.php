@@ -12,14 +12,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Merriweather|Oswald&display=swap" rel="stylesheet">
 </head>
-<body style="font-family:'Oswald',sans-serif; background-image: url('../images/bg-login.jpg'); background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;">
+<body style="font-family:'Oswald',sans-serif; background-color:#0A64F9">
   <div class="container-fluid" >
     <div class="card card-outline card-warning" style="margin-top: 50px; margin-bottom:50px; margin-left: 50px; margin-right: 50px;">
       <div class="card-header">
         <h2 class="card-subtitle align-middle">UBAH DATA DIRI</h2>
       </div>
       <div class="card-body">
-            <form action="/karyawan/update" method="POST">
+            <form action="#" method="POST">
         {{csrf_field()}}
         <div class="form-row">
           <div class="form-group col-sm-3">
