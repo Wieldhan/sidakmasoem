@@ -100,7 +100,7 @@
 							<div class="form-group col-sm-4">
 								<label for="formcontrolgolongan">Golongan</label>
 								<select name="golongan_id" class="form-control form-control-sm" id="formcontrolgolongan" >
-									@foreach($data_golongan as $dg)
+									@foreach($golongan as $dg)
 									<option value="{{$dg->id}}">{{$dg->golongan}}</option>
 									@endforeach
 								</select>
@@ -108,7 +108,7 @@
 							<div class="form-group col-sm-4">
 								<label for="formcontroljabatan">Jabatan</label>
 								<select name="jabatan_id" class="form-control form-control-sm" id="formcontroljabatan" >
-									@foreach($data_jabatan as $dj)
+									@foreach($jabatan as $dj)
 									<option value="{{$dj->id}}">{{$dj->jabatan}}</option>
 									@endforeach
 								</select>
@@ -378,7 +378,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($data_karyawan as $kar)
+							@foreach($karyawan as $kar)
 							<tr align="left">
 								<td>{{$kar->id}}</td>
 								<td>{{$kar->nik}}</td>
@@ -393,7 +393,7 @@
 								<td>{{$kar->no_telepon}}</td>
 								<!-- <td>{{$kar->email}}</td> -->
 								<td>
-									<a href="/karyawan/edit/{{$kar->id}}" class="btn btn-sm btn-warning edit">Edit</a>
+									<a href="/karyawan/edit/{{$kar->id}}" class="btn btn-sm btn-warning">Edit</a>
 									<a href="/karyawan/hapus/{{$kar->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
 								</td>								
 							</tr>
@@ -412,13 +412,6 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			var table = $('.datatable').DataTable();
-			table.on('click','.edit', function(){
-				$tr = $(this).closest('tr');
-				if ($($tr).hasClass('child')){
-					$tr = $tr.prev('.parent');
-				}
-				var data = table.row($tr).data();
-			});	
-		});
+		});	
 	</script>
 	@endsection

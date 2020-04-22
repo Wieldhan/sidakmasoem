@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Merriweather|Oswald&display=swap" rel="stylesheet">
 </head>
-<body class="align-content-center login-page" style="font-family:'Oswald',sans-serif; background-image: url('../images/bg-login.jpg'); background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;">
+<body class="align-content-center login-page" style="font-family:'Oswald',sans-serif; background-image: url('../images/bg-login.jpg'); background-size: auto; background-repeat: no-repeat; background-attachment:fixed;">
   <div class="col-lg-4 mx-auto login-box" style="width: 650px; align-content: center;">
     <div class="login-logo">
       <h1 style=" font-size:35px; color: white;">SISTEM INFORMASI DATA KARYAWAN ( SIDAK )</h1>
@@ -23,7 +23,7 @@
         <form action="/postlogin" method="POST">
           {{csrf_field()}}
           <div class="input-group mb-4">
-            <input type="email" class="form-control" placeholder="Email">
+            <input name="email" type="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -31,7 +31,7 @@
             </div>
           </div>
           <div class="input-group mb-4">
-            <input type="password" class="form-control" placeholder="Password">
+            <input name="password" type="password" class="form-control" placeholder="Password" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>

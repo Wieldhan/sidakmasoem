@@ -17,6 +17,21 @@ class AuthController extends Controller
 		return view('auths.login');
 	}
 
+	public function postlogin(request $request)
+	{
+		if(Auth::attempt($request->only('email','password'))){
+			return redirect('/dashboard');
+		}
+		alert()->warning('ERROR.','Email Atau Password Salah!');
+		return redirect('/login');
+	}
+
+	public function logout()
+	{
+		Auth::logout();
+		return redirect('/login');
+	}
+
 	public function daftar()
 	{
 		$data_golongan = golongan::all();
@@ -40,10 +55,5 @@ class AuthController extends Controller
 		$karyawan = karyawan::create($request->all());
 		alert()->success('SUCCES.','DATA BERHASIL DITAMBAHKAN!');
 		return redirect('login');
-	}
-	
-	public function postlogin(request $request)
-	{
-		
 	}
 }

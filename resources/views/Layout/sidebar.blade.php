@@ -1,7 +1,3 @@
-<!-- Sidebar user (optional) -->
-<div class="user-panel mt-3 pb-3 mb-3 d-flex">
-  <img src="/images/logo-png.png" class="brand-image" style="left:12px; width: 220px;"> 
-</div>
 <!-- Sidebar Menu -->
 <nav class="mt-2">
   <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
