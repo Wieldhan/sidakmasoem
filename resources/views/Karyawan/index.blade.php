@@ -30,7 +30,7 @@
 						<h3 class="card-subtitle align-middle">DATA PRIBADI</h3>
 					</div>
 					<hr>
-					<form action="/karyawan/simpan" method="POST">
+					<form action="/karyawan/store" method="POST">
 						{{csrf_field()}}
 						<div class="form-row">
 							<div class="form-group col-sm-3">
@@ -378,23 +378,27 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($karyawan as $kar)
+							@foreach($karyawan as $karyawan)
 							<tr align="left">
-								<td>{{$kar->id}}</td>
-								<td>{{$kar->nik}}</td>
-								<td>{{$kar->no_ktp}}</td>
-								<td>{{$kar->nama_lengkap}}</td>
-								<td>{{$kar->tempat_lahir}}</td>
-								<td>{{$kar->tanggal_lahir}}</td>
-								<!-- <td>{{$kar->agama}}</td> -->
-								<td>{{$kar->golongan->golongan}}</td>
-								<td>{{$kar->jabatan->jabatan}}</td>
-								<td>{{$kar->alamat}}</td>
-								<td>{{$kar->no_telepon}}</td>
-								<!-- <td>{{$kar->email}}</td> -->
+								<td>{{$karyawan->id}}</td>
+								<td>{{$karyawan->nik}}</td>
+								<td>{{$karyawan->no_ktp}}</td>
+								<td>{{$karyawan->nama_lengkap}}</td>
+								<td>{{$karyawan->tempat_lahir}}</td>
+								<td>{{$karyawan->tanggal_lahir}}</td>
+								<!-- <td>{{$karyawan->agama}}</td> -->
+								<td>{{$karyawan->golongan->golongan}}</td>
+								<td>{{$karyawan->jabatan->jabatan}}</td>
+								<td>{{$karyawan->alamat}}</td>
+								<td>{{$karyawan->no_telepon}}</td>
+								<!-- <td>{{$karyawan->email}}</td> -->
 								<td>
-									<a href="/karyawan/edit/{{$kar->id}}" class="btn btn-sm btn-warning">Edit</a>
-									<a href="/karyawan/hapus/{{$kar->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
+									<a href="/karyawan/edit/{{$karyawan->id}}">
+										<button type="button" class="btn btn-sm btn-warning">Edit</button>
+									</a>
+									<a href="/karyawan/destroy/{{$karyawan->id}}">									
+										<button class="btn btn-sm btn-danger" type="button" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</button>
+									</a>
 								</td>								
 							</tr>
 							@endforeach

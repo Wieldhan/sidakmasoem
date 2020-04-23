@@ -17,9 +17,14 @@ class KaryawanController extends Controller
 		$karyawan = karyawan::all();
 		$golongan = golongan::all();
 		$jabatan = jabatan::all();
-		return view('karyawan.index',['karyawan'=> $karyawan, 'golongan'=>$golongan,'jabatan'=> $jabatan]);
+		return view('karyawan.index', compact('karyawan', 'golongan','jabatan'));
 	}
-	public function simpan(Request $request)
+	public function show($id)
+	{
+		
+	}
+
+	public function store(Request $request)
 	{
 		// Insert Tabel User
 		$user = new User;
@@ -38,27 +43,24 @@ class KaryawanController extends Controller
 	}
 	public function edit($id)
 	{
-		$karyawan = karyawan::find($id);
+		$karyawan = karyawan::findOrFail($id);
 		$karyawan = karyawan::all();
 		$golongan = golongan::all();
 		$jabatan = jabatan::all();
-		return view('karyawan.edit',['karyawan'=> $karyawan, 'golongan'=>$golongan,'jabatan'=> $jabatan]);
+		return view('karyawan.edit', compact('karyawan', 'golongan','jabatan'));
 	}
 
 	public function update(Request $request, $id)
 	{
-		$karyawan = karyawan::find($id);
-		$karyawan->update($request->all());
+		karyawan::findOrFail($id)->update($request->all());
 		alert()->success('SUCCES.','DATA BERHASIL UPDATE!');
 		return redirect('/karyawan');
 	}
 	
-	public function delete($id)
+	public function destroy($id)
 	{
-		$user = user::find($id);
-		$user->delete();
-		$karyawan = karyawan::find($id);
-		$karyawan->delete();
+		karyawan::findOrFail($id)->delete();
+		user::findOrFail($id)->delete();
 		alert()->success('SUCCES.','DATA BERHASIL DIHAPUS!');
 		return redirect('/karyawan');
 	}

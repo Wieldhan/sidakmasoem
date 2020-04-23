@@ -19,26 +19,24 @@
         <h2 class="card-subtitle align-middle">UBAH DATA DIRI</h2>
       </div>
       <div class="card-body">
-        @foreach ($karyawan as $kar)
-        <form action="/karyawan/update/{{$kar->id}}" method="POST">
-          @endforeach
+        <form action="/karyawan/update/{{$karyawan->id}}" method="POST">
           {{csrf_field()}}
           <div class="form-row">
             <div class="form-group col-sm-3">
               <label>No Induk Karyawan</label>
-              <input name="nik" type="text" class="form-control form-control-sm" value="{{$kar->nik}}">
+              <input name="nik" type="text" class="form-control form-control-sm" value="{{$karyawan->nik}}">
             </div>
             <div class="form-group col-sm-3">
               <label>No KTP</label>
-              <input name="no_ktp" type="text" class="form-control form-control-sm" value="{{$kar->no_ktp}}">
+              <input name="no_ktp" type="text" class="form-control form-control-sm" value="{{$karyawan->no_ktp}}">
             </div>
             <div class="form-group col-sm-3">
               <label>Nama Lengkap</label>
-              <input name="nama_lengkap" type="text" class="form-control form-control-sm" value="{{$kar->nama_lengkap}}">
+              <input name="nama_lengkap" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_lengkap}}">
             </div>
             <div class="form-group col-sm-3">
               <label>Nama Panggilan</label>
-              <input name="nama_panggilan" type="text" class="form-control form-control-sm" value="{{$kar->nama_panggilan}}">
+              <input name="nama_panggilan" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_panggilan}}">
             </div>
           </div>
           <div class="form-row">
@@ -61,17 +59,17 @@
             </div>
             <div class="form-group col-sm-3">
               <label>Tempat Lahir</label>
-              <input name="tempat_lahir" type="text" class="form-control form-control-sm" value="{{$kar->tempat_lahir}}">
+              <input name="tempat_lahir" type="text" class="form-control form-control-sm" value="{{$karyawan->tempat_lahir}}">
             </div>
             <div class="form-group col-sm-3">
               <label>Tanggal Lahir</label>
-              <input name="tanggal_lahir" type="date" class="form-control form-control-sm" value="{{$kar->tanggal_lahir}}">
+              <input name="tanggal_lahir" type="date" class="form-control form-control-sm" value="{{$karyawan->tanggal_lahir}}">
             </div>  
           </div>
           <div class="form-row">
             <div class="form-group col-sm-4">
               <label>Nama Ibu Kandung</label>
-              <input name="ibukandung" type="text" class="form-control form-control-sm" value="{{$kar->ibukandung}}">
+              <input name="ibukandung" type="text" class="form-control form-control-sm" value="{{$karyawan->ibukandung}}">
             </div>
             <div class="form-group col-sm-4">
               <label for="formcontrolpernikahan">Status Pernikahan</label>
@@ -83,7 +81,7 @@
             </div>
             <div class="form-group col-sm-4">
               <label>Nama Pasangan</label>
-              <input name="nama_pasangan" type="text" class="form-control form-control-sm" value="{{$kar->nama_pasangan}}">
+              <input name="nama_pasangan" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_pasangan}}">
             </div>
           </div>
           <hr>
@@ -92,7 +90,7 @@
               <label for="formcontrolgolongan">Golongan</label>
               <select name="golongan_id" class="form-control form-control-sm" id="formcontrolgolongan">
                 @foreach($golongan as $dg)
-                <option value="{{$dg->id}}" {{( $dg->id == $kar->golongan_id) ? 'selected' : '' }}>{{$dg->golongan}}</option>
+                <option value="{{$dg->id}}" {{( $dg->id == $karyawan->golongan_id) ? 'selected' : '' }}>{{$dg->golongan}}</option>
                 @endforeach
               </select>
             </div>
@@ -100,7 +98,7 @@
               <label for="formcontroljabatan">Jabatan</label>
               <select name="jabatan_id" class="form-control form-control-sm" id="formcontroljabatan" >
                 @foreach($jabatan as $dj)
-                <option value="{{$dj->id}}" {{( $dj->id == $kar->jabatan_id) ? 'selected' : '' }}>{{$dj->jabatan}}</option>
+                <option value="{{$dj->id}}" {{( $dj->id == $karyawan->jabatan_id) ? 'selected' : '' }}>{{$dj->jabatan}}</option>
                 @endforeach
               </select>
             </div>
@@ -339,7 +337,7 @@
             </div>
             <div class="col-2">
               <button type="reset" class="btn btn-info" data-dismiss="card">BATAL</button>
-              <button type="submit" class="btn btn-primary">SIMPAN</button>
+              <button type="submit" class="btn btn-primary">UPDATES</button>
             </div>
           </div>
         </form>

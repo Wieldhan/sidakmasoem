@@ -28,11 +28,12 @@ route::group(['middleware'=>'auth'],function(){
 
 	route::get('/dashboard', 'dashboardController@index');
 // Routes Karyawan
+	// route::resource('karyawan','karyawanController');
 	route::get('/karyawan', 'karyawanController@index');
-	route::post('/karyawan/simpan', 'karyawanController@simpan');
+	route::post('/karyawan/store', 'karyawanController@store');
 	route::get('/karyawan/edit/{id}', 'karyawanController@edit');
 	route::post('/karyawan/update/{id}', 'karyawanController@update');
-	route::get('/karyawan/hapus/{id}', 'karyawanController@delete');
+	route::get('/karyawan/destroy/{id}', 'karyawanController@destroy');
 
 // Routes Golongan
 	route::get('golongan', 'golonganController@index');
