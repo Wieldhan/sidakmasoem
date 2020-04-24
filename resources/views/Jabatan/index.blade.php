@@ -28,19 +28,19 @@
 									{{csrf_field()}}										
 									<div class="form-group col-sm-auto">
 										<label>Nama jabatan</label>
-										<input name="jabatan" type="text" class="form-control">
+										<input name="jabatan" type="text" class="form-control" required>
 									</div>
 									<div class="form-group col-sm-auto">
 										<label>Transport</label>
-										<input name="transport" type="text" class="form-control ">
+										<input name="transport" type="text" class="form-control" required>
 									</div>					
 									<div class="form-group col-sm-auto">
 										<label>Pulsa</label>
-										<input name="pulsa" type="text" class="form-control ">
+										<input name="pulsa" type="text" class="form-control" required>
 									</div>	
 									<div class="form-group col-sm-auto">
 										<label>Tunjangan Jabatan</label>
-										<input name="tunj_jab" type="text" class="form-control ">
+										<input name="tunj_jab" type="text" class="form-control" required>
 									</div>																												
 									<div class="float-right" style="margin-right: 15px;">
 										<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
@@ -101,19 +101,19 @@
 													{{csrf_field()}}
 													<div class="form-group col-sm-auto">
 														<label>Nama jabatan</label>
-														<input name="jabatan" id="jabatan" type="text" class="form-control">
+														<input name="jabatan" id="jabatan" type="text" class="form-control" required>
 													</div>
 													<div class="form-group col-sm-auto">
 														<label>Transport</label>
-														<input name="transport" id="transport" type="text" class="form-control">
+														<input name="transport" id="transport" type="text" class="form-control" required>
 													</div>					
 													<div class="form-group col-sm-auto">
 														<label>Pulsa</label>
-														<input name="pulsa" id="pulsa" type="text" class="form-control">
+														<input name="pulsa" id="pulsa" type="text" class="form-control" required>
 													</div>
 													<div class="form-group col-sm-auto">
 														<label>Tunjangan Jabatan</label>
-														<input name="tunj_jab" id="tunjangan" type="text" class="form-control">
+														<input name="tunj_jab" id="tunjangan" type="text" class="form-control" required>
 													</div>
 													<div class="float-right" style="margin-right: 15px;">
 														<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>

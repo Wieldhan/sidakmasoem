@@ -23,7 +23,7 @@
         <form action="/postlogin" method="POST">
           {{csrf_field()}}
           <div class="input-group mb-4">
-            <input name="email" type="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
+            <input name="email" type="email" class="form-control" placeholder="Email" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>

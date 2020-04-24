@@ -35,32 +35,32 @@
 						<div class="form-row">
 							<div class="form-group col-sm-3">
 								<label>No Induk Karyawan</label>
-								<input name="nik" type="text" class="form-control form-control-sm" placeholder="No. Reg atau NIK berdasarkan SK">
+								<input required name="nik" type="text" class="form-control form-control-sm" placeholder="No. Reg atau NIK berdasarkan SK">
 							</div>
 							<div class="form-group col-sm-3">
 								<label>No KTP</label>
-								<input name="no_ktp" type="text" class="form-control form-control-sm" placeholder="Ex. 32100xxxx">
+								<input required name="no_ktp" type="text" class="form-control form-control-sm" placeholder="Ex. 32100xxxx">
 							</div>
 							<div class="form-group col-sm-3">
 								<label>Nama Lengkap</label>
-								<input name="nama_lengkap" type="text" class="form-control form-control-sm" placeholder="Nama Sesuai KTP">
+								<input required name="nama_lengkap" type="text" class="form-control form-control-sm" placeholder="Nama Sesuai KTP">
 							</div>
 							<div class="form-group col-sm-3">
 								<label>Nama Panggilan</label>
-								<input name="nama_panggilan" type="text" class="form-control form-control-sm" placeholder="Contoh: Dobleh">
+								<input required name="nama_panggilan" type="text" class="form-control form-control-sm" placeholder="Contoh: Dobleh">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-sm-3">
 								<label for="formcontroljk">Jenis Kelamin</label>
-								<select name="jk" class="form-control form-control-sm" id="formcontroljk">
+								<select required name="jk" class="form-control form-control-sm" id="formcontroljk">
 									<option>Laki Laki</option>
 									<option>Perempuan</option>
 								</select>
 							</div>
 							<div class="form-group col-sm-3">
 								<label for="formcontrolagama">Agama</label>
-								<select name="agama" class="form-control form-control-sm" id="formcontrolagama" >
+								<select required name="agama" class="form-control form-control-sm" id="formcontrolagama" >
 									<option >Islam</option>
 									<option >Protestan</option>
 									<option >Khatolik</option>
@@ -70,21 +70,21 @@
 							</div>
 							<div class="form-group col-sm-3">
 								<label>Tempat Lahir</label>
-								<input name="tempat_lahir" type="text" class="form-control form-control-sm" placeholder="Kota Kelahiran">
+								<input required name="tempat_lahir" type="text" class="form-control form-control-sm" placeholder="Kota Kelahiran">
 							</div>
 							<div class="form-group col-sm-3">
 								<label>Tanggal Lahir</label>
-								<input name="tanggal_lahir" type="date" class="form-control form-control-sm">
+								<input required name="tanggal_lahir" type="date" class="form-control form-control-sm">
 							</div>	
 						</div>
 						<div class="form-row">
 							<div class="form-group col-sm-4">
 								<label>Nama Ibu Kandung</label>
-								<input name="ibukandung" type="text" class="form-control form-control-sm" placeholder="sesuai dengan KK">
+								<input required name="ibukandung" type="text" class="form-control form-control-sm" placeholder="sesuai dengan KK">
 							</div>
 							<div class="form-group col-sm-4">
 								<label for="formcontrolpernikahan">Status Pernikahan</label>
-								<select name="status_nikah" class="form-control form-control-sm" id="formcontrolpernikahan">
+								<select required name="status_nikah" class="form-control form-control-sm" id="formcontrolpernikahan">
 									<option>Belum Menikah</option>
 									<option>Menikah</option>
 									<option>Cerai</option>
@@ -99,7 +99,7 @@
 						<div class="form-row">							
 							<div class="form-group col-sm-4">
 								<label for="formcontrolgolongan">Golongan</label>
-								<select name="golongan_id" class="form-control form-control-sm" id="formcontrolgolongan" >
+								<select required name="golongan_id" class="form-control form-control-sm" id="formcontrolgolongan" >
 									@foreach($golongan as $dg)
 									<option value="{{$dg->id}}">{{$dg->golongan}}</option>
 									@endforeach
@@ -107,7 +107,7 @@
 							</div>
 							<div class="form-group col-sm-4">
 								<label for="formcontroljabatan">Jabatan</label>
-								<select name="jabatan_id" class="form-control form-control-sm" id="formcontroljabatan" >
+								<select required name="jabatan_id" class="form-control form-control-sm" id="formcontroljabatan" >
 									@foreach($jabatan as $dj)
 									<option value="{{$dj->id}}">{{$dj->jabatan}}</option>
 									@endforeach
@@ -117,29 +117,29 @@
 						<div class="form-row">
 							<div class="form-group col-sm-4">
 								<label>Alamat</label>
-								<textarea style="height: 75px;" name="alamat" class="form-control" placeholder="Alamat tinggal saat ini"></textarea>
+								<textarea style="height: 75px;" required name="alamat" class="form-control" placeholder="Alamat tinggal saat ini"></textarea>
 							</div>
 							<div class="form-group col-sm-4">
 								<label>Visi</label>
-								<textarea style="height: 75px;" name="visi" class="form-control" placeholder="Visi Bekerja di BPRS MASOEM"></textarea>
+								<textarea style="height: 75px;" required name="visi" class="form-control" placeholder="Visi Bekerja di BPRS MASOEM"></textarea>
 							</div>
 							<div class="form-group col-sm-4">
 								<label>Misi</label>
-								<textarea style="height: 75px;" name="misi" class="form-control" placeholder="Misi Bekerja di BPRS MASOEM"></textarea>
+								<textarea style="height: 75px;" required name="misi" class="form-control" placeholder="Misi Bekerja di BPRS MASOEM"></textarea>
 							</div>
 						</div>						
 						<div class="form-row">
 							<div class="form-group col-sm-4">
 								<label>No Telepon</label>
-								<input name="no_telepon" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
+								<input required name="no_telepon" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
 							</div>
 							<div class="form-group col-sm-4">
 								<label>E-Mail</label>
-								<input name="email" type="email" class="form-control form-control-sm" placeholder="contohemail@gmail.com">
+								<input required name="email" type="email" class="form-control form-control-sm" placeholder="contohemail@gmail.com">
 							</div>
 							<div class="form-group col-sm-4">
 								<label>No Telepon Keluarga</label>
-								<input name="no_keluarga" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
+								<input required name="no_keluarga" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
 							</div>
 						</div>
 						<hr>
@@ -364,16 +364,17 @@
 							<tr align="center">
 								<th>ID</th>
 								<th>NIK</th>
-								<th>NO KTP</th>
+								<!-- <th>NO KTP</th> -->
 								<th>Nama</th>
+								<th>Jenis Kelamin</th>
 								<th>Tempat Lahir</th>
 								<th>Tanggal Lahir</th>
-								<!-- <th>Agama</th> -->
+								<th>Agama</th>
 								<th>Golongan</th>
 								<th>Jabatan</th>
 								<th>Alamat</th>
 								<th>No Telepon</th>
-								<!-- <th>Email</th> -->
+								<th>Email</th>
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -382,16 +383,17 @@
 							<tr align="left">
 								<td>{{$karyawan->id}}</td>
 								<td>{{$karyawan->nik}}</td>
-								<td>{{$karyawan->no_ktp}}</td>
+								<!-- <td>{{$karyawan->no_ktp}}</td> -->
 								<td>{{$karyawan->nama_lengkap}}</td>
+								<td>{{$karyawan->jk}}</td>
 								<td>{{$karyawan->tempat_lahir}}</td>
 								<td>{{$karyawan->tanggal_lahir}}</td>
-								<!-- <td>{{$karyawan->agama}}</td> -->
+								<td>{{$karyawan->agama}}</td>
 								<td>{{$karyawan->golongan->golongan}}</td>
 								<td>{{$karyawan->jabatan->jabatan}}</td>
 								<td>{{$karyawan->alamat}}</td>
 								<td>{{$karyawan->no_telepon}}</td>
-								<!-- <td>{{$karyawan->email}}</td> -->
+								<td>{{$karyawan->user->email}}</td>
 								<td>
 									<a href="/karyawan/edit/{{$karyawan->id}}">
 										<button type="button" class="btn btn-sm btn-warning">Edit</button>

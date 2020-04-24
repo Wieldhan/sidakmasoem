@@ -24,59 +24,59 @@
           <div class="form-row">
             <div class="form-group col-sm-3">
               <label>No Induk Karyawan</label>
-              <input name="nik" type="text" class="form-control form-control-sm" value="{{$karyawan->nik}}">
+              <input required name="nik" type="text" class="form-control form-control-sm" value="{{$karyawan->nik}}">
             </div>
             <div class="form-group col-sm-3">
               <label>No KTP</label>
-              <input name="no_ktp" type="text" class="form-control form-control-sm" value="{{$karyawan->no_ktp}}">
+              <input required name="no_ktp" type="text" class="form-control form-control-sm" value="{{$karyawan->no_ktp}}">
             </div>
             <div class="form-group col-sm-3">
               <label>Nama Lengkap</label>
-              <input name="nama_lengkap" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_lengkap}}">
+              <input required name="nama_lengkap" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_lengkap}}">
             </div>
             <div class="form-group col-sm-3">
               <label>Nama Panggilan</label>
-              <input name="nama_panggilan" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_panggilan}}">
+              <input required name="nama_panggilan" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_panggilan}}">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-sm-3">
               <label for="formcontroljk">Jenis Kelamin</label>
-              <select name="jk" class="form-control form-control-sm" id="formcontroljk">
-                <option>Laki Laki</option>
-                <option>Perempuan</option>
+              <select required name="jk" class="form-control form-control-sm" id="formcontroljk">
+                <option value="Laki Laki" {{$karyawan->jk === "Laki Laki"? "selected" : ""}}>Laki Laki</option>
+                <option value="Perempuan" {{$karyawan->jk === "Perempuan"? "selected" : ""}}>Perempuan</option>
               </select>
             </div>
             <div class="form-group col-sm-3">
               <label for="formcontrolagama">Agama</label>
-              <select name="agama" class="form-control form-control-sm" id="formcontrolagama" >
-                <option>Islam</option>
-                <option>Protestan</option>
-                <option>Khatolik</option>
-                <option>Hindu</option>
-                <option>Buddha</option>
+              <select required name="agama" class="form-control form-control-sm" id="formcontrolagama" >
+                <option value="Islam" {{$karyawan->agama === "Islam"? "selected" : ""}}>Islam</option>
+                <option value="Protestan" {{$karyawan->agama === "Protestan"? "selected" : ""}}>Protestan</option>
+                <option value="Khatolik" {{$karyawan->agama === "Khatolik"? "selected" : ""}}>Khatolik</option>
+                <option value="Hindu" {{$karyawan->agama === "Hindu"? "selected" : ""}}>Hindu</option>
+                <option value="Buddha" {{$karyawan->agama === "Buddha"? "selected" : ""}}>Buddha</option>
               </select>
             </div>
             <div class="form-group col-sm-3">
               <label>Tempat Lahir</label>
-              <input name="tempat_lahir" type="text" class="form-control form-control-sm" value="{{$karyawan->tempat_lahir}}">
+              <input required name="tempat_lahir" type="text" class="form-control form-control-sm" value="{{$karyawan->tempat_lahir}}">
             </div>
             <div class="form-group col-sm-3">
               <label>Tanggal Lahir</label>
-              <input name="tanggal_lahir" type="date" class="form-control form-control-sm" value="{{$karyawan->tanggal_lahir}}">
+              <input required name="tanggal_lahir" type="date" class="form-control form-control-sm" value="{{$karyawan->tanggal_lahir}}">
             </div>  
           </div>
           <div class="form-row">
             <div class="form-group col-sm-4">
               <label>Nama Ibu Kandung</label>
-              <input name="ibukandung" type="text" class="form-control form-control-sm" value="{{$karyawan->ibukandung}}">
+              <input required name="ibukandung" type="text" class="form-control form-control-sm" value="{{$karyawan->ibukandung}}">
             </div>
             <div class="form-group col-sm-4">
               <label for="formcontrolpernikahan">Status Pernikahan</label>
-              <select name="status_nikah" class="form-control form-control-sm" id="formcontrolpernikahan">
-                <option>Belum Menikah</option>
-                <option>Menikah</option>
-                <option>Cerai</option>
+              <select required name="status_nikah" class="form-control form-control-sm" id="formcontrolpernikahan">
+                <option value="Belum Menikah" {{$karyawan->status_nikah === "Belum Menikah"? "selected" : ""}}>Belum Menikah</option>
+                <option value="Menikah" {{$karyawan->status_nikah === "Menikah"? "selected" : ""}}>Menikah</option>
+                <option value="Cerai" {{$karyawan->status_nikah === "Cerai"? "selected" : ""}}>Cerai</option>
               </select>
             </div>
             <div class="form-group col-sm-4">
@@ -88,7 +88,7 @@
           <div class="form-row">              
             <div class="form-group col-sm-4">
               <label for="formcontrolgolongan">Golongan</label>
-              <select name="golongan_id" class="form-control form-control-sm" id="formcontrolgolongan">
+              <select required name="golongan_id" class="form-control form-control-sm" id="formcontrolgolongan">
                 @foreach($golongan as $dg)
                 <option value="{{$dg->id}}" {{( $dg->id == $karyawan->golongan_id) ? 'selected' : '' }}>{{$dg->golongan}}</option>
                 @endforeach
@@ -96,7 +96,7 @@
             </div>
             <div class="form-group col-sm-4">
               <label for="formcontroljabatan">Jabatan</label>
-              <select name="jabatan_id" class="form-control form-control-sm" id="formcontroljabatan" >
+              <select required name="jabatan_id" class="form-control form-control-sm" id="formcontroljabatan" >
                 @foreach($jabatan as $dj)
                 <option value="{{$dj->id}}" {{( $dj->id == $karyawan->jabatan_id) ? 'selected' : '' }}>{{$dj->jabatan}}</option>
                 @endforeach
@@ -106,29 +106,29 @@
           <div class="form-row">
             <div class="form-group col-sm-4">
               <label>Alamat</label>
-              <textarea style="height: 75px;" name="alamat" class="form-control" placeholder="Alamat tinggal saat ini"></textarea>
+              <textarea style="height: 75px;" required name="alamat" class="form-control">{{$karyawan->alamat}}</textarea>
             </div>
             <div class="form-group col-sm-4">
               <label>Visi</label>
-              <textarea style="height: 75px;" name="visi" class="form-control" placeholder="Visi Bekerja di BPRS MASOEM"></textarea>
+              <textarea style="height: 75px;" required name="visi" class="form-control">{{$karyawan->visi}}</textarea>
             </div>
             <div class="form-group col-sm-4">
               <label>Misi</label>
-              <textarea style="height: 75px;" name="misi" class="form-control" placeholder="Misi Bekerja di BPRS MASOEM"></textarea>
+              <textarea style="height: 75px;" required name="misi" class="form-control">{{$karyawan->misi}}</textarea>
             </div>
           </div>            
           <div class="form-row">
             <div class="form-group col-sm-4">
               <label>No Telepon</label>
-              <input name="no_telepon" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
+              <input required name="no_telepon" type="text" class="form-control form-control-sm" value="{{$karyawan->no_telepon}}">
             </div>
             <div class="form-group col-sm-4">
               <label>E-Mail</label>
-              <input name="email" type="email" class="form-control form-control-sm" placeholder="contohemail@gmail.com">
+              <input required readonly name="email" type="email" class="form-control form-control-sm" value="{{$karyawan->user->email}}">
             </div>
             <div class="form-group col-sm-4">
               <label>No Telepon Keluarga</label>
-              <input name="no_keluarga" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
+              <input required name="no_keluarga" type="text" class="form-control form-control-sm" value="{{$karyawan->no_keluarga}}">
             </div>
           </div>
           <hr>
@@ -149,16 +149,16 @@
                   <span>SMA / SMK</span>
                 </td>
                 <td>
-                  <input name="sma_nama" type="text" class="form-control form-control-sm">
+                  <input name="sma_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_nama}}">
                 </td>
                 <td>
-                  <input name="sam_jurusan" type="text" class="form-control form-control-sm">
+                  <input name="sma_jurusan" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_jurusan}}">
                 </td>
                 <td>
-                  <input name="sma_lulus" type="text" class="form-control form-control-sm">
+                  <input name="sma_lulus" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_lulus}}">
                 </td>
                 <td>
-                  <input name="sma_nilai" type="text" class="form-control form-control-sm">
+                  <input name="sma_nilai" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_nilai}}">
                 </td>
               </tr>
               <tr>
@@ -166,16 +166,16 @@
                   <span>PERGURUAN TINGGI</span>
                 </td>
                 <td>
-                  <input name="s1_nama" type="text" class="form-control form-control-sm">
+                  <input name="s1_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_nama}}">
                 </td>
                 <td>
-                  <input name="s1_jurusan" type="text" class="form-control form-control-sm">
+                  <input name="s1_jurusan" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_jurusan}}">
                 </td>
                 <td>
-                  <input name="s1_lulus" type="text" class="form-control form-control-sm">
+                  <input name="s1_lulus" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_lulus}}">
                 </td>
                 <td>
-                  <input name="s1_nilai" type="text" class="form-control form-control-sm">
+                  <input name="s1_nilai" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_nilai}}">
                 </td>
               </tr>
               <tr>
@@ -183,16 +183,16 @@
                   <span>PERGURUAN TINGGI (S2)</span>
                 </td>
                 <td>
-                  <input name="s2_nama" type="text" class="form-control form-control-sm">
+                  <input name="s2_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_nama}}">
                 </td>
                 <td>
-                  <input name="s2_jurusan" type="text" class="form-control form-control-sm">
+                  <input name="s2_jurusan" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_jurusan}}">
                 </td>
                 <td>
-                  <input name="s2_lulus" type="text" class="form-control form-control-sm">
+                  <input name="s2_lulus" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_lulus}}">
                 </td>
                 <td>
-                  <input name="s2_nilai" type="text" class="form-control form-control-sm">
+                  <input name="s2_nilai" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_nilai}}">
                 </td>
               </tr>
             </tbody>
@@ -215,16 +215,16 @@
                   <span>1</span>
                 </td>
                 <td>
-                  <input name="or_nama" type="text" class="form-control form-control-sm">
+                  <input name="or_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->or_nama}}">
                 </td>
                 <td>
-                  <input name="or_jenis" type="text" class="form-control form-control-sm">
+                  <input name="or_jenis" type="text" class="form-control form-control-sm" value="{{$karyawan->or_jenis}}">
                 </td>
                 <td>
-                  <input name="or_status" type="text" class="form-control form-control-sm">
+                  <input name="or_status" type="text" class="form-control form-control-sm" value="{{$karyawan->or_status}}">
                 </td>
                 <td>
-                  <input name="or_periode" type="text" class="form-control form-control-sm">
+                  <input name="or_periode" type="text" class="form-control form-control-sm" value="{{$karyawan->or_periode}}">
                 </td>
               </tr>
               <tr>
@@ -232,16 +232,16 @@
                   <span>2</span>
                 </td>
                 <td>
-                  <input name="or2_nama" type="text" class="form-control form-control-sm">
+                  <input name="or2_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_nama}}">
                 </td>
                 <td>
-                  <input name="or2_jenis" type="text" class="form-control form-control-sm">
+                  <input name="or2_jenis" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_jenis}}">
                 </td>
                 <td>
-                  <input name="or2_status" type="text" class="form-control form-control-sm">
+                  <input name="or2_status" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_status}}">
                 </td>
                 <td>
-                  <input name="or2_periode" type="text" class="form-control form-control-sm">
+                  <input name="or2_periode" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_periode}}">
                 </td>
               </tr>
               <tr>
@@ -249,16 +249,16 @@
                   <span>3</span>
                 </td>
                 <td>
-                  <input name="or3_nama" type="text" class="form-control form-control-sm">
+                  <input name="or3_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_nama}}">
                 </td>
                 <td>
-                  <input name="or3_jenis" type="text" class="form-control form-control-sm">
+                  <input name="or3_jenis" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_jenis}}">
                 </td>
                 <td>
-                  <input name="or3_status" type="text" class="form-control form-control-sm">
+                  <input name="or3_status" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_status}}">
                 </td>
                 <td>
-                  <input name="or3_periode" type="text" class="form-control form-control-sm">
+                  <input name="or3_periode" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_periode}}">
                 </td>
               </tr>
             </tbody>
@@ -281,16 +281,16 @@
                   <span>1</span>
                 </td>
                 <td>
-                  <input name="pr_nama" type="text" class="form-control form-control-sm">
+                  <input name="pr_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_nama}}">
                 </td>
                 <td>
-                  <input name="pr_jabatan" type="text" class="form-control form-control-sm">
+                  <input name="pr_jabatan" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_jabatan}}">
                 </td>
                 <td>
-                  <input name="pr_thmasuk" type="text" class="form-control form-control-sm">
+                  <input name="pr_thmasuk" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_thmasuk}}">
                 </td>
                 <td>
-                  <input name="pr_thkeluar" type="text" class="form-control form-control-sm">
+                  <input name="pr_thkeluar" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_thkeluar}}">
                 </td>
               </tr>
               <tr>
@@ -298,16 +298,16 @@
                   <span>2</span>
                 </td>
                 <td>
-                  <input name="pr2_nama" type="text" class="form-control form-control-sm">
+                  <input name="pr2_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_nama}}">
                 </td>
                 <td>
-                  <input name="pr2_jabatan" type="text" class="form-control form-control-sm">
+                  <input name="pr2_jabatan" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_jabatan}}">
                 </td>
                 <td>
-                  <input name="pr2_thmasuk" type="text" class="form-control form-control-sm">
+                  <input name="pr2_thmasuk" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_thmasuk}}">
                 </td>
                 <td>
-                  <input name="pr2_thkeluar" type="text" class="form-control form-control-sm">
+                  <input name="pr2_thkeluar" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_thkeluar}}">
                 </td>
               </tr>
               <tr>
@@ -315,16 +315,16 @@
                   <span>3</span>
                 </td>
                 <td>
-                  <input name="pr3_nama" type="text" class="form-control form-control-sm">
+                  <input name="pr3_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_nama}}">
                 </td>
                 <td>
-                  <input name="pr3_jabatan" type="text" class="form-control form-control-sm">
+                  <input name="pr3_jabatan" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_jabatan}}">
                 </td>
                 <td>
-                  <input name="pr3_thmasuk" type="text" class="form-control form-control-sm">
+                  <input name="pr3_thmasuk" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_thmasuk}}">
                 </td>
                 <td>
-                  <input name="pr3_thkeluar" type="text" class="form-control form-control-sm">
+                  <input name="pr3_thkeluar" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_thkeluar}}">
                 </td>
               </tr>
             </tbody>
@@ -336,8 +336,10 @@
               <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
             </div>
             <div class="col-2">
-              <button type="reset" class="btn btn-info" data-dismiss="card">BATAL</button>
-              <button type="submit" class="btn btn-primary">UPDATES</button>
+              <a href="/karyawan">
+                <button type="button" class="btn btn-info">BACK</button>
+              </a>
+              <button type="submit" class="btn btn-primary">UPDATE</button>
             </div>
           </div>
         </form>
