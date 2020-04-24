@@ -43,11 +43,10 @@ class KaryawanController extends Controller
 	}
 	public function edit($id)
 	{
-		$karyawan = karyawan::findOrFail($id);
-		$karyawan = karyawan::all();
+		$karyawan = karyawan::where('id',$id)->first();
 		$golongan = golongan::all();
 		$jabatan = jabatan::all();
-		return view('karyawan.edit', compact('karyawan', 'golongan','jabatan'));
+		return view('karyawan.edit', compact('karyawan','golongan','jabatan'));
 	}
 
 	public function update(Request $request, $id)
