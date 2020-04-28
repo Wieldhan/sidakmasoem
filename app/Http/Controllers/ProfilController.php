@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Karyawan;
+use App\Golongan;
+use App\Jabatan;
+use App\User;
 class ProfilController extends Controller
 {
 	public function index()
@@ -12,8 +15,6 @@ class ProfilController extends Controller
 		$golongan = golongan::all();
 		$jabatan = jabatan::all();
 		$user = jabatan::all();
-		return view('karyawan.index', compact('karyawan','user','golongan','jabatan'));
-	}
-
-	
+		return view('karyawan.profil', compact('karyawan','user','golongan','jabatan'));
+	}	
 }

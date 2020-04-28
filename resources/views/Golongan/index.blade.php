@@ -28,15 +28,15 @@
 									{{csrf_field()}}										
 									<div class="form-group col-sm-auto">
 										<label>Kode Golongan</label>
-										<input name="golongan" type="text" class="form-control" required>
+										<input name="golongan" type="text" class="form-control" required maxlength="15">
 									</div>
 									<div class="form-group col-sm-auto">
 										<label>Gaji Pokok</label>
-										<input name="gaji_pokok" type="text" class="form-control" required>
+										<input name="gaji_pokok" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
 									</div>					
 									<div class="form-group col-sm-auto">
 										<label>Uang Makan</label>
-										<input name="uang_makan" type="text" class="form-control" required>
+										<input name="uang_makan" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
 									</div>																														
 									<div class="float-right" style="margin-right: 15px;">
 										<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
@@ -95,15 +95,15 @@
 													{{csrf_field()}}										
 													<div class="form-group col-sm-auto">
 														<label>Kode Golongan</label>
-														<input name="golongan" id="golong" type="text" class="form-control" required>
+														<input name="golongan" id="golong" type="text" class="form-control" required maxlength="15">
 													</div>
 													<div class="form-group col-sm-auto">
 														<label>Gaji Pokok</label>
-														<input name="gaji_pokok" id="gaji" type="text" class="form-control" required>
+														<input name="gaji_pokok" id="gaji" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
 													</div>					
 													<div class="form-group col-sm-auto">
 														<label>Uang Makan</label>
-														<input name="uang_makan" id="makan" type="text" class="form-control" required>
+														<input name="uang_makan" id="makan" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
 													</div>
 													<div class="float-right" style="margin-right: 15px;">
 														<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>

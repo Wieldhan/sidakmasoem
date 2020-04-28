@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>BPRS ALMASOEM | DAFTAR</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/adminLTE/fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="/adminlte/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <link rel="stylesheet" href="/adminlte/css/adminlte.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather|Oswald&display=swap" rel="stylesheet">
+  @include('layout.head')
 </head>
 <body style="font-family:'Oswald',sans-serif; background-image: url('../images/bg-login.jpg'); background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;">
   <div class="container-fluid" >
@@ -24,11 +15,11 @@
         <div class="form-row">
           <div class="form-group col-sm-3">
             <label>No Induk Karyawan</label>
-            <input required name="nik" type="text" class="form-control form-control-sm" placeholder="No. Reg atau NIK berdasarkan SK">
+            <input required name="nik" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" placeholder="No. Reg atau NIK berdasarkan SK">
           </div>
           <div class="form-group col-sm-3">
             <label>No KTP</label>
-            <input required name="no_ktp" type="text" class="form-control form-control-sm" placeholder="Ex. 32100xxxx">
+            <input required name="no_ktp" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" placeholder="Ex. 32100xxxx">
           </div>
           <div class="form-group col-sm-3">
             <label>Nama Lengkap</label>
@@ -120,7 +111,7 @@
         <div class="form-row">
           <div class="form-group col-sm-4">
             <label>No Telepon</label>
-            <input required name="no_telepon" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
+            <input required name="no_telepon" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
           </div>
           <div class="form-group col-sm-4">
             <label>E-Mail</label>
@@ -128,7 +119,7 @@
           </div>
           <div class="form-group col-sm-4">
             <label>No Telepon Keluarga</label>
-            <input required name="no_keluarga" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
+            <input required name="no_keluarga" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
           </div>
         </div>
         <hr>
@@ -344,11 +335,7 @@
     </div>
   </div>
 </div>
-<script src="/adminlte/jquery/jquery.min.js"></script>
-<script src="/adminlte/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/adminlte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<script src="/adminlte/js/adminlte.min.js"></script>
-<script src="/adminlte/js/demo.js"></script>
+@include('layout.script')
 @include('sweetalert::alert')
 </body>
 </html>

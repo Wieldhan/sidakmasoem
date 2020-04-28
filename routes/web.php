@@ -23,8 +23,10 @@ Route::post('postlogin', 'authController@postlogin');
 Route::get('logout', 'authController@logout');
 Route::get('daftar', 'authController@daftar');
 Route::post('simpandaftar', 'authController@simpandaftar');
+
+
 Route::get('dashboard', 'dashboardController@index');
-Route::get('profil','profilControler@index');
+Route::get('profil','profilController@index');
 
 Route::group(['middleware'=>'auth'],function(){
 
@@ -38,8 +40,8 @@ Route::group(['middleware'=>'auth'],function(){
 // Routes Golongan
 	Route::get('golongan', 'golonganController@index');
 	Route::post('/golongan/simpan', 'golonganController@simpan');
-	Route::post('/golongan/update/{id}', 'golonganController@update');
-	Route::get('/golongan/hapus/{id}', 'golonganController@delete');
+	Route::post('/golongan/update/{golongan}', 'golonganController@update');
+	Route::get('/golongan/hapus/{golongan}', 'golonganController@delete');
 
 // Routes Jabatan
 	Route::get('jabatan', 'jabatanController@index');

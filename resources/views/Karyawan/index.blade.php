@@ -35,19 +35,19 @@
 						<div class="form-row">
 							<div class="form-group col-sm-3">
 								<label>No Induk Karyawan</label>
-								<input required name="nik" type="text" class="form-control form-control-sm" placeholder="No. Reg atau NIK berdasarkan SK">
+								<input required name="nik" type="text" class="form-control form-control-sm" placeholder="No. Reg atau NIK berdasarkan SK" maxlength="10">
 							</div>
 							<div class="form-group col-sm-3">
 								<label>No KTP</label>
-								<input required name="no_ktp" type="text" class="form-control form-control-sm" placeholder="Ex. 32100xxxx">
+								<input required name="no_ktp" type="text" class="form-control form-control-sm" placeholder="Ex. 32100xxxx" maxlength="20">
 							</div>
 							<div class="form-group col-sm-3">
 								<label>Nama Lengkap</label>
-								<input required name="nama_lengkap" type="text" class="form-control form-control-sm" placeholder="Nama Sesuai KTP">
+								<input required name="nama_lengkap" type="text" class="form-control form-control-sm" placeholder="Nama Sesuai KTP" maxlength="25">
 							</div>
 							<div class="form-group col-sm-3">
 								<label>Nama Panggilan</label>
-								<input required name="nama_panggilan" type="text" class="form-control form-control-sm" placeholder="Contoh: Dobleh">
+								<input required name="nama_panggilan" type="text" class="form-control form-control-sm" placeholder="Contoh: Dobleh" maxlength="15">
 							</div>
 						</div>
 						<div class="form-row">
@@ -70,7 +70,7 @@
 							</div>
 							<div class="form-group col-sm-3">
 								<label>Tempat Lahir</label>
-								<input required name="tempat_lahir" type="text" class="form-control form-control-sm" placeholder="Kota Kelahiran">
+								<input required name="tempat_lahir" type="text" class="form-control form-control-sm" placeholder="Kota Kelahiran" maxlength="25">
 							</div>
 							<div class="form-group col-sm-3">
 								<label>Tanggal Lahir</label>
@@ -80,7 +80,7 @@
 						<div class="form-row">
 							<div class="form-group col-sm-4">
 								<label>Nama Ibu Kandung</label>
-								<input required name="ibukandung" type="text" class="form-control form-control-sm" placeholder="sesuai dengan KK">
+								<input required name="ibukandung" type="text" class="form-control form-control-sm" placeholder="sesuai dengan KK" maxlength="25">
 							</div>
 							<div class="form-group col-sm-4">
 								<label for="formcontrolpernikahan">Status Pernikahan</label>
@@ -92,7 +92,7 @@
 							</div>
 							<div class="form-group col-sm-4">
 								<label>Nama Pasangan</label>
-								<input name="nama_pasangan" type="text" class="form-control form-control-sm" placeholder="Nama Suami / Istri">
+								<input name="nama_pasangan" type="text" class="form-control form-control-sm" placeholder="Nama Suami / Istri" maxlength="25">
 							</div>
 						</div>
 						<hr>
@@ -131,7 +131,7 @@
 						<div class="form-row">
 							<div class="form-group col-sm-4">
 								<label>No Telepon</label>
-								<input required name="no_telepon" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
+								<input required name="no_telepon" type="text" class="form-control form-control-sm" placeholder="081xxxxxx" maxlength="15">
 							</div>
 							<div class="form-group col-sm-4">
 								<label>E-Mail</label>
@@ -139,7 +139,7 @@
 							</div>
 							<div class="form-group col-sm-4">
 								<label>No Telepon Keluarga</label>
-								<input required name="no_keluarga" type="text" class="form-control form-control-sm" placeholder="081xxxxxx">
+								<input required name="no_keluarga" type="text" class="form-control form-control-sm" placeholder="081xxxxxx" maxlength="15">
 							</div>
 						</div>
 						<hr>
@@ -160,16 +160,16 @@
 										<span>SMA / SMK</span>
 									</td>
 									<td>
-										<input name="sma_nama" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="sma_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="sam_jurusan" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="sam_jurusan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="sma_lulus" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="sma_lulus" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="sma_nilai" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="sma_nilai" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -177,16 +177,16 @@
 										<span>PERGURUAN TINGGI</span>
 									</td>
 									<td>
-										<input name="s1_nama" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="s1_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="s1_jurusan" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="s1_jurusan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="s1_lulus" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="s1_lulus" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="s1_nilai" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="s1_nilai" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -194,16 +194,16 @@
 										<span>PERGURUAN TINGGI (S2)</span>
 									</td>
 									<td>
-										<input name="s2_nama" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="s2_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="s2_jurusan" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="s2_jurusan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="s2_lulus" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="s2_lulus" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="s2_nilai" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="s2_nilai" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 							</tbody>
@@ -226,16 +226,16 @@
 										<span>1</span>
 									</td>
 									<td>
-										<input name="or_nama" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="or_jenis" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or_jenis" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="or_status" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or_status" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="or_periode" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or_periode" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -243,16 +243,16 @@
 										<span>2</span>
 									</td>
 									<td>
-										<input name="or2_nama" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or2_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="or2_jenis" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or2_jenis" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="or2_status" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or2_status" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="or2_periode" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or2_periode" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -260,16 +260,16 @@
 										<span>3</span>
 									</td>
 									<td>
-										<input name="or3_nama" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or3_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="or3_jenis" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or3_jenis" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="or3_status" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or3_status" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="or3_periode" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="or3_periode" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 							</tbody>
@@ -292,16 +292,16 @@
 										<span>1</span>
 									</td>
 									<td>
-										<input name="pr_nama" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="pr_jabatan" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr_jabatan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="pr_thmasuk" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr_thmasuk" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="pr_thkeluar" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr_thkeluar" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -309,16 +309,16 @@
 										<span>2</span>
 									</td>
 									<td>
-										<input name="pr2_nama" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr2_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="pr2_jabatan" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr2_jabatan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="pr2_thmasuk" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr2_thmasuk" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="pr2_thkeluar" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr2_thkeluar" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 								<tr>
@@ -326,16 +326,16 @@
 										<span>3</span>
 									</td>
 									<td>
-										<input name="pr3_nama" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr3_nama" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="pr3_jabatan" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr3_jabatan" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="pr3_thmasuk" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr3_thmasuk" type="text" class="form-control form-control-sm">
 									</td>
 									<td>
-										<input name="pr3_thkeluar" type="text" class="form-control form-control-sm">
+										<input maxlength="25" name="pr3_thkeluar" type="text" class="form-control form-control-sm">
 									</td>
 								</tr>
 							</tbody>
@@ -393,7 +393,7 @@
 								<td>{{$karyawan->jabatan->jabatan}}</td>
 								<td>{{$karyawan->alamat}}</td>
 								<td>{{$karyawan->no_telepon}}</td>
-								<td>{{$karyawan->user->email}}</td>
+								<td><a href="#">{{$karyawan->user->email}}</a></td>
 								<td>
 									<a href="/karyawan/edit/{{$karyawan->id}}">
 										<button type="button" class="btn btn-sm btn-warning">Edit</button>

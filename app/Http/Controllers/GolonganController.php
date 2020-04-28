@@ -22,17 +22,15 @@ class GolonganController extends Controller
 		return redirect('/golongan');
 	}
 
-	public function delete($id)
+	public function delete(golongan $golongan)
 	{
-		$golongan = golongan::find($id);
 		$golongan->delete();
 		alert()->success('SUCCES.','DATA BERHASIL DIHAPUS!');
 		return redirect('/golongan');
 	}
 
-	public function update(Request $request, $id)
+	public function update(Request $request, golongan $golongan)
 	{
-		$golongan = golongan::find($id);
 		$golongan->update($request->all());
 		alert()->success('SUCCES.','DATA BERHASIL UPDATE!');
 		return redirect('/golongan');

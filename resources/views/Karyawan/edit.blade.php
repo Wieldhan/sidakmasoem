@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>BPRS ALMASOEM | SIDAK MASOEM</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/adminLTE/fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="/adminlte/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <link rel="stylesheet" href="/adminlte/css/adminlte.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather|Oswald&display=swap" rel="stylesheet">
+  @include('layout.head')
 </head>
 <body style="font-family:'Oswald',sans-serif; background-color:#0A64F9">
   <div class="container-fluid" >
@@ -24,19 +15,19 @@
           <div class="form-row">
             <div class="form-group col-sm-3">
               <label>No Induk Karyawan</label>
-              <input required name="nik" type="text" class="form-control form-control-sm" value="{{$karyawan->nik}}">
+              <input maxlength="10" required name="nik" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" value="{{$karyawan->nik}}">
             </div>
             <div class="form-group col-sm-3">
               <label>No KTP</label>
-              <input required name="no_ktp" type="text" class="form-control form-control-sm" value="{{$karyawan->no_ktp}}">
+              <input maxlength="20" required name="no_ktp" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" value="{{$karyawan->no_ktp}}">
             </div>
             <div class="form-group col-sm-3">
               <label>Nama Lengkap</label>
-              <input required name="nama_lengkap" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_lengkap}}">
+              <input maxlength="25" required name="nama_lengkap" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_lengkap}}">
             </div>
             <div class="form-group col-sm-3">
               <label>Nama Panggilan</label>
-              <input required name="nama_panggilan" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_panggilan}}">
+              <input maxlength="15" required name="nama_panggilan" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_panggilan}}">
             </div>
           </div>
           <div class="form-row">
@@ -59,7 +50,7 @@
             </div>
             <div class="form-group col-sm-3">
               <label>Tempat Lahir</label>
-              <input required name="tempat_lahir" type="text" class="form-control form-control-sm" value="{{$karyawan->tempat_lahir}}">
+              <input maxlength="25" required name="tempat_lahir" type="text" class="form-control form-control-sm" value="{{$karyawan->tempat_lahir}}">
             </div>
             <div class="form-group col-sm-3">
               <label>Tanggal Lahir</label>
@@ -69,7 +60,7 @@
           <div class="form-row">
             <div class="form-group col-sm-4">
               <label>Nama Ibu Kandung</label>
-              <input required name="ibukandung" type="text" class="form-control form-control-sm" value="{{$karyawan->ibukandung}}">
+              <input maxlength="25" required name="ibukandung" type="text" class="form-control form-control-sm" value="{{$karyawan->ibukandung}}">
             </div>
             <div class="form-group col-sm-4">
               <label for="formcontrolpernikahan">Status Pernikahan</label>
@@ -81,7 +72,7 @@
             </div>
             <div class="form-group col-sm-4">
               <label>Nama Pasangan</label>
-              <input name="nama_pasangan" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_pasangan}}">
+              <input maxlength="25" name="nama_pasangan" type="text" class="form-control form-control-sm" value="{{$karyawan->nama_pasangan}}">
             </div>
           </div>
           <hr>
@@ -120,7 +111,7 @@
           <div class="form-row">
             <div class="form-group col-sm-4">
               <label>No Telepon</label>
-              <input required name="no_telepon" type="text" class="form-control form-control-sm" value="{{$karyawan->no_telepon}}">
+              <input maxlength="15" required name="no_telepon" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" value="{{$karyawan->no_telepon}}">
             </div>
             <div class="form-group col-sm-4">
               <label>E-Mail</label>
@@ -128,7 +119,7 @@
             </div>
             <div class="form-group col-sm-4">
               <label>No Telepon Keluarga</label>
-              <input required name="no_keluarga" type="text" class="form-control form-control-sm" value="{{$karyawan->no_keluarga}}">
+              <input maxlength="15" required name="no_keluarga" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" value="{{$karyawan->no_keluarga}}">
             </div>
           </div>
           <hr>
@@ -149,16 +140,16 @@
                   <span>SMA / SMK</span>
                 </td>
                 <td>
-                  <input name="sma_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_nama}}">
+                  <input maxlength="25" name="sma_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_nama}}">
                 </td>
                 <td>
-                  <input name="sma_jurusan" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_jurusan}}">
+                  <input maxlength="25" name="sma_jurusan" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_jurusan}}">
                 </td>
                 <td>
-                  <input name="sma_lulus" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_lulus}}">
+                  <input maxlength="25" name="sma_lulus" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_lulus}}">
                 </td>
                 <td>
-                  <input name="sma_nilai" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_nilai}}">
+                  <input maxlength="25" name="sma_nilai" type="text" class="form-control form-control-sm" value="{{$karyawan->sma_nilai}}">
                 </td>
               </tr>
               <tr>
@@ -166,16 +157,16 @@
                   <span>PERGURUAN TINGGI</span>
                 </td>
                 <td>
-                  <input name="s1_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_nama}}">
+                  <input maxlength="25" name="s1_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_nama}}">
                 </td>
                 <td>
-                  <input name="s1_jurusan" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_jurusan}}">
+                  <input maxlength="25" name="s1_jurusan" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_jurusan}}">
                 </td>
                 <td>
-                  <input name="s1_lulus" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_lulus}}">
+                  <input maxlength="25" name="s1_lulus" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_lulus}}">
                 </td>
                 <td>
-                  <input name="s1_nilai" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_nilai}}">
+                  <input maxlength="25" name="s1_nilai" type="text" class="form-control form-control-sm" value="{{$karyawan->s1_nilai}}">
                 </td>
               </tr>
               <tr>
@@ -183,16 +174,16 @@
                   <span>PERGURUAN TINGGI (S2)</span>
                 </td>
                 <td>
-                  <input name="s2_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_nama}}">
+                  <input maxlength="25" name="s2_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_nama}}">
                 </td>
                 <td>
-                  <input name="s2_jurusan" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_jurusan}}">
+                  <input maxlength="25" name="s2_jurusan" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_jurusan}}">
                 </td>
                 <td>
-                  <input name="s2_lulus" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_lulus}}">
+                  <input maxlength="25" name="s2_lulus" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_lulus}}">
                 </td>
                 <td>
-                  <input name="s2_nilai" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_nilai}}">
+                  <input maxlength="25" name="s2_nilai" type="text" class="form-control form-control-sm" value="{{$karyawan->s2_nilai}}">
                 </td>
               </tr>
             </tbody>
@@ -215,16 +206,16 @@
                   <span>1</span>
                 </td>
                 <td>
-                  <input name="or_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->or_nama}}">
+                  <input maxlength="25" name="or_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->or_nama}}">
                 </td>
                 <td>
-                  <input name="or_jenis" type="text" class="form-control form-control-sm" value="{{$karyawan->or_jenis}}">
+                  <input maxlength="25" name="or_jenis" type="text" class="form-control form-control-sm" value="{{$karyawan->or_jenis}}">
                 </td>
                 <td>
-                  <input name="or_status" type="text" class="form-control form-control-sm" value="{{$karyawan->or_status}}">
+                  <input maxlength="25" name="or_status" type="text" class="form-control form-control-sm" value="{{$karyawan->or_status}}">
                 </td>
                 <td>
-                  <input name="or_periode" type="text" class="form-control form-control-sm" value="{{$karyawan->or_periode}}">
+                  <input maxlength="25" name="or_periode" type="text" class="form-control form-control-sm" value="{{$karyawan->or_periode}}">
                 </td>
               </tr>
               <tr>
@@ -232,16 +223,16 @@
                   <span>2</span>
                 </td>
                 <td>
-                  <input name="or2_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_nama}}">
+                  <input maxlength="25" name="or2_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_nama}}">
                 </td>
                 <td>
-                  <input name="or2_jenis" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_jenis}}">
+                  <input maxlength="25" name="or2_jenis" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_jenis}}">
                 </td>
                 <td>
-                  <input name="or2_status" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_status}}">
+                  <input maxlength="25" name="or2_status" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_status}}">
                 </td>
                 <td>
-                  <input name="or2_periode" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_periode}}">
+                  <input maxlength="25" name="or2_periode" type="text" class="form-control form-control-sm" value="{{$karyawan->or2_periode}}">
                 </td>
               </tr>
               <tr>
@@ -249,16 +240,16 @@
                   <span>3</span>
                 </td>
                 <td>
-                  <input name="or3_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_nama}}">
+                  <input maxlength="25" name="or3_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_nama}}">
                 </td>
                 <td>
-                  <input name="or3_jenis" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_jenis}}">
+                  <input maxlength="25" name="or3_jenis" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_jenis}}">
                 </td>
                 <td>
-                  <input name="or3_status" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_status}}">
+                  <input maxlength="25" name="or3_status" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_status}}">
                 </td>
                 <td>
-                  <input name="or3_periode" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_periode}}">
+                  <input maxlength="25" name="or3_periode" type="text" class="form-control form-control-sm" value="{{$karyawan->or3_periode}}">
                 </td>
               </tr>
             </tbody>
@@ -281,16 +272,16 @@
                   <span>1</span>
                 </td>
                 <td>
-                  <input name="pr_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_nama}}">
+                  <input maxlength="25" name="pr_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_nama}}">
                 </td>
                 <td>
-                  <input name="pr_jabatan" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_jabatan}}">
+                  <input maxlength="25" name="pr_jabatan" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_jabatan}}">
                 </td>
                 <td>
-                  <input name="pr_thmasuk" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_thmasuk}}">
+                  <input maxlength="25" name="pr_thmasuk" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_thmasuk}}">
                 </td>
                 <td>
-                  <input name="pr_thkeluar" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_thkeluar}}">
+                  <input maxlength="25" name="pr_thkeluar" type="text" class="form-control form-control-sm" value="{{$karyawan->pr_thkeluar}}">
                 </td>
               </tr>
               <tr>
@@ -298,16 +289,16 @@
                   <span>2</span>
                 </td>
                 <td>
-                  <input name="pr2_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_nama}}">
+                  <input maxlength="25" name="pr2_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_nama}}">
                 </td>
                 <td>
-                  <input name="pr2_jabatan" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_jabatan}}">
+                  <input maxlength="25" name="pr2_jabatan" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_jabatan}}">
                 </td>
                 <td>
-                  <input name="pr2_thmasuk" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_thmasuk}}">
+                  <input maxlength="25" name="pr2_thmasuk" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_thmasuk}}">
                 </td>
                 <td>
-                  <input name="pr2_thkeluar" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_thkeluar}}">
+                  <input maxlength="25" name="pr2_thkeluar" type="text" class="form-control form-control-sm" value="{{$karyawan->pr2_thkeluar}}">
                 </td>
               </tr>
               <tr>
@@ -315,16 +306,16 @@
                   <span>3</span>
                 </td>
                 <td>
-                  <input name="pr3_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_nama}}">
+                  <input maxlength="25" name="pr3_nama" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_nama}}">
                 </td>
                 <td>
-                  <input name="pr3_jabatan" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_jabatan}}">
+                  <input maxlength="25" name="pr3_jabatan" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_jabatan}}">
                 </td>
                 <td>
-                  <input name="pr3_thmasuk" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_thmasuk}}">
+                  <input maxlength="25" name="pr3_thmasuk" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_thmasuk}}">
                 </td>
                 <td>
-                  <input name="pr3_thkeluar" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_thkeluar}}">
+                  <input maxlength="25" name="pr3_thkeluar" type="text" class="form-control form-control-sm" value="{{$karyawan->pr3_thkeluar}}">
                 </td>
               </tr>
             </tbody>
@@ -346,10 +337,6 @@
       </div>
     </div>
   </div>
-  <script src="/adminlte/jquery/jquery.min.js"></script>
-  <script src="/adminlte/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/adminlte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-  <script src="/adminlte/js/adminlte.min.js"></script>
-  <script src="/adminlte/js/demo.js"></script>
+@include('layout.script')
 </body>
 </html>

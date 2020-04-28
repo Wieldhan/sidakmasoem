@@ -24,7 +24,6 @@ class JabatanController extends Controller
 
 	public function delete(jabatan $jabatan)
 	{
-		// $jabatan = jabatan::find($id);
 		$jabatan->delete();
 		alert()->success('SUCCES.','DATA BERHASIL DIHAPUS!');
 		return redirect('/jabatan');
@@ -32,7 +31,6 @@ class JabatanController extends Controller
 
 	public function update(Request $request, jabatan $jabatan)
 	{
-		// $jabatan = jabatan::find($id);
 		$jabatan->update($request->all());
 		alert()->success('SUCCES.','DATA BERHASIL UPDATE!');
 		return redirect('/jabatan');
