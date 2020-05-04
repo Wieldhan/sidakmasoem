@@ -372,9 +372,9 @@
 								<th>Agama</th>
 								<th>Golongan</th>
 								<th>Jabatan</th>
-								<th>Alamat</th>
+								<!-- <th>Alamat</th>
 								<th>No Telepon</th>
-								<th>Email</th>
+								<th>Email</th> -->
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -384,16 +384,16 @@
 								<td>{{$karyawan->id}}</td>
 								<td>{{$karyawan->nik}}</td>
 								<!-- <td>{{$karyawan->no_ktp}}</td> -->
-								<td>{{$karyawan->nama_lengkap}}</td>
+								<td><a href="/karyawan/profil/{{$karyawan->id}}">{{$karyawan->nama_lengkap}}</a></td>
 								<td>{{$karyawan->jk}}</td>
 								<td>{{$karyawan->tempat_lahir}}</td>
 								<td>{{$karyawan->tanggal_lahir}}</td>
 								<td>{{$karyawan->agama}}</td>
 								<td>{{$karyawan->golongan->golongan}}</td>
 								<td>{{$karyawan->jabatan->jabatan}}</td>
-								<td>{{$karyawan->alamat}}</td>
+								<!-- <td>{{$karyawan->alamat}}</td>
 								<td>{{$karyawan->no_telepon}}</td>
-								<td><a href="#">{{$karyawan->user->email}}</a></td>
+								<td>{{$karyawan->user->email}}</td> -->
 								<td>
 									<a href="/karyawan/edit/{{$karyawan->id}}">
 										<button type="button" class="btn btn-sm btn-warning">Edit</button>

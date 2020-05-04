@@ -26,7 +26,7 @@ Route::post('simpandaftar', 'authController@simpandaftar');
 
 
 Route::get('dashboard', 'dashboardController@index');
-Route::get('profil','profilController@index');
+Route::get('profile/{id}','profilController@profile');
 
 Route::group(['middleware'=>'auth'],function(){
 
@@ -36,7 +36,7 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::get('/karyawan/edit/{id}', 'karyawanController@edit');
 	Route::post('/karyawan/update/{id}', 'karyawanController@update');
 	Route::get('/karyawan/destroy/{id}', 'karyawanController@destroy');
-
+	Route::get('/karyawan/profil/{id}', 'karyawanController@profil');
 // Routes Golongan
 	Route::get('golongan', 'golonganController@index');
 	Route::post('/golongan/simpan', 'golonganController@simpan');

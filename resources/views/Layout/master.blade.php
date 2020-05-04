@@ -9,24 +9,24 @@
     <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+          <a href="#" class="nav-link" data-widget="pushmenu"><i class="fab fa-lg fa-windows"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Home</a>
+          <a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="#" class="nav-link">Contact</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link"><span>{{Auth::user()->email}}</span></a>
+          <a href="{{url('profile', Auth::user()->id)}}" class="nav-link">{{Auth::user()->karyawan->nama_lengkap}}</a>
         </li>
       </ul> 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link"><span>{{Auth::user()->level}}</span></a>
+          <a href="#" class="nav-link"><i class="far fa-user"></i> {{Auth::user()->email}}</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="/logout" class="nav-link">Logout</a>
+          <a href="/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </li>
       </ul>
     </nav>
@@ -47,8 +47,6 @@
       </div>
       <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
     </footer>
-    <aside class="control-sidebar control-sidebar-dark">
-    </aside>
   </div>
 </body>
 @include('sweetalert::alert')

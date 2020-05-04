@@ -68,7 +68,7 @@
 			<div class="card-body">
 				<table id="datatable" class="table table-sm">
 					<thead>
-						<tr>
+						<tr align="center">
 							<th>ID</th>
 							<th>Nama jabatan</th>
 							<th>Transport</th>

@@ -9,12 +9,12 @@ use App\Jabatan;
 use App\User;
 class ProfilController extends Controller
 {
-	public function index()
+	public function profile($id)
 	{
-		$karyawan = karyawan::all();
+		$karyawan = karyawan::where('id',$id)->first();
 		$golongan = golongan::all();
 		$jabatan = jabatan::all();
-		$user = jabatan::all();
+		$user = user::all();
 		return view('karyawan.profil', compact('karyawan','user','golongan','jabatan'));
 	}	
 }

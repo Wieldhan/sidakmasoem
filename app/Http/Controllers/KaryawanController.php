@@ -19,9 +19,13 @@ class KaryawanController extends Controller
 		$jabatan = jabatan::all();
 		return view('karyawan.index', compact('karyawan', 'golongan','jabatan'));
 	}
-	public function show($id)
+	public function profil($id)
 	{
-		
+		$karyawan = karyawan::where('id',$id)->first();
+		$golongan = golongan::all();
+		$jabatan = jabatan::all();
+		$user = user::all();
+		return view('karyawan.profil', compact('karyawan','user','golongan','jabatan'));
 	}
 
 	public function store(Request $request)
