@@ -57,9 +57,14 @@
 					</div>
 					<div class="card-body">
 						<strong><i class="fas fa-graduation-cap"></i> Pendidikan</strong>
-						<p class="text-muted">
-							
-						</p>
+						<div class="text-muted">
+							<!-- SMA -->
+							<a><span>{{$karyawan->sma_lulus}}</span> --- <span>{{$karyawan->sma_nama}}</span> Jurusan <span>{{$karyawan->sma_jurusan}}</span> Nilai Kelulusan <span>{{$karyawan->sma_nilai}}</span></a>
+							<!-- S1 -->
+							<a><span>{{$karyawan->s1_nama}}</span> jurusan <span>{{$karyawan->s1_jurusan}}</span> lulus pada tahun <span>{{$karyawan->s1_lulus}}</span> dengan nilai kelulusan <span>{{$karyawan->s1_nilai}}</span></a>
+							<!-- S2 -->
+							<a><span>{{$karyawan->s2_nama}}</span> jurusan <span>{{$karyawan->s2_jurusan}}</span> lulus pada tahun <span>{{$karyawan->s2_lulus}}</span> dengan nilai kelulusan <span>{{$karyawan->s2_nilai}}</span></a>
+						</div>
 						<hr>
 						<strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
 						<p class="text-muted">
