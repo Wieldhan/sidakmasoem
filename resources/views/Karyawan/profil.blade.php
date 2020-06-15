@@ -59,11 +59,18 @@
 						<strong><i class="fas fa-graduation-cap"></i> Pendidikan</strong>
 						<div class="text-muted">
 							<!-- SMA -->
-							<a><span>{{$karyawan->sma_lulus}}</span> --- <span>{{$karyawan->sma_nama}}</span> Jurusan <span>{{$karyawan->sma_jurusan}}</span> Nilai Kelulusan <span>{{$karyawan->sma_nilai}}</span></a>
+							<b>SMA</b>
+							<a><span>{{$karyawan->sma_lulus}}</span>---<span>{{$karyawan->sma_nama}}</span> Jurusan <span>{{$karyawan->sma_jurusan}}</span> Nilai Kelulusan <span>{{$karyawan->sma_nilai}}</span></a>
+						</div>
+						<div class="text-muted">
 							<!-- S1 -->
-							<a><span>{{$karyawan->s1_nama}}</span> jurusan <span>{{$karyawan->s1_jurusan}}</span> lulus pada tahun <span>{{$karyawan->s1_lulus}}</span> dengan nilai kelulusan <span>{{$karyawan->s1_nilai}}</span></a>
+							<b>Sarjana/Ahli Madya</b>
+							<a><span>{{$karyawan->s1_lulus}}</span>---<span>{{$karyawan->s1_nama}}</span> Jurusan <span>{{$karyawan->s1_jurusan}}</span> Nilai Kelulusan <span>{{$karyawan->s1_nilai}}</span></a>
+						</div>
+						<div class="text-muted">
 							<!-- S2 -->
-							<a><span>{{$karyawan->s2_nama}}</span> jurusan <span>{{$karyawan->s2_jurusan}}</span> lulus pada tahun <span>{{$karyawan->s2_lulus}}</span> dengan nilai kelulusan <span>{{$karyawan->s2_nilai}}</span></a>
+							<b>Magister</b>
+							<a><span>{{$karyawan->s2_lulus}}</span>---<span>{{$karyawan->s2_nama}}</span> Jurusan <span>{{$karyawan->s2_jurusan}}</span> Nilai Kelulusan <span>{{$karyawan->s2_nilai}}</span></a>
 						</div>
 						<hr>
 						<strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
