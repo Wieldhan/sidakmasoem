@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `golongan` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=380 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=251 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table sidakmasoem.golongan: ~250 rows (approximately)
 /*!40000 ALTER TABLE `golongan` DISABLE KEYS */;
@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS `jabatan` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.jabatan: ~0 rows (approximately)
+-- Dumping data for table sidakmasoem.jabatan: ~85 rows (approximately)
 /*!40000 ALTER TABLE `jabatan` DISABLE KEYS */;
 REPLACE INTO `jabatan` (`id`, `jabatan`, `transport`, `pulsa`, `tunj_jab`, `created_at`, `updated_at`) VALUES
 	(1, 'Administrasi Pembiayaan KPO & AO Coorporate Karyawan Al Ma\'soem Group', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
@@ -484,7 +484,7 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
 -- Dumping data for table sidakmasoem.karyawan: ~0 rows (approximately)
 /*!40000 ALTER TABLE `karyawan` DISABLE KEYS */;
 REPLACE INTO `karyawan` (`id`, `user_id`, `nik`, `no_ktp`, `nama_lengkap`, `nama_panggilan`, `jk`, `agama`, `tempat_lahir`, `tanggal_lahir`, `ibukandung`, `status_nikah`, `nama_pasangan`, `golongan_id`, `jabatan_id`, `alamat`, `visi`, `misi`, `no_telepon`, `no_keluarga`, `sma_nama`, `sma_jurusan`, `sma_lulus`, `sma_nilai`, `s1_nama`, `s1_jurusan`, `s1_lulus`, `s1_nilai`, `s2_nama`, `s2_jurusan`, `s2_lulus`, `s2_nilai`, `or_nama`, `or_jenis`, `or_status`, `or_periode`, `or2_nama`, `or2_jenis`, `or2_status`, `or2_periode`, `or3_nama`, `or3_jenis`, `or3_status`, `or3_periode`, `pr_nama`, `pr_jabatan`, `pr_thmasuk`, `pr_thkeluar`, `pr2_nama`, `pr2_jabatan`, `pr2_thmasuk`, `pr2_thkeluar`, `pr3_nama`, `pr3_jabatan`, `pr3_thmasuk`, `pr3_thkeluar`, `created_at`, `updated_at`) VALUES
-	(5, 5, '27319', '321000230119910003', 'Wildan Yanuarsyah Tanjung', 'Wildan', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Yossi Rosyawati', 'Belum Menikah', 'Tidak Ada', 121, 56, 'Jalan Kolonel Ahmad Syam ( Sayang )', 'Santai Serius Sukses', 'From Zero To Hero', '082316172028', '082316172028', 'SMA NEGERI 1 SUMEDANG', 'IPA', '2006-2009', '45.3', 'STKOM AL MA\'SOEM BANDUNG', 'MANAJEMEN INFORMATIKA D3', '2014-2018', '3.6', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'TIDAK ADA', 'PT ADHIKARYA', 'MAGANG', '2013', '2013', 'PT ALMASOEM', 'AUDITOR INTERNAL', '2018', '2019', NULL, NULL, NULL, NULL, '2020-06-05 03:02:05', '2020-06-05 03:02:05');
+	(5, 5, '27319', '321000230119910003', 'Wildan Yanuarsyah Tanjung', 'Wildan', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Yossi Rosyawati', 'Belum Menikah', 'Tidak Ada', 121, 56, 'LINGKUNGAN KETIB RT 01 RW 12, KELURAHAN KOTA KALER, KECAMATAN SUMEDANG UTARA, KABUPATEN SUMEDANG', 'Santai Serius Sukses', 'From Zero To Hero', '082316172028', '082316172028', 'SMA NEGERI 1 SUMEDANG', 'IPA', '2006-2009', '45.3', 'STKOM AL MA\'SOEM BANDUNG', 'MANAJEMEN INFORMATIKA D3', '2014-2018', '3.6', '', '', '', '', 'OSIS SMA NEGERI 1 SUMEDANG', 'KOMISI DISIPLIN', 'KETUA UMUM', '2008-2010', 'GANDAWESI KPALH', 'SOCIAL AND HUMANITY', 'ANGGOTA', '2010-2014', '', '', '', '', 'PT ADHIKARYA', 'PROJECT MONITORING AND CONTROLLING', '2013', '2013', 'PT ALMASOEM', 'AUDITOR INTERNAL (RIKDAL)', '2018', '2019', NULL, NULL, NULL, NULL, '2020-06-05 03:02:05', '2020-06-05 03:02:05');
 /*!40000 ALTER TABLE `karyawan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.migrations
@@ -521,7 +521,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table sidakmasoem.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 REPLACE INTO `users` (`id`, `nama_panggilan`, `email`, `level`, `password`, `remember_token`, `avatar`, `created_at`, `updated_at`) VALUES
-	(5, 'Wildan', 'wieldhan@gmail.com', 'member', '$2y$10$Uh.QU8OiWQOO7WnguKU6Ue/K/ZYCLAlbT/jKAmhVWukmfmKfsCXWO', 'GuA9kFcd0dH9i84vMIXkJEG8QW4MpI2SwXOxJwVe0vXG8BdbDoQN1jOE15Cn', NULL, '2020-06-05 03:02:05', '2020-06-05 03:02:05');
+	(5, 'Wildan', 'wieldhan@gmail.com', 'member', '$2y$10$Uh.QU8OiWQOO7WnguKU6Ue/K/ZYCLAlbT/jKAmhVWukmfmKfsCXWO', '92VTsJpYzoQpR2xoz1DRVXH2APwbZRJS3BL4wwWlYeuWQRn44bchWG9NTuhG', NULL, '2020-06-05 03:02:05', '2020-06-05 03:02:05');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

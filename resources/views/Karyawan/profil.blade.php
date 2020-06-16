@@ -53,37 +53,118 @@
 			<div class="col-md-9">
 				<div class="card card-outline card-warning">
 					<div class="card-header">
-						<h3 class="card-title"><b>About Me</b></h3>
+						<h3 class="card-title"><b>CURRICULUME VITAE</b></h3>
 					</div>
 					<div class="card-body">
 						<strong><i class="fas fa-graduation-cap"></i> Pendidikan</strong>
-						<div class="text-muted">
-							<!-- SMA -->
-							<b>SMA</b>
-							<a><span>{{$karyawan->sma_lulus}}</span>---<span>{{$karyawan->sma_nama}}</span> Jurusan <span>{{$karyawan->sma_jurusan}}</span> Nilai Kelulusan <span>{{$karyawan->sma_nilai}}</span></a>
-						</div>
-						<div class="text-muted">
-							<!-- S1 -->
-							<b>Sarjana/Ahli Madya</b>
-							<a><span>{{$karyawan->s1_lulus}}</span>---<span>{{$karyawan->s1_nama}}</span> Jurusan <span>{{$karyawan->s1_jurusan}}</span> Nilai Kelulusan <span>{{$karyawan->s1_nilai}}</span></a>
-						</div>
-						<div class="text-muted">
-							<!-- S2 -->
-							<b>Magister</b>
-							<a><span>{{$karyawan->s2_lulus}}</span>---<span>{{$karyawan->s2_nama}}</span> Jurusan <span>{{$karyawan->s2_jurusan}}</span> Nilai Kelulusan <span>{{$karyawan->s2_nilai}}</span></a>
-						</div>
-						<hr>
+						<table class="table text-muted table-sm">
+							<thead class="bg-secondary">
+								<tr>									
+									<th>NAMA INSTANSI</th>
+									<th>JURUSAN</th>
+									<th>NILAI AKHIR</th>
+									<th>PERIODE STUDI</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>									
+									<td>{{$karyawan->sma_nama}}</td>
+									<td>{{$karyawan->sma_jurusan}}</td>
+									<td>{{$karyawan->sma_nilai}}</td>
+									<td>{{$karyawan->sma_lulus}}</td>
+								</tr>
+								<tr>
+									<td>{{$karyawan->s1_nama}}</td>
+									<td>{{$karyawan->s1_jurusan}}</td>
+									<td>{{$karyawan->s1_nilai}}</td>
+									<td>{{$karyawan->s1_lulus}}</td>
+								</tr>
+								<tr>
+									<td>{{$karyawan->s2_nama}}</td>
+									<td>{{$karyawan->s2_jurusan}}</td>
+									<td>{{$karyawan->s2_nilai}}</td>
+									<td>{{$karyawan->s2_lulus}}</td>
+								</tr>
+							</tbody>
+						</table>
 						<strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
 						<p class="text-muted">
 							{{$karyawan->alamat}}
 						</p>
 						<hr>
-						<strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+						<strong><i class="fas fa-pencil-alt mr-1"></i> Visi</strong>
 						<p class="text-muted">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+							{{$karyawan->visi}}
 						</p>
 						<hr>
-						<strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+						<strong><i class="fas fa-pencil-alt mr-1"></i> Misi</strong>
+						<p class="text-muted">
+							{{$karyawan->misi}}
+						</p>
+						<hr>
+						<strong><i class="fas fa-pencil-alt mr-1"></i> Pengalaman Organisasi</strong>
+						<table class="table text-muted table-sm">
+							<thead class="bg-secondary">
+								<tr>									
+									<th>NAMA ORGANISASI</th>
+									<th>JENIS ORGANISASI</th>
+									<th>STATUS KEANGGOTAAN</th>
+									<th>PERIODE JABATAN</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>									
+									<td>{{$karyawan->or_nama}}</td>
+									<td>{{$karyawan->or_jenis}}</td>
+									<td>{{$karyawan->or_status}}</td>
+									<td>{{$karyawan->or_periode}}</td>
+								</tr>
+								<tr>
+									<td>{{$karyawan->or2_nama}}</td>
+									<td>{{$karyawan->or2_jenis}}</td>
+									<td>{{$karyawan->or2_status}}</td>
+									<td>{{$karyawan->or2_periode}}</td>
+								</tr>
+								<tr>
+									<td>{{$karyawan->or3_nama}}</td>
+									<td>{{$karyawan->or3_jenis}}</td>
+									<td>{{$karyawan->or3_status}}</td>
+									<td>{{$karyawan->or3_periode}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<strong><i class="fas fa-pencil-alt mr-1"></i> Pengalaman Pekerjaan</strong>
+						<table class="table text-muted table-sm">
+							<thead class="bg-secondary">
+								<tr>
+									<th>NAMA PERUSAHAAN</th>
+									<th>JABATAN TERAKHIR</th>
+									<th>TAHUN MASUK</th>
+									<th>TAHUN KELUAR</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>{{$karyawan->pr_nama}}</td>
+									<td>{{$karyawan->pr_jabatan}}</td>
+									<td>{{$karyawan->pr_thmasuk}}</td>
+									<td>{{$karyawan->pr_thkeluar}}</td>
+								</tr>
+								<tr>
+									<td>{{$karyawan->pr2_nama}}</td>
+									<td>{{$karyawan->pr2_jabatan}}</td>
+									<td>{{$karyawan->pr2_thmasuk}}</td>
+									<td>{{$karyawan->pr2_thkeluar}}</td>
+								</tr>
+								<tr>
+									<td>{{$karyawan->pr3_nama}}</td>
+									<td>{{$karyawan->pr3_jabatan}}</td>
+									<td>{{$karyawan->pr3_thmasuk}}</td>
+									<td>{{$karyawan->pr3_thkeluar}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<strong><i class="far fa-file-alt mr-1"></i> Catatan Pekerjaan Almasoem</strong>
 						<p class="text-muted">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 						</p>
