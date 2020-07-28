@@ -16,6 +16,26 @@
 CREATE DATABASE IF NOT EXISTS `sidakmasoem` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `sidakmasoem`;
 
+-- Dumping structure for table sidakmasoem.cabang
+CREATE TABLE IF NOT EXISTS `cabang` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `kode_cabang` int(15) NOT NULL DEFAULT '0',
+  `nama_cabang` varchar(50) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table sidakmasoem.cabang: ~0 rows (approximately)
+/*!40000 ALTER TABLE `cabang` DISABLE KEYS */;
+REPLACE INTO `cabang` (`id`, `kode_cabang`, `nama_cabang`) VALUES
+	(1, 0, 'Kantor Pusat'),
+	(2, 1, 'Majalaya'),
+	(3, 2, 'Jatiwangi'),
+	(4, 3, 'Kopo'),
+	(5, 4, 'Arcamanik'),
+	(6, 5, 'Cianjur'),
+	(7, 6, 'Garut');
+/*!40000 ALTER TABLE `cabang` ENABLE KEYS */;
+
 -- Dumping structure for table sidakmasoem.failed_jobs
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
