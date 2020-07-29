@@ -46,19 +46,110 @@
               <button type="submit" class="btn btn-primary btn-block float-right">LOGIN</button>
             </div>
             <div class="col-3">
-              <a href="{{url('daftar')}}" class="btn btn-info btn-block float-right">DAFTAR</a>
+              <button type="button" class="btn btn-info btn-block float-right" data-toggle="modal" data-target=".bd-example-modal-xl">DAFTAR</button>
             </div>
           </div>
         </form>
       </div>
     </div>
   </div>
-</div>
-<script src="/adminlte/jquery/jquery.min.js"></script>
-<script src="/adminlte/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/adminlte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<script src="/adminlte/js/adminlte.min.js"></script>
-<script src="/adminlte/js/demo.js"></script>
-@include('sweetalert::alert')
+  <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Form Pendaftaran</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/simpandaftar" method="POST">
+            {{csrf_field()}}
+            <div class="form-row">
+              <div class="form-group col-sm-6">
+                <label>No Induk Karyawan</label>
+                <input required name="nik" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" placeholder="No. Reg atau NIK berdasarkan SK">
+              </div>
+              <div class="form-group col-sm-6">
+                <label>No KTP</label>
+                <input required name="no_ktp" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-sm-6">
+                <label>Nama Lengkap</label>
+                <input required name="nama_lengkap" type="text" class="form-control form-control-sm" placeholder="Nama Sesuai KTP">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="formcontroljk">Jenis Kelamin</label>
+                <select required name="jk" class="form-control form-control-sm" id="formcontroljk">
+                  <option>Laki Laki</option>
+                  <option>Perempuan</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-sm-6">
+                <label for="formcontrolagama">Agama</label>
+                <select required name="agama" class="form-control form-control-sm" id="formcontrolagama" >
+                  <option >Islam</option>
+                  <option >Protestan</option>
+                  <option >Khatolik</option>
+                  <option >Hindu</option>
+                  <option >Buddha</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="formcontrolpernikahan">Status Pernikahan</label>
+                <select required name="status_nikah" class="form-control form-control-sm" id="formcontrolpernikahan">
+                  <option>Belum Menikah</option>
+                  <option>Menikah</option>
+                  <option>Cerai</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-sm-6">
+                <label>Tempat Lahir</label>
+                <input required name="tempat_lahir" type="text" class="form-control form-control-sm" placeholder="Kota Kelahiran">
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Tanggal Lahir</label>
+                <input required name="tanggal_lahir" type="date" class="form-control form-control-sm">
+              </div> 
+            </div>
+            <div class="form-row"> 
+              <div class="form-group col-sm-6">
+                <label>Alamat</label>
+                <textarea style="height: 75px;" required name="alamat" class="form-control" placeholder="Alamat tinggal saat ini"></textarea>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>E-Mail</label>
+                <input required name="email" type="email" class="form-control form-control-sm" placeholder="contohemail@gmail.com">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8 float-right d-none d-sm-block">
+                <b>Version</b> 1.0.1
+                <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
+              </div>
+              <div class="col-2">
+                <button type="reset" class="btn btn-info btn-block float-right" data-dismiss="card">BATAL</button>
+              </div>
+              <div class="col-2">
+                <button type="submit" class="btn btn-primary btn-block float-right">SIMPAN</button>
+              </div>
+            </div>                                 
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/adminlte/jquery/jquery.min.js"></script>
+  <script src="/adminlte/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/adminlte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <script src="/adminlte/js/adminlte.min.js"></script>
+  <script src="/adminlte/js/demo.js"></script>
+  @include('sweetalert::alert')
 </body>
 </html>

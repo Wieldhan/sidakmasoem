@@ -32,7 +32,7 @@ class KaryawanController extends Controller
 	{
 		// Insert Tabel User
 		$user = new User;
-		$user->nama_panggilan =$request->nama_panggilan;
+		$user->nama_lengkap =$request->nama_lengkap;
 		$user->email =$request->email;
 		$user->password = bcrypt('27061973');
 		$user->remember_token = Str::random(50);

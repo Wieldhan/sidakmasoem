@@ -16,7 +16,7 @@
 		</div>
 	</div>
 	<div class ="container-fluid">
-		<div class ="col">
+		<!-- <div class ="col">
 			<div class="card card-primary collapsed-card">
 				<div class="card-header" style="height: 50px;">
 					<h2 class="card-title align-middle">TAMBAH KARYAWAN</h2>
@@ -348,7 +348,7 @@
 					</form>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<div class="col" >
 			<div class="card card-info">
 				<div class="card-header" style="height: 50px;">
@@ -411,7 +411,6 @@
 		</div>
 	</div>
 	@endsection
-
 	@section ('javascript')
 	<script type="text/javascript" src="/datatables/datatables.min.js"></script>
 	<script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>

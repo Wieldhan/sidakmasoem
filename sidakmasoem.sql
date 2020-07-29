@@ -21,19 +21,25 @@ CREATE TABLE IF NOT EXISTS `cabang` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
   `kode_cabang` int(15) NOT NULL DEFAULT '0',
   `nama_cabang` varchar(50) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.cabang: ~0 rows (approximately)
+-- Dumping data for table sidakmasoem.cabang: ~11 rows (approximately)
 /*!40000 ALTER TABLE `cabang` DISABLE KEYS */;
-REPLACE INTO `cabang` (`id`, `kode_cabang`, `nama_cabang`) VALUES
-	(1, 0, 'Kantor Pusat'),
-	(2, 1, 'Majalaya'),
-	(3, 2, 'Jatiwangi'),
-	(4, 3, 'Kopo'),
-	(5, 4, 'Arcamanik'),
-	(6, 5, 'Cianjur'),
-	(7, 6, 'Garut');
+REPLACE INTO `cabang` (`id`, `kode_cabang`, `nama_cabang`, `created_at`, `updated_at`) VALUES
+	(1, 0, 'Kantor Pusat', '2020-07-29 13:43:55', '2020-07-29 13:43:56'),
+	(2, 1, 'Majalaya', '2020-07-29 13:43:57', '2020-07-29 13:43:57'),
+	(3, 2, 'Jatiwangi', '2020-07-29 13:43:58', '2020-07-29 13:43:58'),
+	(4, 3, 'Kopo', '2020-07-29 13:44:00', '2020-07-29 13:43:59'),
+	(5, 4, 'Arcamanik', '2020-07-29 13:44:00', '2020-07-29 13:44:01'),
+	(6, 5, 'Cianjur', '2020-07-29 13:44:02', '2020-07-29 13:44:03'),
+	(7, 6, 'Garut', '2020-07-29 13:44:06', '2020-07-29 13:44:07'),
+	(8, 7, 'Kantor Kas YAB', '2020-07-29 13:44:08', '2020-07-29 13:44:08'),
+	(9, 8, 'Kantor Kas Kulalet', '2020-07-29 13:44:09', '2020-07-29 13:44:09'),
+	(10, 9, 'Kantor Kas Guntur', '2020-07-29 13:44:10', '2020-07-29 13:44:12'),
+	(11, 10, 'Kantor Kas Ciwidey', '2020-07-29 13:44:13', '2020-07-29 13:44:14');
 /*!40000 ALTER TABLE `cabang` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.failed_jobs
@@ -60,9 +66,9 @@ CREATE TABLE IF NOT EXISTS `golongan` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=251 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=252 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.golongan: ~250 rows (approximately)
+-- Dumping data for table sidakmasoem.golongan: ~251 rows (approximately)
 /*!40000 ALTER TABLE `golongan` DISABLE KEYS */;
 REPLACE INTO `golongan` (`id`, `golongan`, `gaji_pokok`, `uang_makan`, `created_at`, `updated_at`) VALUES
 	(1, 'I.25', 200000, 16500, '2020-05-06 00:00:00', '2020-05-06 00:00:00'),
@@ -314,7 +320,8 @@ REPLACE INTO `golongan` (`id`, `golongan`, `gaji_pokok`, `uang_makan`, `created_
 	(247, 'IV.D4', 475000, 14000, '2020-05-06 00:00:00', '2020-05-06 00:00:00'),
 	(248, 'IV.D3', 500000, 14000, '2020-05-06 00:00:00', '2020-05-06 00:00:00'),
 	(249, 'IV.D2', 525000, 14000, '2020-05-06 00:00:00', '2020-05-06 00:00:00'),
-	(250, 'IV.D1', 550000, 14000, '2020-05-06 00:00:00', '2020-05-06 00:00:00');
+	(250, 'IV.D1', 550000, 14000, '2020-05-06 00:00:00', '2020-05-06 00:00:00'),
+	(251, 'None', 0, 0, '2020-07-29 09:57:25', '2020-07-29 09:57:26');
 /*!40000 ALTER TABLE `golongan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.jabatan
@@ -327,57 +334,38 @@ CREATE TABLE IF NOT EXISTS `jabatan` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.jabatan: ~85 rows (approximately)
+-- Dumping data for table sidakmasoem.jabatan: ~52 rows (approximately)
 /*!40000 ALTER TABLE `jabatan` DISABLE KEYS */;
 REPLACE INTO `jabatan` (`id`, `jabatan`, `transport`, `pulsa`, `tunj_jab`, `created_at`, `updated_at`) VALUES
 	(1, 'Administrasi Pembiayaan KPO & AO Coorporate Karyawan Al Ma\'soem Group', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(2, 'Administrasi Analis Pembiayaan', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(3, 'Administrasi Rahn Cabang Majalaya', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(4, 'AO Cabang Arcamanik', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(5, 'AO Cabang Cianjur', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(6, 'AO Cabang Garut', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(7, 'AO Cabang Jatiwangi', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(8, 'AO Cabang Kopo', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(9, 'AO Cabang Majalaya', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(10, 'AO Corporate', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(11, 'AO Kantor Kas Kulalet', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(12, 'AO Umum', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(13, 'Back Office / Pembukuan Cabang Cianjur', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(14, 'Back Office / Pembukuan Cabang Garut', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(15, 'Back Office / Pembukuan Cabang Jatiwangi', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(16, 'Back Office / Pembukuan Cabang Kopo', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(17, 'Back Office / Pembukuan Cabang Majalaya', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(18, 'Collection Cabang Arcamanik', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(19, 'Collection Cabang Garut', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(20, 'Collection Cabang Jatiwangi', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(21, 'Customer Service KPO', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(13, 'Back Office', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(18, 'Collection', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(21, 'Customer Service', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(22, 'Dewan Pengawas Syariah', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(23, 'Direktur Bisnis', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(24, 'Direktur Operasional', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(25, 'Direktur Utama', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(26, 'General Manajer', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(27, 'Head Teller & Back Office KPO', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(28, 'Kepala Cabang Arcamanik', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(29, 'Kepala Cabang Cianjur', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(30, 'Kepala Cabang Garut', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(31, 'Kepala Cabang Kopo', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(32, 'Kepala Cabang Majalaya', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(33, 'Kepala Kantor Kas Guntur', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(34, 'Kepala Kantor Kas Kulalet', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(28, 'Kepala Cabang', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(34, 'Kepala Kantor Kas', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(35, 'Kepala KPO', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(36, 'Ketua Dewan Pengawas Syariah', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(37, 'Komisaris', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(38, 'Komisaris Utama', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(39, 'Manajer Cabang Jatiwangi', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(39, 'Manajer Cabang', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(40, 'Manajer Collection', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(41, 'Manajer EDP & SID', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(42, 'Manajer Legal', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(43, 'Manajer Operasional', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(44, 'Manajer Rahn', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(45, 'Manajer Remedial', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(46, 'Manajer Risk & Remedial dan Penanggung Jawab Cabang Jatiwangi', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(46, 'Manajer Risk & Remedial', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(47, 'Manajer SDI', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(48, 'Manajer SDM', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(49, 'Manajer Support', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
@@ -390,41 +378,30 @@ REPLACE INTO `jabatan` (`id`, `jabatan`, `transport`, `pulsa`, `tunj_jab`, `crea
 	(56, 'Staff EDP & SID', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(57, 'Staff Funding', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(58, 'Staff Legal', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(59, 'Staff Legal / Administrasi Pembiayaan Cabang Majalaya', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(60, 'Staff Legal / Administrasi Pembiayaan Cabang Kopo', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(61, 'Staff Marketing', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(62, 'Staff Marketing Rahn KPO', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(63, 'Staff Pajak & Petugas Penyimpanan Agunan KPNO', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(62, 'Staff Marketing Rahn', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(63, 'Staff Pajak & Petugas Penyimpanan Agunan', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(64, 'Staff Pembukuan', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(65, 'Staff Rahn', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(66, 'Staff Rahn Cab Kopo', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(67, 'Staff Rahn Cab Majalaya', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(68, 'Staff Rahn Cabang Arcamanik', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(69, 'Staff Risk & Remedial', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(70, 'Staff SDM', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(71, 'Staff SPI', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(72, 'Teller & Back Office Cabang Arcamanik', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(73, 'Teller 1 & Pembayaran Payment Point Via Mesin EDC', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(74, 'Teller 2 & Pembayaran Payment Point PPOB dan Danamon', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(75, 'Teller Cabang Kopo', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(76, 'Teller Cabang Majalaya', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(77, 'Teller Kantor Kas Ciwidey', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(78, 'Teller Kantor Kas Guntur', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(79, 'Teller Kantor Kas Kulalet', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(80, 'Teller Kantor Kas YAB', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(81, 'Teller Rahn KPO', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(82, 'Teller, Back Office & Staff Rahn Cabang Jatiwangi', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(83, 'Teller, Back Office & Staff Rahn Cabang Cianjur', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(84, 'Teller, Back Office & Staff Rahn Cabang Garut', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(85, 'Wakil Kepala Pusat Operasional Bidang Legal dan Pajak', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00');
+	(72, 'Teller', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(80, 'Teller Kantor Kas', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(81, 'Teller Rahn', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(85, 'Wakil Kepala Pusat Operasional Bidang Legal dan Pajak', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(86, 'None', 0, 0, 0, '2020-07-29 10:04:35', '2020-07-29 10:04:36');
 /*!40000 ALTER TABLE `jabatan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.jenjang_karir
 CREATE TABLE IF NOT EXISTS `jenjang_karir` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
+  `nik` varchar(50) NOT NULL DEFAULT '0',
   `karyawan_id` int(11) NOT NULL,
   `jabatan_id` int(11) NOT NULL,
   `thn_perubahan` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -436,60 +413,17 @@ CREATE TABLE IF NOT EXISTS `jenjang_karir` (
 CREATE TABLE IF NOT EXISTS `karyawan` (
   `id` int(15) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(15) unsigned NOT NULL,
-  `nik` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `golongan_id` int(10) DEFAULT '251',
+  `jabatan_id` int(10) DEFAULT '86',
+  `nik` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `no_ktp` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_lengkap` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_panggilan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jk` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `agama` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tempat_lahir` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_lahir` date NOT NULL,
-  `ibukandung` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_nikah` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_pasangan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `golongan_id` int(10) NOT NULL,
-  `jabatan_id` int(10) NOT NULL,
   `alamat` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `visi` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `misi` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_telepon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_keluarga` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sma_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sma_jurusan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sma_lulus` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sma_nilai` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `s1_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `s1_jurusan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `s1_lulus` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `s1_nilai` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `s2_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `s2_jurusan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `s2_lulus` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `s2_nilai` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or_jenis` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or_status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or_periode` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or2_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or2_jenis` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or2_status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or2_periode` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or3_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or3_jenis` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or3_status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `or3_periode` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr_jabatan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr_thmasuk` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr_thkeluar` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr2_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr2_jabatan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr2_thmasuk` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr2_thkeluar` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr3_nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr3_jabatan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr3_thmasuk` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pr3_thkeluar` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -499,12 +433,12 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   CONSTRAINT `FK_karyawan_golongan` FOREIGN KEY (`golongan_id`) REFERENCES `golongan` (`id`),
   CONSTRAINT `FK_karyawan_jabatan` FOREIGN KEY (`jabatan_id`) REFERENCES `jabatan` (`id`),
   CONSTRAINT `FK_karyawan_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table sidakmasoem.karyawan: ~0 rows (approximately)
 /*!40000 ALTER TABLE `karyawan` DISABLE KEYS */;
-REPLACE INTO `karyawan` (`id`, `user_id`, `nik`, `no_ktp`, `nama_lengkap`, `nama_panggilan`, `jk`, `agama`, `tempat_lahir`, `tanggal_lahir`, `ibukandung`, `status_nikah`, `nama_pasangan`, `golongan_id`, `jabatan_id`, `alamat`, `visi`, `misi`, `no_telepon`, `no_keluarga`, `sma_nama`, `sma_jurusan`, `sma_lulus`, `sma_nilai`, `s1_nama`, `s1_jurusan`, `s1_lulus`, `s1_nilai`, `s2_nama`, `s2_jurusan`, `s2_lulus`, `s2_nilai`, `or_nama`, `or_jenis`, `or_status`, `or_periode`, `or2_nama`, `or2_jenis`, `or2_status`, `or2_periode`, `or3_nama`, `or3_jenis`, `or3_status`, `or3_periode`, `pr_nama`, `pr_jabatan`, `pr_thmasuk`, `pr_thkeluar`, `pr2_nama`, `pr2_jabatan`, `pr2_thmasuk`, `pr2_thkeluar`, `pr3_nama`, `pr3_jabatan`, `pr3_thmasuk`, `pr3_thkeluar`, `created_at`, `updated_at`) VALUES
-	(5, 5, '27319', '321000230119910003', 'Wildan Yanuarsyah Tanjung', 'Wildan', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Yossi Rosyawati', 'Belum Menikah', 'Tidak Ada', 121, 56, 'LINGKUNGAN KETIB RT 01 RW 12, KELURAHAN KOTA KALER, KECAMATAN SUMEDANG UTARA, KABUPATEN SUMEDANG', 'Santai Serius Sukses', 'From Zero To Hero', '082316172028', '082316172028', 'SMA NEGERI 1 SUMEDANG', 'IPA', '2006-2009', '45.3', 'STKOM AL MA\'SOEM BANDUNG', 'MANAJEMEN INFORMATIKA D3', '2014-2018', '3.6', '', '', '', '', 'OSIS SMA NEGERI 1 SUMEDANG', 'KOMISI DISIPLIN', 'KETUA UMUM', '2008-2010', 'GANDAWESI KPALH', 'SOCIAL AND HUMANITY', 'ANGGOTA', '2010-2014', '', '', '', '', 'PT ADHIKARYA', 'PROJECT MONITORING AND CONTROLLING', '2013', '2013', 'PT ALMASOEM', 'AUDITOR INTERNAL (RIKDAL)', '2018', '2019', NULL, NULL, NULL, NULL, '2020-06-05 03:02:05', '2020-06-05 03:02:05');
+REPLACE INTO `karyawan` (`id`, `user_id`, `golongan_id`, `jabatan_id`, `nik`, `no_ktp`, `nama_lengkap`, `jk`, `agama`, `tempat_lahir`, `tanggal_lahir`, `status_nikah`, `alamat`, `created_at`, `updated_at`) VALUES
+	(6, 6, 251, 86, '23011991', '32015865420100012', 'Wildan Yanuarsyah Tanjung', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Menikah', 'Sumedang', '2020-07-29 02:53:37', '2020-07-29 02:53:37');
 /*!40000 ALTER TABLE `karyawan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.migrations
@@ -523,10 +457,43 @@ REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(3, '2020_03_11_041921_create_karyawan_table', 1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
+-- Dumping structure for table sidakmasoem.organisasi
+CREATE TABLE IF NOT EXISTS `organisasi` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `nik` varchar(50) NOT NULL DEFAULT '0',
+  `nama_org` varchar(50) NOT NULL DEFAULT '0',
+  `jabatan_org` varchar(50) NOT NULL DEFAULT '0',
+  `periode_org` varchar(50) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table sidakmasoem.organisasi: ~0 rows (approximately)
+/*!40000 ALTER TABLE `organisasi` DISABLE KEYS */;
+/*!40000 ALTER TABLE `organisasi` ENABLE KEYS */;
+
+-- Dumping structure for table sidakmasoem.pendidikan
+CREATE TABLE IF NOT EXISTS `pendidikan` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `nik` varchar(50) NOT NULL DEFAULT '0',
+  `nama_institusi` varchar(50) NOT NULL DEFAULT '0',
+  `tingkat` varchar(50) NOT NULL DEFAULT '0',
+  `tahun_masuk` int(15) NOT NULL,
+  `tahun_lulus` int(15) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table sidakmasoem.pendidikan: ~0 rows (approximately)
+/*!40000 ALTER TABLE `pendidikan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pendidikan` ENABLE KEYS */;
+
 -- Dumping structure for table sidakmasoem.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nama_panggilan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_lengkap` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `level` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -536,13 +503,28 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.users: ~0 rows (approximately)
+-- Dumping data for table sidakmasoem.users: ~1 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-REPLACE INTO `users` (`id`, `nama_panggilan`, `email`, `level`, `password`, `remember_token`, `avatar`, `created_at`, `updated_at`) VALUES
-	(5, 'Wildan', 'wieldhan@gmail.com', 'member', '$2y$10$Uh.QU8OiWQOO7WnguKU6Ue/K/ZYCLAlbT/jKAmhVWukmfmKfsCXWO', '92VTsJpYzoQpR2xoz1DRVXH2APwbZRJS3BL4wwWlYeuWQRn44bchWG9NTuhG', NULL, '2020-06-05 03:02:05', '2020-06-05 03:02:05');
+REPLACE INTO `users` (`id`, `nama_lengkap`, `email`, `level`, `password`, `remember_token`, `avatar`, `created_at`, `updated_at`) VALUES
+	(6, 'Wildan Yanuarsyah Tanjung', 'wieldhan@gmail.com', 'member', '$2y$10$KT/EeEp94fSFHwivL6EtzuqZc6x9UFdn.co2tGElpqWeAD98/wEDu', 'FZG2brgwrMzztkTd6J7hYA9BkIFW1lqUmnLcdEiZ3BlL85kFw0yDfXs1aTh9', NULL, '2020-07-29 02:53:37', '2020-07-29 02:53:37');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+-- Dumping structure for table sidakmasoem.visi_misi
+CREATE TABLE IF NOT EXISTS `visi_misi` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `nik` varchar(50) NOT NULL DEFAULT '0',
+  `visi` text NOT NULL,
+  `misi` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table sidakmasoem.visi_misi: ~0 rows (approximately)
+/*!40000 ALTER TABLE `visi_misi` DISABLE KEYS */;
+/*!40000 ALTER TABLE `visi_misi` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
