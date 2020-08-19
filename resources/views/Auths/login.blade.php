@@ -92,11 +92,11 @@
               <div class="form-group col-sm-6">
                 <label for="formcontrolagama">Agama</label>
                 <select required name="agama" class="form-control form-control-sm" id="formcontrolagama" >
-                  <option >Islam</option>
-                  <option >Protestan</option>
-                  <option >Khatolik</option>
-                  <option >Hindu</option>
-                  <option >Buddha</option>
+                  <option>Islam</option>
+                  <option>Protestan</option>
+                  <option>Khatolik</option>
+                  <option>Hindu</option>
+                  <option>Buddha</option>
                 </select>
               </div>
               <div class="form-group col-sm-6">

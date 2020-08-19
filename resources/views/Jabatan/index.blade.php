@@ -1,10 +1,8 @@
 @extends ('layout.master')
-
 @section ('link')
 <link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
-
 @section ('content')
 <div class="content-header">
 	<div class="container-fluid">

@@ -24,7 +24,6 @@ Route::get('logout', 'authController@logout');
 Route::get('daftar', 'authController@daftar');
 Route::post('simpandaftar', 'authController@simpandaftar');
 
-
 Route::group(['middleware'=>'auth'],function(){
 	Route::get('dashboard', 'dashboardController@index');
 	Route::get('profile/{id}','profilController@profile');
