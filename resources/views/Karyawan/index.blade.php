@@ -10,9 +10,9 @@
 				<div class="col-6">
 					<h1 style="font-size: 30px">DATA KARYAWAN</h1>
 				</div>
-				<div class="col-6">
+				<!-- <div class="col-6">
 					<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -35,14 +35,14 @@
 								<th>NO KTP</th>
 								<th>Nama</th>
 								<th>Jenis Kelamin</th>
-								<th>Tempat Lahir</th>
-								<th>Tanggal Lahir</th>
+								<!-- <th>Tempat Lahir</th> -->
+								<!-- <th>Tanggal Lahir</th> -->
 								<!-- <th>Agama</th> -->
 								<th>Golongan</th>
 								<th>Jabatan</th>
-								<!-- <th>Alamat</th>
-								<th>No Telepon</th>
-								<th>Email</th> -->
+								<th>Cabang</th>
+								<!-- <th>No Telepon</th> -->
+								<!-- <th>Email</th> -->
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -54,14 +54,14 @@
 								<td>{{$karyawan->no_ktp}}</td>
 								<td>{{$karyawan->nama_lengkap}}</td>
 								<td>{{$karyawan->jk}}</td>
-								<td>{{$karyawan->tempat_lahir}}</td>
-								<td>{{$karyawan->tanggal_lahir}}</td>
+								<!-- <td>{{$karyawan->tempat_lahir}}</td>
+								<td>{{$karyawan->tanggal_lahir}}</td> -->
 								<!-- <td>{{$karyawan->agama}}</td> -->
 								<td>{{$karyawan->golongan->golongan}}</td>
 								<td>{{$karyawan->jabatan->jabatan}}</td>
-								<!-- <td>{{$karyawan->alamat}}</td>
-								<td>{{$karyawan->no_telepon}}</td>
-								<td>{{$karyawan->user->email}}</td> -->
+								<td>{{$karyawan->cabang->nama_cabang}}</td>
+								<!-- <td>{{$karyawan->no_telepon}}</td> -->
+								<!-- <td>{{$karyawan->user->email}}</td> -->
 								<td>
 									<button type="button" class="btn btn-sm btn-warning edit" data-toggle="modal" data-target=".editkaryawan">Edit</button>									
 									<button class="btn btn-sm btn-danger hapus" karyawan-id="{{$karyawan->id}}">Hapus</button>
@@ -106,7 +106,7 @@
 											</div>
 										</div>																	
 										<div class="form-row">
-											<div class="form-group col-sm-6">
+											<div class="form-group col-sm-4">
 												<label>Jabatan</label>
 												<select required name="jabatan_id" class="form-control form-control-sm" id="jabatan" >
 													@foreach($jabatan as $dj)
@@ -114,11 +114,19 @@
 													@endforeach
 												</select>
 											</div>
-											<div class="form-group col-sm-6">
+											<div class="form-group col-sm-4">
 												<label>Golongan</label>
 												<select required name="golongan_id" class="form-control form-control-sm" id="golongan">
 													@foreach($golongan as $dg)
 													<option value="{{$dg->id}}" {{( $dg->id == $karyawan->golongan_id) ? 'selected' : '' }}>{{$dg->golongan}}</option>
+													@endforeach
+												</select>
+											</div>
+											<div class="form-group col-sm-4">
+												<label>Cabang</label>
+												<select required name="cabang_id" class="form-control form-control-sm" id="cabang">
+													@foreach($cabang as $dc)
+													<option value="{{$dc->id}}" {{( $dc->id == $karyawan->cabang_id) ? 'selected' : '' }}>{{$dc->nama_cabang}}</option>
 													@endforeach
 												</select>
 											</div>
@@ -139,7 +147,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+					<!-- <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -222,7 +230,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

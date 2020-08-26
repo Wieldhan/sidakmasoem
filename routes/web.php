@@ -27,6 +27,10 @@ Route::post('simpandaftar', 'authController@simpandaftar');
 Route::group(['middleware'=>'auth'],function(){
 	Route::get('dashboard', 'dashboardController@index');
 	Route::get('profile/{id}','profilController@profile');
+	Route::get('profile/edit/{id}','profilController@edit');
+	Route::post('profile/update/{id}','profilController@update');
+	Route::post('profile/simpanpend','profilController@simpanpend');
+	Route::post('profile/simpanorg','profilController@simpanorg');
 // Routes Karyawan
 	Route::get('karyawan', 'karyawanController@index');
 	Route::post('/karyawan/store', 'karyawanController@store');

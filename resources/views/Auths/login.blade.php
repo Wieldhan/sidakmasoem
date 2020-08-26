@@ -38,30 +38,25 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-6">
-              <strong>Copyright &copy; 2019-2020</strong>
+          <div class="form-row">
+            <div class="col-6" style="font-size: small;">
+              <b>Version</b> 1.0.1
+              <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
             </div>
             <div class="col-3">
-              <button type="submit" class="btn btn-primary btn-block float-right">LOGIN</button>
+              <button type="button" class="btn btn-sm btn-info btn-block float-right" data-toggle="modal" data-target=".modal-daftar">DAFTAR</button>
             </div>
             <div class="col-3">
-              <button type="button" class="btn btn-info btn-block float-right" data-toggle="modal" data-target=".bd-example-modal-xl">DAFTAR</button>
+              <button type="submit" class="btn btn-sm btn-primary btn-block float-right">LOGIN</button>
             </div>
           </div>
         </form>
       </div>
     </div>
   </div>
-  <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+  <div class="modal fade modal-daftar" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h4>Form Pendaftaran</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
         <div class="modal-body">
           <form action="/simpandaftar" method="POST">
             {{csrf_field()}}
@@ -118,26 +113,40 @@
                 <input required name="tanggal_lahir" type="date" class="form-control form-control-sm">
               </div> 
             </div>
-            <div class="form-row"> 
-              <div class="form-group col-sm-6">
-                <label>Alamat</label>
-                <textarea style="height: 75px;" required name="alamat" class="form-control" placeholder="Alamat tinggal saat ini"></textarea>
-              </div>
+            <div class="form-row">
               <div class="form-group col-sm-6">
                 <label>E-Mail</label>
                 <input required name="email" type="email" class="form-control form-control-sm" placeholder="contohemail@gmail.com">
               </div>
+              <div class="form-group col-sm-6">
+                <label>No Telepon</label>
+                <input maxlength="15" required name="no_telepon" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm">
+              </div>
             </div>
-            <div class="row">
+            <div class="form-row"> 
+              <div class="form-group col-sm-4">
+                <label>Alamat</label>
+                <textarea style="height: 75px;" required name="alamat" class="form-control"></textarea>
+              </div>
+              <div class="form-group col-sm-4">
+                <label>Visi</label>
+                <textarea style="height: 75px;" required name="visi" class="form-control"></textarea>
+              </div>
+              <div class="form-group col-sm-4">
+                <label>Misi</label>
+                <textarea style="height: 75px;" required name="misi" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="row" style="font-size: small;">
               <div class="col-8 float-right d-none d-sm-block">
                 <b>Version</b> 1.0.1
                 <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
               </div>
               <div class="col-2">
-                <button type="reset" class="btn btn-info btn-block float-right" data-dismiss="card">BATAL</button>
+                <button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
               </div>
               <div class="col-2">
-                <button type="submit" class="btn btn-primary btn-block float-right">SIMPAN</button>
+                <button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
               </div>
             </div>                                 
           </form>
