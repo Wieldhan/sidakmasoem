@@ -413,8 +413,9 @@ CREATE TABLE IF NOT EXISTS `jenjang_karir` (
 CREATE TABLE IF NOT EXISTS `karyawan` (
   `id` int(15) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(15) unsigned NOT NULL,
-  `golongan_id` int(10) DEFAULT '251',
-  `jabatan_id` int(10) DEFAULT '86',
+  `golongan_id` int(15) DEFAULT '251',
+  `jabatan_id` int(15) DEFAULT '86',
+  `cabang_id` int(15) DEFAULT '1',
   `nik` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `no_ktp` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_lengkap` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -423,23 +424,27 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   `tempat_lahir` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `status_nikah` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_telepon` int(15) DEFAULT '0',
   `alamat` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `visi` text CHARACTER SET latin1 NOT NULL,
+  `misi` text CHARACTER SET latin1 NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `golongan_id` (`golongan_id`),
   KEY `jabatan_id` (`jabatan_id`),
   KEY `FK_karyawan_users` (`user_id`),
+  KEY `cabang_id` (`cabang_id`),
+  CONSTRAINT `FK_karyawan_cabang` FOREIGN KEY (`cabang_id`) REFERENCES `cabang` (`id`),
   CONSTRAINT `FK_karyawan_golongan` FOREIGN KEY (`golongan_id`) REFERENCES `golongan` (`id`),
   CONSTRAINT `FK_karyawan_jabatan` FOREIGN KEY (`jabatan_id`) REFERENCES `jabatan` (`id`),
   CONSTRAINT `FK_karyawan_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.karyawan: ~2 rows (approximately)
+-- Dumping data for table sidakmasoem.karyawan: ~1 rows (approximately)
 /*!40000 ALTER TABLE `karyawan` DISABLE KEYS */;
-REPLACE INTO `karyawan` (`id`, `user_id`, `golongan_id`, `jabatan_id`, `nik`, `no_ktp`, `nama_lengkap`, `jk`, `agama`, `tempat_lahir`, `tanggal_lahir`, `status_nikah`, `alamat`, `created_at`, `updated_at`) VALUES
-	(7, 7, 91, 63, '232028', '3211182301910005', 'Wildan Yanuarsyah Tanjung', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Menikah', 'Jln. Ketib Rt 01/ Rw 12 Kelurahan kota kaler, kecamatan sumedang utara, kabupaten sumedang', '2020-08-18 02:24:20', '2020-08-18 02:24:20'),
-	(8, 8, 48, 55, '232023', '321118200519930003', 'Siti Aisyah', 'Perempuan', 'Islam', 'Bandung', '1993-05-20', 'Belum Menikah', 'Bandung Kota', '2020-08-18 07:42:36', '2020-08-18 07:42:36');
+REPLACE INTO `karyawan` (`id`, `user_id`, `golongan_id`, `jabatan_id`, `cabang_id`, `nik`, `no_ktp`, `nama_lengkap`, `jk`, `agama`, `tempat_lahir`, `tanggal_lahir`, `status_nikah`, `no_telepon`, `alamat`, `visi`, `misi`, `created_at`, `updated_at`) VALUES
+	(2, 11, 121, 56, 1, '232023', '3211182301910005', 'Wildan Yanuarsyah Tanjung', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Menikah', 0, 'Jalan kolonel ahmad syam no. 313 Kab. Sumedang', '', '', '2020-08-25 01:46:02', '2020-08-25 07:29:37');
 /*!40000 ALTER TABLE `karyawan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.migrations
@@ -477,18 +482,22 @@ CREATE TABLE IF NOT EXISTS `organisasi` (
 -- Dumping structure for table sidakmasoem.pendidikan
 CREATE TABLE IF NOT EXISTS `pendidikan` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
-  `nik` varchar(50) NOT NULL DEFAULT '0',
-  `nama_institusi` varchar(50) NOT NULL DEFAULT '0',
-  `tingkat` varchar(50) NOT NULL DEFAULT '0',
-  `tahun_masuk` int(15) NOT NULL,
-  `tahun_lulus` int(15) NOT NULL,
+  `nik` varchar(50) NOT NULL,
+  `nama_instansi` varchar(50) NOT NULL DEFAULT '0',
+  `jurusan` varchar(50) DEFAULT '0',
+  `jenjang` varchar(50) DEFAULT '0',
+  `tahun_lulus` year(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.pendidikan: ~0 rows (approximately)
+-- Dumping data for table sidakmasoem.pendidikan: ~3 rows (approximately)
 /*!40000 ALTER TABLE `pendidikan` DISABLE KEYS */;
+REPLACE INTO `pendidikan` (`id`, `nik`, `nama_instansi`, `jurusan`, `jenjang`, `tahun_lulus`, `created_at`, `updated_at`) VALUES
+	(5, '232023', 'SMA NEGERI 1 SUMEDANG', 'IPA', 'SMA', '2009', '2020-08-26 01:55:07', '2020-08-26 01:55:07'),
+	(6, '232023', 'SMP NEGERI 1 SUMEDANG', 'SEKOLAH MENENGAH PERTAMA', 'SMP', '2009', '2020-08-26 01:57:33', '2020-08-26 01:57:33'),
+	(7, '232023', 'MASOEM UNIVERSITY', 'MANAJEMEN INFORMATIKA', 'D3', '2016', '2020-08-26 01:58:50', '2020-08-26 01:58:50');
 /*!40000 ALTER TABLE `pendidikan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.users
@@ -504,29 +513,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.users: ~2 rows (approximately)
+-- Dumping data for table sidakmasoem.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 REPLACE INTO `users` (`id`, `nama_lengkap`, `email`, `level`, `password`, `remember_token`, `avatar`, `created_at`, `updated_at`) VALUES
-	(7, 'Wildan Yanuarsyah Tanjung', 'wieldhan_templar@yahoo.co.id', 'member', '$2y$10$48wfucmFrE/D881Utsaereb7u3df82TACqqSxcPnUQ408PKwd/iBq', 'lyo7xtCVQs9xWgHO4gvnaAWS7l6WoDzImQTmMXBwsYC5ZaNc6Gf5eVNV5N8S', NULL, '2020-08-18 02:24:19', '2020-08-18 02:24:19'),
-	(8, 'Siti Aisyah', 'aisyah@gmail.com', 'member', '$2y$10$uaCSFG18BTF/ggDAmCISe.oHWSPWY4USM8QxfU6dyLlafKgEkYBX.', 'WP6R60ljWbQeCkYLPaHT547BtZYgLRGiXWHthDdRUSz5NM0IG5O1RL3XlbOT', NULL, '2020-08-18 07:42:36', '2020-08-18 07:42:36');
+	(11, 'Wildan Yanuarsyah Tanjung', 'wieldhan@gmail.com', 'member', '$2y$10$RPRrAITQU/wv2OoZNbLtyep/592M.5guhZxW8elIwfWihUS4Rk.v2', 'PAi71rT5jX2x319V9Ve65JTJJVpIPFpideSgIlBUw3J8ZfaT9UqwC6mqIMNa', NULL, '2020-08-25 01:46:02', '2020-08-25 01:46:02');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
-
--- Dumping structure for table sidakmasoem.visi_misi
-CREATE TABLE IF NOT EXISTS `visi_misi` (
-  `id` int(15) NOT NULL AUTO_INCREMENT,
-  `nik` varchar(50) NOT NULL DEFAULT '0',
-  `visi` text NOT NULL,
-  `misi` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Dumping data for table sidakmasoem.visi_misi: ~0 rows (approximately)
-/*!40000 ALTER TABLE `visi_misi` DISABLE KEYS */;
-/*!40000 ALTER TABLE `visi_misi` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
