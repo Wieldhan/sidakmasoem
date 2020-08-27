@@ -13,11 +13,11 @@ class ProfilController extends Controller
 {
 	public function profile($id)
 	{
-		$karyawan = karyawan::where('id',$id)->first();
+		$karyawan = karyawan::where('user_id',$id)->first();
 		$golongan = golongan::all();
 		$jabatan = jabatan::all();
 		$user = user::all();
-		$pendidikan = pendidikan::all();
+		$pendidikan = pendidikan::where('nik',$karyawan->nik)->get();
 		$organisasi = organisasi::all();
 		return view('karyawan.profil', compact('karyawan','user','golongan','jabatan','pendidikan','organisasi'));
 	}

@@ -81,9 +81,14 @@
 							</tr>
 						</thead>
 						<tbody>
+								@foreach ($pendidikan as $pend)
 							<tr>
-
+								<td>{{$pend->nama_instansi}}</td>
+								<td>{{$pend->jurusan}}</td>
+								<td>{{$pend->jenjang}}</td>
+								<td>{{$pend->tahun_lulus}}</td>
 							</tr>
+								@endforeach
 						</tbody>
 					</table>	
 					<hr>												

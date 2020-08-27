@@ -1,7 +1,7 @@
 -- --------------------------------------------------------
 -- Host:                         localhost
 -- Server version:               5.7.24 - MySQL Community Server (GPL)
--- Server OS:                    Win32
+-- Server OS:                    Win64
 -- HeidiSQL Version:             11.0.0.5919
 -- --------------------------------------------------------
 
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `golongan` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=252 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.golongan: ~250 rows (approximately)
+-- Dumping data for table sidakmasoem.golongan: ~251 rows (approximately)
 /*!40000 ALTER TABLE `golongan` DISABLE KEYS */;
 REPLACE INTO `golongan` (`id`, `golongan`, `gaji_pokok`, `uang_makan`, `created_at`, `updated_at`) VALUES
 	(1, 'I.25', 200000, 16500, '2020-05-06 00:00:00', '2020-05-06 00:00:00'),
@@ -336,7 +336,7 @@ CREATE TABLE IF NOT EXISTS `jabatan` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sidakmasoem.jabatan: ~53 rows (approximately)
+-- Dumping data for table sidakmasoem.jabatan: ~52 rows (approximately)
 /*!40000 ALTER TABLE `jabatan` DISABLE KEYS */;
 REPLACE INTO `jabatan` (`id`, `jabatan`, `transport`, `pulsa`, `tunj_jab`, `created_at`, `updated_at`) VALUES
 	(1, 'Administrasi Pembiayaan KPO & AO Coorporate Karyawan Al Ma\'soem Group', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
@@ -424,7 +424,7 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   `tempat_lahir` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `status_nikah` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_telepon` int(15) DEFAULT '0',
+  `no_telepon` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `visi` text CHARACTER SET latin1 NOT NULL,
   `misi` text CHARACTER SET latin1 NOT NULL,
@@ -434,17 +434,14 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   KEY `golongan_id` (`golongan_id`),
   KEY `jabatan_id` (`jabatan_id`),
   KEY `FK_karyawan_users` (`user_id`),
-  KEY `cabang_id` (`cabang_id`),
-  CONSTRAINT `FK_karyawan_cabang` FOREIGN KEY (`cabang_id`) REFERENCES `cabang` (`id`),
-  CONSTRAINT `FK_karyawan_golongan` FOREIGN KEY (`golongan_id`) REFERENCES `golongan` (`id`),
-  CONSTRAINT `FK_karyawan_jabatan` FOREIGN KEY (`jabatan_id`) REFERENCES `jabatan` (`id`),
-  CONSTRAINT `FK_karyawan_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `cabang_id` (`cabang_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.karyawan: ~1 rows (approximately)
+-- Dumping data for table sidakmasoem.karyawan: ~2 rows (approximately)
 /*!40000 ALTER TABLE `karyawan` DISABLE KEYS */;
 REPLACE INTO `karyawan` (`id`, `user_id`, `golongan_id`, `jabatan_id`, `cabang_id`, `nik`, `no_ktp`, `nama_lengkap`, `jk`, `agama`, `tempat_lahir`, `tanggal_lahir`, `status_nikah`, `no_telepon`, `alamat`, `visi`, `misi`, `created_at`, `updated_at`) VALUES
-	(2, 11, 121, 56, 1, '232023', '3211182301910005', 'Wildan Yanuarsyah Tanjung', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Menikah', 0, 'Jalan kolonel ahmad syam no. 313 Kab. Sumedang', '', '', '2020-08-25 01:46:02', '2020-08-25 07:29:37');
+	(2, 11, 121, 56, 1, '232023', '3211182301910005', 'Wildan Yanuarsyah Tanjung', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Menikah', '082316172028', 'Jalan kolonel ahmad syam no. 313 Kab. Sumedang', '', '', '2020-08-25 01:46:02', '2020-08-25 07:29:37'),
+	(3, 12, 244, 64, 4, '232020', '3211182301910003', 'Sukandar', 'Laki Laki', 'Islam', 'Bandung', '1990-03-20', 'Cerai', '0', 'Jalan kolonel ahmad syam no. 313 Kab. Sumedang', '', '', '2020-08-25 01:46:02', '2020-08-26 07:37:22');
 /*!40000 ALTER TABLE `karyawan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.migrations
@@ -455,7 +452,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.migrations: ~2 rows (approximately)
+-- Dumping data for table sidakmasoem.migrations: ~3 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
@@ -513,12 +510,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.users: ~0 rows (approximately)
+-- Dumping data for table sidakmasoem.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 REPLACE INTO `users` (`id`, `nama_lengkap`, `email`, `level`, `password`, `remember_token`, `avatar`, `created_at`, `updated_at`) VALUES
-	(11, 'Wildan Yanuarsyah Tanjung', 'wieldhan@gmail.com', 'member', '$2y$10$RPRrAITQU/wv2OoZNbLtyep/592M.5guhZxW8elIwfWihUS4Rk.v2', 'PAi71rT5jX2x319V9Ve65JTJJVpIPFpideSgIlBUw3J8ZfaT9UqwC6mqIMNa', NULL, '2020-08-25 01:46:02', '2020-08-25 01:46:02');
+	(11, 'Wildan Yanuarsyah Tanjung', 'wieldhan@gmail.com', 'member', '$2y$10$RPRrAITQU/wv2OoZNbLtyep/592M.5guhZxW8elIwfWihUS4Rk.v2', 'PAi71rT5jX2x319V9Ve65JTJJVpIPFpideSgIlBUw3J8ZfaT9UqwC6mqIMNa', NULL, '2020-08-25 01:46:02', '2020-08-25 01:46:02'),
+	(12, 'Suhe', 'suhe@gmail.com', 'member', '$2y$10$KPnLy3plkubmJutNvcepP.wDAaEYnc5y8g9vmHamG8MW5n8fVPJe2', '0lULiWtGMlUhRH5GP9UPKAMvl5rkOEFaxAfVDaYrhnCqewihHB', NULL, '2020-08-26 07:28:10', '2020-08-26 07:28:10');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

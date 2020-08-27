@@ -117,6 +117,7 @@
 											<div class="form-group col-sm-4">
 												<label>Golongan</label>
 												<select required name="golongan_id" class="form-control form-control-sm" id="golongan">
+													
 													@foreach($golongan as $dg)
 													<option value="{{$dg->id}}" {{( $dg->id == $karyawan->golongan_id) ? 'selected' : '' }}>{{$dg->golongan}}</option>
 													@endforeach
