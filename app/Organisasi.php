@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Organisasi extends Model
 {
    protected $table ='organisasi';
-	protected $fillable = ['nik','nama_org','jabatan_org','periode_org'];
+	protected $fillable = ['nik','nama_org','jabatan_org','periode_org','status_org'];
 
 	public function karyawan()
 	{

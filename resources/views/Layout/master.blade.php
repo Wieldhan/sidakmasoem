@@ -3,6 +3,7 @@
 <head>
   @include('layout.head') 
   @yield('link')
+  <link rel="shortcut icon" href="public/favicon.ico">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed" style="font-family:'Oswald',sans-serif;">
   <div class="wrapper">

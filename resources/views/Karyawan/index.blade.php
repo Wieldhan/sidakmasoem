@@ -10,9 +10,6 @@
 				<div class="col-6">
 					<h1 style="font-size: 30px">DATA KARYAWAN</h1>
 				</div>
-				<!-- <div class="col-6">
-					<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
-				</div> -->
 			</div>
 		</div>
 	</div>
@@ -32,17 +29,12 @@
 							<tr align="center">
 								<th>ID</th>
 								<th>NIK</th>
-								<th>NO KTP</th>
+								<th>No KTP</th>
 								<th>Nama</th>
 								<th>Jenis Kelamin</th>
-								<!-- <th>Tempat Lahir</th> -->
-								<!-- <th>Tanggal Lahir</th> -->
-								<!-- <th>Agama</th> -->
 								<th>Golongan</th>
 								<th>Jabatan</th>
 								<th>Cabang</th>
-								<!-- <th>No Telepon</th> -->
-								<!-- <th>Email</th> -->
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -54,14 +46,9 @@
 								<td>{{$karyawan->no_ktp}}</td>
 								<td>{{$karyawan->nama_lengkap}}</td>
 								<td>{{$karyawan->jk}}</td>
-								<!-- <td>{{$karyawan->tempat_lahir}}</td>
-								<td>{{$karyawan->tanggal_lahir}}</td> -->
-								<!-- <td>{{$karyawan->agama}}</td> -->
 								<td>{{$karyawan->golongan->golongan}}</td>
 								<td>{{$karyawan->jabatan->jabatan}}</td>
-								<td>{{$karyawan->cabang->nama_cabang}}</td>
-								<!-- <td>{{$karyawan->no_telepon}}</td> -->
-								<!-- <td>{{$karyawan->user->email}}</td> -->
+								<td>{{$karyawan->cabang->nama_cabang}}</td>								
 								<td>
 									<button type="button" class="btn btn-sm btn-warning edit" data-toggle="modal" data-target=".editkaryawan">Edit</button>									
 									<button class="btn btn-sm btn-danger hapus" karyawan-id="{{$karyawan->id}}">Hapus</button>
@@ -99,9 +86,9 @@
 											</div>
 											<div class="form-group col-sm-6">
 												<label>Jenis Kelamin</label>
-												<select required disabled="true" name="jk" class="form-control form-control-sm" id="jk">
-													<option>Laki Laki</option>
-													<option>Perempuan</option>
+												<select required readonly name="jk" class="form-control form-control-sm" id="jk">
+													<option value="Laki Laki" {{$karyawan->jk === "Laki Laki"? "selected" : ""}}>Laki Laki</option>
+													<option value="Perempuan" {{$karyawan->jk === "Perempuan"? "selected" : ""}}>Perempuan</option>
 												</select>
 											</div>
 										</div>																	
@@ -116,8 +103,7 @@
 											</div>
 											<div class="form-group col-sm-4">
 												<label>Golongan</label>
-												<select required name="golongan_id" class="form-control form-control-sm" id="golongan">
-													
+												<select required name="golongan_id" class="form-control form-control-sm" id="golongan">		
 													@foreach($golongan as $dg)
 													<option value="{{$dg->id}}" {{( $dg->id == $karyawan->golongan_id) ? 'selected' : '' }}>{{$dg->golongan}}</option>
 													@endforeach
@@ -147,91 +133,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					<!-- <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4>TAMBAH DATA KARYAWAN</h4>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<form action="/karyawan/store" method="POST">
-										{{csrf_field()}}										
-										<div class="form-row">
-											<div class="form-group col-sm-6">
-												<label>No Induk Karyawan</label>
-												<input required name="nik" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" placeholder="No. Reg atau NIK berdasarkan SK">
-											</div>
-											<div class="form-group col-sm-6">
-												<label>No KTP</label>
-												<input required name="no_ktp" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm">
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-sm-6">
-												<label>Nama Lengkap</label>
-												<input required name="nama_lengkap" type="text" class="form-control form-control-sm" placeholder="Nama Sesuai KTP">
-											</div>
-											<div class="form-group col-sm-6">
-												<label for="formcontroljk">Jenis Kelamin</label>
-												<select required name="jk" class="form-control form-control-sm" id="formcontroljk">
-													<option>Laki Laki</option>
-													<option>Perempuan</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-sm-6">
-												<label for="formcontrolagama">Agama</label>
-												<select required name="agama" class="form-control form-control-sm" id="formcontrolagama" >
-													<option >Islam</option>
-													<option >Protestan</option>
-													<option >Khatolik</option>
-													<option >Hindu</option>
-													<option >Buddha</option>
-												</select>
-											</div>
-											<div class="form-group col-sm-6">
-												<label for="formcontrolpernikahan">Status Pernikahan</label>
-												<select required name="status_nikah" class="form-control form-control-sm" id="formcontrolpernikahan">
-													<option>Belum Menikah</option>
-													<option>Menikah</option>
-													<option>Cerai</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-sm-6">
-												<label>Tempat Lahir</label>
-												<input required name="tempat_lahir" type="text" class="form-control form-control-sm" placeholder="Kota Kelahiran">
-											</div>
-											<div class="form-group col-sm-6">
-												<label>Tanggal Lahir</label>
-												<input required name="tanggal_lahir" type="date" class="form-control form-control-sm">
-											</div> 
-										</div>
-										<div class="form-row"> 
-											<div class="form-group col-sm-6">
-												<label>Alamat</label>
-												<textarea style="height: 75px;" required name="alamat" class="form-control" placeholder="Alamat tinggal saat ini"></textarea>
-											</div>
-											<div class="form-group col-sm-6">
-												<label>E-Mail</label>
-												<input required name="email" type="email" class="form-control form-control-sm" placeholder="contohemail@gmail.com">
-											</div>
-										</div>																												
-										<div class="float-right" style="margin-right: 15px;">
-											<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
-											<button type="submit" class="btn btn-primary">SIMPAN</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div> -->
+					</div>					
 				</div>
 			</div>
 		</div>

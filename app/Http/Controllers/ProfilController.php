@@ -18,7 +18,7 @@ class ProfilController extends Controller
 		$jabatan = jabatan::all();
 		$user = user::all();
 		$pendidikan = pendidikan::where('nik',$karyawan->nik)->get();
-		$organisasi = organisasi::all();
+		$organisasi = organisasi::where('nik',$karyawan->nik)->get();
 		return view('karyawan.profil', compact('karyawan','user','golongan','jabatan','pendidikan','organisasi'));
 	}
 	public function simpanpend(Request $request)

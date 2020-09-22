@@ -14,7 +14,7 @@
           {{csrf_field()}}
           <div class="form-row">
             <div class="form-group col-sm-3">
-              <label>No Induk Karyawan</label>
+              <label>No Induk Karyawan</label> 
               <input maxlength="10" required name="nik" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" value="{{$karyawan->nik}}">
             </div>
             <div class="form-group col-sm-3">

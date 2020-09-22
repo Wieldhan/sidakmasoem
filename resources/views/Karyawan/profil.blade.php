@@ -72,23 +72,22 @@
 					</div>
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
-							<tr align="center">									
-								<th>NAMA INSTANSI</th>
-								<th>JURUSAN</th>
-								<th>JENJANG</th>
-								<th>PERIODE</th>
-								<th>NILAI AKHIR</th>
+							<tr>									
+								<th>Nama Instansi</th>
+								<th>Jurusan</th>
+								<th>Jenjang</th>
+								<th>Tahun Lulus</th>								
 							</tr>
 						</thead>
 						<tbody>
-								@foreach ($pendidikan as $pend)
+							@foreach ($pendidikan as $pend)
 							<tr>
 								<td>{{$pend->nama_instansi}}</td>
 								<td>{{$pend->jurusan}}</td>
 								<td>{{$pend->jenjang}}</td>
 								<td>{{$pend->tahun_lulus}}</td>
 							</tr>
-								@endforeach
+							@endforeach
 						</tbody>
 					</table>	
 					<hr>												
@@ -102,16 +101,22 @@
 					</div>						
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
-							<tr align="center">									
-								<th>NAMA ORGANISASI</th>
-								<th>JENIS ORGANISASI</th>
-								<th>STATUS KEANGGOTAAN</th>
-								<th>PERIODE JABATAN</th>
+							<tr>									
+								<th>Nama Organisasi</th>
+								<th>Jabatan</th>
+								<th>Periode</th>
+								<th>Status Organisasi</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>									
+							@foreach ($organisasi as $org)
+							<tr>
+								<td>{{$org->nama_org}}</td>
+								<td>{{$org->jabatan_org}}</td>
+								<td>{{$org->periode_org}}</td>
+								<td>{{$org->status_org}}</td>							
 							</tr>
+							@endforeach
 						</tbody>
 					</table>
 					<hr>
@@ -125,11 +130,11 @@
 					</div>							
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
-							<tr align="center">
-								<th>NAMA PERUSAHAAN</th>
-								<th>JABATAN TERAKHIR</th>
-								<th>TAHUN MASUK</th>
-								<th>TAHUN KELUAR</th>
+							<tr>
+								<th>Nama Perusahaan</th>
+								<th>Jabatan</th>
+								<th>Tahun Masuk</th>
+								<th>Tahun Keluar</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -144,11 +149,11 @@
 					</div>
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
-							<tr align="center">
-								<th>NAMA JABATAN</th>
-								<th>CABANG</th>
-								<th>TAHUN MUTASI</th>
-								<th>PERIODE MUTASI</th>
+							<tr>
+								<th>Nama Jabatan</th>
+								<th>Cabang</th>
+								<th>Jenis Mutasi</th>
+								<th>Tahun Mutasi</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -190,8 +195,7 @@
 								<div class="form-group col-sm-6">
 									<label for="formcontroljenjang">Jenjang</label>
 									<select required name="jenjang" class="form-control form-control-sm" id="formcontroljenjang">
-										<option>NONE</option>
-										<option>SMP</option>
+										<option>--Pilih Salah Satu--</option>
 										<option>SMA</option>
 										<option>D3</option>											
 										<option>Sarjana (S1)</option>
@@ -243,44 +247,28 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<form action="/simpanorganisasi" method="POST">
+						<form action="/profile/simpanorg" method="POST">
 							{{csrf_field()}}								
-							<div class="form-group col-sm-12">
+							<div class="form-group">
 								<label>No Induk Karyawan</label>
-								<input required name="nik" type="text" class="form-control form-control-sm" value="{{Auth::user()->karyawan->nik}}" disabled="true">
+								<input required name="nik" type="text" class="form-control form-control-sm" value="{{Auth::user()->karyawan->nik}}" readonly="true">
 							</div>
-							<div class="form-group col-sm-12">
-								<label>Nama ORGANISASI</label>
-								<input required name="nama_instansi" type="text" class="form-control form-control-sm">
+							<div class="form-group">
+								<label>Nama Organisasi</label>
+								<input required name="" type="text" class="form-control form-control-sm">
+							</div>																
+							<div class="form-group">
+								<label>Jenis Organisasi</label>
+								<input required name="" type="text" class="form-control form-control-sm">
 							</div>
-							<div class="form-row">										
-								<div class="form-group col-sm-6">
-									<label for="formcontroljenjang">Jenjang</label>
-									<select required name="jenjang" class="form-control form-control-sm" id="formcontroljenjang">
-										<option>NONE</option>
-										<option>SMP</option>
-										<option>SMA</option>
-										<option>D3</option>											
-										<option>Sarjana (S1)</option>
-										<option>Pasca Sarjana (S2)</option>
-										<option>Magister (S3)</option>
-									</select>
-								</div>
-								<div class="form-group col-sm-6">
-									<label>Jurusan</label>
-									<input required name="jurusan" type="text" class="form-control form-control-sm">
-								</div>
+							<div class="form-group">
+								<label>Status di Organisasi</label>
+								<input required name="" type="text" class="form-control form-control-sm">
+							</div>					
+							<div class="form-group">
+								<label>Status Organisasi</label>
+								<input required name="" type="text" class="form-control form-control-sm">
 							</div>
-							<div class="form-row">
-								<div class="form-group col-sm-6">
-									<label>Tahun Lulus</label>
-									<input required name="tahun_lulus" type="date" class="form-control form-control-sm">
-								</div>
-								<div class="form-group col-sm-6">
-									<label>Nilai Akhir</label>
-									<input required name="nilai_akhir" type="text" class="form-control form-control-sm">
-								</div>
-							</div>	  
 							<div class="form-row">
 								<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
 									<b>Version</b> 1.0.1
@@ -329,7 +317,7 @@
 								</div>
 								<div class="form-group col-sm-6">
 									<label for="formcontroljk">Jenis Kelamin</label>
-									<select required name="jk" class="form-control form-control-sm" id="formcontroljk">
+									<select required name="jk" class="form-control form-control-sm" id="formcontroljk">									
 										<option value="Laki Laki" {{Auth::user()->karyawan->jk === "Laki Laki"? "selected" : ""}}>Laki Laki</option>
 										<option value="Perempuan" {{Auth::user()->karyawan->jk === "Perempuan"? "selected" : ""}}>Perempuan</option>
 									</select>

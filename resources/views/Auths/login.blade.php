@@ -78,6 +78,7 @@
               <div class="form-group col-sm-6">
                 <label for="formcontroljk">Jenis Kelamin</label>
                 <select required name="jk" class="form-control form-control-sm" id="formcontroljk">
+                  <option>--Pilih Salah Satu--</option>
                   <option>Laki Laki</option>
                   <option>Perempuan</option>
                 </select>
@@ -87,6 +88,7 @@
               <div class="form-group col-sm-6">
                 <label for="formcontrolagama">Agama</label>
                 <select required name="agama" class="form-control form-control-sm" id="formcontrolagama" >
+                  <option>--Pilih Salah Satu--</option>
                   <option>Islam</option>
                   <option>Protestan</option>
                   <option>Khatolik</option>
@@ -97,6 +99,7 @@
               <div class="form-group col-sm-6">
                 <label for="formcontrolpernikahan">Status Pernikahan</label>
                 <select required name="status_nikah" class="form-control form-control-sm" id="formcontrolpernikahan">
+                  <option>--Pilih Salah Satu--</option>
                   <option>Belum Menikah</option>
                   <option>Menikah</option>
                   <option>Cerai</option>
