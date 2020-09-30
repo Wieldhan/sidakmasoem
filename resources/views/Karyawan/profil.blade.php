@@ -18,7 +18,11 @@
 			<div class="card card-primary card-outline">
 				<div class="card-body box-profile">
 					<div class="text-center">
-						<img class="profile-user-img img-fluid img-circle img" src="/images/avatardefault.png" alt="User profile picture">
+						@if(Auth::user()->avatar == '')
+						<img style="width:150px; height: 150px;" class="img-thumbnail rounded-circle elevation-1" src="{{asset('images/avatars/avatardefault.png')}}" alt="profile picture">
+						@else
+						<img style="width:150px; height: 150px;" class="img-thumbnail rounded-circle elevation-1" src="{{asset('images/avatars/'.Auth::user()->avatar)}}" alt="profile picture">
+						@endif
 					</div>
 					<h3 class="profile-username text-center" style="font-size: 20px;">{{Auth::user()->karyawan->nama_lengkap}}</h3>
 					<p class="text-muted text-center">{{Auth::user()->karyawan->jabatan->jabatan}}</p>
@@ -72,20 +76,26 @@
 					</div>
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
-							<tr>									
+							<tr style="text-align: center;">	
+								<th hidden="true">ID</th>								
 								<th>Nama Instansi</th>
 								<th>Jurusan</th>
 								<th>Jenjang</th>
-								<th>Tahun Lulus</th>								
+								<th>Tahun Lulus</th>
+								<th>Act</th>								
 							</tr>
 						</thead>
 						<tbody>
 							@foreach ($pendidikan as $pend)
 							<tr>
+								<td hidden="true">{{$pend->id}}</td>
 								<td>{{$pend->nama_instansi}}</td>
 								<td>{{$pend->jurusan}}</td>
-								<td>{{$pend->jenjang}}</td>
-								<td>{{$pend->tahun_lulus}}</td>
+								<td style="text-align: center;">{{$pend->jenjang}}</td>
+								<td style="text-align: center;">{{$pend->tahun_lulus}}</td>
+								<td style="text-align: center;">
+									<button class="btn btn-sm btn-danger hapuspend" pend-id="{{$pend->id}}"><i class="fa fa-trash" aria-hidden="true" title="Hapus"></i></button>
+								</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -101,20 +111,26 @@
 					</div>						
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
-							<tr>									
+							<tr style="text-align: center;">
+								<th hidden="true">ID</th>									
 								<th>Nama Organisasi</th>
 								<th>Jabatan</th>
-								<th>Periode</th>
-								<th>Status Organisasi</th>
+								<th>Tahun</th>
+								<th>Status</th>
+								<th>Act</th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach ($organisasi as $org)
 							<tr>
+								<td hidden="true">{{$org->id}}</td>
 								<td>{{$org->nama_org}}</td>
 								<td>{{$org->jabatan_org}}</td>
-								<td>{{$org->periode_org}}</td>
-								<td>{{$org->status_org}}</td>							
+								<td style="text-align: center;">{{$org->periode_org}}</td>
+								<td style="text-align: center;">{{$org->status_org}}</td>
+								<td style="text-align: center;">
+									<button class="btn btn-sm btn-danger hapusorg" org-id="{{$org->id}}"><i class="fa fa-trash" aria-hidden="true" title="Hapus"></i></button>
+								</td>							
 							</tr>
 							@endforeach
 						</tbody>
@@ -130,7 +146,7 @@
 					</div>							
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
-							<tr>
+							<tr style="text-align: center;">
 								<th>Nama Perusahaan</th>
 								<th>Jabatan</th>
 								<th>Tahun Masuk</th>
@@ -149,7 +165,7 @@
 					</div>
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
-							<tr>
+							<tr style="text-align: center;">
 								<th>Nama Jabatan</th>
 								<th>Cabang</th>
 								<th>Jenis Mutasi</th>
@@ -170,216 +186,61 @@
 				</div>
 			</div>
 		</div>
-		<!-- modal pendidikan -->
-		<div class="modal fade modal-pendidikan" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-			<div class="modal modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4>TAMBAH DATA PENDIDIKAN</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form action="/profile/simpanpend" method="POST">
-							{{csrf_field()}}								
-							<div class="form-group col-sm-12">
-								<label>No Induk Karyawan</label>
-								<input required name="nik" type="text" class="form-control form-control-sm" value="{{Auth::user()->karyawan->nik}}" readonly="true">
-							</div>
-							<div class="form-group col-sm-12">
-								<label>Nama Instansi Pendidikan</label>
-								<input required name="nama_instansi" type="text" class="form-control form-control-sm">
-							</div>
-							<div class="form-row">										
-								<div class="form-group col-sm-6">
-									<label for="formcontroljenjang">Jenjang</label>
-									<select required name="jenjang" class="form-control form-control-sm" id="formcontroljenjang">
-										<option>--Pilih Salah Satu--</option>
-										<option>SMA</option>
-										<option>D3</option>											
-										<option>Sarjana (S1)</option>
-										<option>Pasca Sarjana (S2)</option>
-										<option>Magister (S3)</option>
-									</select>
-								</div>
-								<div class="form-group col-sm-6">
-									<label>Jurusan</label>
-									<input required name="jurusan" type="text" class="form-control form-control-sm">
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-sm-6">
-									<label>Tahun Lulus</label>
-									<input required name="tahun_lulus" type="text" onkeypress="hanyaangka(event)" class="form-control form-control-sm">
-								</div>
-								<div class="form-group col-sm-6">
-									<label>Nilai Akhir</label>
-									<input required name="nilai_akhir" type="text" onkeypress="hanyaangka(event)" class="form-control form-control-sm">
-								</div>
-							</div>	  
-							<div class="form-row">
-								<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
-									<b>Version</b> 1.0.1
-									<strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
-								</div>
-								<div class="col-2">
-									<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
-								</div>
-								<div class="col-2">
-									<button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
-								</div>
-							</div>                                 
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end of modal pendidikan -->
-		<!-- modal organisasi -->
-		<div class="modal fade modal-organisasi" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-			<div class="modal modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4>TAMBAH DATA ORGANISASI</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form action="/profile/simpanorg" method="POST">
-							{{csrf_field()}}								
-							<div class="form-group">
-								<label>No Induk Karyawan</label>
-								<input required name="nik" type="text" class="form-control form-control-sm" value="{{Auth::user()->karyawan->nik}}" readonly="true">
-							</div>
-							<div class="form-group">
-								<label>Nama Organisasi</label>
-								<input required name="" type="text" class="form-control form-control-sm">
-							</div>																
-							<div class="form-group">
-								<label>Jenis Organisasi</label>
-								<input required name="" type="text" class="form-control form-control-sm">
-							</div>
-							<div class="form-group">
-								<label>Status di Organisasi</label>
-								<input required name="" type="text" class="form-control form-control-sm">
-							</div>					
-							<div class="form-group">
-								<label>Status Organisasi</label>
-								<input required name="" type="text" class="form-control form-control-sm">
-							</div>
-							<div class="form-row">
-								<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
-									<b>Version</b> 1.0.1
-									<strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
-								</div>
-								<div class="col-2">
-									<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
-								</div>
-								<div class="col-2">
-									<button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
-								</div>
-							</div>                                 
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end of modal organisasi -->
-		<!-- modal edit profil -->
-		<div class="modal fade modal-edit-profil" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4>UBAH DATA DIRI</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form action="/update" method="POST">
-							{{csrf_field()}}
-							<div class="form-row">
-								<div class="form-group col-sm-6">
-									<label>No Induk Karyawan</label>
-									<input required name="nik" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" value="{{Auth::user()->karyawan->nik}}">
-								</div>
-								<div class="form-group col-sm-6">
-									<label>No KTP</label>
-									<input required name="no_ktp" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" value="{{Auth::user()->karyawan->no_ktp}}">
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-sm-6">
-									<label>Nama Lengkap</label>
-									<input required name="nama_lengkap" type="text" class="form-control form-control-sm" value="{{Auth::user()->karyawan->nama_lengkap}}">
-								</div>
-								<div class="form-group col-sm-6">
-									<label for="formcontroljk">Jenis Kelamin</label>
-									<select required name="jk" class="form-control form-control-sm" id="formcontroljk">									
-										<option value="Laki Laki" {{Auth::user()->karyawan->jk === "Laki Laki"? "selected" : ""}}>Laki Laki</option>
-										<option value="Perempuan" {{Auth::user()->karyawan->jk === "Perempuan"? "selected" : ""}}>Perempuan</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-sm-6">
-									<label for="formcontrolagama">Agama</label>
-									<select required name="agama" class="form-control form-control-sm" id="formcontrolagama" >
-										<option value="Islam" {{Auth::user()->karyawan->agama === "Islam"? "selected" : ""}}>Islam</option>
-										<option value="Protestan" {{Auth::user()->karyawan->agama === "Protestan"? "selected" : ""}}>Protestan</option>
-										<option value="Khatolik" {{Auth::user()->karyawan->agama === "Khatolik"? "selected" : ""}}>Khatolik</option>
-										<option value="Hindu" {{Auth::user()->karyawan->agama === "Hindu"? "selected" : ""}}>Hindu</option>
-										<option value="Buddha" {{Auth::user()->karyawan->agama === "Buddha"? "selected" : ""}}>Buddha</option>
-									</select>
-								</div>
-								<div class="form-group col-sm-6">
-									<label for="formcontrolpernikahan">Status Pernikahan</label>
-									<select required name="status_nikah" class="form-control form-control-sm" id="formcontrolpernikahan">
-										<option value="Belum Menikah" {{Auth::user()->karyawan->status_nikah === "Belum Menikah"? "selected" : ""}}>Belum Menikah</option>
-										<option value="Menikah" {{Auth::user()->karyawan->status_nikah === "Menikah"? "selected" : ""}}>Menikah</option>
-										<option value="Cerai" {{Auth::user()->karyawan->status_nikah === "Cerai"? "selected" : ""}}>Cerai</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-sm-6">
-									<label>Tempat Lahir</label>
-									<input required name="tempat_lahir" type="text" class="form-control form-control-sm" value="{{Auth::user()->karyawan->tempat_lahir}}">
-								</div>
-								<div class="form-group col-sm-6">
-									<label>Tanggal Lahir</label>
-									<input required name="tanggal_lahir" type="date" class="form-control form-control-sm" value="{{Auth::user()->karyawan->tanggal_lahir}}">
-								</div> 
-							</div>
-							<div class="form-row"> 
-								<div class="form-group col-sm-6">
-									<label>Alamat</label>
-									<textarea style="height: 75px;" required name="alamat" class="form-control">{{Auth::user()->karyawan->alamat}}</textarea>
-								</div>
-								<div class="form-group col-sm-6">
-									<label>E-Mail</label>
-									<input required name="email" type="email" class="form-control form-control-sm" value="{{Auth::user()->email}}">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
-									<b>Version</b> 1.0.1
-									<strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
-								</div>
-								<div class="col-2">
-									<button type="reset" class="btn btn-info btn-block float-right" data-dismiss="card">BATAL</button>
-								</div>
-								<div class="col-2">
-									<button type="submit" class="btn btn-primary btn-block float-right">SIMPAN</button>
-								</div>
-							</div>                                 
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end of modal edit profil -->
 	</div>
+	@include('karyawan.modal')
+	@endsection
+	@section ('javascript')
+	<script>
+		$('.hapusorg').click(function(){
+			var org_id = $(this).attr('org-id');
+			Swal.fire({
+				title: 'ATTENTION !!',
+				text: "Yakin Ingin Menghapus Data ini??",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonText: 'Hapus',
+				cancelButtonText:'Batal'
+			}).then((result) => {
+				if (result.value) {
+					window.location ="/profile/orgdestroy/"+org_id+"";
+				}
+			});
+		});	
+
+		$('.hapuspend').click(function(){
+			var pend_id = $(this).attr('pend-id');
+			Swal.fire({
+				title: 'ATTENTION !!',
+				text: "Yakin Ingin Menghapus Data ini??",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonText: 'Hapus',
+				cancelButtonText:'Batal'
+			}).then((result) => {
+				if (result.value) {
+					window.location ="/profile/penddestroy/"+pend_id+"";
+				}
+			});
+		});	
+
+		function readURL() {
+			var input = this;
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$(input).prev().attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$(function () {
+			$(".uploads").change(readURL)
+			$("#f").submit(function(){
+                // do ajax submit or just classic form submit
+              //  alert("fake subminting")
+              return false
+          })
+		})
+	</script>
 	@endsection

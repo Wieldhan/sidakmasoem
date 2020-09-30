@@ -40,7 +40,7 @@ class AuthController extends Controller
 		$user->email =$request->email;
 		$user->password = bcrypt($request['nik']);
 		$user->remember_token = Str::random(50);
-		$user->level ='member';
+		$user->level ='user';
 		$user->save();
 
 		// Insert Tabel Karyawan

@@ -20,7 +20,7 @@ class CreateKaryawanTable extends Migration
         $table->integer('jabatan_id')->nullable();
         $table->integer('cabang_id')->nullable();
         $table->string('nik')->nullable();
-        $table->string('no_ktp');
+        $table->string('no_ktp')->nullable();
         $table->string('nama_lengkap');
         $table->string('jk');
         $table->string('agama');

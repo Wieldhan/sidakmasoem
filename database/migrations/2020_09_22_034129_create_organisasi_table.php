@@ -16,9 +16,10 @@ class CreateOrganisasiTable extends Migration
         Schema::create('organisasi', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nik');
+            $table->string('user_id');
             $table->string('nama_org');
             $table->string('jabatan_org');
-            $table->string('periode_org');
+            $table->date('periode_org');
             $table->string('status_org');
             $table->timestamps();
         });
