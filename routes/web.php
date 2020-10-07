@@ -34,6 +34,8 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::get('profile/orgdestroy/{organisasi}','profilController@orgdestroy');
 	Route::get('profile/penddestroy/{pendidikan}','profilController@penddestroy');
 	Route::post('profile/account/{id}','profilController@account');
+	Route::post('profile/simpanpeng','profilController@simpanpeng');
+	Route::get('profile/pengdestroy/{pengalaman}','profilController@pengdestroy');
 // Routes Karyawan
 	Route::get('karyawan', 'karyawanController@index');
 	Route::post('/karyawan/store', 'karyawanController@store');

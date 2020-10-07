@@ -6,3 +6,4 @@
 <script src="/sweetalert/src/js/sweetalert.all.js"></script>
 <script src="/adminlte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <script src="/adminlte/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/toastr/toastr.min.js"	></script>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Auth;
 use App\Karyawan;
 use App\Golongan;
 use App\Jabatan;
@@ -15,6 +16,10 @@ class KaryawanController extends Controller
 {
 	public function index()
 	{
+		if(Auth::user()->level == 'user') {
+			Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+			return redirect()->to('/');
+		}
 		$karyawan = karyawan::all();
 		$golongan = golongan::all();
 		$jabatan = jabatan::all();

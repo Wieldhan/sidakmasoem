@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePengalamanKerjaTable extends Migration
+class CreatePengalamanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePengalamanKerjaTable extends Migration
      */
     public function up()
     {
-        Schema::create('pengalaman_kerja', function (Blueprint $table) {
+        Schema::create('pengalaman', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nik');
             $table->string('nama_pr');
@@ -32,6 +32,6 @@ class CreatePengalamanKerjaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengalaman_kerja');
+        Schema::dropIfExists('pengalaman');
     }
 }

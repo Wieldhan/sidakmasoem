@@ -15,7 +15,7 @@
           <a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
+          <a href="#" class="nav-link"><i class="fas fa-user"></i> Contact</a>
         </li>
       </ul> 
       <ul class="navbar-nav ml-auto">

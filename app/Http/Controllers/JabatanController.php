@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 use App\Jabatan;
+use Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class JabatanController extends Controller
 {
     public function index()
 	{
+		if(Auth::user()->level == 'user') {
+			Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+			return redirect()->to('/');
+		}
 		$data_jabatan = jabatan::all();
 		return view('jabatan.index',['data_jabatan'=> $data_jabatan]);
 	}

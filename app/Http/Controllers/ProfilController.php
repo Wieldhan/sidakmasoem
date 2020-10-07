@@ -11,27 +11,25 @@ use App\Jabatan;
 use App\User;
 use App\Pendidikan;
 use App\Organisasi;
+use App\Pengalaman;
 use Auth;
 use DB;
 use Session;
-use RealRashid\SweetAlert\Facades\Alert;
+use SweetAlert\Facades\Alert;
 
 class ProfilController extends Controller
 {
 	public function profile($id)
 	{
-		if(Auth::user()->level == 'user') {
-			Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-			return redirect()->to('/');
-		}
-
 		$karyawan   = karyawan::where('user_id',$id)->first();
 		$golongan   = golongan::all();
 		$jabatan    = jabatan::all();
 		$user       = user::all();
 		$pendidikan = pendidikan::where('user_id',$id)->get();
 		$organisasi = organisasi::where('user_id',$id)->get();
-		return view('karyawan.profil', compact('karyawan','user','golongan','jabatan','pendidikan','organisasi'));
+		$pengalaman = pengalaman::where('user_id',$id)->get();
+
+		return view('karyawan.profil', compact('karyawan','user','golongan','jabatan','pendidikan','organisasi','pengalaman'));
 	}
 	public function simpanpend(Request $request)
 	{
@@ -44,42 +42,75 @@ class ProfilController extends Controller
 			'tahun_lulus'   => $request->input('tahun_lulus')
 		]);
 
-		alert()->success('Data Berhasil Ditambahkan!');
+		toast()->success('Data Berhasil Ditambahkan!');
 		return back();
 	}
 	public function penddestroy(pendidikan $pendidikan)
 	{
 		$pendidikan->delete();
-		alert()->success('SUCCES.','Data Berhasil Dihapus!');
+		toast()->success('Data Berhasil Dihapus!');
 		return back();
 	}
 	public function simpanorg(Request $request)
 	{
 		organisasi::create([
 			'user_id'     => Auth::user()->id,
+			'nik'         => $request->input('nik'),
 			'nama_org'    => $request->input('nama_org'),
 			'jabatan_org' => $request->input('jabatan_org'),
 			'periode_org' => $request->input('periode_org'),
 			'status_org'  => $request->input('status_org')
 		]);
 		
-		alert()->success('Data Berhasil Ditambahkan!');
+		toast()->success('Data Berhasil Ditambahkan!');
 		return back();
 	}
 	public function orgdestroy(organisasi $organisasi)
 	{
 		$organisasi->delete();
-		alert()->success('Data Berhasil Dihapus!');
+		toast()->success('Data Berhasil Dihapus!');
 		return back();
 	}
-	public function edit($id)
+
+	public function simpanpeng(request $request)
 	{
-		# code...
+		pengalaman::create([
+			'user_id'       => auth::user()->id,
+			'nik'           => $request->input('nik'),
+			'nama_pr'       => $request->input('nama_pr'),
+			'jabatan_pr'    => $request->input('jabatan_pr'),
+			'th_masuk'      => $request->input ('th_masuk'),
+			'th_keluar'     => $request->input('th_keluar'),
+			'alasan_resign' => $request->input('alasan_resign')
+		]);
+		toast()->success('Data Berhasil Ditambahkan!');
+		return back();
+	}
+
+	public function pengdestroy(pengalaman $pengalaman)
+	{
+		$pengalaman->delete();
+		toast()->success('Data Berhasil Dihapus!');
+		return back();
 	}	
 	public function update(Request $request, $id)
 	{
-		user::findOrFail($id)->update($request->all());
-		alert()->success('Data Berhasil Diupdate!');
+		$up_karyawan = karyawan::where('user_id', Auth::user()->id)
+		->update([
+			'nik'           => $request->input('nik'),
+			'no_ktp'        => $request->input('no_ktp'),
+			'nama_lengkap'  => $request->input('nama_lengkap'),
+			'jk'            => $request->input('jk'),
+			'agama'         => $request->input('agama'),
+			'tempat_lahir'  => $request->input('tempat_lahir'),
+			'tanggal_lahir' => $request->input('tanggal_lahir'),
+			'status_nikah'  => $request->input('status_nikah'),
+			'no_telepon'    => $request->input('no_telepon'),
+			'alamat'        => $request->input('alamat'),
+			'visi'          => $request->input('visi'),
+			'misi'          => $request->input('misi')
+		]);
+		toast()->success('Data Berhasil Diupdate!');
 		return back();
 	}
 	public function account(request $request, $id)
@@ -98,7 +129,7 @@ class ProfilController extends Controller
 			$user_data->password = bcrypt(($request->input('password')));
 		}
 		$user_data->update();
-		alert()->success('Data Berhasil Diupdate!');
+		toast()->success('Data Berhasil Diupdate!');
 		return back();
 	}
 }

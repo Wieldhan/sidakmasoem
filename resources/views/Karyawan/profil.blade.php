@@ -37,7 +37,7 @@
 						</li>
 						<li class="list-group-item">
 							<a>Alamat</a>
-							<span class="float-right">{{Auth::user()->karyawan->alamat}}</span>
+							<span class="float-right" style="text-align: justify;">{{Auth::user()->karyawan->alamat}}</span>
 						</li>
 						<li class="list-group-item">
 							<a>No Telepon</a>
@@ -141,7 +141,7 @@
 							<strong><i class="fas fa-pencil-alt mr-1"></i> Pengalaman Pekerjaan</strong>
 						</div>
 						<div class="col-2">
-							<button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal" data-target=".modal-pekerjaan" title="Tambah Data Pekerjaan"><i class="fas fa-plus mr-1"></i></button>
+							<button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal" data-target=".modal-pengalaman" title="Tambah Data Pekerjaan"><i class="fas fa-plus mr-1"></i></button>
 						</div>
 					</div>							
 					<table class="table text-muted table-sm">
@@ -151,12 +151,24 @@
 								<th>Jabatan</th>
 								<th>Tahun Masuk</th>
 								<th>Tahun Keluar</th>
+								<th>Alasan Resign</th>
+								<th>Act</th>
 							</tr>
 						</thead>
 						<tbody>
+							@foreach ($pengalaman as $peng)
 							<tr>
-
+								<td hidden="true">{{$peng->id}}</td>
+								<td>{{$peng->nama_pr}}</td>
+								<td>{{$peng->jabatan_pr}}</td>
+								<td style="text-align: center;">{{$peng->th_masuk}}</td>
+								<td style="text-align: center;">{{$peng->th_keluar}}</td>
+								<td>{{$peng->alasan_resign}}</td>
+								<td style="text-align: center;">
+									<button class="btn btn-sm btn-danger hapuspeng" peng-id="{{$peng->id}}"><i class="fa fa-trash" aria-hidden="true" title="Hapus"></i></button>
+								</td>
 							</tr>
+							@endforeach
 						</tbody>
 					</table>
 					<hr>				
@@ -194,12 +206,14 @@
 		$('.hapusorg').click(function(){
 			var org_id = $(this).attr('org-id');
 			Swal.fire({
-				title: 'ATTENTION !!',
-				text: "Yakin Ingin Menghapus Data ini??",
+				toast :true,
+				position: 'top-end',
+				title: 'ALERT!!',
+				text: "Ingin Menghapus Data Organisasi??",
 				icon: 'warning',
 				showCancelButton: true,
-				confirmButtonText: 'Hapus',
-				cancelButtonText:'Batal'
+				confirmButtonText: 'Ya',
+				cancelButtonText:'Tidak'
 			}).then((result) => {
 				if (result.value) {
 					window.location ="/profile/orgdestroy/"+org_id+"";
@@ -210,15 +224,35 @@
 		$('.hapuspend').click(function(){
 			var pend_id = $(this).attr('pend-id');
 			Swal.fire({
-				title: 'ATTENTION !!',
-				text: "Yakin Ingin Menghapus Data ini??",
+				toast :true,
+				position: 'top-end',
+				title: 'ALERT!!',
+				text: "Ingin Menghapus Data Pendidikan??",
 				icon: 'warning',
 				showCancelButton: true,
-				confirmButtonText: 'Hapus',
-				cancelButtonText:'Batal'
+				confirmButtonText: 'Ya',
+				cancelButtonText:'Tidak'
 			}).then((result) => {
 				if (result.value) {
 					window.location ="/profile/penddestroy/"+pend_id+"";
+				}
+			});
+		});	
+
+		$('.hapuspeng').click(function(){
+			var peng_id = $(this).attr('peng-id');
+			Swal.fire({
+				toast :true,
+				position: 'top-end',
+				title: 'ALERT!!',
+				text: "Ingin Menghapus Data Pengalaman Kerja??",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonText: 'Ya',
+				cancelButtonText:'Tidak'
+			}).then((result) => {
+				if (result.value) {
+					window.location ="/profile/pengdestroy/"+peng_id+"";
 				}
 			});
 		});	
@@ -240,7 +274,7 @@
                 // do ajax submit or just classic form submit
               //  alert("fake subminting")
               return false
-          })
+            })
 		})
 	</script>
 	@endsection

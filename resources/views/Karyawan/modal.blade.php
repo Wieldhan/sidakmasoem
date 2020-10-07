@@ -9,7 +9,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="/update" method="POST">
+				<form action="/profile/update/{{auth::user()->id}}" method="POST">
 					{{csrf_field()}}
 					<div class="form-row">
 						<div class="form-group col-sm-6">
@@ -157,7 +157,7 @@
 </div>
 <!-- end of modal pendidikan -->
 <!-- pengalaman pekerjaan -->
-<div class="modal fade modal-Pengalaman" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal fade modal-pengalaman" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
 	<div class="modal modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -186,32 +186,33 @@
 					<div class="form-row">
 						<div class="form-group col-sm-6">
 							<label>Tahun Masuk</label>
-							<input required name="th_masuk" type="month" class="form-control form-control-sm">
+							<input required name="th_masuk" type="date" class="form-control form-control-sm">
 						</div>			
-						<label>Tahun Resign</label>
-						<input required name="th_resign" type="month" class="form-control form-control-sm">
-					</div>			
-					<div class="form-group col-sm-6">
+						<div class="form-group col-sm-6">
+							<label>Tahun Resign</label>
+							<input required name="th_keluar" type="date" class="form-control form-control-sm">
+						</div>			
+					</div>
+					<div class="form-group col-sm">
 						<label>Alasan Resign</label>
 						<input required name="alasan_resign" type="text" class="form-control form-control-sm">
 					</div>
-				</div>
-				<div class="form-row">
-					<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
-						<b>Version</b> 1.0.1
-						<strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
-					</div>
-					<div class="col-2">
-						<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
-					</div>
-					<div class="col-2">
-						<button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
-					</div>
-				</div>                                 
-			</form>
+					<div class="form-row">
+						<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
+							<b>Version</b> 1.0.1
+							<strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
+						</div>
+						<div class="col-2">
+							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
+						</div>
+						<div class="col-2">
+							<button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
+						</div>
+					</div>                                 
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
 </div>
 <!-- end of pengalaman pekerjaan -->
 <!-- pengalaman organisasi -->
@@ -244,11 +245,11 @@
 					<div class="form-row">
 						<div class="form-group col-sm-6">
 							<label>Periode di Organisasi</label>
-							<input required name="periode_org" type="month" class="form-control form-control-sm">
+							<input required name="periode_org" type="date" class="form-control form-control-sm">
 						</div>					
 						<div class="form-group col-sm-6">
 							<label>Status Organisasi</label>
-							<select required name="status_org" class="form-control form-control-sm">									
+							<select required name="status_org" class="form-control form-control-sm">
 								<option value="Aktif">Aktif</option>
 								<option value="Non Aktif">Non Aktif</option>
 							</select>
