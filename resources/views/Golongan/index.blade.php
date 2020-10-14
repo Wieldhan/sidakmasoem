@@ -35,7 +35,7 @@
 									<div class="form-group col-sm-auto">
 										<label>Uang Makan</label>
 										<input name="uang_makan" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
-									</div>																														
+									</div>									
 									<div class="float-right" style="margin-right: 15px;">
 										<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
 										<button type="submit" class="btn btn-primary">SIMPAN</button>
@@ -112,7 +112,7 @@
 										</div>
 									</div>
 								</div>
-								<a href="/golongan/hapus/{{$gol->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Ingin Menghapus DATA ini ?')">Hapus</a>
+								<button class="btn btn-sm btn-danger hapus" gol-id="{{$gol->id}}">Hapus</button>
 							</td>
 						</tr>
 						@endforeach
@@ -129,24 +129,36 @@
 <script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		
 		var table = $('#datatable').DataTable();
 		table.on('click','.edit', function(){
 			$tr = $(this).closest('tr');
 			if ($($tr).hasClass('child')){
 				$tr = $tr.prev('.parent');
 			}
-			
 			var data = table.row($tr).data();
-			
 			console.log(data);
 			$('#golong').val(data[1]);
 			$('#gaji').val(data[2]);
 			$('#makan').val(data[3]);
-
 			$('#editform').attr('action', '/golongan/update/'+data[0]);
 			$('#editmodal').modal('show');
 		});	
+	});
+
+	$('.hapus').click(function(){
+		var gol_id = $(this).attr('gol-id');
+		Swal.fire({
+			title: 'ATTENTION !!',
+			text: "Yakin Ingin Menghapus Data ID "+gol_id+"",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: 'Hapus',
+			cancelButtonText:'Batal'
+		}).then((result) => {
+			if (result.value) {
+				window.location ="/golongan/hapus/"+gol_id+"";
+			}
+		});
 	});
 </script>
 @endsection

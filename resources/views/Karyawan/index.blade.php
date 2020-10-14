@@ -86,10 +86,7 @@
 											</div>
 											<div class="form-group col-sm-6">
 												<label>Jenis Kelamin</label>
-												<select required readonly name="jk" class="form-control form-control-sm" id="jk">
-													<option value="Laki Laki" {{$karyawan->jk === "Laki Laki"? "selected" : ""}}>Laki Laki</option>
-													<option value="Perempuan" {{$karyawan->jk === "Perempuan"? "selected" : ""}}>Perempuan</option>
-												</select>
+												<input required readonly name="jk" class="form-control form-control-sm" id="jk">
 											</div>
 										</div>																	
 										<div class="form-row">
