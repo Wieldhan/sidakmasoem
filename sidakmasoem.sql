@@ -360,7 +360,7 @@ REPLACE INTO `jabatan` (`id`, `jabatan`, `transport`, `pulsa`, `tunj_jab`, `crea
 	(38, 'Komisaris Utama', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(39, 'Manajer Cabang', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(40, 'Manajer Collection', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
-	(41, 'Manajer EDP & SID', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(41, 'Manajer EDP & SID', 0, 0, 0, '2020-06-05 00:00:00', '2020-10-15 08:08:54'),
 	(42, 'Manajer Legal', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(43, 'Manajer Operasional', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(44, 'Manajer Rahn', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
@@ -437,8 +437,8 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
 -- Dumping data for table sidakmasoem.karyawan: ~2 rows (approximately)
 /*!40000 ALTER TABLE `karyawan` DISABLE KEYS */;
 REPLACE INTO `karyawan` (`id`, `user_id`, `golongan_id`, `jabatan_id`, `cabang_id`, `nik`, `no_ktp`, `nama_lengkap`, `jk`, `agama`, `tempat_lahir`, `tanggal_lahir`, `status_nikah`, `no_telepon`, `alamat`, `visi`, `misi`, `created_at`, `updated_at`) VALUES
-	(2, 11, 121, 56, 1, '232023', '3211182301910005', 'Wildan Yanuarsyah Tanjung', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Menikah', '0821474813647', 'Jalan kolonel ahmad syam no. 313 Kab. Sumedang', 'Aku anak Indonesia', 'Sehat dan Kuat', '2020-08-25 01:46:02', '2020-08-25 07:29:37'),
-	(3, 12, 50, 85, 5, '171717', '321854655978124', 'Sukandar', 'Laki Laki', 'Islam', 'Sumedang', '1995-05-15', 'Belum Menikah', '08156988856942', 'Tanjungsari', 'Santai Serius Setress', 'Ngoding Until i Cannot Ngoding', '2020-09-23 02:02:54', '2020-09-28 08:16:52');
+	(2, 2, 41, 56, 1, '232323', '3211182301910005', 'Wildan Yanuarsyah Tanjung', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Menikah', NULL, 'Ketib RT 01/RW 12. Keluarahan Kota Kaler, Kecamatan Sumedang Utara, Kabupaten Sumedang', 'Aku Anak Indonesia', 'Sehat dan Kuat Anjaaay', '2020-08-25 01:46:02', '2020-10-15 08:35:53'),
+	(3, 3, 66, 64, 5, '171717', '321854655978124', 'Sukandar', 'Laki Laki', 'Islam', 'Sumedang', '1995-05-15', 'Belum Menikah', '08156988856942', 'Tanjungsari', 'Santai Serius Setress', 'Ngoding Until i Cannot Ngoding', '2020-09-23 02:02:54', '2020-10-15 08:59:47');
 /*!40000 ALTER TABLE `karyawan` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.migrations
@@ -476,10 +476,16 @@ CREATE TABLE IF NOT EXISTS `organisasi` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.organisasi: ~0 rows (approximately)
+-- Dumping data for table sidakmasoem.organisasi: ~5 rows (approximately)
 /*!40000 ALTER TABLE `organisasi` DISABLE KEYS */;
+REPLACE INTO `organisasi` (`id`, `user_id`, `nik`, `nama_org`, `jabatan_org`, `periode_org`, `status_org`, `created_at`, `updated_at`) VALUES
+	(1, 3, '171717', 'PETANI TEMBAKAU TANJUNGSARI', 'KETUA UMUM', '2020-08-06', 'Aktif', '2020-10-06 07:06:16', '2020-10-06 07:06:16'),
+	(2, 3, '171717', 'IKATAN PROGRAMMER TANJUNGSARI', 'KETUA UMUM', '2020-10-01', 'Aktif', '2020-10-07 03:42:14', '2020-10-07 03:42:14'),
+	(4, 2, '232023', 'PETANI TEMBAKAU TANJUNGSARI', 'Bendahara', '2020-04-23', 'Aktif', '2020-10-07 04:54:25', '2020-10-07 04:54:25'),
+	(6, 2, '232023', 'IKATAN PROGRAMMER TANJUNGSARI', 'Wakil Ketua', '2020-10-01', 'Aktif', '2020-10-07 05:13:03', '2020-10-07 05:13:03'),
+	(7, 2, '232023', 'GERAKAN DISIPLIN SISWA', 'KETUA UMUM', '2019-09-12', 'Non Aktif', '2020-10-07 05:14:16', '2020-10-07 05:14:16');
 /*!40000 ALTER TABLE `organisasi` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.pendidikan
@@ -494,16 +500,19 @@ CREATE TABLE IF NOT EXISTS `pendidikan` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.pendidikan: ~0 rows (approximately)
+-- Dumping data for table sidakmasoem.pendidikan: ~3 rows (approximately)
 /*!40000 ALTER TABLE `pendidikan` DISABLE KEYS */;
 REPLACE INTO `pendidikan` (`id`, `user_id`, `nik`, `nama_instansi`, `jurusan`, `jenjang`, `tahun_lulus`, `created_at`, `updated_at`) VALUES
-	(2, 11, '232023', 'SMA NEGERI 1 SUMEDANG', 'IPA', 'SMA', '2009-08-20', '2020-09-29 09:16:08', '2020-09-29 09:16:08');
+	(2, 2, '232023', 'SMA NEGERI 1 SUMEDANG', 'IPA', 'SMA', '2009-08-20', '2020-09-29 09:16:08', '2020-09-29 09:16:08'),
+	(9, 3, '171717', 'SMA N 1 TANJUNGSARI', 'IPA', 'SMA', '2020-10-01', '2020-10-06 08:49:47', '2020-10-06 08:49:47'),
+	(10, 3, '171717', 'STKOM ALMASOEM', 'MANAJEMEN INFORMATIKA', 'D3', '2018-08-06', '2020-10-06 09:01:08', '2020-10-06 09:01:08'),
+	(14, 2, '232023', 'MASOEM UNIVERSITY', 'MANAJEMEN INFORMATIKA', 'D3', '2020-04-10', '2020-10-07 05:04:09', '2020-10-07 05:04:09');
 /*!40000 ALTER TABLE `pendidikan` ENABLE KEYS */;
 
--- Dumping structure for table sidakmasoem.pengalaman_kerja
-CREATE TABLE IF NOT EXISTS `pengalaman_kerja` (
+-- Dumping structure for table sidakmasoem.pengalaman
+CREATE TABLE IF NOT EXISTS `pengalaman` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
   `nik` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -515,11 +524,14 @@ CREATE TABLE IF NOT EXISTS `pengalaman_kerja` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.pengalaman_kerja: ~0 rows (approximately)
-/*!40000 ALTER TABLE `pengalaman_kerja` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pengalaman_kerja` ENABLE KEYS */;
+-- Dumping data for table sidakmasoem.pengalaman: ~2 rows (approximately)
+/*!40000 ALTER TABLE `pengalaman` DISABLE KEYS */;
+REPLACE INTO `pengalaman` (`id`, `user_id`, `nik`, `nama_pr`, `jabatan_pr`, `th_masuk`, `th_keluar`, `alasan_resign`, `created_at`, `updated_at`) VALUES
+	(1, 2, '232023', 'BCA', 'TELLER', '2017-06-05', '2020-06-17', 'EKONOMI', '2020-10-07 04:16:28', '2020-10-07 04:16:28'),
+	(3, 2, '232323', 'BANK MANDIRI SYARIAH', 'DIGITAL MARKETING', '2012-01-06', '2015-11-10', 'LOKASI KERJA JAUH', '2020-10-07 07:39:40', '2020-10-07 07:39:40');
+/*!40000 ALTER TABLE `pengalaman` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -534,13 +546,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table sidakmasoem.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 REPLACE INTO `users` (`id`, `nama_lengkap`, `email`, `level`, `password`, `remember_token`, `avatar`, `created_at`, `updated_at`) VALUES
-	(11, 'Wildan Yanuarsyah Tanjung', 'wieldhan@gmail.com', 'admin', '$2y$10$49sW054NY2dIzSSP2UFiE.LBkIfzQx.QamMx6K.O3oyP13NiVFDaO', 'PIGZRFgQrqBmwKtC6KgcR5J0fhC0fyqKJMXT8WPU0rBBFAODt4rziAQkjMCB', '67988-2020-09-29-06-43-06.jpg', '2020-08-25 01:46:02', '2020-09-29 07:05:08'),
-	(12, 'Sukandar', 'suhe@gmail.com', 'user', '$2y$10$RPRrAITQU/wv2OoZNbLtyep/592M.5guhZxW8elIwfWihUS4Rk.v2', 'l5ZDemDH9b42FKZz9Xim7bAQdbJW2wa1dnocff9M9IyolwIyKcoeB90JSJJR', '64456-2020-09-28-05-02-39.png', '2020-09-23 02:02:54', '2020-09-28 05:02:39');
+	(2, 'Wildan Yanuarsyah Tanjung', 'wieldhan@gmail.com', 'admin', '$2y$10$49sW054NY2dIzSSP2UFiE.LBkIfzQx.QamMx6K.O3oyP13NiVFDaO', 'PIGZRFgQrqBmwKtC6KgcR5J0fhC0fyqKJMXT8WPU0rBBFAODt4rziAQkjMCB', '55335-2020-10-07-07-41-24.jpg', '2020-08-25 01:46:02', '2020-10-07 07:41:24'),
+	(3, 'Sukandar', 'suhe@gmail.com', 'user', '$2y$10$RPRrAITQU/wv2OoZNbLtyep/592M.5guhZxW8elIwfWihUS4Rk.v2', 'sMpg622lnVSYKgawuhpFYyVnsIjiDZmsmqjy3YxXfhq8tgrAqIvl6Uq9zkgt', '64456-2020-09-28-05-02-39.png', '2020-09-23 02:02:54', '2020-09-28 05:02:39');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

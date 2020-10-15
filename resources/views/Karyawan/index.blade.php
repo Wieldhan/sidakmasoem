@@ -50,14 +50,14 @@
 								<td>{{$karyawan->jabatan->jabatan}}</td>
 								<td>{{$karyawan->cabang->nama_cabang}}</td>								
 								<td>
-									<button type="button" class="btn btn-sm btn-warning edit" data-toggle="modal" data-target=".editkaryawan">Edit</button>									
+									<button class="btn btn-sm btn-warning edit" >Edit</button>									
 									<button class="btn btn-sm btn-danger hapus" karyawan-id="{{$karyawan->id}}">Hapus</button>
 								</td>								
 							</tr>
 							@endforeach
 						</tbody>
 					</table>
-					<div class="modal fade editkaryawan" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+					<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -67,7 +67,7 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									<form action="/karyawan/update/{{$karyawan->id}}" method="POST">
+									<form id="editform" method="POST">
 										{{csrf_field()}}
 										<div class="form-row">
 											<div class="form-group col-sm-6">
@@ -92,7 +92,7 @@
 										<div class="form-row">
 											<div class="form-group col-sm-4">
 												<label>Jabatan</label>
-												<select required name="jabatan_id" class="form-control form-control-sm" id="jabatan" >
+												<select required name="jabatan_id" class="form-control form-control-sm">
 													@foreach($jabatan as $dj)
 													<option value="{{$dj->id}}" {{( $dj->id == $karyawan->jabatan_id) ? 'selected' : '' }}>{{$dj->jabatan}}</option>
 													@endforeach
@@ -100,7 +100,7 @@
 											</div>
 											<div class="form-group col-sm-4">
 												<label>Golongan</label>
-												<select required name="golongan_id" class="form-control form-control-sm" id="golongan">		
+												<select required name="golongan_id" class="form-control form-control-sm">		
 													@foreach($golongan as $dg)
 													<option value="{{$dg->id}}" {{( $dg->id == $karyawan->golongan_id) ? 'selected' : '' }}>{{$dg->golongan}}</option>
 													@endforeach
@@ -150,20 +150,23 @@
 				}
 				var data = table.row($tr).data();
 				console.log(data);
+				$('#editmodal').modal('show');
 				$('#nik').val(data[1]);
 				$('#no_ktp').val(data[2]);
 				$('#nama_lengkap').val(data[3]);
 				$('#jk').val(data[4]);
+				$('#jabatan').val(data[6]);
 				$('#editform').attr('action','/karyawan/update/'+data[0]);
-				$('#editmodal').modal('show');
 			});	
 		});
 
 		$('.hapus').click(function(){
 			var karyawan_id = $(this).attr('karyawan-id');
 			Swal.fire({
-				title: 'ATTENTION !!',
-				text: "Yakin Ingin Menghapus Data ID "+karyawan_id+"",
+				toast : true,
+				position: 'top-end',
+				title: 'ALERT!!',
+				text: "Yakin Ingin Menghapus Data Karyawan??",
 				icon: 'warning',
 				showCancelButton: true,
 				confirmButtonText: 'Hapus',
