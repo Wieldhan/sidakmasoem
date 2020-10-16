@@ -26,7 +26,7 @@
 									{{csrf_field()}}										
 									<div class="form-group col-sm-auto">
 										<label>Nama jabatan</label>
-										<input name="jabatan" type="text" class="form-control" required maxlength="50">
+										<input name="jabatan" type="text" class="form-control" required maxlength="191">
 									</div>
 									<div class="form-group col-sm-auto">
 										<label>Transport</label>
@@ -99,7 +99,7 @@
 													{{csrf_field()}}
 													<div class="form-group col-sm-auto">
 														<label>Nama jabatan</label>
-														<input name="jabatan" id="jabatan" type="text" class="form-control" required maxlength="50" >
+														<input name="jabatan" id="jabatan" type="text" class="form-control" required maxlength="191" >
 													</div>
 													<div class="form-group col-sm-auto">
 														<label>Transport</label>
@@ -159,8 +159,10 @@
 	$('.hapus').click(function(){
 		var jabat_id = $(this).attr('jabat-id');
 		Swal.fire({
-			title: 'ATTENTION !!',
-			text: "Yakin Ingin Menghapus Data ID "+jabat_id+"",
+			toast : true,
+			position: 'top-end',
+			title: 'ALERT!!',
+			text: "Yakin Ingin Menghapus Data Ini??",
 			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonText: 'Hapus',

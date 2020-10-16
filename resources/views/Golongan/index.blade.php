@@ -148,8 +148,10 @@
 	$('.hapus').click(function(){
 		var gol_id = $(this).attr('gol-id');
 		Swal.fire({
-			title: 'ATTENTION !!',
-			text: "Yakin Ingin Menghapus Data ID "+gol_id+"",
+			toast : true,
+			position: 'top-end',
+			title: 'ALERT!!',
+			text: "Yakin Ingin Menghapus Data Ini??",
 			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonText: 'Hapus',

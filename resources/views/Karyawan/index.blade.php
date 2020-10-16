@@ -27,7 +27,7 @@
 					<table class="table table-sm table-hover" id="datatable" style="font-size: 15px;">
 						<thead>
 							<tr align="center">
-								<th>ID</th>
+								<th hidden="true">ID</th>
 								<th>NIK</th>
 								<th>No KTP</th>
 								<th>Nama</th>
@@ -41,7 +41,7 @@
 						<tbody>
 							@foreach($karyawan as $karyawan)
 							<tr align="left">
-								<td>{{$karyawan->id}}</td>
+								<td hidden="true">{{$karyawan->id}}</td>
 								<td>{{$karyawan->nik}}</td>
 								<td>{{$karyawan->no_ktp}}</td>
 								<td>{{$karyawan->nama_lengkap}}</td>
@@ -50,13 +50,16 @@
 								<td>{{$karyawan->jabatan->jabatan}}</td>
 								<td>{{$karyawan->cabang->nama_cabang}}</td>								
 								<td>
-									<button class="btn btn-sm btn-warning edit" >Edit</button>									
+									<!-- <button class="btn btn-sm btn-warning edit" >Edit</button>									 -->
+									<button class="btn btn-sm btn-warning edit" data-toggle="modal" data-target="#editmodal" data-id="{{$karyawan->id}}" >Edit</button>
 									<button class="btn btn-sm btn-danger hapus" karyawan-id="{{$karyawan->id}}">Hapus</button>
 								</td>								
 							</tr>
 							@endforeach
 						</tbody>
 					</table>
+
+					<!-- edit -->
 					<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 							<div class="modal-content">
@@ -92,7 +95,7 @@
 										<div class="form-row">
 											<div class="form-group col-sm-4">
 												<label>Jabatan</label>
-												<select required name="jabatan_id" class="form-control form-control-sm">
+												<select required name="jabatan_id" id="jabatan_id" class="form-control form-control-sm">
 													@foreach($jabatan as $dj)
 													<option value="{{$dj->id}}" {{( $dj->id == $karyawan->jabatan_id) ? 'selected' : '' }}>{{$dj->jabatan}}</option>
 													@endforeach
@@ -141,23 +144,40 @@
 	<script type="text/javascript" src="/datatables/datatables.min.js"></script>
 	<script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
 	<script type="text/javascript">
+		// $.ajaxSetup({
+		// 	headers: {
+		// 		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		// 	}
+		// });
 		$(document).ready(function(){
-			var table = $('#datatable').DataTable();
-			table.on('click','.edit', function(){
-				$tr = $(this).closest('tr');
-				if ($($tr).hasClass('child')){
-					$tr = $tr.prev('.parent');
-				}
-				var data = table.row($tr).data();
-				console.log(data);
-				$('#editmodal').modal('show');
-				$('#nik').val(data[1]);
-				$('#no_ktp').val(data[2]);
-				$('#nama_lengkap').val(data[3]);
-				$('#jk').val(data[4]);
-				$('#jabatan').val(data[6]);
-				$('#editform').attr('action','/karyawan/update/'+data[0]);
-			});	
+			$('.edit').click(function() {
+				var id = $(this).data('id');
+				console.log(id);
+				$.ajax({
+					url 			: "{{ url('/karyawan/detailKaryawan')}}",
+					method 		: "POST",
+					dataType 	: "json",
+					data 			: {
+						id 			: id,
+						_token 	: '{{ csrf_token() }}',
+					}, 
+					success: function(data) {
+						$('#editform').attr('action', '/karyawan/update/'+data.id);
+						$('#nik').val(data.no_induk);
+						$('#no_ktp').val(data.no_ktp);
+						$('#nama_lengkap').val(data.nama_lengkap);
+						$('#jk').val(data.jk);
+						$('#jabatan_id').empty();
+						$('#jabatan_id').append('<option value="'+ data.id_jabat+'">'+ data.jb+'</option>');
+						var x = data.jabatan;
+						x.forEach(function (x){
+							if (x.id != data.id_jabat) {
+								$('#jabatan_id').append('<option value="'+ x.id+'">'+ x.jabatan+'</option>');
+							}
+						});
+					}
+				});
+			});
 		});
 
 		$('.hapus').click(function(){

@@ -1,7 +1,7 @@
 -- --------------------------------------------------------
 -- Host:                         localhost
 -- Server version:               5.7.24 - MySQL Community Server (GPL)
--- Server OS:                    Win32
+-- Server OS:                    Win64
 -- HeidiSQL Version:             11.0.0.5919
 -- --------------------------------------------------------
 
@@ -339,7 +339,7 @@ CREATE TABLE IF NOT EXISTS `jabatan` (
 -- Dumping data for table sidakmasoem.jabatan: ~52 rows (approximately)
 /*!40000 ALTER TABLE `jabatan` DISABLE KEYS */;
 REPLACE INTO `jabatan` (`id`, `jabatan`, `transport`, `pulsa`, `tunj_jab`, `created_at`, `updated_at`) VALUES
-	(1, 'Administrasi Pembiayaan KPO & AO Coorporate Karyawan Al Ma\'soem Group', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
+	(1, 'Administrasi Pembiayaan KPO dan AO Coorporate Karyawan Al Ma\'soem Group', 0, 0, 0, '2020-06-05 00:00:00', '2020-10-16 02:07:00'),
 	(2, 'Administrasi Analis Pembiayaan', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(10, 'AO Corporate', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
 	(12, 'AO Umum', 0, 0, 0, '2020-06-05 00:00:00', '2020-06-05 00:00:00'),
@@ -395,11 +395,11 @@ REPLACE INTO `jabatan` (`id`, `jabatan`, `transport`, `pulsa`, `tunj_jab`, `crea
 
 -- Dumping structure for table sidakmasoem.jenjang_karir
 CREATE TABLE IF NOT EXISTS `jenjang_karir` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) unsigned NOT NULL,
-  `karyawan_id` int(11) NOT NULL,
-  `jabatan_id` int(11) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `nik` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `karyawan_id` int(11) NOT NULL,
+  `golongan_id` int(10) NOT NULL,
+  `jabatan_id` int(11) NOT NULL,
   `thn_perubahan` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -437,7 +437,7 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
 -- Dumping data for table sidakmasoem.karyawan: ~2 rows (approximately)
 /*!40000 ALTER TABLE `karyawan` DISABLE KEYS */;
 REPLACE INTO `karyawan` (`id`, `user_id`, `golongan_id`, `jabatan_id`, `cabang_id`, `nik`, `no_ktp`, `nama_lengkap`, `jk`, `agama`, `tempat_lahir`, `tanggal_lahir`, `status_nikah`, `no_telepon`, `alamat`, `visi`, `misi`, `created_at`, `updated_at`) VALUES
-	(2, 2, 41, 56, 1, '232323', '3211182301910005', 'Wildan Yanuarsyah Tanjung', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Menikah', NULL, 'Ketib RT 01/RW 12. Keluarahan Kota Kaler, Kecamatan Sumedang Utara, Kabupaten Sumedang', 'Aku Anak Indonesia', 'Sehat dan Kuat Anjaaay', '2020-08-25 01:46:02', '2020-10-15 08:35:53'),
+	(2, 2, 50, 26, 1, '232323', '3211182301910005', 'Wildan Yanuarsyah Tanjung', 'Laki Laki', 'Islam', 'Sumedang', '1991-01-23', 'Menikah', '082316172028', 'Ketib RT 01/RW 12. Keluarahan Kota Kaler, Kecamatan Sumedang Utara, Kabupaten Sumedang', 'Aku Anak Indonesia', 'Sehat dan Kuat Anjaaay', '2020-08-25 01:46:02', '2020-10-16 04:19:25'),
 	(3, 3, 66, 64, 5, '171717', '321854655978124', 'Sukandar', 'Laki Laki', 'Islam', 'Sumedang', '1995-05-15', 'Belum Menikah', '08156988856942', 'Tanjungsari', 'Santai Serius Setress', 'Ngoding Until i Cannot Ngoding', '2020-09-23 02:02:54', '2020-10-15 08:59:47');
 /*!40000 ALTER TABLE `karyawan` ENABLE KEYS */;
 
@@ -502,7 +502,7 @@ CREATE TABLE IF NOT EXISTS `pendidikan` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sidakmasoem.pendidikan: ~3 rows (approximately)
+-- Dumping data for table sidakmasoem.pendidikan: ~4 rows (approximately)
 /*!40000 ALTER TABLE `pendidikan` DISABLE KEYS */;
 REPLACE INTO `pendidikan` (`id`, `user_id`, `nik`, `nama_instansi`, `jurusan`, `jenjang`, `tahun_lulus`, `created_at`, `updated_at`) VALUES
 	(2, 2, '232023', 'SMA NEGERI 1 SUMEDANG', 'IPA', 'SMA', '2009-08-20', '2020-09-29 09:16:08', '2020-09-29 09:16:08'),

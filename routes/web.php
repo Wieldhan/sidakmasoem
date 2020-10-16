@@ -41,7 +41,7 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::post('/karyawan/store', 'karyawanController@store');
 	Route::get('/karyawan/edit/{id}', 'karyawanController@edit');
 	Route::post('/karyawan/update/{id}', 'karyawanController@update');
-	Route::post('/karyawan/detailKaryawan','karyawanController@karyawandDetail');
+	Route::post('/karyawan/detailKaryawan','karyawanController@karyawanDetail');
 	Route::get('/karyawan/destroy/{id}', 'karyawanController@destroy');
 	Route::get('/karyawan/profil/{id}', 'karyawanController@profil');
 // Routes Golongan

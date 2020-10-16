@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Auth;
@@ -24,7 +23,7 @@ class KaryawanController extends Controller
 		$golongan = golongan::all();
 		$jabatan = jabatan::all();
 		$cabang = cabang::all();
-		return view('karyawan.index', compact('karyawan', 'golongan','jabatan','cabang'));
+		return view('karyawan.index', compact('karyawan','golongan','jabatan','cabang'));
 	}
 	public function profil($id)
 	{
@@ -35,74 +34,25 @@ class KaryawanController extends Controller
 		return view('karyawan.profil', compact('karyawan','user','golongan','jabatan'));
 	}
 
-	/*public function detail(Request $request)
-	{
-		$det    = DPemakaian::where('no_pemakaian', $request->pemakaian)
-		->get();
-		$data   = array();
-		$no     = 0;
-		foreach ($det as $details) {
-			$data[ $no ]['id']          = $details->id;
-			$data[ $no ]['kode_barang'] = $details->Persediaan->kode_barang;
-			$data[ $no ]['nama_barang'] = $details->Persediaan->Barang->nama_barang;
-			$no++;
-		}
-		return response()->json($data);
-	}*/
-
 	public function karyawanDetail(request $request)
 	{
-		$detail = karyawan::where('jabatan_id', $request->id)->get();
-		$data = array();
-		$no = 0;
-		foreach ($detail as $details){
-			$data [$no]['id']            = $details->id;
-			$data [$no]['user_id']       = $details->user_id;
-			$data [$no]['golongan_id']   = $details->golongan_id;
-			$data [$no]['jabatan_id']    = $details->jabatan_id;
-			$data [$no]['cabang_id']     = $details->cabang_id;
-			$data [$no]['nik']           = $details->nik;
-			$data [$no]['no_ktp']        = $details->no_ktp;
-			$data [$no]['nama_lengkap']  = $details->nama_lengkap;
-			$data [$no]['jk']            = $details->jk;
-			$data [$no]['agama']         = $details->agama;
-			$data [$no]['tempat_lahir']  = $details->tempat_lahir;
-			$data [$no]['tanggal_lahir'] = $details->tanggal_lahir;
-			$data [$no]['status_nikah']  = $details->status_nikah;
-			$data [$no]['no_telepon']    = $details->no_telepon;
-			$data [$no]['alamat']        = $details->alamat;
-			$data [$no]['visi']          = $details->visi;
-			$data [$no]['misi']          = $details->misi;
-			$no++;
-		}
+		$id = $request->id;
+		$detail = karyawan::where('id', $id)->first();
+		$id_jab = $detail->jabatan_id;
+		$jb = $detail->jabatan->jabatan;
+		$jabatan = Jabatan::get();
+		$data = array(
+			'no_induk'     => $detail->nik,
+			'no_ktp'       => $detail->no_ktp,
+			'nama_lengkap' => $detail->nama_lengkap,
+			'jk'           => $detail->jk,
+			'id_jabat'     => $id_jab,
+			'jb'           => $jb,
+			'jabatan'      => $jabatan,
+			'id'           => $id
+		);
 		return response()->json($data);
 	}
-
-	/*public function karyawanDetail(request $request)
-	{
-		$id = $request->id;
-		$data = karyawan::valid()->find($id);
-		$output =[
-			'id'            => $data->id,
-			'user_id'       => $data->user_id,
-			'golongan_id'   => $data->golongan_id,
-			'jabatan_id'    => $data->jabatan_id,
-			'cabang_id'     => $data->cabang_id,
-			'nik'           => $data->nik,
-			'no_ktp'        => $data->no_ktp,
-			'nama_lengkap'  => $data->nama_lengkap,
-			'jk'            => $data->jk,
-			'agama'         => $data->agama,
-			'tempat_lahir'  => $data->tempat_lahir,
-			'tanggal_lahir' => $data->tanggal_lahir,
-			'status_nikah'  => $data->status_nikah,
-			'no_telepon'    => $data->no_telepon,
-			'alamat'        => $data->alamat,
-			'visi'          => $data->visi,
-			'misi'          => $data->misi
-		];
-		echo json_encode($output);
-	}*/
 
 	public function store(Request $request)
 	{
