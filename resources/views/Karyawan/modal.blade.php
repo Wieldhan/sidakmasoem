@@ -64,7 +64,11 @@
 							<input required name="tanggal_lahir" type="date" class="form-control form-control-sm" value="{{Auth::user()->karyawan->tanggal_lahir}}">
 						</div> 
 					</div>
-					<div class="form-row"> 
+					<div class="form-row">
+						<div class="form-group col-sm-6">
+							<label>No Telepon</label>
+							<input required name="no_telepon" type="text" class="form-control form-control-sm" value="{{Auth::user()->karyawan->no_telepon}}">
+						</div>
 						<div class="form-group col-sm-6">
 							<label>Alamat</label>
 							<textarea style="height: 75px;" required name="alamat" class="form-control">{{Auth::user()->karyawan->alamat}}</textarea>

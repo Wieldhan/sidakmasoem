@@ -155,7 +155,8 @@
 			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonText: 'Hapus',
-			cancelButtonText:'Batal'
+			cancelButtonText:'Batal',
+			timer : '5000'
 		}).then((result) => {
 			if (result.value) {
 				window.location ="/golongan/hapus/"+gol_id+"";

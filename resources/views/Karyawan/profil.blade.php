@@ -211,6 +211,7 @@
 				title: 'ALERT!!',
 				text: "Ingin Menghapus Data Organisasi??",
 				icon: 'warning',
+				timer: '5000',
 				showCancelButton: true,
 				confirmButtonText: 'Ya',
 				cancelButtonText:'Tidak'
@@ -229,6 +230,7 @@
 				title: 'ALERT!!',
 				text: "Ingin Menghapus Data Pendidikan??",
 				icon: 'warning',
+				timer: '5000',
 				showCancelButton: true,
 				confirmButtonText: 'Ya',
 				cancelButtonText:'Tidak'
@@ -247,6 +249,7 @@
 				title: 'ALERT!!',
 				text: "Ingin Menghapus Data Pengalaman Kerja??",
 				icon: 'warning',
+				timer: '5000',
 				showCancelButton: true,
 				confirmButtonText: 'Ya',
 				cancelButtonText:'Tidak'

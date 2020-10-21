@@ -43,7 +43,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('izin')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Format Izin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('cuti')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Format Cuti</p>
                 </a>
@@ -56,7 +62,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('mutasi')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Format Mutasi</p>
                 </a>

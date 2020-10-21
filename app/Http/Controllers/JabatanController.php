@@ -23,21 +23,21 @@ class JabatanController extends Controller
 	public function simpan(Request $request)
 	{
 		jabatan::create($request->all());
-		alert()->success('SUCCES.','DATA BERHASIL DITAMBAHKAN!');
+		toast()->success('Data Berhasil Ditambahkan!');
 		return redirect('/jabatan');
 	}
 
 	public function delete(jabatan $jabatan)
 	{
 		$jabatan->delete();
-		alert()->success('SUCCES.','DATA BERHASIL DIHAPUS!');
+		toast()->success('Data Berhasil Dihapus!');
 		return redirect('/jabatan');
 	}
 
 	public function update(Request $request, jabatan $jabatan)
 	{
 		$jabatan->update($request->all());
-		alert()->success('SUCCES.','DATA BERHASIL UPDATE!');
+		toast()->success('Data Berhasil Diupdate!');
 		return redirect('/jabatan');
 	}
 }

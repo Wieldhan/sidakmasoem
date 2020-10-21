@@ -23,21 +23,21 @@ class GolonganController extends Controller
 	public function simpan(Request $request)
 	{
 		golongan::create($request->all());
-		alert()->success('SUCCES.','DATA BERHASIL DITAMBAHKAN!');
+		toast()->success('Data Berhasil Ditambahkan!');
 		return redirect('/golongan');
 	}
 
 	public function delete(golongan $golongan)
 	{
 		$golongan->delete();
-		alert()->success('SUCCES.','DATA BERHASIL DIHAPUS!');
+		toast()->success('Data Berhasil Dihapus!');
 		return redirect('/golongan');
 	}
 
 	public function update(Request $request, golongan $golongan)
 	{
 		$golongan->update($request->all());
-		alert()->success('SUCCES.','DATA BERHASIL UPDATE!');
+		toast()->success('Data Berhasil Diupdate!');
 		return redirect('/golongan');
 	}
 }

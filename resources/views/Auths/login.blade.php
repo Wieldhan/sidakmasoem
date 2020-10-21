@@ -44,7 +44,7 @@
               <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
             </div>
             <div class="col-3">
-              <button type="button" class="btn btn-sm btn-info btn-block float-right" data-toggle="modal" data-target=".modal-daftar">DAFTAR</button>
+              <button type="button" class="btn btn-sm btn-block float-right" style="color:white; background: #5688FB;" data-toggle="modal" data-target=".modal-daftar">DAFTAR</button>
             </div>
             <div class="col-3">
               <button type="submit" class="btn btn-sm btn-primary btn-block float-right">LOGIN</button>
@@ -54,6 +54,7 @@
       </div>
     </div>
   </div>
+  <!-- Modal Daftar -->
   <div class="modal fade modal-daftar" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -63,11 +64,11 @@
             <div class="form-row">
               <div class="form-group col-sm-6">
                 <label>No Induk Karyawan</label>
-                <input required name="nik" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm" placeholder="No. Reg atau NIK berdasarkan SK">
+                <input required name="nik" onkeypress="hanyaangka(event)" type="text" maxlength="6" class="form-control form-control-sm" placeholder="No. Reg atau NIK berdasarkan SK">
               </div>
               <div class="form-group col-sm-6">
                 <label>No KTP</label>
-                <input required name="no_ktp" onkeypress="hanyaangka(event)" type="text" class="form-control form-control-sm">
+                <input required name="no_ktp" onkeypress="hanyaangka(event)" type="text" maxlength="20" class="form-control form-control-sm">
               </div>
             </div>
             <div class="form-row">
@@ -109,7 +110,7 @@
             <div class="form-row">
               <div class="form-group col-sm-6">
                 <label>Tempat Lahir</label>
-                <input required name="tempat_lahir" type="text" class="form-control form-control-sm" placeholder="Kota Kelahiran">
+                <input required name="tempat_lahir" type="text" maxlength="50" class="form-control form-control-sm" placeholder="Kota Kelahiran">
               </div>
               <div class="form-group col-sm-6">
                 <label>Tanggal Lahir</label>
@@ -146,7 +147,7 @@
                 <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
               </div>
               <div class="col-2">
-                <button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
+                <button type="reset" class="btn btn-sm btn-danger btn-block float-right" data-dismiss="card">BATAL</button>
               </div>
               <div class="col-2">
                 <button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
@@ -157,6 +158,7 @@
       </div>
     </div>
   </div>
+  <!-- End Modal Daftar -->
   <script src="/adminlte/jquery/jquery.min.js"></script>
   <script src="/adminlte/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/adminlte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>

@@ -44,6 +44,7 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::post('/karyawan/detailKaryawan','karyawanController@karyawanDetail');
 	Route::get('/karyawan/destroy/{id}', 'karyawanController@destroy');
 	Route::get('/karyawan/profil/{id}', 'karyawanController@profil');
+	Route::get('datakaryawan', 'karyawanController@datakaryawan');
 // Routes Golongan
 	Route::get('golongan', 'golonganController@index');
 	Route::post('/golongan/simpan', 'golonganController@simpan');
@@ -55,5 +56,20 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::post('/jabatan/simpan', 'jabatanController@simpan');
 	Route::post('/jabatan/update/{jabatan}', 'jabatanController@update');
 	Route::get('/jabatan/hapus/{jabatan}', 'jabatanController@delete');
+
+// Routes Cuti
+	Route::get('cuti', 'cutiController@index');
+	Route::post('/cuti/simpan', 'cutiController@simpan');
+	Route::post('/cuti/update/{id}', 'cutiController@update');
+
+// Routes Izin
+	Route::get('izin', 'izinController@index');
+	Route::post('/izin/simpan', 'izinController@simpan');
+	Route::post('/izin/update/{id}', 'izinController@update');
+
+// Routes mutasi
+	Route::get('mutasi', 'mutasiController@index');
+	Route::post('/mutasi/simpan', 'mutasiController@simpan');
+	Route::post('/mutasi/update/{id}', 'mutasiController@update');
 
 });

@@ -154,23 +154,24 @@
 			$('#editform').attr('action', '/jabatan/update/'+data[0]);
 			$('#editmodal').modal('show');
 		});	
-	});
 
-	$('.hapus').click(function(){
-		var jabat_id = $(this).attr('jabat-id');
-		Swal.fire({
-			toast : true,
-			position: 'top-end',
-			title: 'ALERT!!',
-			text: "Yakin Ingin Menghapus Data Ini??",
-			icon: 'warning',
-			showCancelButton: true,
-			confirmButtonText: 'Hapus',
-			cancelButtonText:'Batal'
-		}).then((result) => {
-			if (result.value) {
-				window.location ="/jabatan/hapus/"+jabat_id+"";
-			}
+		$('.hapus').click(function(){
+			var jabat_id = $(this).attr('jabat-id');
+			Swal.fire({
+				toast : true,
+				position: 'top-end',
+				title: 'ALERT!!',
+				text: "Yakin Ingin Menghapus Data Ini??",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonText: 'Hapus',
+				cancelButtonText:'Batal',
+				timer : '5000'
+			}).then((result) => {
+				if (result.value) {
+					window.location ="/jabatan/hapus/"+jabat_id+"";
+				}
+			});
 		});
 	});
 </script>

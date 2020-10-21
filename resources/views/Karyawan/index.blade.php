@@ -27,7 +27,6 @@
 					<table class="table table-sm table-hover" id="datatable" style="font-size: 15px;">
 						<thead>
 							<tr align="center">
-								<th hidden="true">ID</th>
 								<th>NIK</th>
 								<th>No KTP</th>
 								<th>Nama</th>
@@ -38,27 +37,8 @@
 								<th>Action</th>
 							</tr>
 						</thead>
-						<tbody>
-							@foreach($karyawan as $karyawan)
-							<tr align="left">
-								<td hidden="true">{{$karyawan->id}}</td>
-								<td>{{$karyawan->nik}}</td>
-								<td>{{$karyawan->no_ktp}}</td>
-								<td>{{$karyawan->nama_lengkap}}</td>
-								<td>{{$karyawan->jk}}</td>
-								<td>{{$karyawan->golongan->golongan}}</td>
-								<td>{{$karyawan->jabatan->jabatan}}</td>
-								<td>{{$karyawan->cabang->nama_cabang}}</td>								
-								<td>
-									<!-- <button class="btn btn-sm btn-warning edit" >Edit</button>									 -->
-									<button class="btn btn-sm btn-warning edit" data-toggle="modal" data-target="#editmodal" data-id="{{$karyawan->id}}" >Edit</button>
-									<button class="btn btn-sm btn-danger hapus" karyawan-id="{{$karyawan->id}}">Hapus</button>
-								</td>								
-							</tr>
-							@endforeach
-						</tbody>
+						<tbody></tbody>
 					</table>
-
 					<!-- edit -->
 					<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -96,25 +76,19 @@
 											<div class="form-group col-sm-4">
 												<label>Jabatan</label>
 												<select required name="jabatan_id" id="jabatan_id" class="form-control form-control-sm">
-													@foreach($jabatan as $dj)
-													<option value="{{$dj->id}}" {{( $dj->id == $karyawan->jabatan_id) ? 'selected' : '' }}>{{$dj->jabatan}}</option>
-													@endforeach
+													<option></option>
 												</select>
 											</div>
 											<div class="form-group col-sm-4">
 												<label>Golongan</label>
-												<select required name="golongan_id" class="form-control form-control-sm">		
-													@foreach($golongan as $dg)
-													<option value="{{$dg->id}}" {{( $dg->id == $karyawan->golongan_id) ? 'selected' : '' }}>{{$dg->golongan}}</option>
-													@endforeach
+												<select required name="golongan_id" id="golongan_id" class="form-control form-control-sm">		
+													<option></option>
 												</select>
 											</div>
 											<div class="form-group col-sm-4">
 												<label>Cabang</label>
-												<select required name="cabang_id" class="form-control form-control-sm" id="cabang">
-													@foreach($cabang as $dc)
-													<option value="{{$dc->id}}" {{( $dc->id == $karyawan->cabang_id) ? 'selected' : '' }}>{{$dc->nama_cabang}}</option>
-													@endforeach
+												<select required name="cabang_id" id="cabang_id" class="form-control form-control-sm">
+													<option></option>
 												</select>
 											</div>
 										</div>									
@@ -144,58 +118,91 @@
 	<script type="text/javascript" src="/datatables/datatables.min.js"></script>
 	<script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
 	<script type="text/javascript">
-		// $.ajaxSetup({
-		// 	headers: {
-		// 		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		// 	}
-		// });
 		$(document).ready(function(){
-			$('.edit').click(function() {
+			$('#datatable').DataTable({
+				processing: true,
+				serverSide: true,
+				ajax:  'datakaryawan',
+				order: [[0, 'desc']],
+				columns: [
+				{ data: 'nik', name: 'nik' },
+				{ data: 'no_ktp', name: 'no_ktp' },
+				{ data: 'nama_lengkap', name: 'nama_lengkap' },
+				{ data: 'jk', name: 'jk' },
+				{ data: 'golongan', name: 'golongan' },
+				{ data: 'jabatan', name: 'jabatan' },
+				{ data: 'cabang', name: 'cabang' },
+				{ data: 'action', name: 'action' }
+				]
+			});
+
+			$(document).on('click','.hapus',function(){
+				var karyawan_id = $(this).attr('karyawan-id');
+				Swal.fire({
+					toast : true,
+					position: 'top-end',
+					title: 'ALERT!!',
+					text: "Yakin Ingin Menghapus Data Karyawan??",
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonText: 'Hapus',
+					cancelButtonText:'Batal',
+					timer : '5000'
+				}).then((result) => {
+					if (result.value) {
+						window.location ="/karyawan/destroy/"+karyawan_id+"";
+					}
+				});
+			});	
+
+			$(document).on('click','.edit',function(){
 				var id = $(this).data('id');
 				console.log(id);
 				$.ajax({
 					url 			: "{{ url('/karyawan/detailKaryawan')}}",
 					method 		: "POST",
-					dataType 	: "json",
+					dataType 	: "JSON",
 					data 			: {
 						id 			: id,
 						_token 	: '{{ csrf_token() }}',
 					}, 
 					success: function(data) {
+						$('#editmodal').modal('show');
 						$('#editform').attr('action', '/karyawan/update/'+data.id);
 						$('#nik').val(data.no_induk);
 						$('#no_ktp').val(data.no_ktp);
 						$('#nama_lengkap').val(data.nama_lengkap);
 						$('#jk').val(data.jk);
+
+						$('#golongan_id').empty();
+						$('#golongan_id').append('<option value="'+ data.id_gol+'">'+ data.gol+'</option>');
+						var x = data.golongan;
+						x.forEach(function (x){
+							if (x.id != data.id_gol) {
+								$('#golongan_id').append('<option value="'+ x.id+'">'+ x.golongan+'</option>');
+							}
+						});
+
 						$('#jabatan_id').empty();
 						$('#jabatan_id').append('<option value="'+ data.id_jabat+'">'+ data.jb+'</option>');
-						var x = data.jabatan;
-						x.forEach(function (x){
-							if (x.id != data.id_jabat) {
-								$('#jabatan_id').append('<option value="'+ x.id+'">'+ x.jabatan+'</option>');
+						var y = data.jabatan;
+						y.forEach(function (y){
+							if (y.id != data.id_jabat) {
+								$('#jabatan_id').append('<option value="'+ y.id+'">'+ y.jabatan+'</option>');
+							}
+						});
+
+						$('#cabang_id').empty();
+						$('#cabang_id').append('<option value="'+ data.id_cab+'">'+ data.cab+'</option>');
+						var z = data.cabang;
+						z.forEach(function (z){
+							if (z.id != data.id_cab) {
+								$('#cabang_id').append('<option value="'+ z.id+'">'+ z.cabang+'</option>');
 							}
 						});
 					}
 				});
 			});
 		});
-
-		$('.hapus').click(function(){
-			var karyawan_id = $(this).attr('karyawan-id');
-			Swal.fire({
-				toast : true,
-				position: 'top-end',
-				title: 'ALERT!!',
-				text: "Yakin Ingin Menghapus Data Karyawan??",
-				icon: 'warning',
-				showCancelButton: true,
-				confirmButtonText: 'Hapus',
-				cancelButtonText:'Batal'
-			}).then((result) => {
-				if (result.value) {
-					window.location ="/karyawan/destroy/"+karyawan_id+"";
-				}
-			});
-		});	
 	</script>
 	@endsection
