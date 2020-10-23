@@ -69,7 +69,10 @@ Route::group(['middleware'=>'auth'],function(){
 
 // Routes mutasi
 	Route::get('mutasi', 'mutasiController@index');
+	Route::get('tabelmutasi', 'mutasiController@tabelmutasi');
+	Route::get('tabelkaryawan', 'mutasiController@tabelkaryawan');
+	Route::post('karyawandetail', 'mutasiController@karyawandetail');
 	Route::post('/mutasi/simpan', 'mutasiController@simpan');
-	Route::post('/mutasi/update/{id}', 'mutasiController@update');
+	Route::post('/mutasi/store/{id}', 'mutasiController@store');
 
 });

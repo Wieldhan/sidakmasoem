@@ -13,4 +13,8 @@ class Jabatan extends Model
 	{
 		return $this->hasMany(karyawan::class);
 	}
+	public function mutasi()
+	{
+		return $this->belongsToMany(mutasi::class);
+	}
 }

@@ -40,7 +40,7 @@
 						<tbody></tbody>
 					</table>
 					<!-- edit -->
-					<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+					<!-- <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -107,7 +107,7 @@
 								</div>
 							</div>
 						</div>
-					</div>					
+					</div> -->					
 				</div>
 			</div>
 		</div>
@@ -155,54 +155,54 @@
 				});
 			});	
 
-			$(document).on('click','.edit',function(){
-				var id = $(this).data('id');
-				console.log(id);
-				$.ajax({
-					url 			: "{{ url('/karyawan/detailKaryawan')}}",
-					method 		: "POST",
-					dataType 	: "JSON",
-					data 			: {
-						id 			: id,
-						_token 	: '{{ csrf_token() }}',
-					}, 
-					success: function(data) {
-						$('#editmodal').modal('show');
-						$('#editform').attr('action', '/karyawan/update/'+data.id);
-						$('#nik').val(data.no_induk);
-						$('#no_ktp').val(data.no_ktp);
-						$('#nama_lengkap').val(data.nama_lengkap);
-						$('#jk').val(data.jk);
+			// $(document).on('click','.edit',function(){
+			// 	var id = $(this).data('id');
+			// 	console.log(id);
+			// 	$.ajax({
+			// 			url 		: "{{ url('/karyawan/detailKaryawan')}}",
+			// 			method 	: "POST",
+			// 			dataType: "JSON",
+			// 			data 		: {
+			// 			id 			: id,
+			// 			_token 	: '{{ csrf_token() }}',
+			// 		}, 
+			// 		success: function(data) {
+			// 			$('#editmodal').modal('show');
+			// 			$('#editform').attr('action', '/karyawan/update/'+data.id);
+			// 			$('#nik').val(data.no_induk);
+			// 			$('#no_ktp').val(data.no_ktp);
+			// 			$('#nama_lengkap').val(data.nama_lengkap);
+			// 			$('#jk').val(data.jk);
 
-						$('#golongan_id').empty();
-						$('#golongan_id').append('<option value="'+ data.id_gol+'">'+ data.gol+'</option>');
-						var x = data.golongan;
-						x.forEach(function (x){
-							if (x.id != data.id_gol) {
-								$('#golongan_id').append('<option value="'+ x.id+'">'+ x.golongan+'</option>');
-							}
-						});
+			// 			$('#golongan_id').empty();
+			// 			$('#golongan_id').append('<option value="'+ data.id_gol+'">'+ data.gol+'</option>');
+			// 			var x = data.golongan;
+			// 			x.forEach(function (x){
+			// 				if (x.id != data.id_gol) {
+			// 					$('#golongan_id').append('<option value="'+ x.id+'">'+ x.golongan+'</option>');
+			// 				}
+			// 			});
 
-						$('#jabatan_id').empty();
-						$('#jabatan_id').append('<option value="'+ data.id_jabat+'">'+ data.jb+'</option>');
-						var y = data.jabatan;
-						y.forEach(function (y){
-							if (y.id != data.id_jabat) {
-								$('#jabatan_id').append('<option value="'+ y.id+'">'+ y.jabatan+'</option>');
-							}
-						});
+			// 			$('#jabatan_id').empty();
+			// 			$('#jabatan_id').append('<option value="'+ data.id_jabat+'">'+ data.jb+'</option>');
+			// 			var y = data.jabatan;
+			// 			y.forEach(function (y){
+			// 				if (y.id != data.id_jabat) {
+			// 					$('#jabatan_id').append('<option value="'+ y.id+'">'+ y.jabatan+'</option>');
+			// 				}
+			// 			});
 
-						$('#cabang_id').empty();
-						$('#cabang_id').append('<option value="'+ data.id_cab+'">'+ data.cab+'</option>');
-						var z = data.cabang;
-						z.forEach(function (z){
-							if (z.id != data.id_cab) {
-								$('#cabang_id').append('<option value="'+ z.id+'">'+ z.cabang+'</option>');
-							}
-						});
-					}
-				});
-			});
+			// 			$('#cabang_id').empty();
+			// 			$('#cabang_id').append('<option value="'+ data.id_cab+'">'+ data.cab+'</option>');
+			// 			var z = data.cabang;
+			// 			z.forEach(function (z){
+			// 				if (z.id != data.id_cab) {
+			// 					$('#cabang_id').append('<option value="'+ z.id+'">'+ z.cabang+'</option>');
+			// 				}
+			// 			});
+			// 		}
+			// 	});
+			// });
 		});
 	</script>
 	@endsection

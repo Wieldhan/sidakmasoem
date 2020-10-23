@@ -32,4 +32,9 @@ class Mutasi extends Model
 	{
 		return $this->belongsTo(cabang::class);
 	}
+	
+	public function jabatan()
+	{
+		return $this->belongsTo(jabatan::class);
+	}
 }

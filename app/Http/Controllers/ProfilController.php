@@ -12,6 +12,7 @@ use App\User;
 use App\Pendidikan;
 use App\Organisasi;
 use App\Pengalaman;
+use App\Mutasi;
 use Auth;
 use DB;
 use Session;
@@ -28,8 +29,10 @@ class ProfilController extends Controller
 		$pendidikan = pendidikan::where('user_id',$id)->get();
 		$organisasi = organisasi::where('user_id',$id)->get();
 		$pengalaman = pengalaman::where('user_id',$id)->get();
+		$mutasi 	= Mutasi::where('karyawan_id',$id)->get();
 
-		return view('karyawan.profil', compact('karyawan','user','golongan','jabatan','pendidikan','organisasi','pengalaman'));
+
+		return view('karyawan.profil', compact('karyawan','user','golongan','jabatan','pendidikan','organisasi','pengalaman','mutasi'));
 	}
 	public function simpanpend(Request $request)
 	{

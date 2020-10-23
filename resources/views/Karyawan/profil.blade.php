@@ -178,16 +178,24 @@
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
 							<tr style="text-align: center;">
-								<th>Nama Jabatan</th>
+								<th>Jabatan</th>
+								<th>Golongan</th>
 								<th>Cabang</th>
-								<th>Jenis Mutasi</th>
+								<th>Jenis</th>
 								<th>Tahun Mutasi</th>
 							</tr>
 						</thead>
 						<tbody>
+							@foreach ($mutasi as $muta)
 							<tr>
-
+								<td hidden="true">{{$muta->id}}</td>
+								<td>{{$muta->jabatan->jabatan}}</td>
+								<td style="text-align: center;">{{$muta->golongan->golongan}}</td>
+								<td style="text-align: center;">{{$muta->cabang->cabang}}</td>
+								<td style="text-align: center;">{{$muta->status}}</td>
+								<td style="text-align: center;">{{$muta->tanggal_mutasi}}</td>
 							</tr>
+							@endforeach
 						</tbody>
 					</table>
 					<hr>
@@ -277,7 +285,7 @@
                 // do ajax submit or just classic form submit
               //  alert("fake subminting")
               return false
-            })
+          })
 		})
 	</script>
 	@endsection

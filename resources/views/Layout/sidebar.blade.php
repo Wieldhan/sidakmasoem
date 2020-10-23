@@ -4,7 +4,7 @@
           <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
            @if(Auth::user()->level == 'admin')
-           <li class="nav-item has-treeview menu-open">
+           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -43,28 +43,28 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('izin')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Format Izin</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{url('cuti')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Format Cuti</p>
                 </a>
               </li>
-              @if(Auth::user()->level == 'admin')
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('izin')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Format Teguran</p>
+                  <p>Format Izin</p>
                 </a>
               </li>
+              @if(Auth::user()->level == 'admin')
               <li class="nav-item">
                 <a href="{{url('mutasi')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Format Mutasi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Format Teguran</p>
                 </a>
               </li>
               @endif
