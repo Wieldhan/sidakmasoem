@@ -19,8 +19,8 @@ class IzinController extends Controller
 	{
 		$karyawan = karyawan::all();
 		$golongan = golongan::all();
-		$jabatan = jabatan::all();
-		$cabang = cabang::all();
+		$jabatan  = jabatan ::all();
+		$cabang   = cabang  ::all();
 		return view('dashboard.izin', compact('karyawan','golongan','jabatan','cabang'));
 	}
 
