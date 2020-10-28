@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Karyawan extends Model
 {
-	protected $table ='karyawan';
+	protected $table    = 'karyawan';
 	protected $fillable = ['id','user_id','golongan_id','jabatan_id','cabang_id','nik','no_ktp','nama_lengkap','jk','agama','tempat_lahir','tanggal_lahir','status_nikah','alamat','visi','misi','no_telepon'];
 
 	public function golongan()	
@@ -40,5 +40,9 @@ class Karyawan extends Model
 	public function mutasi()
 	{
 		return $this->belongsToMany(mutasi::class);
+	}
+	public function izin()
+	{
+		return $this->belongsToMany(izin::class);
 	}
 }

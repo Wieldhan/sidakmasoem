@@ -20,8 +20,8 @@ class MutasiController extends Controller
 	{
 		$karyawan = karyawan::all();
 		$golongan = golongan::all();
-		$jabatan = jabatan::all();
-		$cabang = cabang::all();
+		$jabatan = jabatan ::all();
+		$cabang = cabang ::all();
 		return view('dashboard.mutasi', compact('karyawan','golongan','jabatan','cabang'));
 	}
 
@@ -107,7 +107,6 @@ class MutasiController extends Controller
 
 	public function store(request $request, $id)
 	{
-		
 		$mutasi = mutasi::create([
 			'karyawan_id'    => $request->id,
 			'jabatan_id'     => $request->input('jabatan_id'),

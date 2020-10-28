@@ -11,6 +11,7 @@ use App\Golongan;
 use App\Jabatan;
 use App\User;
 use App\Cabang;
+use	App\Cuti;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CutiController extends Controller
@@ -21,7 +22,8 @@ class CutiController extends Controller
 		$golongan = golongan::all();
 		$jabatan  = jabatan ::all();
 		$cabang   = cabang  ::all();
-		return view('dashboard.cuti', compact('karyawan','golongan','jabatan','cabang'));
+		$cuti			= cuti    ::all();
+		return view('dashboard.cuti', compact('karyawan','golongan','jabatan','cabang','cuti'));
 	}
 
 	public function tabelCuti(Request $request)

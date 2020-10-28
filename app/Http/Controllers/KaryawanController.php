@@ -23,8 +23,8 @@ class KaryawanController extends Controller
 		}
 		$karyawan = karyawan::all();
 		$golongan = golongan::all();
-		$jabatan = jabatan::all();
-		$cabang = cabang::all();
+		$jabatan  = jabatan ::all();
+		$cabang   = cabang  ::all();
 		return view('karyawan.index', compact('karyawan','golongan','jabatan','cabang'));
 	}
 
@@ -130,13 +130,6 @@ class KaryawanController extends Controller
 	// public function edit($id)
 	// {
 	// 	//
-	// }
-
-	// public function update(Request $request, $id)
-	// {
-	// 	karyawan::findOrFail($id)->update($request->all());
-	// 	toast()->success('Data Berhasil DiUpdate!');
-	// 	return redirect('/karyawan');
 	// }
 
 	public function destroy($id)

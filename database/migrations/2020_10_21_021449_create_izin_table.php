@@ -16,11 +16,9 @@ class CreateIzinTable extends Migration
         Schema::create('izin', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('karyawan_id');
-            $table->integer('jabatan_id');
-            $table->integer('golongan_id');
             $table->date('tanggal_izin');
             $table->string('keterangan');
-            $table->string('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }

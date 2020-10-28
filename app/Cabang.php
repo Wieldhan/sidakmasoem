@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cabang extends Model
 {
-	protected $table ='cabang';
+	protected $table    = 'cabang';
 	protected $fillable = ['kode_cabang','cabang'];
 
 	public function karyawan()

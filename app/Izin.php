@@ -6,20 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Izin extends Model
 {
-	protected $table ='Izin';
+	protected $table    = 'Izin';
 	protected $fillable = [
 		'id',
 		'karyawan_id',
-		'jabatan_id',
-		'golongan_id',
 		'tanggal_izin',
 		'keterangan',
+		'perihal',
 		'status'
 	];
 
 	public function karyawan()
 	{
 		return $this->belongsTo(karyawan::class);
+	}
+
+	public function jabatan()
+	{
+		return $this->belongsTo(jabatan::class);
 	}
 
 	public function golongan()

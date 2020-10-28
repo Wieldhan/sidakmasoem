@@ -58,14 +58,12 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::get('/jabatan/hapus/{jabatan}', 'jabatanController@delete');
 
 // Routes Cuti
-	Route::get('cuti', 'cutiController@index');
-	Route::post('/cuti/simpan', 'cutiController@simpan');
-	Route::post('/cuti/update/{id}', 'cutiController@update');
+	Route::get('cuti/{id}', 'cutiController@index');
+	Route::post('/cuti/store/{id}', 'cutiController@store');
 
 // Routes Izin
-	Route::get('izin', 'izinController@index');
-	Route::post('/izin/simpan', 'izinController@simpan');
-	Route::post('/izin/update/{id}', 'izinController@update');
+	Route::get('izin/{id}', 'izinController@index');
+	Route::post('/izin/store/{id}', 'izinController@store');
 
 // Routes mutasi
 	Route::get('mutasi', 'mutasiController@index');
@@ -75,4 +73,9 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::post('/mutasi/simpan', 'mutasiController@simpan');
 	Route::post('/mutasi/store/{id}', 'mutasiController@store');
 
+//Routes SK
+	Route::get('sk', 'skController@index');
+	Route::get('tabelsk', 'skController@tabelsk');
+	Route::post('sk/simpan', 'skController@simpan');
+	Route::get('sk/hapus/{id}', 'skController@hapus');
 });

@@ -61,8 +61,7 @@
 										<div class="col-2">
 										</div>
 										<div class="col-2">
-											<button type="submit"
-												class="btn btn-primary btn-block float-right">PRINT</button>
+											<button type="submit" class="btn btn-primary btn-block float-right">PRINT</button>
 										</div>
 									</div>
 								</form>
@@ -81,64 +80,89 @@
 <script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
-		// $('#datatable').DataTable({
-		// 	processing: true,
-		// 	serverSide: true,
-		// 	ajax:  'datakaryawan',
-		// 	order: [[0, 'desc']],
-		// 	columns: [
-		// 	{ data: 'nik', name: 'nik' },
-		// 	{ data: 'no_ktp', name: 'no_ktp' },
-		// 	{ data: 'nama_lengkap', name: 'nama_lengkap' },
-		// 	{ data: 'jk', name: 'jk' },
-		// 	{ data: 'golongan', name: 'golongan' },
-		// 	{ data: 'jabatan', name: 'jabatan' },
-		// 	{ data: 'cabang', name: 'cabang' },
-		// 	{ data: 'action', name: 'action' }
-		// 	]
-		// });
+        $('#datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: 'datakaryawan',
+            order: [
+                [0, 'desc']
+            ],
+            columns: [{
+                    data: 'nik',
+                    name: 'nik'
+                },
+                {
+                    data: 'no_ktp',
+                    name: 'no_ktp'
+                },
+                {
+                    data: 'nama_lengkap',
+                    name: 'nama_lengkap'
+                },
+                {
+                    data: 'jk',
+                    name: 'jk'
+                },
+                {
+                    data: 'golongan',
+                    name: 'golongan'
+                },
+                {
+                    data: 'jabatan',
+                    name: 'jabatan'
+                },
+                {
+                    data: 'cabang',
+                    name: 'cabang'
+                },
+                {
+                    data: 'action',
+                    name: 'action'
+                }
+            ]
+        });
 
-		$(document).on('click', '.hapus', function () {
-			var karyawan_id = $(this).attr('karyawan-id');
-			Swal.fire({
-				toast: true,
-				position: 'top-end',
-				title: 'ALERT!!',
-				text: "Yakin Ingin Menghapus Data Karyawan??",
-				icon: 'warning',
-				showCancelButton: true,
-				confirmButtonText: 'Hapus',
-				cancelButtonText: 'Batal',
-				timer: '5000'
-			}).then((result) => {
-				if (result.value) {
-					window.location = "/karyawan/destroy/" + karyawan_id + "";
-				}
-			});
-		});
+        $(document).on('click', '.hapus', function () {
+            var karyawan_id = $(this).attr('karyawan-id');
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                title: 'ALERT!!',
+                text: "Yakin Ingin Menghapus Data Karyawan??",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batal',
+                timer: '5000'
+            }).then((result) => {
+                if (result.value) {
+                    window.location = "/karyawan/destroy/" + karyawan_id + "";
+                }
+            });
+        });
 
-		$(document).on('click', '.edit', function () {
-			var id = $(this).data('id');
-			console.log(id);
-			$.ajax({
-				url: "{{ url('/karyawan/detailKaryawan') }}",
-				method: "POST",
-				dataType: "JSON",
-				data: {
-					id: id,
-					_token: '{{ csrf_token() }}',
-				},
-				success: function (data) {
-					$('#detailModal').modal('show');
-					$('#detailForm').attr('action', '/karyawan/update/' + data.id);
-					$('#nik').val(data.no_induk);
-					$('#no_ktp').val(data.no_ktp);
-					$('#nama_lengkap').val(data.nama_lengkap);
-					$('#jk').val(data.jk);
-				}
-			});
-		});
-	});
+        $(document).on('click', '.edit', function () {
+            var id = $(this).data('id');
+            console.log(id);
+            $.ajax({
+                url: "{{ url('/karyawan/detailKaryawan') }}",
+                method: "POST",
+                dataType: "JSON",
+                data: {
+                    id: id,
+                    _token: '{{ csrf_token() }}',
+                },
+                success: function (data) {
+                    $('#detailModal').modal('show');
+                    $('#detailForm').attr('action', '/karyawan/update/' + data.id);
+                    $('#nik').val(data.no_induk);
+                    $('#no_ktp').val(data.no_ktp);
+                    $('#nama_lengkap').val(data.nama_lengkap);
+                    $('#jk').val(data.jk);
+                }
+            });
+        });
+    });
 
 </script>
 @endsection

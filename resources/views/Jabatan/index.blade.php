@@ -11,8 +11,10 @@
 				<h1 style="font-size: 30px">DATA JABATAN</h1>
 			</div>
 			<div class="col-6">
-				<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
-				<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+				<button type="button" class="btn btn-primary float-right" data-toggle="modal"
+					data-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
+				<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+					aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -23,23 +25,26 @@
 							</div>
 							<div class="modal-body">
 								<form action="/jabatan/simpan" method="POST">
-									{{csrf_field()}}										
+									{{csrf_field()}}
 									<div class="form-group col-sm-auto">
 										<label>Nama jabatan</label>
 										<input name="jabatan" type="text" class="form-control" required maxlength="191">
 									</div>
 									<div class="form-group col-sm-auto">
 										<label>Transport</label>
-										<input name="transport" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
-									</div>					
+										<input name="transport" type="text" class="form-control" required maxlength="15"
+											onkeypress="hanyaangka(event)">
+									</div>
 									<div class="form-group col-sm-auto">
 										<label>Pulsa</label>
-										<input name="pulsa" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
-									</div>	
+										<input name="pulsa" type="text" class="form-control" required maxlength="15"
+											onkeypress="hanyaangka(event)">
+									</div>
 									<div class="form-group col-sm-auto">
 										<label>Tunjangan Jabatan</label>
-										<input name="tunj_jab" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
-									</div>																												
+										<input name="tunj_jab" type="text" class="form-control" required maxlength="15"
+											onkeypress="hanyaangka(event)">
+									</div>
 									<div class="float-right" style="margin-right: 15px;">
 										<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
 										<button type="submit" class="btn btn-primary">SIMPAN</button>
@@ -53,8 +58,8 @@
 		</div>
 	</div>
 </div>
-<div class ="container-fluid">
-	<div class="col-sm-auto" >
+<div class="container-fluid">
+	<div class="col-sm-auto">
 		<div class="card card-primary">
 			<div class="card-header" style="height: 50px;">
 				<h3 class="card-title" style="font-size: 15;">KELOLA DATA JABATAN</h3>
@@ -85,49 +90,52 @@
 							<td>{{$jabat->tunj_jab}}</td>
 							<td>
 								<button class="btn btn-sm btn-warning edit">Edit</button>
-								<div id="editmodal" class="modal fade" tabindex="-1" role="dialog">
-									<div class="modal-dialog modal-dialog-centered" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h2 style="font-size: 25px;">Update Data jabatan</h2>
-												<button type="button" class="close" data-dismiss="modal">
-													<span aria-hidden="true">&times;</span>
-												</button>
-											</div>
-											<div class="modal-body" style="text-align: left;">
-												<form method="POST" id="editform">
-													{{csrf_field()}}
-													<div class="form-group col-sm-auto">
-														<label>Nama jabatan</label>
-														<input name="jabatan" id="jabatan" type="text" class="form-control" required maxlength="191" >
-													</div>
-													<div class="form-group col-sm-auto">
-														<label>Transport</label>
-														<input name="transport" id="transport" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
-													</div>					
-													<div class="form-group col-sm-auto">
-														<label>Pulsa</label>
-														<input name="pulsa" id="pulsa" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
-													</div>
-													<div class="form-group col-sm-auto">
-														<label>Tunjangan Jabatan</label>
-														<input name="tunj_jab" id="tunjangan" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
-													</div>
-													<div class="float-right" style="margin-right: 15px;">
-														<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
-														<button type="submit" class="btn btn-primary">UPDATE</button>
-													</div>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
 								<button class="btn btn-sm btn-danger hapus" jabat-id="{{$jabat->id}}">Hapus</button>
 							</td>
 						</tr>
 						@endforeach
 					</tbody>
 				</table>
+			</div>
+		</div>
+	</div>
+	<div id="editmodal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 style="font-size: 25px;">Update Data jabatan</h2>
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" style="text-align: left;">
+					<form method="POST" id="editform">
+						{{csrf_field()}}
+						<div class="form-group col-sm-auto">
+							<label>Nama jabatan</label>
+							<input name="jabatan" id="jabatan" type="text" class="form-control" required maxlength="191">
+						</div>
+						<div class="form-group col-sm-auto">
+							<label>Transport</label>
+							<input name="transport" id="transport" type="text" class="form-control" required maxlength="15"
+								onkeypress="hanyaangka(event)">
+						</div>
+						<div class="form-group col-sm-auto">
+							<label>Pulsa</label>
+							<input name="pulsa" id="pulsa" type="text" class="form-control" required maxlength="15"
+								onkeypress="hanyaangka(event)">
+						</div>
+						<div class="form-group col-sm-auto">
+							<label>Tunjangan Jabatan</label>
+							<input name="tunj_jab" id="tunjangan" type="text" class="form-control" required maxlength="15"
+								onkeypress="hanyaangka(event)">
+						</div>
+						<div class="float-right" style="margin-right: 15px;">
+							<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
+							<button type="submit" class="btn btn-primary">UPDATE</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
