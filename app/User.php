@@ -32,6 +32,11 @@ class User extends Authenticatable
     {
         return $this->hasOne(karyawan::class);
     }
+
+    public function sk()
+    {
+        return $this->belongsToMany(sk::class);
+    }
     /**
      * The attributes that should be cast to native types.
      *

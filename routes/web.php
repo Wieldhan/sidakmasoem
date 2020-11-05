@@ -38,13 +38,13 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::get('profile/pengdestroy/{pengalaman}','profilController@pengdestroy');
 // Routes Karyawan
 	Route::get('karyawan', 'karyawanController@index');
+	Route::get('datakaryawan', 'karyawanController@datakaryawan');
 	Route::post('/karyawan/store', 'karyawanController@store');
 	Route::get('/karyawan/edit/{id}', 'karyawanController@edit');
 	Route::post('/karyawan/update/{id}', 'karyawanController@update');
 	Route::post('/karyawan/detailKaryawan','karyawanController@karyawanDetail');
 	Route::get('/karyawan/destroy/{id}', 'karyawanController@destroy');
 	Route::get('/karyawan/profil/{id}', 'karyawanController@profil');
-	Route::get('datakaryawan', 'karyawanController@datakaryawan');
 // Routes Golongan
 	Route::get('golongan', 'golonganController@index');
 	Route::post('/golongan/simpan', 'golonganController@simpan');
@@ -64,6 +64,7 @@ Route::group(['middleware'=>'auth'],function(){
 // Routes Izin
 	Route::get('izin/{id}', 'izinController@index');
 	Route::post('/izin/store/{id}', 'izinController@store');
+	Route::post('/izin/approve/{id}', 'izinController@approve')->name('approve');
 
 // Routes mutasi
 	Route::get('mutasi', 'mutasiController@index');
@@ -75,7 +76,9 @@ Route::group(['middleware'=>'auth'],function(){
 
 //Routes SK
 	Route::get('sk', 'skController@index');
-	Route::get('tabelsk', 'skController@tabelsk');
+	Route::get('datask', 'skController@datask');
+	Route::get('detailsk', 'skController@detailsk');
 	Route::post('sk/simpan', 'skController@simpan');
-	Route::get('sk/hapus/{id}', 'skController@hapus');
+	Route::post('sk/update/{sk}', 'skController@update');
+	Route::get('sk/hapus/{sk}', 'skController@hapus');
 });

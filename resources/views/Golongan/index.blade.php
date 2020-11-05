@@ -11,8 +11,10 @@
 				<h1 style="font-size: 30px">DATA GOLONGAN</h1>
 			</div>
 			<div class="col-6">
-				<button style="margin-right: 10px;" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
-				<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+				<button style="margin-right: 10px;" type="button" class="btn btn-primary float-right" data-toggle="modal"
+					data-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
+				<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+					aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -23,19 +25,21 @@
 							</div>
 							<div class="modal-body">
 								<form action="/golongan/simpan" method="POST">
-									{{csrf_field()}}										
+									{{csrf_field()}}
 									<div class="form-group col-sm-auto">
 										<label>Kode Golongan</label>
 										<input name="golongan" type="text" class="form-control" required maxlength="15">
 									</div>
 									<div class="form-group col-sm-auto">
 										<label>Gaji Pokok</label>
-										<input name="gaji_pokok" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
-									</div>					
+										<input name="gaji_pokok" type="text" class="form-control" required maxlength="15"
+											onkeypress="hanyaangka(event)">
+									</div>
 									<div class="form-group col-sm-auto">
 										<label>Uang Makan</label>
-										<input name="uang_makan" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
-									</div>									
+										<input name="uang_makan" type="text" class="form-control" required maxlength="15"
+											onkeypress="hanyaangka(event)">
+									</div>
 									<div class="float-right" style="margin-right: 15px;">
 										<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
 										<button type="submit" class="btn btn-primary">SIMPAN</button>
@@ -49,8 +53,8 @@
 		</div>
 	</div>
 </div>
-<div class ="container-fluid">
-	<div class="col-sm-auto" >
+<div class="container-fluid">
+	<div class="col-sm-auto">
 		<div class="card card-primary">
 			<div class="card-header" style="height: 50px;">
 				<h3 class="card-title" style="font-size: 15;">KELOLA DATA GOLONGAN</h3>
@@ -79,45 +83,48 @@
 							<td>{{$gol->uang_makan}}</td>
 							<td>
 								<a class=" edit btn btn-sm btn-warning" data-toggle="modal" data-target=".gol-edit">Edit</a>
-								<div id="editmodal" class="modal fade gol-edit" tabindex="-1" role="dialog" aria-labelledby="gol-edit" aria-hidden="true">
-									<div  class="modal-dialog modal-dialog-centered" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h2 style="font-size: 25px;">Update Data Golongan</h2>
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
-											</div>
-											<div class="modal-body" style="text-align: left;">
-												<form method="POST" id="editform">
-													{{csrf_field()}}										
-													<div class="form-group col-sm-auto">
-														<label>Kode Golongan</label>
-														<input name="golongan" id="golong" type="text" class="form-control" required maxlength="15">
-													</div>
-													<div class="form-group col-sm-auto">
-														<label>Gaji Pokok</label>
-														<input name="gaji_pokok" id="gaji" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
-													</div>					
-													<div class="form-group col-sm-auto">
-														<label>Uang Makan</label>
-														<input name="uang_makan" id="makan" type="text" class="form-control" required maxlength="15" onkeypress="hanyaangka(event)">
-													</div>
-													<div class="float-right" style="margin-right: 15px;">
-														<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
-														<button type="submit" class="btn btn-primary">UPDATE</button>
-													</div>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
 								<button class="btn btn-sm btn-danger hapus" gol-id="{{$gol->id}}">Hapus</button>
 							</td>
 						</tr>
 						@endforeach
 					</tbody>
 				</table>
+				<div id="editmodal" class="modal fade gol-edit" tabindex="-1" role="dialog" aria-labelledby="gol-edit"
+					aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h2 style="font-size: 25px;">Update Data Golongan</h2>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body" style="text-align: left;">
+								<form method="POST" id="editform">
+									{{csrf_field()}}
+									<div class="form-group col-sm-auto">
+										<label>Kode Golongan</label>
+										<input name="golongan" id="golong" type="text" class="form-control" required maxlength="15">
+									</div>
+									<div class="form-group col-sm-auto">
+										<label>Gaji Pokok</label>
+										<input name="gaji_pokok" id="gaji" type="text" class="form-control" required maxlength="15"
+											onkeypress="hanyaangka(event)">
+									</div>
+									<div class="form-group col-sm-auto">
+										<label>Uang Makan</label>
+										<input name="uang_makan" id="makan" type="text" class="form-control" required maxlength="15"
+											onkeypress="hanyaangka(event)">
+									</div>
+									<div class="float-right" style="margin-right: 15px;">
+										<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
+										<button type="submit" class="btn btn-primary">UPDATE</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

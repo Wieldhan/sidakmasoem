@@ -154,48 +154,22 @@
 							<td>{{$izal->tanggal_izin}}</td>
 							<td>{{$izal->perihal}}</td>
 							<td>{{$izal->keterangan}}</td>
-							<td>{{$izal->status}}</td>
+							<td>@if($izal->status == 'Waiting')
+								<label class="badge badge-warning" style="font-size: 15px">Waiting</label>
+								@else
+								<label class="badge badge-success" style="font-size: 15px">Approved</label>
+								@endif</td>
 							<td>
-								<button class="btn btn-success btn-sm">Confirm</button>
+								<form action="{{ route('approve', $izal->id) }}" method="POST">
+									{{ csrf_field() }}
+									<button type="submit" class="btn btn-success btn-sm confirm" izal-id="{{$izal->id}}">Confirm</button>
+								</form>
 							</td>
 						</tr>
 						@endforeach
 					</tbody>
 				</table>
 			</div>
-			{{-- Detail --}}
-			<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
-				aria-hidden="true">
-				<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4>DETAIL</h4>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<form id="detailform">
-								{{ csrf_field() }}
-
-								<div class="row">
-									<div class="col-8 float-right d-none d-sm-block">
-										<b>Version</b> 1.0.1
-										<strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA
-												KARYAWAN</a></strong>
-									</div>
-									<div class="col-2">
-									</div>
-									<div class="col-2">
-										<button type="submit" class="btn btn-primary btn-block float-right">PRINT</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			{{-- End Of Detail --}}
 		</div>
 		@endif
 	</div>

@@ -58,12 +58,12 @@ class IzinController extends Controller
 		return response()->json($data);
     }
 
-        public function store(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'tanggal_izin' => 'required',
             'keterangan'   => 'required',
-            'perihal'      => 'required',
+            'perihal'      => 'required'
         ]);
 
     izin::create([
@@ -74,6 +74,15 @@ class IzinController extends Controller
         'status'       => 'Waiting'
     ]);
     toast()->success('Data Berhasil Ditambahkan!');
+    return back();
+    }
+
+    public function approve (Request $request, $id){
+        $ijin = izin::find($id);
+        $ijin->update([
+            'status' => 'Approved'
+        ]);
+    toast()->success('Perizinan Disetujui!');
     return back();
     }
 }

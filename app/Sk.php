@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Sk extends Model
 {
     protected $table   	= 'sk';
-	protected $fillable = ['','','',''];
+    protected $fillable = ['id','user_id','no_sk','judul','keterangan','file','tanggal_sah'];
+    
+    public function user()
+	{
+		return $this->belongsTo(user::class);
+	}
 }

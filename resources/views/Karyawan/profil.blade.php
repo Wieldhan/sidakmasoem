@@ -19,12 +19,15 @@
 				<div class="card-body box-profile">
 					<div class="text-center">
 						@if(Auth::user()->avatar == '')
-						<img style="width:150px; height: 150px;" class="img-thumbnail rounded-circle elevation-1" src="{{asset('images/avatars/avatardefault.png')}}" alt="profile picture">
+						<img style="width:150px; height: 150px;" class="img-thumbnail rounded-circle elevation-1"
+							src="{{asset('images/avatars/avatardefault.png')}}" alt="profile picture">
 						@else
-						<img style="width:150px; height: 150px;" class="img-thumbnail rounded-circle elevation-1" src="{{asset('images/avatars/'.Auth::user()->avatar)}}" alt="profile picture">
+						<img style="width:150px; height: 150px;" class="img-thumbnail rounded-circle elevation-1"
+							src="{{asset('images/avatars/'.Auth::user()->avatar)}}" alt="profile picture">
 						@endif
 					</div>
-					<h3 class="profile-username text-center" style="font-size: 20px;">{{Auth::user()->karyawan->nama_lengkap}}</h3>
+					<h3 class="profile-username text-center" style="font-size: 20px;">{{Auth::user()->karyawan->nama_lengkap}}
+					</h3>
 					<p class="text-muted text-center">{{Auth::user()->karyawan->jabatan->jabatan}}</p>
 					<ul class="list-group list-group-unbordered mb-3">
 						<li class="list-group-item">
@@ -56,7 +59,9 @@
 							<span class="float-right">{{Auth::user()->karyawan->misi}}</span>
 						</li>
 					</ul>
-					<button class="btn btn-sm btn-primary btn-block float-right" data-toggle="modal" data-target=".modal-edit-profil" title="Tambah Data Organisasi"><i class="fas fa-pencil mr-1"></i><b>Edit Profile</b></button>				
+					<button class="btn btn-sm btn-primary btn-block float-right" data-toggle="modal"
+						data-target=".modal-edit-profil" title="Tambah Data Organisasi"><i class="fas fa-pencil mr-1"></i><b>Edit
+							Profile</b></button>
 				</div>
 			</div>
 		</div>
@@ -71,18 +76,20 @@
 							<strong><i class="fas fa-graduation-cap"></i> Pendidikan</strong>
 						</div>
 						<div class="col-2">
-							<button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal" data-target=".modal-pendidikan" data-placement="right" title="Tambah Data Pendidikan"><i class="fas fa-plus mr-1"></i></button>
+							<button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal"
+								data-target=".modal-pendidikan" data-placement="right" title="Tambah Data Pendidikan"><i
+									class="fas fa-plus mr-1"></i></button>
 						</div>
 					</div>
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
-							<tr style="text-align: center;">	
-								<th hidden="true">ID</th>								
+							<tr style="text-align: center;">
+								<th hidden="true">ID</th>
 								<th>Nama Instansi</th>
 								<th>Jurusan</th>
 								<th>Jenjang</th>
 								<th>Tahun Lulus</th>
-								<th>Act</th>								
+								<th>Act</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -94,25 +101,27 @@
 								<td style="text-align: center;">{{$pend->jenjang}}</td>
 								<td style="text-align: center;">{{$pend->tahun_lulus}}</td>
 								<td style="text-align: center;">
-									<button class="btn btn-sm btn-danger hapuspend" pend-id="{{$pend->id}}"><i class="fa fa-trash" aria-hidden="true" title="Hapus"></i></button>
+									<button class="btn btn-sm btn-danger hapuspend" pend-id="{{$pend->id}}"><i class="fa fa-trash"
+											aria-hidden="true" title="Hapus"></i></button>
 								</td>
 							</tr>
 							@endforeach
 						</tbody>
-					</table>	
-					<hr>												
+					</table>
+					<hr>
 					<div class="row">
 						<div class="col-10">
 							<strong><i class="fas fa-pencil-alt mr-1"></i> Pengalaman Organisasi</strong>
 						</div>
 						<div class="col-2">
-							<button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal" data-target=".modal-organisasi" title="Tambah Data Organisasi"><i class="fas fa-plus mr-1"></i></button>
+							<button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal"
+								data-target=".modal-organisasi" title="Tambah Data Organisasi"><i class="fas fa-plus mr-1"></i></button>
 						</div>
-					</div>						
+					</div>
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
 							<tr style="text-align: center;">
-								<th hidden="true">ID</th>									
+								<th hidden="true">ID</th>
 								<th>Nama Organisasi</th>
 								<th>Jabatan</th>
 								<th>Tahun</th>
@@ -129,8 +138,9 @@
 								<td style="text-align: center;">{{$org->periode_org}}</td>
 								<td style="text-align: center;">{{$org->status_org}}</td>
 								<td style="text-align: center;">
-									<button class="btn btn-sm btn-danger hapusorg" org-id="{{$org->id}}"><i class="fa fa-trash" aria-hidden="true" title="Hapus"></i></button>
-								</td>							
+									<button class="btn btn-sm btn-danger hapusorg" org-id="{{$org->id}}"><i class="fa fa-trash"
+											aria-hidden="true" title="Hapus"></i></button>
+								</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -141,9 +151,10 @@
 							<strong><i class="fas fa-pencil-alt mr-1"></i> Pengalaman Pekerjaan</strong>
 						</div>
 						<div class="col-2">
-							<button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal" data-target=".modal-pengalaman" title="Tambah Data Pekerjaan"><i class="fas fa-plus mr-1"></i></button>
+							<button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal"
+								data-target=".modal-pengalaman" title="Tambah Data Pekerjaan"><i class="fas fa-plus mr-1"></i></button>
 						</div>
-					</div>							
+					</div>
 					<table class="table text-muted table-sm">
 						<thead class="bg-secondary">
 							<tr style="text-align: center;">
@@ -165,13 +176,14 @@
 								<td style="text-align: center;">{{$peng->th_keluar}}</td>
 								<td>{{$peng->alasan_resign}}</td>
 								<td style="text-align: center;">
-									<button class="btn btn-sm btn-danger hapuspeng" peng-id="{{$peng->id}}"><i class="fa fa-trash" aria-hidden="true" title="Hapus"></i></button>
+									<button class="btn btn-sm btn-danger hapuspeng" peng-id="{{$peng->id}}"><i class="fa fa-trash"
+											aria-hidden="true" title="Hapus"></i></button>
 								</td>
 							</tr>
 							@endforeach
 						</tbody>
 					</table>
-					<hr>				
+					<hr>
 					<div>
 						<strong><i class="far fa-file-alt mr-1"></i> Catatan Pekerjaan Almasoem</strong>
 					</div>
@@ -202,16 +214,16 @@
 					<button class="btn btn-primary float-right" onclick="window.print()">
 						<i class="fas fa-file-alt mr-1"></i>
 						<b>Print CV</b></button>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	@include('karyawan.modal')
-	@endsection
-	@section ('javascript')
-	<script>
-		$('.hapusorg').click(function(){
+</div>
+@include('karyawan.modal')
+@endsection
+@section ('javascript')
+<script>
+	$('.hapusorg').click(function(){
 			var org_id = $(this).attr('org-id');
 			Swal.fire({
 				toast :true,
@@ -267,25 +279,5 @@
 				}
 			});
 		});	
-
-		function readURL() {
-			var input = this;
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
-				reader.onload = function (e) {
-					$(input).prev().attr('src', e.target.result);
-				}
-				reader.readAsDataURL(input.files[0]);
-			}
-		}
-
-		$(function () {
-			$(".uploads").change(readURL)
-			$("#f").submit(function(){
-                // do ajax submit or just classic form submit
-              //  alert("fake subminting")
-              return false
-          })
-		})
-	</script>
-	@endsection
+</script>
+@endsection
