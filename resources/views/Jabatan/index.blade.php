@@ -69,10 +69,18 @@
 				</div>
 			</div>
 			<div class="card-body">
+				<div class="card-tools" style="margin-bottom: 20px">
+					<button class="btn btn-sm btn-success">
+						<i class="fas fa-file-export"></i> Export To Excel
+					</button>
+					<button class="btn btn-sm btn-danger">
+						<i class="fas fa-file-export"></i> Export To PDF
+					</button>
+				</div>
 				<table id="datatable" class="table table-sm">
 					<thead>
 						<tr align="center">
-							<th>ID</th>
+							<th>No</th>
 							<th>Nama jabatan</th>
 							<th>Transport</th>
 							<th>Pulsa</th>
@@ -83,7 +91,7 @@
 					<tbody>
 						@foreach($data_jabatan as $jabat)
 						<tr>
-							<td>{{$jabat->id}}</td>
+							<td>{{$loop->iteration}}</td>
 							<td>{{$jabat->jabatan}}</td>
 							<td>{{$jabat->transport}}</td>
 							<td>{{$jabat->pulsa}}</td>

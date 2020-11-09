@@ -26,6 +26,7 @@ Route::post('simpandaftar', 'authController@simpandaftar');
 
 Route::group(['middleware'=>'auth'],function(){
 	Route::get('dashboard', 'dashboardController@index');
+	Route::get('contact', 'dashboardController@contact');
 	Route::get('profile/{id}','profilController@profile');
 	Route::get('profile/edit/{id}','profilController@edit');
 	Route::post('profile/update/{id}','profilController@update');
@@ -76,9 +77,11 @@ Route::group(['middleware'=>'auth'],function(){
 
 //Routes SK
 	Route::get('sk', 'skController@index');
+	Route::get('skview', 'skController@view');
 	Route::get('datask', 'skController@datask');
 	Route::get('detailsk', 'skController@detailsk');
+	Route::get('sk/downloadsk/{id}', 'skController@downloadsk')->name('downloadsk');
 	Route::post('sk/simpan', 'skController@simpan');
 	Route::post('sk/update/{sk}', 'skController@update');
-	Route::get('sk/hapus/{sk}', 'skController@hapus');
+	Route::get('sk/hapus/{id}', 'skController@hapus');
 });

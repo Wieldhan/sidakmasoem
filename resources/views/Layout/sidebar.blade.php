@@ -4,7 +4,7 @@
     <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
     @if(Auth::user()->level == 'admin')
-    <li class="nav-item has-treeview">
+    <li class="nav-item has-treeview menu-open">
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
@@ -34,13 +34,13 @@
         <li class="nav-item">
           <a href="{{url('sk')}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>SK BPRS ALMASOEM</p>
+            <p>Surat Keputusan</p>
           </a>
         </li>
       </ul>
     </li>
     @endif
-    <li class="nav-item has-treeview">
+    <li class="nav-item has-treeview menu-open">
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-th"></i>
         <p>Transaksi
@@ -49,7 +49,7 @@
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="{{url('cuti')}}" class="nav-link">
+          <a href="#" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Format Cuti</p>
           </a>

@@ -15,7 +15,7 @@
 </div>
 <div class="container-fluid">
 	<div class="col">
-		<div class="card card-info">
+		<div class="card card-success card-outline">
 			<div class="card-header" style="height: 50px;">
 				<h2 class="card-title">KELOLA DATA KARYAWAN</h2>
 				<div class="card-tools ">
@@ -24,6 +24,14 @@
 				</div>
 			</div>
 			<div class="card-body">
+				<div class="card-tools" style="margin-bottom: 20px">
+					<button class="btn btn-sm btn-success">
+						<i class="fas fa-file-export"></i> Export To Excel
+					</button>
+					<button class="btn btn-sm btn-danger">
+						<i class="fas fa-file-export"></i> Export To PDF
+					</button>
+				</div>
 				<table class="table table-sm table-hover" id="datatable" style="font-size: 15px;">
 					<thead>
 						<tr align="center">

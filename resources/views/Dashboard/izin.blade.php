@@ -122,58 +122,6 @@
 		</div>
 	</div>
 </div>
-<div class="container-fluid">
-	<div class="col">
-		@if(Auth::user()->level == 'admin')
-		<div class="card card-info">
-			<div class="card-header" style="height: 50px;">
-				<h2 class="card-title">HISTORY IZIN KARYAWAN</h2>
-				<div class="card-tools ">
-					<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-					</button>
-				</div>
-			</div>
-			<div class="card-body">
-				<table class="table table-sm table-hover" id="datatable">
-					<thead>
-						<tr style="text-align: center;">
-							<th>No</th>
-							<th>Nama Lengkap</th>
-							<th>tanggal Izin</th>
-							<th>Perihal</th>
-							<th>Keterangan</th>
-							<th>Status</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach ($izinall as $izal)
-						<tr>
-							<td>{{$loop->iteration}}</td>
-							<td>{{$izal->karyawan->nama_lengkap}}</td>
-							<td>{{$izal->tanggal_izin}}</td>
-							<td>{{$izal->perihal}}</td>
-							<td>{{$izal->keterangan}}</td>
-							<td>@if($izal->status == 'Waiting')
-								<label class="badge badge-warning" style="font-size: 15px">Waiting</label>
-								@else
-								<label class="badge badge-success" style="font-size: 15px">Approved</label>
-								@endif</td>
-							<td>
-								<form action="{{ route('approve', $izal->id) }}" method="POST">
-									{{ csrf_field() }}
-									<button type="submit" class="btn btn-success btn-sm confirm" izal-id="{{$izal->id}}">Confirm</button>
-								</form>
-							</td>
-						</tr>
-						@endforeach
-					</tbody>
-				</table>
-			</div>
-		</div>
-		@endif
-	</div>
-</div>
 </div>
 @include('sweetalert::alert')
 @endsection

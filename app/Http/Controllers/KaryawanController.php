@@ -43,7 +43,6 @@ class KaryawanController extends Controller
 		})
 		->addColumn('action', function($DtKaryawan){
 			return
-			// "<button type='button' class='btn btn-sm btn-warning edit' data-id='".$DtKaryawan->id."'>Edit</button>
 			"<button type='button' class='btn btn-sm btn-danger hapus' karyawan-id='".$DtKaryawan->id."'>Delete</button>";
 		})
 		->toJson();
