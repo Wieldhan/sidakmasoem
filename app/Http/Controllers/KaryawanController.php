@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Validator;
 use Auth;
-use App\Karyawan;
-use App\Golongan;
-use App\Jabatan;
 use App\User;
 use App\Cabang;
+use App\Jabatan;
+use App\Karyawan;
+use App\Golongan;
+use App\Exports\KaryawanExport;
+use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class KaryawanController extends Controller
@@ -26,6 +28,11 @@ class KaryawanController extends Controller
 		$jabatan  = jabatan ::all();
 		$cabang   = cabang  ::all();
 		return view('karyawan.index', compact('karyawan','golongan','jabatan','cabang'));
+	}
+
+	public function export()
+	{
+		return Excel::download(new KaryawanExport, 'datakaryawan.xlsx');
 	}
 
 	public function datakaryawan(Request $request)

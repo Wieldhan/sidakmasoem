@@ -25,12 +25,12 @@
 			</div>
 			<div class="card-body">
 				<div class="card-tools" style="margin-bottom: 20px">
-					<button class="btn btn-sm btn-success">
+					<a href="karyawan/export" class="btn btn-sm btn-success">
 						<i class="fas fa-file-export"></i> Export To Excel
-					</button>
-					<button class="btn btn-sm btn-danger">
+					</a>
+					<a href="#" class="btn btn-sm btn-danger">
 						<i class="fas fa-file-export"></i> Export To PDF
-					</button>
+					</a>
 				</div>
 				<table class="table table-sm table-hover" id="datatable" style="font-size: 15px;">
 					<thead>

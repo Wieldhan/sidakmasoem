@@ -55,7 +55,7 @@
 </div>
 <div class="container-fluid">
 	<div class="col-sm-auto">
-		<div class="card card-primary">
+		<div class="card card-primary card-outline">
 			<div class="card-header" style="height: 50px;">
 				<h3 class="card-title" style="font-size: 15;">KELOLA DATA GOLONGAN</h3>
 				<div class="card-tools ">
@@ -65,10 +65,10 @@
 			</div>
 			<div class="card-body">
 				<div class="card-tools" style="margin-bottom: 20px">
-					<button class="btn btn-sm btn-success">
+					<a href="golongan/export" class="btn btn-sm btn-success">
 						<i class="fas fa-file-export"></i> Export To Excel
-					</button>
-					<button class="btn btn-sm btn-danger">
+					</a>
+					<button class="btn btn-sm btn-danger" disabled>
 						<i class="fas fa-file-export"></i> Export To PDF
 					</button>
 				</div>
@@ -76,7 +76,7 @@
 					<thead>
 						<tr align="center">
 							<th>No</th>
-							<th>Nama Golongan</th>
+							<th>Kode Golongan</th>
 							<th>Gaji Pokok</th>
 							<th>Uang Makan</th>
 							<th>Action</th>

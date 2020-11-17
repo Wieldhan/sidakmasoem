@@ -6,9 +6,9 @@
     @if(Auth::user()->level == 'admin')
     <li class="nav-item has-treeview menu-open">
       <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <i class="far fa-user nav-icon"></i>
         <p>
-          Master Data
+          Personalia
           <i class="right fas fa-angle-left"></i>
         </p>
       </a>
@@ -42,38 +42,79 @@
     @endif
     <li class="nav-item has-treeview menu-open">
       <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-th"></i>
-        <p>Transaksi
+        <i class="nav-icon fas fa-book"></i>
+        <p>Aplikasi
           <i class="right fas fa-angle-left"></i>
         </p>
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{url('cuti', Auth::user()->id)}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Format Cuti</p>
+            <p>Cuti</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{url('izin', Auth::user()->id)}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Format Izin</p>
+            <p>Izin</p>
           </a>
         </li>
         @if(Auth::user()->level == 'admin')
         <li class="nav-item">
           <a href="{{url('mutasi')}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Format Mutasi</p>
+            <p>Mutasi</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Format Teguran</p>
+            <p>Teguran</p>
           </a>
         </li>
         @endif
+      </ul>
+    </li>
+    <li class="nav-item has-treeview">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-balance-scale-left"></i>
+        <p>
+          Legal
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{url('pembiayaan')}}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Pembiayaan</p>
+          </a>
+        </li>
+        {{-- <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>NONE</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>NONE</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>NONE</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>NONE</p>
+          </a>
+        </li> --}}
       </ul>
     </li>
     <li class="nav-item has-treeview">

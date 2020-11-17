@@ -17,7 +17,7 @@ class Mutasi extends Model
 		'keterangan',
 		'status'
 	];
-
+	
 	public function karyawan()
 	{
 		return $this->belongsTo(karyawan::class);

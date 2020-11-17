@@ -36,25 +36,28 @@
 								<div class="form-row">
 									<div class="form-group col-sm-6">
 										<label>No Induk Karyawan</label>
-										<input readonly="true" name="nik" type="text" class="form-control form-control-sm " id="nik"
-											value="{{Auth::user()->karyawan->nik}}">
+										<input readonly="true" name="nik" type="text" class="form-control form-control-sm "
+											id="nik" value="{{Auth::user()->karyawan->nik}}">
 									</div>
 									<div class="form-group col-sm-6">
 										<label>Jabatan</label>
-										<input readonly="true" required name="jabatan_id" type="text" class="form-control form-control-sm"
-											id="jabatan_id" value="{{Auth::user()->karyawan->jabatan->jabatan}}">
+										<input readonly="true" required name="jabatan_id" type="text"
+											class="form-control form-control-sm" id="jabatan_id"
+											value="{{Auth::user()->karyawan->jabatan->jabatan}}">
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-sm-6">
 										<label>Nama Lengkap</label>
-										<input readonly="true" required name="nama_lengkap" type="text" class="form-control form-control-sm"
-											id="nama_lengkap" value="{{Auth::user()->karyawan->nama_lengkap}}">
+										<input readonly="true" required name="nama_lengkap" type="text"
+											class="form-control form-control-sm" id="nama_lengkap"
+											value="{{Auth::user()->karyawan->nama_lengkap}}">
 									</div>
 									<div class="form-group col-sm-6">
 										<label>Golongan</label>
-										<input readonly="true" required name="golongan_id" type="text" class="form-control form-control-sm "
-											id="golongan_id" value="{{Auth::user()->karyawan->golongan->golongan}}">
+										<input readonly="true" required name="golongan_id" type="text"
+											class="form-control form-control-sm " id="golongan_id"
+											value="{{Auth::user()->karyawan->golongan->golongan}}">
 									</div>
 								</div>
 								<div class="form-row">
@@ -97,15 +100,15 @@
 									<th>Perihal</th>
 									<th>Keterangan</th>
 									<th>Status</th>
-									<th>Action</th>
+									<th>Option</th>
 								</tr>
 							</thead>
 							<tbody>
 								@foreach ($izin as $izn)
 								<tr style="text-align: center;">
 									<td>{{$loop->iteration}}</td>
-									<td>{{$izn->created_at}}</td>
-									<td>{{$izn->tanggal_izin}}</td>
+									<td>{{$izn->created_at->format('d/m/Y')}}</td>
+									<td>{{$izn->tanggal_izin->format('d/m/Y')}}</td>
 									<td>{{$izn->perihal}}</td>
 									<td>{{$izn->keterangan}}</td>
 									<td>{{$izn->status}}</td>
@@ -121,7 +124,6 @@
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 @include('sweetalert::alert')
 @endsection

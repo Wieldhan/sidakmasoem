@@ -1,4 +1,8 @@
 @extends ('layout.master')
+@section('link')
+<link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
+@endsection
 @section ('content')
 <div class="content-header">
 	<div class="container-fluid">
@@ -10,6 +14,7 @@
 	</div>
 </div>
 <section class="content">
+	@if(Auth::user()->level == 'admin')
 	<div class="form-row">
 		<div class="col-lg-3 col-6">
 			<div class="small-box bg-primary">
@@ -65,7 +70,6 @@
 	<div class="form-row">
 		<div class="container-fluid">
 			<div>
-				@if(Auth::user()->level == 'admin')
 				<div class="card card-info card-outline">
 					<div class="card-header" style="height: 50px;">
 						<h2 class="card-title">HISTORY IZIN KARYAWAN</h2>
@@ -80,7 +84,7 @@
 								<tr style="text-align: center;">
 									<th>No</th>
 									<th>Nama Lengkap</th>
-									<th>tanggal Izin</th>
+									<th>Tanggal Izin</th>
 									<th>Perihal</th>
 									<th>Keterangan</th>
 									<th>Status</th>
@@ -92,7 +96,7 @@
 								<tr>
 									<td>{{$loop->iteration}}</td>
 									<td>{{$izal->karyawan->nama_lengkap}}</td>
-									<td>{{$izal->tanggal_izin}}</td>
+									<td>{{$izal->tanggal_izin->format('d/m/Y')}}</td>
 									<td>{{$izal->perihal}}</td>
 									<td>{{$izal->keterangan}}</td>
 									<td>@if($izal->status == 'Waiting')
@@ -118,4 +122,14 @@
 		</div>
 	</div>
 </section>
+@endsection
+@section('javascript')
+<script type="text/javascript" src="/datatables/datatables.min.js"></script>
+<script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	$('#datatable').DataTable({ 
+	});
+});
+</script>
 @endsection

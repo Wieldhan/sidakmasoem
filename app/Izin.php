@@ -15,7 +15,8 @@ class Izin extends Model
 		'perihal',
 		'status'
 	];
-
+	protected $dates    = ['tanggal_izin','created_at'];
+	
 	public function karyawan()
 	{
 		return $this->belongsTo(karyawan::class);

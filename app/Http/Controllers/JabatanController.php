@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Jabatan;
+use App\Exports\JabatanExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
-use App\Jabatan;
-use Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class JabatanController extends Controller
@@ -18,6 +20,11 @@ class JabatanController extends Controller
 		}
 		$data_jabatan = jabatan::all();
 		return view('jabatan.index',['data_jabatan'=> $data_jabatan]);
+	}
+
+	public function export()
+	{
+		return Excel::download(new JabatanExport, 'datajabatan.xlsx');
 	}
 
 	public function simpan(Request $request)

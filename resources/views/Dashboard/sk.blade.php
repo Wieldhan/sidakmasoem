@@ -21,7 +21,7 @@
 	<div class="col">
 		<div class="card card-info card-outline">
 			<div class="card-header" style="height: 50px;">
-				<h2 class="card-title">Surat Keputusan BPRS ALMASOEM</h2>
+				<h2 class="card-title">KELOLA DATA SK</h2>
 				<div class="card-tools ">
 					<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
 					</button>
@@ -47,7 +47,7 @@
 							<td>{{$datask->no_sk}}</td>
 							<td>{{$datask->judul}}</td>
 							<td>{{$datask->keterangan}}</td>
-							<td>{{$datask->tanggal_sah}}</td>
+							<td>{{$datask->tanggal_sah->format('d/m/Y')}}</td>
 							<td>{{$datask->user->nama_lengkap}}</td>
 							<td>
 								<button class="btn btn-sm btn-danger hapus" sk-id="{{$datask->id}}">Hapus</button>

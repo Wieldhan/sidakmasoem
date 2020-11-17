@@ -9,6 +9,7 @@ use App\Jabatan;
 use App\Golongan;
 use App\Cabang;
 use App\Izin;
+use App\Dashboard;
 
 class DashboardController extends Controller
 {

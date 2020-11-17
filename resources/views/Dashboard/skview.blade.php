@@ -27,20 +27,18 @@
 							<th>Judul</th>
 							<th>Keterangan</th>
 							<th>Tanggal Pengesahan</th>
-							<th>File</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach ($data_sk as $datask)
 						<tr>
-							<td>{{$loop->iteration}}</td>
-							<td>{{$datask->no_sk}}</td>
+							<td align="center">{{$loop->iteration}}</td>
+							<td align="center">{{$datask->no_sk}}</td>
 							<td>{{$datask->judul}}</td>
-							<td>{{$datask->keterangan}}</td>
-							<td>{{$datask->tanggal_sah}}</td>
-							<td><i class="far fa-file"></i> {{$datask->file}}</td>
-							<td>
+							<td align="center">{{$datask->keterangan}}</td>
+							<td align="center">{{$datask->tanggal_sah->format('d/m/Y')}}</td>
+							<td align="center">
 								<a href="{{ route('downloadsk', $datask->id) }}" class="btn btn-success btn-sm"><i
 										class="fas fa-download"></i> Download</a>
 							</td>

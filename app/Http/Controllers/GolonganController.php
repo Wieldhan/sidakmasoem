@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
-use App\Golongan;
 use Auth;
+use App\Golongan;
+use App\Exports\GolonganExport;
+use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class GolonganController extends Controller
@@ -18,6 +20,11 @@ class GolonganController extends Controller
 		}
 		$data_golongan = golongan::all();
 		return view('golongan.index',['data_golongan'=> $data_golongan]);
+	}
+
+	public function export()
+	{
+		return Excel::download(new GolonganExport, 'datagolongan.xlsx');
 	}
 
 	public function simpan(Request $request)
