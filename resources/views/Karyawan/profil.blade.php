@@ -49,8 +49,7 @@
 						</li>
 					</ul>
 					<button class="btn btn-sm btn-primary btn-block float-right" data-toggle="modal"
-						data-target=".modal-edit-profil" title="Tambah Data Organisasi"><i
-							class="fas fa-pencil mr-1"></i><b>Edit
+						data-target=".modal-edit-profil" title="Tambah Data Organisasi"><i class="fas fa-pencil mr-1"></i><b>Edit
 							Profile</b></button>
 				</div>
 			</div>
@@ -107,8 +106,8 @@
 										<td style="text-align: center;">{{$pend->jenjang}}</td>
 										<td style="text-align: center;">{{$pend->tahun_lulus}}</td>
 										<td style="text-align: center;">
-											<button class="btn btn-sm btn-danger hapuspend" pend-id="{{$pend->id}}"><i
-													class="fa fa-trash" aria-hidden="true" title="Hapus"></i></button>
+											<button class="btn btn-sm btn-danger hapuspend" pend-id="{{$pend->id}}"><i class="fa fa-trash"
+													aria-hidden="true" title="Hapus"></i></button>
 										</td>
 									</tr>
 									@endforeach
@@ -145,8 +144,8 @@
 										<td style="text-align: center;">{{$org->periode_org}}</td>
 										<td style="text-align: center;">{{$org->status_org}}</td>
 										<td style="text-align: center;">
-											<button class="btn btn-sm btn-danger hapusorg" org-id="{{$org->id}}"><i
-													class="fa fa-trash" aria-hidden="true" title="Hapus"></i></button>
+											<button class="btn btn-sm btn-danger hapusorg" org-id="{{$org->id}}"><i class="fa fa-trash"
+													aria-hidden="true" title="Hapus"></i></button>
 										</td>
 									</tr>
 									@endforeach
@@ -184,8 +183,8 @@
 										<td style="text-align: center;">{{$peng->th_keluar}}</td>
 										<td>{{$peng->alasan_resign}}</td>
 										<td style="text-align: center;">
-											<button class="btn btn-sm btn-danger hapuspeng" peng-id="{{$peng->id}}"><i
-													class="fa fa-trash" aria-hidden="true" title="Hapus"></i></button>
+											<button class="btn btn-sm btn-danger hapuspeng" peng-id="{{$peng->id}}"><i class="fa fa-trash"
+													aria-hidden="true" title="Hapus"></i></button>
 										</td>
 									</tr>
 									@endforeach
@@ -224,15 +223,16 @@
 								<b>Print CV</b></button>
 						</div>
 						<div class="tab-pane" id="datakeluarga">
-							<form action="#" method="POST">
+							<form action="/profile/simpankel" method="POST">
+								{{ csrf_field() }}
 								<label>Nama Keluarga</label>
 								<div class="form-row">
-									<div class="col-sm-6">
+									<div class="form-group col-sm-6">
 										<input required name="nama_keluarga" type="text" class="form-control form-control-sm">
 									</div>
 									<div class="form-group col-sm-6">
 										<div class="input-group input-group-sm">
-											<select class="custom-select" id="inputGroupSelect04">
+											<select name="status" class="custom-select" id="inputGroupSelect04">
 												<option>--Pilih Salah Satu--</option>
 												<option value="Orangtua">Orangtua</option>
 												<option value="Istri">Istri</option>
@@ -254,6 +254,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 </div>
 @include('karyawan.modal')

@@ -32,6 +32,8 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::post('profile/update/{id}','profilController@update');
 	Route::post('profile/simpanpend','profilController@simpanpend');
 	Route::post('profile/simpanorg','profilController@simpanorg');
+	Route::post('profile/simpankel','profilController@simpankel');
+	Route::get('profile/keldestroy/{keluarga}','profilController@keldestroy');
 	Route::get('profile/orgdestroy/{organisasi}','profilController@orgdestroy');
 	Route::get('profile/penddestroy/{pendidikan}','profilController@penddestroy');
 	Route::post('profile/account/{id}','profilController@account');

@@ -28,9 +28,9 @@
 					<a href="karyawan/export" class="btn btn-sm btn-success">
 						<i class="fas fa-file-export"></i> Export To Excel
 					</a>
-					<a href="#" class="btn btn-sm btn-danger">
+					<button disabled class="btn btn-sm btn-danger">
 						<i class="fas fa-file-export"></i> Export To PDF
-					</a>
+					</button>
 				</div>
 				<table class="table table-sm table-hover" id="datatable" style="font-size: 15px;">
 					<thead>

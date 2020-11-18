@@ -37,6 +37,10 @@ class Karyawan extends Model
 	{
 		return $this->belongsToMany(pengalaman::class);
 	}
+	public function keluarga()
+	{
+		return $this->belongsToMany(keluarga::class);
+	}
 	public function mutasi()
 	{
 		return $this->belongsToMany(mutasi::class);

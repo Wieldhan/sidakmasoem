@@ -13,6 +13,7 @@ use App\Pendidikan;
 use App\Organisasi;
 use App\Pengalaman;
 use App\Mutasi;
+use App\Keluarga;
 use Auth;
 use DB;
 use Session;
@@ -91,6 +92,23 @@ class ProfilController extends Controller
 	 public function pengdestroy(pengalaman $pengalaman)
 	 {
 		  $pengalaman->delete();
+		  toast()->success('Data Berhasil Dihapus!');
+		  return back();
+	 }
+	 public function simpankel(request $request)
+	 {
+		  keluarga::create([
+				'user_id'       => auth::user()->id,
+				'nama_keluarga' => $request->input('nama_keluarga'),
+				'status'        => $request->input('status'),
+		  ]);
+		  toast()->success('Data Berhasil Ditambahkan!');
+		  return back();
+	 }
+
+	 public function keldestroy(keluarga $keluarga)
+	 {
+		  $keluarga->delete();
 		  toast()->success('Data Berhasil Dihapus!');
 		  return back();
 	 }
