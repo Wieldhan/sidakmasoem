@@ -494,12 +494,13 @@ CREATE TABLE IF NOT EXISTS `keluarga` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table sidakmasoem.keluarga: ~0 rows (approximately)
 /*!40000 ALTER TABLE `keluarga` DISABLE KEYS */;
 REPLACE INTO `keluarga` (`id`, `user_id`, `nama_keluarga`, `status`, `created_at`, `updated_at`) VALUES
-	(1, 2, 'Julkifar', 'Saudara Kandung', '2020-11-18 02:59:57', '2020-11-18 02:59:57');
+	(1, 2, 'Julkifar', 'Saudara Kandung', '2020-11-18 02:59:57', '2020-11-18 02:59:57'),
+	(2, 2, 'Julkifar', 'Saudara Kandung', '2020-12-22 01:44:36', '2020-12-22 01:44:36');
 /*!40000 ALTER TABLE `keluarga` ENABLE KEYS */;
 
 -- Dumping structure for table sidakmasoem.migrations

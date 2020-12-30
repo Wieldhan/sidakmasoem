@@ -249,6 +249,29 @@
 								</div>
 							</form>
 						</div>
+						<table class="table text-muted table-sm">
+							<thead class="bg-secondary">
+								<tr>
+									<th hidden="true">ID</th>
+									<th>Nama Keluarga</th>
+									<th>Kekerabatan</th>
+									<th>Act</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach ($keluarga as $kel)
+								<tr>
+									<td hidden="true">{{$kel->id}}</td>
+									<td>{{$kel->nama_keluarga}}</td>
+									<td>{{$kel->status}}</td>
+									<td>
+										<button class="btn btn-sm btn-danger hapuskel" kel-id="{{$kel->id}}"><i class="fa fa-trash"
+												aria-hidden="true" title="Hapus"></i></button>
+									</td>
+								</tr>
+								@endforeach
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
