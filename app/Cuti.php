@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cuti extends Model
 {
-	protected $table ='Cuti';
+	protected $table ='cuti';
 	protected $fillable = [
 		'id'
 		,'karyawan_id'
@@ -25,11 +25,11 @@ class Cuti extends Model
 
     public function golongan()
     {
-    	return $this->belongsTo(golongan::class);
+    	return $this->belongsTo(Golongan::class);
     }
 
     public function cabang()
     {
-    	return $this->belongsTo(cabang::class);
+    	return $this->belongsTo(Cabang::class);
     }
 }

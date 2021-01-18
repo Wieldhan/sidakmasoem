@@ -11,42 +11,42 @@ class Karyawan extends Model
 
 	public function golongan()	
 	{
-		return $this->belongsTo(golongan::class);
+		return $this->belongsTo(Golongan::class);
 	}
 	public function jabatan()
 	{
-		return $this->belongsTo(jabatan::class);
+		return $this->belongsTo(Jabatan::class);
 	}
 	public function user()
 	{
-		return $this->belongsTo(user::class);
+		return $this->belongsTo(User::class);
 	}
 	public function cabang()
 	{
-		return $this->belongsTo(cabang::class);
+		return $this->belongsTo(Cabang::class);
 	}
 	public function pendidikan()
 	{
-		return $this->belongsToMany(pendidikan::class);
+		return $this->belongsToMany(Pendidikan::class);
 	}
 	public function organisasi()
 	{
-		return $this->belongsToMany(organisasi::class);
+		return $this->belongsToMany(Organisasi::class);
 	}
 	public function pengalaman()
 	{
-		return $this->belongsToMany(pengalaman::class);
+		return $this->belongsToMany(Pengalaman::class);
 	}
 	public function keluarga()
 	{
-		return $this->belongsToMany(keluarga::class);
+		return $this->belongsToMany(Keluarga::class);
 	}
 	public function mutasi()
 	{
-		return $this->belongsToMany(mutasi::class);
+		return $this->belongsToMany(Mutasi::class);
 	}
 	public function izin()
 	{
-		return $this->belongsToMany(izin::class);
+		return $this->belongsToMany(Izin::class);
 	}
 }

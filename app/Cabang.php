@@ -11,10 +11,10 @@ class Cabang extends Model
 
 	public function karyawan()
 	{
-		return $this->hasMany(karyawan::class);
+		return $this->hasMany(Karyawan::class);
 	}
 	public function mutasi()
 	{
-		return $this->belongsToMany(mutasi::class);
+		return $this->belongsToMany(Mutasi::class);
 	}
 }

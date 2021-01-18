@@ -31,12 +31,12 @@ class User extends Authenticatable
 
     public function karyawan()
     {
-        return $this->hasOne(karyawan::class);
+        return $this->hasOne(Karyawan::class);
     }
 
     public function sk()
     {
-        return $this->belongsToMany(sk::class);
+        return $this->belongsToMany(Sk::class);
     }
     /**
      * The attributes that should be cast to native types.

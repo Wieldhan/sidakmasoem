@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Izin extends Model
 {
-	protected $table    = 'Izin';
+	protected $table    = 'izin';
 	protected $fillable = [
 		'id',
 		'karyawan_id',
@@ -19,21 +19,21 @@ class Izin extends Model
 	
 	public function karyawan()
 	{
-		return $this->belongsTo(karyawan::class);
+		return $this->belongsTo(Karyawan::class);
 	}
 
 	public function jabatan()
 	{
-		return $this->belongsTo(jabatan::class);
+		return $this->belongsTo(Jabatan::class);
 	}
 
 	public function golongan()
 	{
-		return $this->belongsTo(golongan::class);
+		return $this->belongsTo(Golongan::class);
 	}
 
 	public function cabang()
 	{
-		return $this->belongsTo(cabang::class);
+		return $this->belongsTo(Cabang::class);
 	}
 }
