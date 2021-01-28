@@ -1,9 +1,7 @@
 <!-- Sidebar Menu -->
 <nav class="mt-2">
   <ul class="nav nav-pills nav-sidebar nav-flat flex-column" data-widget="treeview" role="menu" data-accordion="false">
-    <!-- Add icons to the links using the .nav-icon class
-           with font-awesome or any other icon font library -->
-    @if(Auth::user()->level == 'admin')
+    @if(Auth::user()->level == 'admin'|| Auth::user()->level == 'sdm')
     <li class="nav-item has-treeview">
       <a href="#" class="nav-link">
         <i class="far fa-user nav-icon"></i>
@@ -49,7 +47,7 @@
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="{{url('cuti', Auth::user()->id)}}" class="nav-link">
+          <a href="{{url('error')}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Cuti</p>
           </a>
@@ -60,7 +58,7 @@
             <p>Izin</p>
           </a>
         </li>
-        @if(Auth::user()->level == 'admin')
+        @if(Auth::user()->level == 'admin'|| Auth::user()->level == 'sdm')
         <li class="nav-item">
           <a href="{{url('mutasi')}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
@@ -68,7 +66,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{url('error')}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Teguran</p>
           </a>
@@ -76,6 +74,7 @@
         @endif
       </ul>
     </li>
+    @if(Auth::user()->level == 'admin'|| Auth::user()->level == 'legal'|| Auth::user()->level == 'sdm')
     <li class="nav-item has-treeview">
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-balance-scale-left"></i>
@@ -91,72 +90,8 @@
             <p>Pembiayaan</p>
           </a>
         </li>
-        {{-- <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>NONE</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>NONE</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>NONE</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>NONE</p>
-          </a>
-        </li> --}}
       </ul>
     </li>
-    {{-- <li class="nav-item has-treeview">
-      <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-copy"></i>
-        <p>
-          Laporan
-          <i class="fas fa-angle-left right"></i>
-        </p>
-      </a>
-      <ul class="nav nav-treeview">
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>NONE</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>NONE</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>NONE</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>NONE</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>NONE</p>
-          </a>
-        </li>
-      </ul>
-    </li> --}}
+    @endif
 </nav>
 <!-- /.sidebar-menu -->

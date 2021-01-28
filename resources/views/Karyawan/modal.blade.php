@@ -103,8 +103,6 @@
 					</div>
 					<div class="row">
 						<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
-							<b>Version</b> 1.0.1
-							<strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
 						</div>
 						<div class="col-2">
 							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
@@ -163,8 +161,6 @@
 					</div>
 					<div class="form-row">
 						<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
-							<b>Version</b> 1.0.1
-							<strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
 						</div>
 						<div class="col-2">
 							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
@@ -224,8 +220,6 @@
 					</div>
 					<div class="form-row">
 						<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
-							<b>Version</b> 1.0.1
-							<strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
 						</div>
 						<div class="col-2">
 							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
@@ -284,8 +278,6 @@
 					</div>
 					<div class="form-row">
 						<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
-							<b>Version</b> 1.0.1
-							<strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
 						</div>
 						<div class="col-2">
 							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>

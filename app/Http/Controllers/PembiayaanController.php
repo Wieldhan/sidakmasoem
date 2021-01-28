@@ -82,4 +82,10 @@ class PembiayaanController extends Controller
 	toast()->success('Arsip WO Tersimpan!');
 	return back();
 }
+public function hapus($id)
+	{
+		Pembiayaan::findOrFail($id)->delete();
+		toast()->success('Data Berhasil Dihapus!');
+		return redirect('/pembiayaan');
+	}
 }

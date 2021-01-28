@@ -18,6 +18,11 @@ class AuthController extends Controller
 		return view('auths.login');
 	}
 
+	public function error()
+	{
+		return view('auths.error');
+	}
+
 	public function postlogin(request $request)
 	{
 		if(Auth::attempt($request->only('email','password'))){

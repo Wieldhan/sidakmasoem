@@ -1,7 +1,7 @@
 @extends ('layout.master')
 @section ('link')
-<link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
+<link rel="stylesheet" type="text/css" href="../datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="../datatables/datatables.min.css">
 @endsection
 @section ('content')
 <div class="content-header">
@@ -80,6 +80,7 @@
 										</form>
 									</div>
 								</div>
+								<button class="btn btn-sm btn-danger hapus" pembiayaan-id="{{$data->id}}">Hapus</button>
 							</td>
 						</tr>
 						@endforeach
@@ -168,8 +169,8 @@
 @include('sweetalert::alert')
 @endsection
 @section ('javascript')
-<script type="text/javascript" src="/datatables/datatables.min.js"></script>
-<script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="../datatables/datatables.min.js"></script>
+<script type="text/javascript" src="../datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 			$('#datatable').DataTable({
