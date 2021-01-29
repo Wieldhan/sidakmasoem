@@ -28,22 +28,22 @@ class AuthController extends Controller
 		if(Auth::attempt($request->only('email','password'))){
 			return redirect('/dashboard');
 		}
-		alert()->warning('Email Atau Password Salah!');
+		toast()->warning('Email Atau Password Salah!');
 		return redirect('/login');
 	}
 
 	public function logout()
 	{
 		Auth::logout();
-		alert()->info('Info','You Have Been Logout From System');
+		toast()->info('You Have Been Logout From System');
 		return redirect('/login');
 	}
 
 	public function simpandaftar(Request $request)
 	{
 		$this->validate($request, [
-			'nik'           => 'required|string',
-			'no_ktp'        => 'required|string',
+			'nik'           => 'required|string|unique:karyawan,nik',
+			'no_ktp'        => 'required|string|unique:karyawan,no_ktp',
 			'nama_lengkap'  => 'required|string',
 			'jk'            => 'required',
 			'agama'         => 'required|string',
@@ -54,9 +54,8 @@ class AuthController extends Controller
 			'alamat'        => 'required|string',
 			'visi'          => 'required|string',
 			'misi'          => 'required|string',
-			'email'         => 'required|email'
+			'email'         => 'required|email|unique:user,email'
 		]);
-
 		// Insert Tabel User
 		$user = new User;
 		$user->nama_lengkap =$request->nama_lengkap;
@@ -69,8 +68,7 @@ class AuthController extends Controller
 		// Insert Tabel Karyawan
 		$request->request->add(['user_id' => $user->id]);
 		$karyawan = karyawan::create($request->all());
-
-		alert()->success('SUCCES.','DATA BERHASIL DITAMBAHKAN!');
+		toast()->success('DATA BERHASIL DITAMBAHKAN!');
 		return redirect('/login');
 	}
 }
