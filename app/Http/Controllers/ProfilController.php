@@ -30,7 +30,7 @@ class ProfilController extends Controller
 		  $pendidikan = pendidikan::where('user_id', $id)->get();
 		  $organisasi = organisasi::where('user_id', $id)->get();
 		  $pengalaman = pengalaman::where('user_id', $id)->get();
-		  $keluarga	  = keluarga::where('user_id', $id)->get();
+		  $keluarga   = keluarga::where('user_id', $id)->get();
 		  $mutasi     = Mutasi    ::where('karyawan_id', $id)->get();
 		  return view('karyawan.profil', compact('karyawan', 'user', 'golongan', 'jabatan', 'pendidikan', 'organisasi', 'pengalaman', 'mutasi','keluarga'));
 	 }
