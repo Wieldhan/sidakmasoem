@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mutasi extends Model
 {
-	protected $table    = 'Mutasi';
+	protected $table    = 'mutasi';
 	protected $fillable = [
 		'id',
 		'karyawan_id',
@@ -17,7 +17,7 @@ class Mutasi extends Model
 		'keterangan',
 		'status'
 	];
-	
+
 	public function karyawan()
 	{
 		return $this->belongsTo(Karyawan::class);
@@ -32,7 +32,7 @@ class Mutasi extends Model
 	{
 		return $this->belongsTo(Cabang::class);
 	}
-	
+
 	public function jabatan()
 	{
 		return $this->belongsTo(Jabatan::class);

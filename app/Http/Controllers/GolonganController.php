@@ -14,12 +14,12 @@ class GolonganController extends Controller
 {
 	public function index()
 	{
-		if(Auth::user()->level == 'user') {
+		if (Auth::user()->level == 'user') {
 			Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
 			return redirect()->to('/');
 		}
 		$data_golongan = golongan::all();
-		return view('golongan.index',['data_golongan'=> $data_golongan]);
+		return view('golongan.index', ['data_golongan' => $data_golongan]);
 	}
 
 	public function export()
