@@ -117,7 +117,25 @@
 						</table>
 					</div>
 				</div>
-				@endif
+			</div>
+		</div>
+	</div>
+	@endif
+	<div class="form-row">
+		<div class="container-fluid">
+			<div>
+				<div class="card card-info card-outline">
+					<div class="card-header" style="height: 50px;">
+						<h2 class="card-title">FORUM DISKUSI</h2>
+						<div class="card-tools ">
+							<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+							</button>
+						</div>
+					</div>
+					<div class="card-body">
+						
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
