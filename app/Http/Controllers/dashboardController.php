@@ -25,8 +25,8 @@ class DashboardController extends Controller
 		->join('jabatan','jabatan.id','=','karyawan.jabatan_id')
 		->join('golongan','golongan.id','=','karyawan.golongan_id')
 		->join('cabang','cabang.id','=','karyawan.cabang_id')
+		->orderBy('karyawan.nama_lengkap', 'asc')
 		->get();
-		// dd($data);
 		return view('dashboard.contact',compact('data'));
 	}
 }
