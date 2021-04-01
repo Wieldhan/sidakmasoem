@@ -20,7 +20,7 @@
             <div class="small-box bg-primary">
                <div class="inner">
                   <h3>Go To</h3>
-                  <p>bprsalmasoem.com</p>
+                  <p>bprsalmasoem.co.id</p>
                </div>
                <div class="icon">
                   <i class="ion ion-earth"></i>
@@ -32,8 +32,8 @@
          <div class="col-lg-3 col-6">
             <div class="small-box bg-danger">
                <div class="inner">
-                  <h3>65</h3>
-                  <p>Unique Visitors</p>
+                  <h3>-</h3>
+                  <p>- -</p>
                </div>
                <div class="icon">
                   <i class="ion ion-pie-graph"></i>

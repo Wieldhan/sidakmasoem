@@ -5,8 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jabatan extends Model
 {
-  protected $table   	= 'jabatan';
-	protected $fillable = ['jabatan','transport','pulsa','tunj_jab'];
+  protected $table   = 'jabatan';
+  protected $fillable = ['jabatan','transport','pulsa','tunj_jab'];
 
 	public function karyawan()
 	{
