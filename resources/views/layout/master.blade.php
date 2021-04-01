@@ -38,18 +38,18 @@
             </li>
          </ul>
       </nav>
-      <aside class="main-sidebar sidebar-light-primary elevation-4" style="color: white;">
+      <div class="main-sidebar sidebar-light-primary elevation-4" style="color: white;">
          <div class="sidebar">
-            <a href="{{url('dashboard')}}" class="brand-text">
-               <h3>
+            <a href="{{url('dashboard')}}" class="brand-text" style="margin-left:5px;">
+               <h4>
                   <i class="fas fa-tachometer-alt"></i>
                   DASHBOARD
-               </h3>
+               </h4>
             </a>
             <hr>
             @include('layout.sidebar')
          </div>
-      </aside>
+      </div>
       <div class="content-wrapper">
          @yield('content')
       </div>
@@ -57,7 +57,7 @@
          <div class="float-right d-none d-sm-block">
             <b>Version</b> 1.0.1
          </div>
-         <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
+         <strong><a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
       </footer>
    </div>
    <!-- Modal Photo Profil -->
