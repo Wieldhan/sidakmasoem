@@ -6,6 +6,7 @@
    <div class="container-fluid">
       <div class="row">
          <div class="col-6">
+            <h2>Contact</h2>
          </div>
       </div>
    </div>
@@ -27,7 +28,8 @@
                </div>
                <h5 class="card-title">{{$datas->nama_lengkap}}</h5>
                <p class="card-text text-muted" style="font-size: 13px">{{$datas->jabatan}}</p>
-               <a href="{{url('error')}}" class="btn btn-sm btn-primary float-right">Detail</a>
+               <p class="card-text text-muted" style="font-size: 13px">{{$datas->no_telepon}}</p>
+               <a href="/profile/detail/{{$datas->user_id}}" class="btn btn-sm btn-primary float-right">Detail</a>
             </div>
          </div>
       </div>

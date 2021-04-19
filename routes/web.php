@@ -27,6 +27,7 @@ Route::post('simpandaftar','authController@simpandaftar');
 Route::group(['middleware'=>'auth'],function(){
 	Route::get('dashboard','dashboardController@index');
 	Route::get('contact','dashboardController@contact');
+	Route::get('profile/detail/{id}','profilController@detail');
 	Route::get('profile/{id}','profilController@profile');
 	Route::get('profile/edit/{id}','profilController@edit');
 	Route::post('profile/update/{id}','profilController@update');
@@ -55,23 +56,19 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::post('golongan/update/{golongan}','golonganController@update');
 	Route::get('golongan/hapus/{golongan}','golonganController@delete');
 	Route::get('golongan/export','golonganController@export');
-
 // Routes Jabatan
 	Route::get('jabatan','jabatanController@index');
 	Route::post('jabatan/simpan','jabatanController@simpan');
 	Route::post('jabatan/update/{jabatan}','jabatanController@update');
 	Route::get('jabatan/hapus/{jabatan}','jabatanController@delete');
 	Route::get('jabatan/export','jabatanController@export');
-
 // Routes Cuti
 	Route::get('cuti/{id}','cutiController@index');
 	Route::post('cuti/store/{id}','cutiController@store');
-
 // Routes Izin
 	Route::get('izin/{id}','izinController@index');
 	Route::post('izin/store/{id}','izinController@store');
 	Route::post('izin/approve/{id}','izinController@approve')->name('approve');
-
 // Routes mutasi
 	Route::get('mutasi','mutasiController@index');
 	Route::get('tabelmutasi','mutasiController@tabelmutasi');
@@ -79,7 +76,6 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::post('karyawandetail','mutasiController@karyawandetail');
 	Route::post('mutasi/simpan','mutasiController@simpan');
 	Route::post('mutasi/store/{id}','mutasiController@store');
-
 //Routes SK
 	Route::get('sk','skController@index');
 	Route::get('skview','skController@view');
@@ -89,7 +85,6 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::post('sk/simpan','skController@simpan');
 	Route::post('sk/update/{sk}','skController@update');
 	Route::get('sk/hapus/{id}','skController@hapus');
-
 	//Pembiayaan
 	Route::get('pembiayaan','pembiayaanController@index');
 	Route::get('pembiayaanview','pembiayaanController@pembiayaanview');
@@ -100,5 +95,4 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::post('pembiayaan/arsip/{id}','pembiayaanController@arsip')->name('arsip');
 	Route::post('pembiayaan/dipinjam/{id}','pembiayaanController@dipinjam')->name('dipinjam');
 	Route::post('pembiayaan/wo/{id}','pembiayaanController@wo')->name('wo');
-	
 });
