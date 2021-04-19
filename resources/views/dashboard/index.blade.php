@@ -128,18 +128,47 @@
    </div>
    <div class="form-row">
       <div class="container-fluid">
-         <div>
-            <div class="card card-info card-outline">
-               <div class="card-header" style="height: 50px;">
-                  <h2 class="card-title">FORUM DISKUSI</h2>
-                  <div class="card-tools ">
-                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                     </button>
+         <div class="card card-success card-outline">
+            <div class="card-header">
+               <h3 class="card-title">Forum Diskusi</h3>
+               <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                  </button>
+               </div>
+            </div>
+            <div class="card-body">
+               <div class="post">
+                  <div class="user-block">
+                     @if(Auth::user()->avatar == '')
+                     <img class="img-circle img" style="width: 40px; height: 40px;"
+                        src="{{asset('images/avatars/avatardefault.png')}}" alt="profile image">
+                     @else
+                     <img class="img-circle img" style="width: 40px; height: 40px;"
+                        src="{{asset('images/avatars/'.Auth::user()->avatar)}}" alt="profile image">
+                     @endif
+                     <span class="username">
+                        <a>{{Auth::user()->nama_lengkap}}</a>
+                     </span>
+                     <span class="description">Post - 7:30 PM today</span>
                   </div>
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident sint praesentium libero
+                     possimus vero dolorem eveniet laudantium porro accusantium esse quos minus autem blanditiis iure
+                     excepturi, similique quisquam id repellat!
+                  </p>
                </div>
-               <div class="card-body">
-
-               </div>
+               <hr>
+            </div>
+            <div class="card-footer">
+               <form action="#" method="post">
+                  <div class="input-group">
+                     <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                     <span class="input-group-append">
+                        <button type="button" class="btn btn-primary">Kirim</button>
+                     </span>
+                  </div>
+               </form>
             </div>
          </div>
       </div>

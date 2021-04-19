@@ -85,7 +85,7 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::post('sk/simpan','skController@simpan');
 	Route::post('sk/update/{sk}','skController@update');
 	Route::get('sk/hapus/{id}','skController@hapus');
-	//Pembiayaan
+//Pembiayaan
 	Route::get('pembiayaan','pembiayaanController@index');
 	Route::get('pembiayaanview','pembiayaanController@pembiayaanview');
 	Route::get('tabelpembiayaan','pembiayaanController@tabelpembiayaan');
