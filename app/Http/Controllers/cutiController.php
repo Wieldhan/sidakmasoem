@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Validator;
@@ -11,7 +10,7 @@ use App\Golongan;
 use App\Jabatan;
 use App\User;
 use App\Cabang;
-use	App\Cuti;
+use App\Cuti;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CutiController extends Controller
@@ -22,7 +21,7 @@ class CutiController extends Controller
 		$golongan = golongan::all();
 		$jabatan  = jabatan ::all();
 		$cabang   = cabang  ::all();
-		$cuti			= cuti    ::all();
+		$cuti		 = cuti    ::all();
 		return view('dashboard.cuti', compact('karyawan','golongan','jabatan','cabang','cuti'));
 	}
 
