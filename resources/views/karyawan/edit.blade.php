@@ -3,7 +3,7 @@
 <head>
   @include('layout.head')
 </head>
-<body style="font-family:'Oswald',sans-serif; background-color:#0A64F9">
+<body style="background-color:#0A64F9">
   <div class="container-fluid" >
     <div class="card card-outline card-warning" style="margin-top: 50px; margin-bottom:50px; margin-left: 50px; margin-right: 50px;">
       <div class="card-header">

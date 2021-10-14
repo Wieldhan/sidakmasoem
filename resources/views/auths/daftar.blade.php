@@ -3,7 +3,7 @@
 <head>
   @include('layout.head')
 </head>
-<body style="font-family:'Oswald',sans-serif; background-image: url('../images/bg-login.jpg'); background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;">
+<body style="background-image: url('../images/bg-login.jpg'); background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;">
   <div class="container-fluid" >
     <div class="card card-outline card-warning" style="margin-top: 50px; margin-bottom:50px; margin-left: 50px; margin-right: 50px;">
       <div class="card-header">

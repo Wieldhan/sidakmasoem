@@ -65,10 +65,10 @@
                   <div class="col-sm-8">
                      <ul class="nav nav-pills nav-fill">
                         <li class="nav-item">
-                           <a class="nav-link active" href="#profil" data-toggle="tab">Riwayat</a>
+                           <a class="nav-link active" href="#profil" data-bs-toggle="tab">Riwayat</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#datakeluarga" data-toggle="tab">Data Keluarga</a>
+                           <a class="nav-link" href="#datakeluarga" data-bs-toggle="tab">Data Keluarga</a>
                         </li>
                      </ul>
                   </div>
@@ -82,8 +82,8 @@
                            <strong><i class="fas fa-graduation-cap"></i> Pendidikan</strong>
                         </div>
                         <div class="col-2">
-                           <button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal"
-                              data-target=".modal-pendidikan" data-placement="right" title="Tambah Data Pendidikan"><i
+                           <button type="button" class="btn btn-sm btn-link float-right" data-bs-toggle="modal"
+                              data-bs-target=".modal-pendidikan" data-bs-placement="right" title="Tambah Data Pendidikan"><i
                                  class="fas fa-plus mr-1"></i></button>
                         </div>
                      </div>
@@ -120,8 +120,8 @@
                            <strong><i class="fas fa-pencil-alt mr-1"></i> Pengalaman Organisasi</strong>
                         </div>
                         <div class="col-2">
-                           <button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal"
-                              data-target=".modal-organisasi" title="Tambah Data Organisasi"><i
+                           <button type="button" class="btn btn-sm btn-link float-right" data-bs-toggle="modal"
+                              data-bs-target=".modal-organisasi" title="Tambah Data Organisasi"><i
                                  class="fas fa-plus mr-1"></i></button>
                         </div>
                      </div>
@@ -158,8 +158,8 @@
                            <strong><i class="fas fa-pencil-alt mr-1"></i> Pengalaman Pekerjaan</strong>
                         </div>
                         <div class="col-2">
-                           <button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal"
-                              data-target=".modal-pengalaman" title="Tambah Data Pekerjaan"><i
+                           <button type="button" class="btn btn-sm btn-link float-right" data-bs-toggle="modal"
+                              data-bs-target=".modal-pengalaman" title="Tambah Data Pekerjaan"><i
                                  class="fas fa-plus mr-1"></i></button>
                         </div>
                      </div>

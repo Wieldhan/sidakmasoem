@@ -6,47 +6,44 @@
    @yield('link')
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed" style="font-family:'Oswald',sans-serif;">
-   <div class="wrapper">
-      <nav class="main-header navbar navbar-expand navbar-light bg-white">
+<body class="hold-transition sidebar-mini layout-fixed">
+   <div class="wrapper flex-auto">
+      <nav class="main-header navbar navbar-expand navbar-light bg-white flex-wrap">
          <ul class="navbar-nav">
             <li class="nav-item">
                <a href="#" class="nav-link" data-widget="pushmenu"><i class="fab fa-lg fa-windows"></i></a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-               <a class="nav-link" href="{{url('profile', Auth::user()->id)}}" aria-expanded="false">
+            <li class="nav-item" >
+               <a class="nav-link d-flex" href="{{url('profile', Auth::user()->id)}}" aria-expanded="false">
                   @if(Auth::user()->avatar == '')
-                  <img class="rounded-circle img" style="width: 35px; height: 35px;"
+                  <img class="rounded mx-auto d-block" style="width: 35px; height: 35px; margin-top:-5px; "
                      src="{{asset('images/avatars/avatardefault.png')}}" alt="profile image">
                   @else
-                  <img class="rounded-circle img" style="width: 35px; height: 35px;"
+                  <img class="rounded mx-auto d-block" style="width: 35px; height: 35px; margin-top:-5px;"
                      src="{{asset('images/avatars/'.Auth::user()->avatar)}}" alt="profile image">
                   @endif
                   <span class="profile-text">Hello, {{Auth::user()->nama_lengkap}}</span>
                </a>
             </li>
          </ul>
-         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown" style="margin-top: 4px;">
-               <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false">Account</a>
-               <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" type="button" class="btn btn-sm btn-link " data-toggle="modal"
-                     data-target=".modal-photo"><i class="fas fa-cogs"></i> Pengaturan Akun</a>
-               </div>
+         <div class="navbar-nav ml-auto">
+            <li class="nav-item dropdown flex-wrap" style="margin-top: 4px;">
+               <a href="#" class="nav-link" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+               <ul class="dropdown-menu dropdown-menu-right">
+               <a class="dropdown-item nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" type="button" class="btn btn-sm btn-link " data-bs-toggle="modal"
+                     data-bs-target=".modal-photo"><i class="fas fa-cogs"></i> Pengaturan Akun</a>
+               </ul>
             </li>
-         </ul>
+         </div>
       </nav>
       <div class="main-sidebar sidebar-light-primary elevation-4" style="color: white;">
          <div class="sidebar">
-            <a href="{{url('dashboard')}}" class="brand-text" style="margin-left:5px;">
-               <h4>
-                  <i class="fas fa-tachometer-alt"></i>
-                  DASHBOARD
-               </h4>
-            </a>
-            <hr>
+            <a href="{{url('dashboard')}}" class="brand-link">
+               <img src="{{asset('images\sidak-2.png')}}" class="brand-image" style="width: 35px; height: 35px; margin-left: 5px;">
+               <span class="brand-text font-weight-light">Dashboard</span>
+             </a>
             @include('layout.sidebar')
          </div>
       </div>
@@ -67,7 +64,7 @@
          <div class="modal-content">
             <div class="modal-header">
                <h4>Pengaturan Akun</h4>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
                   <span aria-hidden="true">&times;</span>
                </button>
             </div>
@@ -98,7 +95,7 @@
                      </div>
                      <div class="col-2">
                         <button type="reset" class="btn btn-sm btn-info btn-block float-right"
-                           data-dismiss="card">BATAL</button>
+                           data-bs-dismiss="card">BATAL</button>
                      </div>
                      <div class="col-2">
                         <button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>

@@ -11,15 +11,15 @@
 				<h1 style="font-size: 30px">DATA JABATAN</h1>
 			</div>
 			<div class="col-6">
-				<button type="button" class="btn btn-primary float-right" data-toggle="modal"
-					data-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
+				<button type="button" class="btn btn-primary float-right" data-bs-toggle="modal"
+					data-bs-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
 				<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
 					aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
 								<h4>Tambah Data jabatan</h4>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
@@ -46,7 +46,7 @@
 											onkeypress="hanyaangka(event)">
 									</div>
 									<div class="float-right" style="margin-right: 15px;">
-										<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
+										<button type="reset" class="btn btn-secondary" data-bs-dismiss="card">BATAL</button>
 										<button type="submit" class="btn btn-primary">SIMPAN</button>
 									</div>
 								</form>
@@ -112,7 +112,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h2 style="font-size: 25px;">Update Data jabatan</h2>
-					<button type="button" class="close" data-dismiss="modal">
+					<button type="button" class="close" data-bs-dismiss="modal">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -139,7 +139,7 @@
 								onkeypress="hanyaangka(event)">
 						</div>
 						<div class="float-right" style="margin-right: 15px;">
-							<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
+							<button type="reset" class="btn btn-secondary" data-bs-dismiss="card">BATAL</button>
 							<button type="submit" class="btn btn-primary">UPDATE</button>
 						</div>
 					</form>

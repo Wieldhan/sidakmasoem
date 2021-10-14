@@ -61,10 +61,10 @@
                   <div class="col-sm-8">
                      <ul class="nav nav-pills nav-fill">
                         <li class="nav-item">
-                           <a class="nav-link active" href="#profil" data-toggle="tab">Riwayat</a>
+                           <a class="nav-link active" href="#profil" data-bs-toggle="tab">Riwayat</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#datakeluarga" data-toggle="tab">Data Keluarga</a>
+                           <a class="nav-link" href="#datakeluarga" data-bs-toggle="tab">Data Keluarga</a>
                         </li>
                      </ul>
                   </div>
@@ -189,9 +189,9 @@
                            @endforeach
                         </tbody>
                      </table>
-                     <hr>
+                     {{-- <hr>
                      <button class="btn btn-primary float-right" onclick="window.print()">
-                        <b>Print CV</b></button>
+                        <b>Print CV</b></button> --}}
                   </div>
                   <div class="tab-pane" id="datakeluarga">
                      <table class="table text-muted table-sm">

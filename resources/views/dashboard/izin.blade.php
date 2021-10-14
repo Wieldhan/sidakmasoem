@@ -19,10 +19,10 @@
 			<div class="card-header">
 				<ul class="nav nav-pills">
 					<li class="nav-item">
-						<a class="nav-link active" href="#izin" data-toggle="tab">Perizinan</a>
+						<a class="nav-link active" href="#izin" data-bs-toggle="tab">Perizinan</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a>
+						<a class="nav-link" href="#timeline" data-bs-toggle="tab">Timeline</a>
 					</li>
 				</ul>
 			</div>

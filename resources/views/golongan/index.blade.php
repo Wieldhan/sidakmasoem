@@ -11,15 +11,15 @@
 				<h1 style="font-size: 30px">DATA GOLONGAN</h1>
 			</div>
 			<div class="col-6">
-				<button style="margin-right: 10px;" type="button" class="btn btn-primary float-right" data-toggle="modal"
-					data-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
+				<button style="margin-right: 10px;" type="button" class="btn btn-primary float-right" data-bs-toggle="modal"
+					data-bs-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
 				<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
 					aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
 								<h4>Tambah Data Golongan</h4>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>

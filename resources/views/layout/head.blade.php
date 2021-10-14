@@ -10,3 +10,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Oswald&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<style>
+   body {
+      font-family: 'Poppins', sans-serif;
+   }
+   </style>

@@ -5,7 +5,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h4>UBAH DATA DIRI</h4>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
@@ -105,7 +105,7 @@
 						<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
 						</div>
 						<div class="col-2">
-							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
+							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-bs-dismiss="card">BATAL</button>
 						</div>
 						<div class="col-2">
 							<button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
@@ -124,7 +124,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h4>TAMBAH DATA PENDIDIKAN</h4>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
@@ -163,7 +163,7 @@
 						<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
 						</div>
 						<div class="col-2">
-							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
+							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-bs-dismiss="card">BATAL</button>
 						</div>
 						<div class="col-2">
 							<button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
@@ -182,7 +182,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h4>TAMBAH DATA PENGALAMAN KERJA</h4>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
@@ -222,7 +222,7 @@
 						<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
 						</div>
 						<div class="col-2">
-							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
+							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-bs-dismiss="card">BATAL</button>
 						</div>
 						<div class="col-2">
 							<button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
@@ -241,7 +241,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h4>TAMBAH DATA ORGANISASI</h4>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
@@ -280,7 +280,7 @@
 						<div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
 						</div>
 						<div class="col-2">
-							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-dismiss="card">BATAL</button>
+							<button type="reset" class="btn btn-sm btn-info btn-block float-right" data-bs-dismiss="card">BATAL</button>
 						</div>
 						<div class="col-2">
 							<button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>

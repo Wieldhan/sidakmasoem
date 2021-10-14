@@ -11,7 +11,7 @@
 				<h1 style="font-size: 30px">DATA SK BPRS ALMASOEM</h1>
 			</div>
 			<div class="col-6">
-				<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target=".modal-sk">Tambah <i
+				<button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target=".modal-sk">Tambah <i
 						class="fas fa-plus"></i></button>
 			</div>
 		</div>
@@ -66,7 +66,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4>TAMBAH SK BAMS</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -94,7 +94,7 @@
 							<input required type="file" class="uploads form-control-file form-control-sm" name="file">
 						</div>
 						<div class="float-right" style="margin-right: 15px;">
-							<button type="reset" class="btn btn-secondary" data-dismiss="card">BATAL</button>
+							<button type="reset" class="btn btn-secondary" data-bs-dismiss="card">BATAL</button>
 							<button type="submit" class="btn btn-primary">SIMPAN</button>
 						</div>
 					</form>

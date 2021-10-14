@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-   <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>BPRS ALMASOEM | LOGIN</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="../adminLTE/fontawesome-free/css/all.min.css">
-   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-   <link rel="stylesheet" href="../adminLTE/overlayScrollbars/css/OverlayScrollbars.min.css">
-   <link rel="stylesheet" href="../adminLTE/css/adminlte.min.css">
-   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Merriweather|Oswald&display=swap" rel="stylesheet">
-</head>
-
+   @include('layout.head')
 <body class="align-content-center login-page"
-   style="font-family:'Oswald',sans-serif; background-image: url('../images/bg-login.jpg'); background-size: 1360px; background-repeat: no-repeat; background-attachment:fixed;">
+   style="background-image: url('../images/bg-login.jpg'); background-size: 1360px; background-repeat: no-repeat; background-attachment:fixed;">
    <div class="col-lg-4 mx-auto login-box" style="width: 650px; align-content: center;">
       <div class="login-logo">
          <img class="img-fluid" style="width:350px; height: auto;" src="{{asset('images/sidak-login-logo.png')}}">
@@ -45,12 +32,12 @@
                   <div class="col-6" style="font-size: small;">
                   </div>
                   <div class="col-3">
-                     <button type="button" class="btn btn-sm btn-block float-right"
-                        style="color:white; background: #5688FB;" data-toggle="modal"
-                        data-target=".modal-daftar">DAFTAR</button>
+                     <button type="button" class="btn btn-sm font-weight-bold btn-block float-right"
+                        style="color:white; background: #5688FB;" data-bs-toggle="modal"
+                        data-bs-target=".modal-daftar">Daftar</button>
                   </div>
                   <div class="col-3">
-                     <button type="submit" class="btn btn-sm btn-primary btn-block float-right">LOGIN</button>
+                     <button type="submit" class="btn btn-sm btn-primary btn-block float-right font-weight-bold">Login</button>
                   </div>
                </div>
             </form>
@@ -160,8 +147,8 @@
                   </div>
                   <div class="form-row">
                      <div class="form-group {{ $errors->has('alamat') ? ' has-error' : '' }} col-sm-4">
-                        <label>Alamat</label>
-                        <textarea style="height: 75px;" required name="alamat" class="form-control"></textarea>
+                        <label for="alamat">Alamat</label>
+                        <textarea style="height: 75px;" required name="alamat" id="alamat" class="form-control"></textarea>
                      </div>
                      <div class="form-group {{ $errors->has('visi') ? ' has-error' : '' }} col-sm-4">
                         <label>Visi</label>
@@ -176,11 +163,11 @@
                      <div class="col-8 float-right d-none d-sm-block">
                      </div>
                      <div class="col-2">
-                        <button type="reset" class="btn btn-sm btn-danger btn-block float-right"
+                        <button type="reset" class="btn font-weight-bold btn-sm btn-danger btn-block float-right"
                            data-dismiss="card">BATAL</button>
                      </div>
                      <div class="col-2">
-                        <button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
+                        <button type="submit" class="btn font-weight-bold btn-sm btn-primary btn-block float-right">SIMPAN</button>
                      </div>
                   </div>
                </form>
