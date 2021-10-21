@@ -16,10 +16,10 @@
             <li class="nav-item" >
                <a class="nav-link d-flex" href="{{url('profile', Auth::user()->id)}}" aria-expanded="false">
                   @if(Auth::user()->avatar == '')
-                  <img class="rounded mx-auto d-block" style="width: 35px; height: 35px; margin-top:-5px; "
+                  <img class="rounded d-block" style="width: 35px; height: 35px; margin-top:-5px; "
                      src="{{asset('images/avatars/avatardefault.png')}}" alt="profile image">
                   @else
-                  <img class="rounded mx-auto d-block" style="width: 35px; height: 35px; margin-top:-5px;"
+                  <img class="rounded d-block" style="width: 35px; height: 35px; margin-top:-5px;"
                      src="{{asset('images/avatars/'.Auth::user()->avatar)}}" alt="profile image">
                   @endif
                   <span class="profile-text">Hello, {{Auth::user()->nama_lengkap}}</span>
