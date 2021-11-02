@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Validator;
-use RealRashid\SweetAlert\Facades\Alert;
 use Auth;
 use App\User;
-use App\Karyawan;
-use App\Golongan;
 use App\Jabatan;
+use App\Golongan;
+use App\Karyawan;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 class AuthController extends Controller
 {
 	public function login()

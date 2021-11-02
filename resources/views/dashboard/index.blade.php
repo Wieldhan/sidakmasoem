@@ -138,34 +138,36 @@
                   </button>
                </div>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="height: 350px; overflow-y: auto;">
                <div class="post">
+                  @foreach ($forum as $data)
                   <div class="user-block">
-                     @if(Auth::user()->avatar == '')
+                     @if($data->user->avatar == '')
                      <img class="img-circle img" style="width: 40px; height: 40px;"
                         src="{{asset('images/avatars/avatardefault.png')}}" alt="profile image">
                      @else
                      <img class="img-circle img" style="width: 40px; height: 40px;"
-                        src="{{asset('images/avatars/'.Auth::user()->avatar)}}" alt="profile image">
+                        src="{{asset('images/avatars/'.$data->user->avatar)}}" alt="profile image">
                      @endif
                      <span class="username">
-                        <a>{{Auth::user()->nama_lengkap}}</a>
+                        <a>{{$data->user->nama_lengkap}}</a>
                      </span>
-                     <span class="description">Post - 7:30 PM today</span>
+                     <span class="description">{{$data->created_at}}</span>
                   </div>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident sint praesentium libero
-                     possimus vero dolorem eveniet laudantium porro accusantium esse quos minus autem blanditiis iure
-                     excepturi, similique quisquam id repellat!
+                  <p>
+                     {{$data->topic}}
                   </p>
+                  <hr>
+                  @endforeach
                </div>
-               <hr>
             </div>
             <div class="card-footer">
-               <form action="#" method="post">
+               <form action="forum/simpan" method="post">
+                  @csrf
                   <div class="input-group">
-                     <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                     <input type="text" name="topic" placeholder="Type Message ..." class="form-control">
                      <span class="input-group-append">
-                        <button type="button" class="btn btn-primary">Kirim</button>
+                        <button type="submit" class="btn btn-primary">Kirim</button>
                      </span>
                   </div>
                </form>

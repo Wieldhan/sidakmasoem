@@ -9,6 +9,7 @@ use App\Jabatan;
 use App\Golongan;
 use App\Cabang;
 use App\Izin;
+use App\Forum;
 use App\Dashboard;
 
 class DashboardController extends Controller
@@ -16,7 +17,8 @@ class DashboardController extends Controller
 	public function index(){
 		$karyawan = karyawan::all();
 		$izin     = izin::all();
-		return view('dashboard.index',compact('karyawan','izin'));
+		$forum     = forum::all();
+		return view('dashboard.index',compact('karyawan','izin','forum'));
 	}
 
 	public function contact()
@@ -29,4 +31,6 @@ class DashboardController extends Controller
 		->get();
 		return view('dashboard.contact',compact('data'));
 	}
+
+	
 }

@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section ('content')
-<div class="content-header">
+{{-- <div class="content-header">
    <div class="container-fluid">
       <div class="row">
          <div class="col-6">
@@ -12,11 +12,11 @@
          </div>
       </div>
    </div>
-</div>
-<div class="container-fluid">
+</div> --}}
+<div class="container-fluid" style="margin-top: 10px;">
    <div class="card card-info card-outline">
       <div class="card-header" style="height: 50px;">
-         <h2 class="card-title">Arsip Pembiayaan BPRS ALMASOEM</h2>
+         <h2 class="card-title">Contact</h2>
          <div class="card-tools ">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
             </button>
@@ -25,33 +25,33 @@
       <div class="card-body">
          <table class="table table-sm table-hover" id="datatable" style="font-size: 15px;">
             <thead>
-               <tr>
-                  <th align="center">No</th>
-                  <th align="center">Avatar</th>
+               <tr >
+                  <th class="text-center">No</th>
+                  <th class="text-center">Avatar</th>
                   <th>Nama Lengkap</th>
                   <th>Jabatan</th>
                   <th>No Telepon</th>
-                  <th>Detail</th>
+                  <th class="text-center">Detail</th>
                </tr>
             </thead>
             <tbody>
                @foreach ($data as $datas)
                <tr>
-                  <td align="center">{{$loop->iteration}}</td>
-                  <td align="center">
+                  <td class="text-center">{{$loop->iteration}}</td>
+                  <td class="text-center">
                      @if($datas->avatar == '')
                      <img src="{{asset('images/avatars/avatardefault.png')}}" class="img-circle img-fluid"
-                        style="width:50px; height: 50px;" alt="profile picture">
+                        style="width:60px; height: 60px;" alt="profile picture">
                      @else
                      <img src="{{asset('images/avatars/'.$datas->avatar)}}" class="img-circle img-fluid"
-                        style="width:50px; height: 50px;" alt="profile picture">
+                        style="width:60px; height: 60px;" alt="profile picture">
                      @endif
                   </td>
                   <td>{{$datas->nama_lengkap}}</td>
-                  <td>{{$datas->no_telepon}}</td>
                   <td>{{$datas->jabatan}}</td>
-                  <td>
-                     <a href="/profile/detail/{{$datas->user_id}}" class="btn btn-sm btn-primary float-right">Detail</a>
+                  <td>{{$datas->no_telepon}}</td>
+                  <td class="text-center">
+                     <a href="/profile/detail/{{$datas->user_id}}" class="btn btn-sm btn-primary">Detail</a>
                   </td>
                </tr>
                @endforeach

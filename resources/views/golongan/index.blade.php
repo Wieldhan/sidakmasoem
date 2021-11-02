@@ -72,7 +72,7 @@
 						<i class="fas fa-file-export"></i> Export To PDF
 					</button>
 				</div>
-				<table id="datatable" class="table table-sm">
+				<table id="datatable" class="table table-sm text-sm">
 					<thead>
 						<tr align="center">
 							<th>No</th>

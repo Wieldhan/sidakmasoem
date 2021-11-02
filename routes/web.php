@@ -26,6 +26,7 @@ Route::post('simpandaftar','authController@simpandaftar');
 
 Route::group(['middleware'=>'auth'],function(){
 	Route::get('dashboard','dashboardController@index');
+	Route::get('forum','forumController@index');
 	Route::post('forum/simpan','forumController@simpan');
 	Route::get('contact','dashboardController@contact');
 	Route::get('profile/detail/{id}','profilController@detail');

@@ -38,6 +38,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Sk::class);
     }
+
+    public function forum()
+    {
+        return $this->belongsToMany(Sk::class);
+    }
     /**
      * The attributes that should be cast to native types.
      *
