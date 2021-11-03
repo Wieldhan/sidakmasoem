@@ -68,7 +68,7 @@
                     </div>
                     <div class="modal-body" style="text-align: left;">
                         <form method="POST" id="editform">
-                            {{ csrf_field() }}
+                            @csrf
                             <div class="form-group col-sm-auto">
                                 <label>Nama jabatan</label>
                                 <input name="jabatan" id="jabatan" type="text" class="form-control" required
@@ -110,7 +110,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="/jabatan/simpan" method="POST">
-                            {{ csrf_field() }}
+                            @csrf
                             <div class="form-group col-sm-auto">
                                 <label>Nama jabatan</label>
                                 <input name="jabatan" type="text" class="form-control" required maxlength="191">

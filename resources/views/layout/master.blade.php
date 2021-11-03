@@ -4,6 +4,9 @@
 <head>
     @include('layout.head')
     @yield('link')
+    @include('sweetalert::alert')
+    @include('layout.script')
+    @yield('javascript')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -27,37 +30,22 @@
                     </a>
                 </li>
             </ul>
-            <div class="navbar-nav ml-auto">
-                <li class="nav-item dropdown flex-wrap" style="margin-top: 4px;">
-                    <a href="#" class="nav-link" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" type="button" class="btn btn-sm btn-link " data-bs-toggle="modal"
-                            data-bs-target=".modal-photo"><i class="fas fa-cogs"></i> Pengaturan Akun</a>
-                    </ul>
-                </li>
-            </div>
         </nav>
         <div class="main-sidebar sidebar-light-primary elevation-4 text-sm" style="color: white;">
-            <div class="sidebar">
-                <a href="{{ url('dashboard') }}" class="brand-link">
-                    <img src="{{ asset('images\sidak-2.png') }}" class="brand-image"
-                        style="width: 35px; height: 35px; margin-left: 5px;">
-                    <span class="brand-text font-weight-light">Dashboard</span>
-                </a>
-                @include('layout.sidebar')
-            </div>
+            @include('layout.sidebar')
         </div>
-        <div class="content-wrapper">
-            @yield('content')
+    </div>
+
+    <div class="content-wrapper">
+        @yield('content')
+    </div>
+
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-block">
+            <b>Version</b> 1.0.1
         </div>
-        <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 1.0.1
-            </div>
-            <strong><a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
-        </footer>
+        <strong><a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
+    </footer>
     </div>
     <!-- Modal Photo Profil -->
     <div class="modal fade modal-photo" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
@@ -112,8 +100,5 @@
     </div>
     <!-- End of modal photo profil -->
 </body>
-@include('sweetalert::alert')
-@include('layout.script')
-@yield('javascript')
 
 </html>
