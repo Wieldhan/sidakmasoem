@@ -1,4 +1,5 @@
 <!-- Sidebar Menu -->
+
 <div class="sidebar">
     <a href="{{ url('dashboard') }}" class=" brand-link d-flex align-items-center text-decoration-none">
         <img src="{{ asset('images\sidak-2.png') }}" class="brand-image"
@@ -12,7 +13,7 @@
                 <a href="{{ url('contact') }}" class="nav-link">
                     <i class="nav-icon fas fa-user"></i>
                     <p>
-                        Contact
+                        Kontak
                     </p>
                 </a>
             </li>
@@ -33,7 +34,7 @@
                 </a>
             </li>
             @if (Auth::user()->level == 'admin' || Auth::user()->level == 'sdm')
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview menu-open">
                     <a href="#" class="nav-link">
                         <i class="far fa-user nav-icon"></i>
                         <p>
@@ -124,12 +125,12 @@
                     </ul>
                 </li>
             @endif
-            <hr>
+            <li class="border-top my-3"></li>
             <li class="nav-item">
                 <a href="/logout" class="nav-link">
                     <i class="nav-icon fas fa-sign-out-alt"></i>
                     <p>
-                        Logout
+                        Keluar
                     </p>
                 </a>
             </li>

@@ -1,6 +1,6 @@
 @extends ('layout.master')
 @section('link')
-    <link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section('content')
@@ -33,7 +33,7 @@
                             <i class="fas fa-file-export"></i> Export To PDF
                         </button>
                     </div>
-                    <table class="table table-sm table-hover" id="datatable" style="font-size: 15px;">
+                    <table class="table table-sm table-striped" id="datatable" style="font-size: 15px;">
                         <thead>
                             <tr align="center">
                                 <th>NIK</th>
@@ -135,7 +135,7 @@
 @endsection
 @section('javascript')
     <script type="text/javascript" src="/datatables/datatables.min.js"></script>
-    <script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="/datatables/DataTables-1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#datatable').DataTable({

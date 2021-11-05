@@ -1,19 +1,59 @@
 @extends ('layout.master')
 @section('link')
-    <link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section('content')
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-6">
-                    <h1 style="font-size: 30px">DATA GOLONGAN</h1>
+    <div class="container-fluid" style="margin-top: 15px;">
+        <div class="col-sm-auto">
+            <div class="card card-primary card-outline">
+                <div class="card-header" style="height: 50px;">
+                    <h3 class="card-title" style="font-size: 15;">KELOLA DATA GOLONGAN</h3>
+                    <div class="card-tools ">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                class="fas fa-minus"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <button style="margin-right: 10px;" type="button" class="btn btn-primary float-right"
-                        data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">Tambah <i
-                            class="fas fa-plus"></i></button>
+                <div class="card-body">
+                    <div class="card-tools" style="margin-bottom: 20px">
+                        <a href="golongan/export" class="btn btn-sm btn-success">
+                            <i class="fas fa-file-export"></i> Export To Excel
+                        </a>
+                        <button class="btn btn-sm btn-danger" disabled>
+                            <i class="fas fa-file-export"></i> Export To PDF
+                        </button>
+                        <button style="margin-right: 10px;" type="button" class="btn btn-sm btn-primary float-right"
+                            data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">Tambah <i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <table id="datatable" class="table table-sm text-sm table-striped">
+                        <thead>
+                            <tr align="center">
+                                <th>No</th>
+                                <th>Kode Golongan</th>
+                                <th>Gaji Pokok</th>
+                                <th>Uang Makan</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data_golongan as $gol)
+                                <tr align="center">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $gol->golongan }}</td>
+                                    <td>{{ $gol->gaji_pokok }}</td>
+                                    <td>{{ $gol->uang_makan }}</td>
+                                    <td>
+                                        <a class=" edit btn btn-sm btn-warning" data-toggle="modal"
+                                            data-target=".gol-edit">Edit</a>
+                                        <button class="btn btn-sm btn-danger hapus"
+                                            gol-id="{{ $gol->id }}">Hapus</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
                         aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -52,57 +92,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="col-sm-auto">
-            <div class="card card-primary card-outline">
-                <div class="card-header" style="height: 50px;">
-                    <h3 class="card-title" style="font-size: 15;">KELOLA DATA GOLONGAN</h3>
-                    <div class="card-tools ">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                class="fas fa-minus"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="card-tools" style="margin-bottom: 20px">
-                        <a href="golongan/export" class="btn btn-sm btn-success">
-                            <i class="fas fa-file-export"></i> Export To Excel
-                        </a>
-                        <button class="btn btn-sm btn-danger" disabled>
-                            <i class="fas fa-file-export"></i> Export To PDF
-                        </button>
-                    </div>
-                    <table id="datatable" class="table table-sm text-sm">
-                        <thead>
-                            <tr align="center">
-                                <th>No</th>
-                                <th>Kode Golongan</th>
-                                <th>Gaji Pokok</th>
-                                <th>Uang Makan</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($data_golongan as $gol)
-                                <tr align="center">
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $gol->golongan }}</td>
-                                    <td>{{ $gol->gaji_pokok }}</td>
-                                    <td>{{ $gol->uang_makan }}</td>
-                                    <td>
-                                        <a class=" edit btn btn-sm btn-warning" data-toggle="modal"
-                                            data-target=".gol-edit">Edit</a>
-                                        <button class="btn btn-sm btn-danger hapus"
-                                            gol-id="{{ $gol->id }}">Hapus</button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
                     <div id="editmodal" class="modal fade gol-edit" tabindex="-1" role="dialog" aria-labelledby="gol-edit"
                         aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -149,7 +138,7 @@
 
 @section('javascript')
     <script type="text/javascript" src="/datatables/datatables.min.js"></script>
-    <script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="/datatables/DataTables-1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             var table = $('#datatable').DataTable();

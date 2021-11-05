@@ -3,15 +3,15 @@
 
 <head>
     @include('layout.head')
-    @yield('link')
     @include('sweetalert::alert')
     @include('layout.script')
+    @yield('link')
     @yield('javascript')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper flex-auto">
-        <nav class="main-header navbar navbar-expand navbar-light bg-white flex-wrap">
+        <nav class="main-header navbar navbar-expand navbar-light bg-white d-flex">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a href="#" class="nav-link" data-widget="pushmenu"><i class="fab fa-lg fa-windows"></i></a>
@@ -35,7 +35,7 @@
             @include('layout.sidebar')
         </div>
     </div>
-
+    <div class="b-example-divider"></div>
     <div class="content-wrapper">
         @yield('content')
     </div>

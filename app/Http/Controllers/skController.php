@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\User;
+use DB;
+use Auth;
 use App\Sk;
+use Session;
+use Storage;
+use App\User;
 use App\Karyawan;
 use Carbon\Carbon;
-use Auth;
-use DB;
-use Storage;
-use Session;
+use Illuminate\Http\Request;
 use SweetAlert\Facades\Alert;
 
 class SkController extends Controller
@@ -32,9 +32,9 @@ class SkController extends Controller
 	public function simpan(Request $request)
 	{
 		$this->validate($request, [
-			'no_sk' => 'required|unique:sk,no_sk',
+			'no_sk' => 'required|unique: sk,no_sk',
 			'judul' => 'required',
-			'file'	=> 'required|mimes:pdf,doc,docm,docx,zip'
+			'file'  => 'required|mimes : pdf,doc,docm,docx,zip'
 		]);
 		if($request->file('file')) {
 			$file     = $request->file('file');
@@ -47,7 +47,7 @@ class SkController extends Controller
 			$file = NULL;
 		}
 		sk::create([
-			'user_id'	    => Auth::user()->id,
+			'user_id'	  => Auth::user()->id,
 			'no_sk'       => $request->get('no_sk'),
 			'judul'       => $request->get('judul'),
 			'keterangan'  => $request->get('keterangan'),

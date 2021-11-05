@@ -1,6 +1,6 @@
 @extends ('layout.master')
 @section('link')
-    <link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section('content')
@@ -26,7 +26,7 @@
                         <button type="button" class="btn btn-sm btn-primary float-right" data-bs-toggle="modal"
                             data-bs-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
                     </div>
-                    <table id="datatable" class="table table-sm text-sm">
+                    <table id="datatable" class="table table-striped table-sm text-sm">
                         <thead>
                             <tr align="center">
                                 <th>No</th>
@@ -144,7 +144,7 @@
 
 @section('javascript')
     <script type="text/javascript" src="/datatables/datatables.min.js"></script>
-    <script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="/datatables/DataTables-1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             var table = $('#datatable').DataTable();

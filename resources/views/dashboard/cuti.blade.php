@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('link')
-    <link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/datatables/DataTables-1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section('content')
@@ -124,7 +124,7 @@
 @section('javascript')
     <script type="text/javascript" src="/datatables/datatables.min.js">
     </script>
-    <script type="text/javascript" src="/datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js">
+    <script type="text/javascript" src="/datatables/DataTables-1.11.3/js/dataTables.bootstrap5.min.js">
     </script>
     <script type="text/javascript">
         $(document).ready(function() {

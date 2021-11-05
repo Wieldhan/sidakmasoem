@@ -41,19 +41,23 @@
                         <div class="form-group col-sm-3">
                             <label for="formcontroljk">Jenis Kelamin</label>
                             <select required name="jk" class="form-control form-control-sm" id="formcontroljk">
-                                <option value="Laki Laki" {{ $karyawan->jk === 'Laki Laki' ? 'selected' : '' }}>Laki Laki
+                                <option value="Laki Laki" {{ $karyawan->jk === 'Laki Laki' ? 'selected' : '' }}>Laki
+                                    Laki
                                 </option>
-                                <option value="Perempuan" {{ $karyawan->jk === 'Perempuan' ? 'selected' : '' }}>Perempuan
+                                <option value="Perempuan" {{ $karyawan->jk === 'Perempuan' ? 'selected' : '' }}>
+                                    Perempuan
                                 </option>
                             </select>
                         </div>
                         <div class="form-group col-sm-3">
                             <label for="formcontrolagama">Agama</label>
                             <select required name="agama" class="form-control form-control-sm" id="formcontrolagama">
-                                <option value="Islam" {{ $karyawan->agama === 'Islam' ? 'selected' : '' }}>Islam</option>
+                                <option value="Islam" {{ $karyawan->agama === 'Islam' ? 'selected' : '' }}>Islam
+                                </option>
                                 <option value="Protestan" {{ $karyawan->agama === 'Protestan' ? 'selected' : '' }}>
                                     Protestan</option>
-                                <option value="Khatolik" {{ $karyawan->agama === 'Khatolik' ? 'selected' : '' }}>Khatolik
+                                <option value="Khatolik" {{ $karyawan->agama === 'Khatolik' ? 'selected' : '' }}>
+                                    Khatolik
                                 </option>
                                 <option value="Hindu" {{ $karyawan->agama === 'Hindu' ? 'selected' : '' }}>Hindu
                                 </option>
@@ -85,9 +89,11 @@
                                 <option value="Belum Menikah"
                                     {{ $karyawan->status_nikah === 'Belum Menikah' ? 'selected' : '' }}>Belum Menikah
                                 </option>
-                                <option value="Menikah" {{ $karyawan->status_nikah === 'Menikah' ? 'selected' : '' }}>
+                                <option value="Menikah"
+                                    {{ $karyawan->status_nikah === 'Menikah' ? 'selected' : '' }}>
                                     Menikah</option>
-                                <option value="Cerai" {{ $karyawan->status_nikah === 'Cerai' ? 'selected' : '' }}>Cerai
+                                <option value="Cerai" {{ $karyawan->status_nikah === 'Cerai' ? 'selected' : '' }}>
+                                    Cerai
                                 </option>
                             </select>
                         </div>
