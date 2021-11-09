@@ -42,7 +42,7 @@
 
     <footer class="main-footer">
         <div class="float-right d-none d-sm-block">
-            <b>Version</b> 1.0.1
+            <b>Version</b> 11.2021
         </div>
         <strong><a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
     </footer>
@@ -75,22 +75,18 @@
                             <label>Ubah Photo Profile</label>
                             <div class="col-sm-6">
                                 <img class="img-circle rounded" style="width: 70%; height: 70%;">
-                                <input type="file" class="uploads form-control-file form-control-sm"
-                                    style="margin-top: 20px;" name="avatar">
+                                <input type="file" class="uploads form-control-file" style="margin-top: 20px;"
+                                    name="avatar">
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
-                                <b>Version</b> 1.0.1
-                                <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
+                            <div class="col-10 ">
+                                <button type="reset" class="btn btn-sm btn-secondary float-right"
+                                    data-bs-dismiss="card">Batal</button>
                             </div>
                             <div class="col-2">
-                                <button type="reset" class="btn btn-sm btn-info btn-block float-right"
-                                    data-bs-dismiss="card">BATAL</button>
-                            </div>
-                            <div class="col-2">
-                                <button type="submit"
-                                    class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
+                                <button type="submit" class="btn btn-sm btn-primary float-right"
+                                    style="margin-right: 3px;">Simpan</button>
                             </div>
                         </div>
                     </form>

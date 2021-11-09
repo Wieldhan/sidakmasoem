@@ -166,7 +166,7 @@
                                 </table>
                                 <hr>
                                 <div>
-                                    <strong><i class="far fa-file-alt mr-1"></i> Catatan Pekerjaan Di Almasoem</strong>
+                                    <strong><i class="far fa-file-alt mr-1"></i> Catatan Pekerjaan Almasoem</strong>
                                 </div>
                                 <table class="table text-muted table-sm">
                                     <thead class="bg-secondary">

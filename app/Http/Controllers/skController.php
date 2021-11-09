@@ -32,9 +32,9 @@ class SkController extends Controller
 	public function simpan(Request $request)
 	{
 		$this->validate($request, [
-			'no_sk' => 'required|unique: sk,no_sk',
+			'no_sk' => 'required',
 			'judul' => 'required',
-			'file'  => 'required|mimes : pdf,doc,docm,docx,zip'
+			'file'  => 'required'
 		]);
 		if($request->file('file')) {
 			$file     = $request->file('file');
@@ -42,7 +42,7 @@ class SkController extends Controller
 			$acak     = $file->getClientOriginalExtension();
 			$fileName = $request->get('judul').'.'.$acak; 
 			$request->file('file')->move("images/sk", $fileName);
-			$file  	  = $fileName;
+			$file  	 = $fileName;
 		} else {
 			$file = NULL;
 		}
@@ -62,7 +62,7 @@ class SkController extends Controller
 	{
 		$dl       = sk::find($id);
 		$filename = $dl->file;
-		unlink(public_path('/images/sk/'.$filename));
+		unlink('images/sk/'.$filename);
 		$dl->delete();
 		toast()->success('Data Berhasil Dihapus!');
 		return back();
@@ -71,6 +71,6 @@ class SkController extends Controller
 	public function downloadsk($id)
 	{
 		$dl   = sk::find($id);
-		return  response()->download(public_path('/images/sk/'.$dl->file));
+		return  response()->download('images/sk/'.$dl->file);
 	}
 }

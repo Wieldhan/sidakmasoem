@@ -11,7 +11,7 @@
         </div>
         <div class="container-fluid card card-primary">
             <div class="card-body">
-                <p class="login-box-msg">LOGIN Untuk Masuk Kedalam Sistem</p>
+                <p class="login-box-msg">Masuk Untuk Masuk Kedalam Sistem</p>
                 <form action="/postlogin" method="POST">
                     @csrf
                     <div class="input-group mb-4">
@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-3">
                             <button type="submit"
-                                class="btn btn-sm btn-primary btn-block float-right font-weight-bold">Login</button>
+                                class="btn btn-sm btn-primary btn-block float-right font-weight-bold">Masuk</button>
                         </div>
                     </div>
                 </form>
@@ -170,11 +170,11 @@
                             <div class="col-2">
                                 <button type="reset"
                                     class="btn font-weight-bold btn-sm btn-danger btn-block float-right"
-                                    data-dismiss="card">BATAL</button>
+                                    data-dismiss="card">Batal</button>
                             </div>
                             <div class="col-2">
                                 <button type="submit"
-                                    class="btn font-weight-bold btn-sm btn-primary btn-block float-right">SIMPAN</button>
+                                    class="btn font-weight-bold btn-sm btn-primary btn-block float-right">Simpan</button>
                             </div>
                         </div>
                     </form>

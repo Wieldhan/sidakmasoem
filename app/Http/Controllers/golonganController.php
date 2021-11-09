@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\ServiceProvider;
 use Auth;
 use App\Golongan;
+use Illuminate\Http\Request;
 use App\Exports\GolonganExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\ServiceProvider;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class GolonganController extends Controller

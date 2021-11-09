@@ -4,15 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section('content')
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-6">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top:15px;">
         <div class="col">
             <div class="card card-info card-outline">
                 <div class="card-header" style="height: 50px;">

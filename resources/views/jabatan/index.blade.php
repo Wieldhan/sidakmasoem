@@ -4,11 +4,11 @@
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section('content')
-    <div class="container-fluid" style="margin-top: 15px;">
+    <div class="container-fluid" style="padding-top: 15px;">
         <div class="col-sm-auto">
             <div class="card card-primary card-outline">
                 <div class="card-header" style="height: 50px;">
-                    <h3 class="card-title" style="font-size: 15;">KELOLA DATA JABATAN</h3>
+                    <h3 class="card-title" style="font-size: 15;">Kelola Data Jabatan</h3>
                     <div class="card-tools ">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                 class="fas fa-minus"></i>
@@ -46,7 +46,7 @@
                                     <td>{{ $jabat->pulsa }}</td>
                                     <td>{{ $jabat->tunj_jab }}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-warning edit">Edit</a>
+                                        <a class="btn btn-sm btn-warning edit">Ubah</a>
                                         <button class="btn btn-sm btn-danger hapus"
                                             jabat-id="{{ $jabat->id }}">Hapus</button>
                                     </td>
@@ -61,7 +61,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 style="font-size: 25px;">Update Data jabatan</h2>
+                        <h2 style="font-size: 25px;">Ubah Data Jabatan</h2>
                         <button type="button" class="close" data-bs-dismiss="modal">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -70,7 +70,7 @@
                         <form method="POST" id="editform">
                             @csrf
                             <div class="form-group col-sm-auto">
-                                <label>Nama jabatan</label>
+                                <label>Nama Jabatan</label>
                                 <input name="jabatan" id="jabatan" type="text" class="form-control" required
                                     maxlength="191">
                             </div>
@@ -90,8 +90,8 @@
                                     maxlength="15" onkeypress="hanyaangka(event)">
                             </div>
                             <div class="float-right" style="margin-right: 15px;">
-                                <button type="reset" class="btn btn-secondary" data-bs-dismiss="card">BATAL</button>
-                                <button type="submit" class="btn btn-primary">UPDATE</button>
+                                <button type="reset" class="btn btn-secondary" data-bs-dismiss="card">Batal</button>
+                                <button type="submit" class="btn btn-primary">Ubah</button>
                             </div>
                         </form>
                     </div>
@@ -103,7 +103,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4>Tambah Data jabatan</h4>
+                        <h4>Tambah Data Jabatan</h4>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -112,7 +112,7 @@
                         <form action="/jabatan/simpan" method="POST">
                             @csrf
                             <div class="form-group col-sm-auto">
-                                <label>Nama jabatan</label>
+                                <label>Nama Jabatan</label>
                                 <input name="jabatan" type="text" class="form-control" required maxlength="191">
                             </div>
                             <div class="form-group col-sm-auto">
@@ -131,8 +131,8 @@
                                     onkeypress="hanyaangka(event)">
                             </div>
                             <div class="float-right" style="margin-right: 15px;">
-                                <button type="reset" class="btn btn-secondary" data-bs-dismiss="card">BATAL</button>
-                                <button type="submit" class="btn btn-primary">SIMPAN</button>
+                                <button type="reset" class="btn btn-secondary" data-bs-dismiss="card">Batal</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </form>
                     </div>
@@ -164,13 +164,13 @@
             });
         });
 
-        $('.hapus').click(function() {
+        $(document).on('click', '.hapus', function() {
             var jabat_id = $(this).attr('jabat-id');
             Swal.fire({
                 toast: true,
                 position: 'top-end',
                 title: 'ALERT!!',
-                text: "Yakin Ingin Menghapus Data Ini??",
+                text: "Yakin Ingin Menghapus Data Jabatan??",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Hapus',

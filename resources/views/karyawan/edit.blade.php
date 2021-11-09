@@ -10,7 +10,7 @@
         <div class="card card-outline card-warning"
             style="margin-top: 50px; margin-bottom:50px; margin-left: 50px; margin-right: 50px;">
             <div class="card-header">
-                <h2 class="card-subtitle align-middle">UBAH DATA DIRI</h2>
+                <h2 class="card-subtitle align-middle">Ubah Data Diri</h2>
             </div>
             <div class="card-body">
                 <form action="/karyawan/update/{{ $karyawan->id }}" method="POST">
@@ -163,15 +163,15 @@
                         </div>
                     </div>
                     <hr>
-                    <h3 class="card-subtitle align-middle" style="margin-bottom: 20px;">RIWAYAT PENDIDIKAN</h3>
+                    <h3 class="card-subtitle align-middle" style="margin-bottom: 20px;">Riwayat Pendidikan</h3>
                     <table class="table">
                         <thead class="bg-primary">
                             <tr align="center">
-                                <th>TINGKAT</th>
-                                <th>NAMA INSTITUSI</th>
-                                <th>JURUSAN</th>
-                                <th>TAHUN LULUS</th>
-                                <th>NILAI AKHIR / IPK</th>
+                                <th>Tingkat</th>
+                                <th>Nama Institusi</th>
+                                <th>Jurusan</th>
+                                <th>Tahun Lulus</th>
+                                <th>Nilai Akhir / IPK</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -198,7 +198,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <span>PERGURUAN TINGGI</span>
+                                    <span>Perguruan Tinggi</span>
                                 </td>
                                 <td>
                                     <input maxlength="25" name="s1_nama" type="text"
@@ -219,7 +219,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <span>PERGURUAN TINGGI (S2)</span>
+                                    <span>Perguruan Tinggi (S2)</span>
                                 </td>
                                 <td>
                                     <input maxlength="25" name="s2_nama" type="text"
@@ -241,15 +241,15 @@
                         </tbody>
                     </table>
                     <hr>
-                    <h3 class="card-subtitle align-middle" style="margin-bottom: 20px;">RIWAYAT ORGANISASI</h3>
+                    <h3 class="card-subtitle align-middle" style="margin-bottom: 20px;">Riwayat Organisasi</h3>
                     <table class="table">
                         <thead class="bg-primary">
                             <tr align="center">
-                                <th>NO</th>
-                                <th>NAMA ORGANISASI</th>
-                                <th>JENIS ORGANISASI</th>
-                                <th>STATUS KEANGGOTAAN</th>
-                                <th>PERIODE JABATAN</th>
+                                <th>No</th>
+                                <th>Nama Organisasi</th>
+                                <th>Jenis Organisasi</th>
+                                <th>Status Keanggotaan</th>
+                                <th>Periode Jabatan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -319,7 +319,7 @@
                         </tbody>
                     </table>
                     <hr>
-                    <h3 class="card-subtitle align-middle" style="margin-bottom: 20px;">RIWAYAT PEKERJAAN</h3>
+                    <h3 class="card-subtitle align-middle" style="margin-bottom: 20px;">Riwayat Pekerjaan</h3>
                     <table class="table">
                         <thead class="bg-primary">
                             <tr align="center">
@@ -398,10 +398,6 @@
                     </table>
                     <hr>
                     <div class="row">
-                        <div class="col-10 float-right d-none d-sm-block">
-                            <b>Version</b> 1.0.1
-                            <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
-                        </div>
                         <div class="col-2">
                             <a href="/karyawan">
                                 <button type="button" class="btn btn-info">BACK</button>

@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Validator;
 use Auth;
-use App\Karyawan;
-use App\Golongan;
-use App\Jabatan;
+use App\Cuti;
 use App\User;
 use App\Cabang;
-use App\Cuti;
+use App\Jabatan;
+use App\Golongan;
+use App\Karyawan;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CutiController extends Controller

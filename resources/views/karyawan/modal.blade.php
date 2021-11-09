@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4>UBAH DATA DIRI</h4>
+                <h4>Ubah Data Diri</h4>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -46,7 +46,8 @@
                         <div class="form-group col-sm-6">
                             <label for="formcontrolagama">Agama</label>
                             <select required name="agama" class="form-control form-control-sm" id="formcontrolagama">
-                                <option value="Islam" {{ Auth::user()->karyawan->agama === 'Islam' ? 'selected' : '' }}>
+                                <option value="Islam"
+                                    {{ Auth::user()->karyawan->agama === 'Islam' ? 'selected' : '' }}>
                                     Islam</option>
                                 <option value="Protestan"
                                     {{ Auth::user()->karyawan->agama === 'Protestan' ? 'selected' : '' }}>Protestan
@@ -54,10 +55,12 @@
                                 <option value="Khatolik"
                                     {{ Auth::user()->karyawan->agama === 'Khatolik' ? 'selected' : '' }}>Khatolik
                                 </option>
-                                <option value="Hindu" {{ Auth::user()->karyawan->agama === 'Hindu' ? 'selected' : '' }}>
+                                <option value="Hindu"
+                                    {{ Auth::user()->karyawan->agama === 'Hindu' ? 'selected' : '' }}>
                                     Hindu</option>
                                 <option value="Buddha"
-                                    {{ Auth::user()->karyawan->agama === 'Buddha' ? 'selected' : '' }}>Buddha</option>
+                                    {{ Auth::user()->karyawan->agama === 'Buddha' ? 'selected' : '' }}>Buddha
+                                </option>
                             </select>
                         </div>
                         <div class="form-group col-sm-6">
@@ -68,7 +71,8 @@
                                     {{ Auth::user()->karyawan->status_nikah === 'Belum Menikah' ? 'selected' : '' }}>
                                     Belum Menikah</option>
                                 <option value="Menikah"
-                                    {{ Auth::user()->karyawan->status_nikah === 'Menikah' ? 'selected' : '' }}>Menikah
+                                    {{ Auth::user()->karyawan->status_nikah === 'Menikah' ? 'selected' : '' }}>
+                                    Menikah
                                 </option>
                                 <option value="Cerai"
                                     {{ Auth::user()->karyawan->status_nikah === 'Cerai' ? 'selected' : '' }}>Cerai
@@ -120,7 +124,7 @@
                                 data-bs-dismiss="card">BATAL</button>
                         </div>
                         <div class="col-2">
-                            <button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
+                            <button type="submit" class="btn btn-sm btn-primary btn-block float-right">Simpan</button>
                         </div>
                     </div>
                 </form>
@@ -135,7 +139,7 @@
     <div class="modal modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4>TAMBAH DATA PENDIDIKAN</h4>
+                <h4>Tambah Data Pendidikan</h4>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -179,7 +183,7 @@
                                 data-bs-dismiss="card">BATAL</button>
                         </div>
                         <div class="col-2">
-                            <button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
+                            <button type="submit" class="btn btn-sm btn-primary btn-block float-right">Simpan</button>
                         </div>
                     </div>
                 </form>
@@ -194,7 +198,7 @@
     <div class="modal modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4>TAMBAH DATA PENGALAMAN KERJA</h4>
+                <h4>Tambah Data Pengalaman Kerja</h4>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -236,10 +240,10 @@
                         </div>
                         <div class="col-2">
                             <button type="reset" class="btn btn-sm btn-info btn-block float-right"
-                                data-bs-dismiss="card">BATAL</button>
+                                data-bs-dismiss="card">Batal</button>
                         </div>
                         <div class="col-2">
-                            <button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
+                            <button type="submit" class="btn btn-sm btn-primary btn-block float-right">Simpan</button>
                         </div>
                     </div>
                 </form>
@@ -254,7 +258,7 @@
     <div class="modal modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4>TAMBAH DATA ORGANISASI</h4>
+                <h4>Tambah Data Organisasi</h4>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -295,10 +299,10 @@
                         </div>
                         <div class="col-2">
                             <button type="reset" class="btn btn-sm btn-info btn-block float-right"
-                                data-bs-dismiss="card">BATAL</button>
+                                data-bs-dismiss="card">Batal</button>
                         </div>
                         <div class="col-2">
-                            <button type="submit" class="btn btn-sm btn-primary btn-block float-right">SIMPAN</button>
+                            <button type="submit" class="btn btn-sm btn-primary btn-block float-right">Simpan</button>
                         </div>
                     </div>
                 </form>

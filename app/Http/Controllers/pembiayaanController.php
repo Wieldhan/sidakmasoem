@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Pembiayaan;
 use Auth;
 use Validator;
+use App\Pembiayaan;
+use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PembiayaanController extends Controller

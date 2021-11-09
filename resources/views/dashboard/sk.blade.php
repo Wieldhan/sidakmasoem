@@ -4,24 +4,11 @@
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section('content')
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-6">
-                    <h1 style="font-size: 30px">DATA SK BPRS ALMASOEM</h1>
-                </div>
-                <div class="col-6">
-                    <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal"
-                        data-bs-target=".modal-sk">Tambah <i class="fas fa-plus"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="col">
+    <div class="container-fluid" style="padding: 15px;">
+        <div class="col-sm-auto">
             <div class="card card-info card-outline">
-                <div class="card-header" style="height: 50px;">
-                    <h2 class="card-title">KELOLA DATA SK</h2>
+                <div class="card-header">
+                    <h2 class="card-title">Kelola Data Surat Keputusan</h2>
                     <div class="card-tools ">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                 class="fas fa-minus"></i>
@@ -29,7 +16,11 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table class="table table-sm table-hover " id="datatable" style="font-size: 15px;">
+                    <div class="card-tools" style="padding-bottom: 50px">
+                        <button type="button" class="btn btn-sm btn-primary float-right" data-bs-toggle="modal"
+                            data-bs-target=".modal-sk">Tambah <i class="fas fa-plus"></i></button>
+                    </div>
+                    <table class="table table-sm text-sm table-striped" id="datatable">
                         <thead>
                             <tr align="center">
                                 <th>No</th>
@@ -67,7 +58,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4>TAMBAH SK BAMS</h4>
+                        <h4>Tambah Data Surat Keputusan</h4>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -95,11 +86,11 @@
                             </div>
                             <div class="form-group col-sm-auto">
                                 <label>Upload</label>
-                                <input required type="file" class="uploads form-control-file form-control-sm" name="file">
+                                <input required type="file" class="uploads form-control-file" name="file">
                             </div>
                             <div class="float-right" style="margin-right: 15px;">
-                                <button type="reset" class="btn btn-secondary" data-bs-dismiss="card">BATAL</button>
-                                <button type="submit" class="btn btn-primary">SIMPAN</button>
+                                <button type="reset" class="btn btn-secondary" data-bs-dismiss="card">Batal</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </form>
                     </div>
@@ -115,7 +106,6 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#datatable').DataTable({});
-
             $(document).on('click', '.hapus', function() {
                 var sk_id = $(this).attr('sk-id');
                 Swal.fire({

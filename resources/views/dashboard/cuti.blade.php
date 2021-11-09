@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6">
-                    <h1 style="font-size: 30px">APLIKASI CUTI KARYAWAN</h1>
+                    <h1 style="font-size: 30px">Aplikasi Cuti Karyawan</h1>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-sm">
-                                            <button type="submit" class="btn btn-primary float-right">SIMPAN</button>
+                                            <button type="submit" class="btn btn-primary float-right">Simpan</button>
                                         </div>
                                     </div>
                                 </form>

@@ -4,11 +4,11 @@
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section('content')
-    <div class="container-fluid" style="margin-top: 15px;">
+    <div class="container-fluid" style="padding-top: 15px;">
         <div class="col-sm-auto">
             <div class="card card-primary card-outline">
-                <div class="card-header" style="height: 50px;">
-                    <h3 class="card-title" style="font-size: 15;">KELOLA DATA GOLONGAN</h3>
+                <div class="card-header">
+                    <h2 class="card-title">Kelola Data Golongan</h2>
                     <div class="card-tools ">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                 class="fas fa-minus"></i>
@@ -23,9 +23,8 @@
                         <button class="btn btn-sm btn-danger" disabled>
                             <i class="fas fa-file-export"></i> Export To PDF
                         </button>
-                        <button style="margin-right: 10px;" type="button" class="btn btn-sm btn-primary float-right"
-                            data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">Tambah <i
-                                class="fas fa-plus"></i></button>
+                        <button type="button" class="btn btn-sm btn-primary float-right" data-bs-toggle="modal"
+                            data-bs-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
                     </div>
                     <table id="datatable" class="table table-sm text-sm table-striped">
                         <thead>
@@ -46,7 +45,7 @@
                                     <td>{{ $gol->uang_makan }}</td>
                                     <td>
                                         <a class=" edit btn btn-sm btn-warning" data-toggle="modal"
-                                            data-target=".gol-edit">Edit</a>
+                                            data-target=".gol-edit">Ubah</a>
                                         <button class="btn btn-sm btn-danger hapus"
                                             gol-id="{{ $gol->id }}">Hapus</button>
                                     </td>
@@ -85,7 +84,7 @@
                                         <div class="float-right" style="margin-right: 15px;">
                                             <button type="reset" class="btn btn-secondary"
                                                 data-dismiss="card">BATAL</button>
-                                            <button type="submit" class="btn btn-primary">SIMPAN</button>
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
                                     </form>
                                 </div>
@@ -97,7 +96,7 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h2 style="font-size: 25px;">Update Data Golongan</h2>
+                                    <h2 style="font-size: 25px;">Ubah Data Golongan</h2>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -123,7 +122,7 @@
                                         <div class="float-right" style="margin-right: 15px;">
                                             <button type="reset" class="btn btn-secondary"
                                                 data-dismiss="card">BATAL</button>
-                                            <button type="submit" class="btn btn-primary">UPDATE</button>
+                                            <button type="submit" class="btn btn-primary">Ubah</button>
                                         </div>
                                     </form>
                                 </div>
@@ -157,13 +156,13 @@
             });
         });
 
-        $('.hapus').click(function() {
+        $(document).on('click', '.hapus', function() {
             var gol_id = $(this).attr('gol-id');
             Swal.fire({
                 toast: true,
                 position: 'top-end',
                 title: 'ALERT!!',
-                text: "Yakin Ingin Menghapus Data Ini??",
+                text: "Yakin Ingin Menghapus Data Golongan??",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Hapus',

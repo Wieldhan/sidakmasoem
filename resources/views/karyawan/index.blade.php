@@ -4,20 +4,11 @@
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section('content')
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-6">
-                    <h1 style="font-size: 30px">DATA KARYAWAN</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top: 15px;">
         <div class="col">
             <div class="card card-success card-outline">
                 <div class="card-header" style="height: 50px;">
-                    <h2 class="card-title">KELOLA DATA KARYAWAN</h2>
+                    <h2 class="card-title">Kelola Data Karyawan</h2>
                     <div class="card-tools ">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                 class="fas fa-minus"></i>
@@ -25,7 +16,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="card-tools" style="margin-bottom: 20px">
+                    <div class="card-tools" style="padding-bottom: 25px">
                         <a href="karyawan/export" class="btn btn-sm btn-success">
                             <i class="fas fa-file-export"></i> Export To Excel
                         </a>
@@ -33,12 +24,12 @@
                             <i class="fas fa-file-export"></i> Export To PDF
                         </button>
                     </div>
-                    <table class="table table-sm table-striped" id="datatable" style="font-size: 15px;">
+                    <table class="table table-sm text-sm table-striped" id="datatable" style="width: 100%;">
                         <thead>
                             <tr align="center">
+                                <th>Nama</th>
                                 <th>NIK</th>
                                 <th>No KTP</th>
-                                <th>Nama</th>
                                 <th>Jenis Kelamin</th>
                                 <th>Golongan</th>
                                 <th>Jabatan</th>
@@ -54,7 +45,7 @@
                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4>UPDATE DATA KARYAWAN</h4>
+                                    <h4>UBah Data Karyawan</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -110,16 +101,9 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-8 float-right d-none d-sm-block">
-                                                <b>Version</b> 1.0.1
-                                                <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA
-                                                        KARYAWAN</a></strong>
-                                            </div>
-                                            <div class="col-2">
-                                            </div>
                                             <div class="col-2">
                                                 <button type="submit"
-                                                    class="btn btn-primary btn-block float-right">UPDATE</button>
+                                                    class="btn btn-primary btn-block float-right">Ubah</button>
                                             </div>
                                         </div>
                                     </form>
@@ -146,16 +130,16 @@
                     [2, 'asc']
                 ],
                 columns: [{
+                        data: 'nama_lengkap',
+                        name: 'nama_lengkap'
+                    },
+                    {
                         data: 'nik',
                         name: 'nik'
                     },
                     {
                         data: 'no_ktp',
                         name: 'no_ktp'
-                    },
-                    {
-                        data: 'nama_lengkap',
-                        name: 'nama_lengkap'
                     },
                     {
                         data: 'jk',

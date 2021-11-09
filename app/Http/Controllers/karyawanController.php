@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Validator;
 use Auth;
 use App\User;
 use App\Cabang;
 use App\Jabatan;
-use App\Karyawan;
 use App\Golongan;
+use App\Karyawan;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Exports\KaryawanExport;
+use Illuminate\Support\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -50,7 +50,7 @@ class KaryawanController extends Controller
 		})
 		->addColumn('action', function($DtKaryawan){
 			return
-			"<button type='button' class='btn btn-sm btn-danger hapus' karyawan-id='".$DtKaryawan->id."'>Delete</button>";
+			"<button type='button' class='btn btn-sm btn-danger hapus' karyawan-id='".$DtKaryawan->id."'>Hapus</button>";
 		})
 		->toJson();
 	}
@@ -141,7 +141,7 @@ class KaryawanController extends Controller
 	public function destroy($id)
 	{
 		karyawan::findOrFail($id)->delete();
-		user::findOrFail($id)->delete();
+		user    ::findOrFail($id)->delete();
 		toast()->success('Data Berhasil DiHapus!');
 		return redirect('/karyawan');
 	}

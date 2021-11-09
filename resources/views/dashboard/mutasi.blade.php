@@ -7,119 +7,113 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-6">
-                    <h1 style="font-size: 30px">APLIKASI MUTASI KARYAWAN</h1>
+                <div class="col">
+                    <h1>Aplikasi Mutasi Karyawan</h1>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="col">
-            <div class="card card-outline card-primary">
-                <div class="card-header">
-                    <div class="card-title">FORM MUTASIAN KARYAWAN</div>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-sm btn-success cari-karyawan"> <i class="fas fa-search"></i>
-                            Cari Karyawan
-                        </button>
+    <div class="container-fluid" style="padding: 15px;">
+        <div class="card card-outline card-primary">
+            <div class="card-header">
+                <div class="card-title">Form Mutasi Karyawan</div>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-sm btn-success cari-karyawan"> <i class="fas fa-search"></i>
+                        Cari Karyawan
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <form id="mutasiform" method="POST">
+                    @csrf
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label>No Induk Karyawan</label>
+                            <input required readonly name="nik" type="text" class="form-control form-control-sm " id="nik">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Nama Lengkap</label>
+                            <input required readonly name="nama_lengkap" type="text" class="form-control form-control-sm"
+                                id="nama_lengkap">
+                        </div>
                     </div>
-                </div>
-                <div class="card-body">
-                    <form id="mutasiform" method="POST">
-                        @csrf
-                        <div class="form-row">
-                            <div class="form-group col-sm-6">
-                                <label>No Induk Karyawan</label>
-                                <input required readonly name="nik" type="text" class="form-control form-control-sm "
-                                    id="nik">
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label>Nama Lengkap</label>
-                                <input required readonly name="nama_lengkap" type="text"
-                                    class="form-control form-control-sm" id="nama_lengkap">
-                            </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+                            <label>Jabatan</label>
+                            <select required name="jabatan_id" id="jabatan_id" class="form-control form-control-sm">
+                                <option></option>
+                            </select>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-sm-4">
-                                <label>Jabatan</label>
-                                <select required name="jabatan_id" id="jabatan_id" class="form-control form-control-sm">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label>Golongan</label>
-                                <select required name="golongan_id" id="golongan_id" class="form-control form-control-sm">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label>Cabang</label>
-                                <select required name="cabang_id" id="cabang_id" class="form-control form-control-sm">
-                                    <option></option>
-                                </select>
-                            </div>
+                        <div class="form-group col-sm-4">
+                            <label>Golongan</label>
+                            <select required name="golongan_id" id="golongan_id" class="form-control form-control-sm">
+                                <option></option>
+                            </select>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-sm-4">
-                                <label>Tanggal Berlaku</label>
-                                <input required name="tanggal_mutasi" id="tanggal_mutasi" type="date"
-                                    class="form-control form-control-sm">
-                                </input>
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label>Status</label>
-                                <select required name="status" id="status" class="form-control form-control-sm">
-                                    <option>Pilih Salah Satu</option>
-                                    <option value="Mutasi">Mutasi</option>
-                                    <option value="Promosi">Promosi</option>
-                                    <option value="Desmosi">Desmosi</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label>Keterangan</label>
-                                <textarea required name="keterangan" id="keterangan"
-                                    class="form-control form-control-sm"></textarea>
-                            </div>
+                        <div class="form-group col-sm-4">
+                            <label>Cabang</label>
+                            <select required name="cabang_id" id="cabang_id" class="form-control form-control-sm">
+                                <option></option>
+                            </select>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-sm">
-                                <button type="submit" class="btn btn-primary float-right">SIMPAN</button>
-                            </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+                            <label>Tanggal Berlaku</label>
+                            <input required name="tanggal_mutasi" id="tanggal_mutasi" type="date"
+                                class="form-control form-control-sm">
+                            </input>
                         </div>
-                    </form>
-                </div>
+                        <div class="form-group col-sm-4">
+                            <label>Status</label>
+                            <select required name="status" id="status" class="form-control form-control-sm">
+                                <option>Pilih Salah Satu</option>
+                                <option value="Mutasi">Mutasi</option>
+                                <option value="Promosi">Promosi</option>
+                                <option value="Desmosi">Desmosi</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label>Keterangan</label>
+                            <textarea required name="keterangan" id="keterangan"
+                                class="form-control form-control-sm"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm">
+                            <button type="submit" class="btn btn-sm btn-primary float-right">Simpan</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="col">
-            <div class="card card-info">
-                <div class="card-header" style="height: 50px;">
-                    <div class="card-title">HISTORY MUTASIAN KARYAWAN</div>
-                    <div class="card-tools ">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                class="fas fa-minus"></i>
-                        </button>
-                    </div>
+    <div class="container-fluid" style="padding: 15px;">
+        <div class="card card-info">
+            <div class="card-header">
+                <div class="card-title">Riwayat Mutasi Karyawan</div>
+                <div class="card-tools ">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                    </button>
                 </div>
-                <div class="card-body">
-                    <table class="table table-sm table-hover" width="100%" id="datatable-mutasi" style="font-size: 15px;">
-                        <thead>
-                            <tr align="center">
-                                <th>NIK</th>
-                                <th>Nama Lengkap</th>
-                                <th>Jabatan</th>
-                                <th>Golongan</th>
-                                <th>Cabang</th>
-                                <th>Tanggal Berlaku</th>
-                                <th>Keterangan</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-hover" width="100%" id="datatable-mutasi" style="font-size: 15px;">
+                    <thead>
+                        <tr align="center">
+                            <th>NIK</th>
+                            <th>Nama Lengkap</th>
+                            <th>Jabatan</th>
+                            <th>Golongan</th>
+                            <th>Cabang</th>
+                            <th>Tanggal Berlaku</th>
+                            <th>Keterangan</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -129,7 +123,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4>DAFTAR KARYAWAN BPRS ALMASOEM</h4>
+                    <h3>Daftar Karyawan BPRS ALMASOEM</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -150,12 +144,6 @@
                             </thead>
                             <tbody></tbody>
                         </table>
-                    </div>
-                    <div class="row">
-                        <div class="col-8 float-right d-none d-sm-block">
-                            <b>Version</b> 1.0.1
-                            <strong>Copyright &copy; 2019-2020 <a>SISTEM INFORMASI DATA KARYAWAN</a></strong>
-                        </div>
                     </div>
                 </div>
             </div>

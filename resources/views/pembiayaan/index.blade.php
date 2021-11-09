@@ -4,24 +4,11 @@
     <link rel="stylesheet" type="text/css" href="../datatables/datatables.min.css">
 @endsection
 @section('content')
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-6">
-                    <h1 style="font-size: 30px">DATA PEMBIAYAAN BPRS ALMASOEM</h1>
-                </div>
-                <div class="col-6">
-                    <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal"
-                        data-bs-target=".modal-pembiayaan">Tambah <i class="fas fa-plus"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top: 15px;">
         <div class="col">
             <div class="card card-info card-outline">
                 <div class="card-header" style="height: 50px;">
-                    <h2 class="card-title">ARSIP PEMBIAYAAN BPRS ALMASOEM</h2>
+                    <h2 class="card-title">Arsip Pembiayaan BPRS ALMASOEM</h2>
                     <div class="card-tools ">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                 class="fas fa-minus"></i>
@@ -29,6 +16,10 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <div class="card-tools" style="padding-bottom: 50px">
+                        <button type="button" class="btn btn-sm btn-primary float-right" data-bs-toggle="modal"
+                            data-bs-target=".modal-pembiayaan">Tambah <i class="fas fa-plus"></i></button>
+                    </div>
                     <table class="table table-sm table-hover" id="datatable" style="font-size: 15px;">
                         <thead>
                             <tr align="center">
@@ -98,7 +89,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4>TAMBAH DATA PEMBIAYAAN</h4>
+                        <h4>Tambah Data Pembiayaan</h4>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -163,8 +154,8 @@
                                 </div>
                             </div>
                             <div class="float-right">
-                                <button type="reset" class="btn btn-sm btn-danger" data-bs-dismiss="card">BATAL</button>
-                                <button type="submit" class="btn btn-sm btn-primary">SIMPAN</button>
+                                <button type="reset" class="btn btn-sm btn-danger" data-bs-dismiss="card">Batal</button>
+                                <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                             </div>
                         </form>
                     </div>

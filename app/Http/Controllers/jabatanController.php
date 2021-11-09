@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Jabatan;
-use App\Exports\JabatanExport;
 use Illuminate\Http\Request;
-use Illuminate\Support\ServiceProvider;
+use App\Exports\JabatanExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\ServiceProvider;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class JabatanController extends Controller

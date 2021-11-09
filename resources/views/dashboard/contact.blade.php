@@ -4,9 +4,9 @@
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section('content')
-    <div class="container-fluid" style="margin-top: 10px;">
+    <div class="container-fluid " style="padding: 15px;">
         <div class="card card-info card-outline">
-            <div class="card-header" style="height: 50px;">
+            <div class="card-header">
                 <h2 class="card-title">Kontak</h2>
                 <div class="card-tools ">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -62,7 +62,6 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#datatable').DataTable({});
-
             $(document).on('click', '.hapus', function() {
                 var pembiayaan_id = $(this).attr('pembiayaan-id');
                 Swal.fire({

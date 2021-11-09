@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Carbon\Carbon;
-use App\Karyawan;
-use App\Golongan;
-use App\Jabatan;
-use App\User;
-use App\Pendidikan;
-use App\Organisasi;
-use App\Pengalaman;
-use App\Mutasi;
-use App\Keluarga;
-use Auth;
 use DB;
+use Auth;
 use Session;
+use App\User;
+use App\Mutasi;
+use App\Jabatan;
+use App\Golongan;
+use App\Karyawan;
+use App\Keluarga;
+use Carbon\Carbon;
+use App\Organisasi;
+use App\Pendidikan;
+use App\Pengalaman;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use SweetAlert\Facades\Alert;
 
 class ProfilController extends Controller

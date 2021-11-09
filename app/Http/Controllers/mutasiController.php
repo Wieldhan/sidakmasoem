@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Validator;
 use Auth;
-use App\Karyawan;
-use App\Golongan;
-use App\Jabatan;
 use App\User;
 use App\Cabang;
 use App\Mutasi;
+use App\Jabatan;
+use App\Golongan;
+use App\Karyawan;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class MutasiController extends Controller
@@ -20,8 +20,8 @@ class MutasiController extends Controller
 	{
 		$karyawan = karyawan::all();
 		$golongan = golongan::all();
-		$jabatan = jabatan ::all();
-		$cabang = cabang ::all();
+		$jabatan  = jabatan ::all();
+		$cabang   = cabang  ::all();
 		return view('dashboard.mutasi', compact('karyawan','golongan','jabatan','cabang'));
 	}
 
@@ -78,13 +78,13 @@ class MutasiController extends Controller
 		$id_jab   = $detail->jabatan_id;
 		$id_gol   = $detail->golongan_id;
 		$id_cab   = $detail->cabang_id;
-		$id_kar		=	$detail->id;
+		$id_kar	 = $detail->id;
 		$jb       = $detail->jabatan->jabatan;
 		$gol      = $detail->golongan->golongan;
 		$cab      = $detail->cabang->cabang;
-		$jabatan  = Jabatan::get();
+		$jabatan  = Jabatan ::get();
 		$golongan = Golongan::get();
-		$cabang   = Cabang::get();
+		$cabang   = Cabang  ::get();
 		$data     = Array(
 			'id'           => $id,
 			'no_induk'     => $detail->nik,
@@ -94,7 +94,7 @@ class MutasiController extends Controller
 			'id_jabat'     => $id_jab,
 			'id_gol'       => $id_gol,
 			'id_cab'       => $id_cab,
-			'id_kar'			 => $id_kar,
+			'id_kar'			=> $id_kar,
 			'jb'           => $jb,
 			'gol'          => $gol,
 			'cab'          => $cab,

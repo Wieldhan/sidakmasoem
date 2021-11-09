@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Validator;
 use Auth;
-use App\Karyawan;
-use App\Golongan;
-use App\Jabatan;
-use App\Cabang;
 use App\Izin;
+use Validator;
+use App\Cabang;
+use App\Jabatan;
+use App\Golongan;
+use App\Karyawan;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class IzinController extends Controller
@@ -19,10 +19,10 @@ class IzinController extends Controller
     {
         $karyawan = karyawan::where('user_id', $id)->first();
         $golongan = golongan::all();
-        $jabatan  = jabatan::all();
-        $cabang   = cabang::all();
-        $izinall  = izin ::all();
-        $izin     = izin::where('karyawan_id', $id)->get();
+        $jabatan  = jabatan ::all();
+        $cabang   = cabang  ::all();
+        $izinall  = izin    ::all();
+        $izin     = izin    ::where('karyawan_id', $id)->get();
         return view('dashboard.izin', compact('karyawan', 'golongan', 'jabatan', 'cabang', 'izin','izinall'));
     }
 

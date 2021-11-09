@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Karyawan;
+use App\Izin;
 use App\User;
+use App\Forum;
+use App\Cabang;
 use App\Jabatan;
 use App\Golongan;
-use App\Cabang;
-use App\Izin;
-use App\Forum;
+use App\Karyawan;
 use App\Dashboard;
+use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
