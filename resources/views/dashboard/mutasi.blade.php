@@ -4,26 +4,22 @@
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css">
 @endsection
 @section('content')
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <h1>Aplikasi Mutasi Karyawan</h1>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container-fluid" style="padding: 15px;">
-        <div class="card card-outline card-primary">
+        <div class="card card-primary">
             <div class="card-header">
-                <div class="card-title">Form Mutasi Karyawan</div>
+                <div class="card-title">Aplikasi Mutasi Karyawan</div>
                 <div class="card-tools">
-                    <button type="button" class="btn btn-sm btn-success cari-karyawan"> <i class="fas fa-search"></i>
-                        Cari Karyawan
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                     </button>
                 </div>
             </div>
             <div class="card-body">
+                <div class="card-tools" style="padding-bottom: 25px;">
+                    <button type="button" class="btn btn-sm btn-success cari-karyawan float-right"> <i
+                            class="fas fa-search"></i>
+                        Cari Karyawan
+                    </button>
+                </div>
                 <form id="mutasiform" method="POST">
                     @csrf
                     <div class="form-row">
@@ -98,7 +94,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-sm table-hover" width="100%" id="datatable-mutasi" style="font-size: 15px;">
+                <table class="table table-sm text-sm table-hover" width="100%" id="datatable-mutasi">
                     <thead>
                         <tr align="center">
                             <th>NIK</th>
@@ -123,15 +119,14 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Daftar Karyawan BPRS ALMASOEM</h3>
+                    <h4>Daftar Karyawan BPRS ALMASOEM</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="table-responsive-sm">
-                        <table class="table table-sm table-hover" width="100%" id="datatable-karyawan"
-                            style="font-size: 15px;">
+                        <table class="table table-sm text-sm table-hover" width="100%" id="datatable-karyawan">
                             <thead>
                                 <tr align="center">
                                     <th>NIK</th>

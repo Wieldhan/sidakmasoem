@@ -7,8 +7,8 @@
     <div class="container-fluid" style="padding-top: 15px;">
         <div class="col-sm-auto">
             <div class="card card-primary card-outline">
-                <div class="card-header" style="height: 50px;">
-                    <h3 class="card-title" style="font-size: 15;">Kelola Data Jabatan</h3>
+                <div class="card-header">
+                    <h3 class="card-title">Kelola Data Jabatan</h3>
                     <div class="card-tools ">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                 class="fas fa-minus"></i>
@@ -61,7 +61,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 style="font-size: 25px;">Ubah Data Jabatan</h2>
+                        <h3>Ubah Data Jabatan</h3>
                         <button type="button" class="close" data-bs-dismiss="modal">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -103,7 +103,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4>Tambah Data Jabatan</h4>
+                        <h3>Tambah Data Jabatan</h3>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

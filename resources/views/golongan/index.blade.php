@@ -8,7 +8,7 @@
         <div class="col-sm-auto">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h2 class="card-title">Kelola Data Golongan</h2>
+                    <h3 class="card-title">Kelola Data Golongan</h3>
                     <div class="card-tools ">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                 class="fas fa-minus"></i>

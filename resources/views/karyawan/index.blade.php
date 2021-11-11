@@ -7,8 +7,8 @@
     <div class="container-fluid" style="padding-top: 15px;">
         <div class="col">
             <div class="card card-success card-outline">
-                <div class="card-header" style="height: 50px;">
-                    <h2 class="card-title">Kelola Data Karyawan</h2>
+                <div class="card-header">
+                    <h3 class="card-title">Kelola Data Karyawan</h3>
                     <div class="card-tools ">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                 class="fas fa-minus"></i>
@@ -24,7 +24,7 @@
                             <i class="fas fa-file-export"></i> Export To PDF
                         </button>
                     </div>
-                    <table class="table table-sm text-sm table-striped" id="datatable" style="width: 100%;">
+                    <table class=" table table-sm text-sm table-striped" id="datatable" style="width: 100%;">
                         <thead>
                             <tr align="center">
                                 <th>Nama</th>
@@ -37,7 +37,7 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody class="text-uppercase"></tbody>
                     </table>
                     <!-- edit -->
                     <div class="modal fade" id="editmodal" tabindex="-1" role="dialog"

@@ -7,8 +7,8 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-6">
-                    <h1 style="font-size: 30px">Aplikasi Izin Karyawan</h1>
+                <div class="col">
+                    <h3>Aplikasi Izin Karyawan</h3>
                 </div>
             </div>
         </div>
@@ -133,7 +133,6 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#datatable').DataTable({});
-
             $('#tabletimeline').DataTable({});
         });
     </script>

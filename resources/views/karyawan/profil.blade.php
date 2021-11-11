@@ -1,6 +1,6 @@
 @extends ('layout.master')
 @section('content')
-    <div class="container-fluid" style="margin-top: 10px;">
+    <div class="container-fluid" style="padding-top: 10px;">
         <div class="row">
             <div class="col-md-3">
                 <div class="card card-primary card-outline">
@@ -60,8 +60,8 @@
                 <div class="card card-primary card-outline">
                     <div class="card-header">
                         <div class="form-row">
-                            <div class="col-sm-4">
-                                <h1 style="font-size: 30px">Curiculum Vitae</h1>
+                            <div class="col-sm-4 text-center">
+                                <h4>Curiculum Vitae</h4>
                             </div>
                             <div class="col-sm-8">
                                 <ul class="nav nav-pills nav-fill">
@@ -117,7 +117,6 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <hr>
                                 <div class="row">
                                     <div class="col-10">
                                         <strong><i class="fas fa-pencil-alt mr-1"></i> Pengalaman Organisasi</strong>
@@ -156,7 +155,6 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <hr>
                                 <div class="row">
                                     <div class="col-10">
                                         <strong><i class="fas fa-pencil-alt mr-1"></i> Pengalaman Pekerjaan</strong>
@@ -196,7 +194,6 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <hr>
                                 <div>
                                     <strong><i class="far fa-file-alt mr-1"></i> Catatan Pekerjaan Almasoem</strong>
                                 </div>
@@ -223,7 +220,6 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <hr>
                                 <button class="btn btn-primary float-right" onclick="window.print()">
                                     <i class="fas fa-file-alt mr-1"></i>
                                     <b>Print CV</b></button>

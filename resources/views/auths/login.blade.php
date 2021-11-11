@@ -2,8 +2,10 @@
 <html>
 @include('layout.head')
 
-<body class="align-content-center login-page"
-    style="background-image: url('../images/bg-login.jpg'); background-size: 1360px; background-repeat: no-repeat; background-attachment:fixed;">
+<body class="align-content-center login-page" style="background-image: url('../images/bg-login.jpg');
+    background-size: 1360px;
+    background-repeat: no-repeat; 
+    background-attachment:fixed;">
     <div class="col-lg-4 mx-auto login-box" style="width: 650px; align-content: center;">
         <div class="login-logo">
             <img class="img-fluid" style="width:350px; height: auto;"
@@ -11,7 +13,7 @@
         </div>
         <div class="container-fluid card card-primary">
             <div class="card-body">
-                <p class="login-box-msg">Masuk Untuk Masuk Kedalam Sistem</p>
+                <p class="login-box-msg">Login Untuk Masuk Kedalam Sistem</p>
                 <form action="/postlogin" method="POST">
                     @csrf
                     <div class="input-group mb-4">
