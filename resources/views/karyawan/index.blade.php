@@ -123,6 +123,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#datatable').DataTable({
+                scrollX: true,
                 processing: true,
                 serverSide: true,
                 ajax: 'datakaryawan',
@@ -174,6 +175,7 @@
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonText: 'Hapus',
+                    cancelButtonColor: '#ff7777',
                     cancelButtonText: 'Batal',
                     timer: '5000'
                 }).then((result) => {

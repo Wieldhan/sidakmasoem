@@ -116,8 +116,8 @@
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonText: 'Hapus',
-                    cancelButtonColor: '#ff3c4f',
-                    CancelButtonText: 'Batal',
+                    cancelButtonColor: '#ff7777',
+                    cancelButtonText: 'Batal',
                     timer: '5000'
                 }).then((result) => {
                     if (result.value) {

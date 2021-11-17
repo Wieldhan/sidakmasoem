@@ -119,12 +119,10 @@
                     <div class="row">
                         <div class="col-8 float-right d-none d-sm-block" style="font-size: small;">
                         </div>
-                        <div class="col-2">
-                            <button type="reset" class="btn btn-sm btn-info btn-block float-right"
-                                data-bs-dismiss="card">BATAL</button>
-                        </div>
-                        <div class="col-2">
-                            <button type="submit" class="btn btn-sm btn-primary btn-block float-right">Simpan</button>
+                        <div class="card-tools">
+                            <button type="submit" class="btn btn-sm btn-primary btn-rounded float-end">Simpan</button>
+                            <button type="reset" class="btn btn-sm btn-danger btn-rounded float-end"
+                                style="margin-right: 5px;" data-bs-dismiss="card">Batal</button>
                         </div>
                     </div>
                 </form>

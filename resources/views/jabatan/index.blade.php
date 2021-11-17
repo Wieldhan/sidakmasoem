@@ -26,7 +26,7 @@
                         <button type="button" class="btn btn-sm btn-primary float-right" data-bs-toggle="modal"
                             data-bs-target=".bd-example-modal-xl">Tambah <i class="fas fa-plus"></i></button>
                     </div>
-                    <table id="datatable" class="table table-striped table-sm text-sm">
+                    <table id="datatable" class="table table-striped table-sm text-sm" style="width: 100%;">
                         <thead>
                             <tr align="center">
                                 <th>No</th>
@@ -147,7 +147,9 @@
     <script type="text/javascript" src="/datatables/DataTables-1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            var table = $('#datatable').DataTable();
+            var table = $('#datatable').DataTable({
+                scrollX: true,
+            });
             table.on('click', '.edit', function() {
                 $tr = $(this).closest('tr');
                 if ($($tr).hasClass('child')) {
@@ -174,6 +176,7 @@
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Hapus',
+                cancelButtonColor: '#ff7777',
                 cancelButtonText: 'Batal',
                 timer: '5000'
             }).then((result) => {

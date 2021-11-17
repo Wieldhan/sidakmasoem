@@ -49,8 +49,8 @@
                                 <span class="float-right">{{ Auth::user()->karyawan->misi }}</span>
                             </li>
                         </ul>
-                        <button class="btn btn-sm btn-primary btn-block float-right" data-toggle="modal"
-                            data-target=".modal-edit-profil" title="Tambah Data Organisasi"><i
+                        <button class="btn btn-sm btn-primary btn-block float-right" data-bs-toggle="modal"
+                            data-bs-target=".modal-edit-profil" title="Tambah Data Organisasi"><i
                                 class="fas fa-pencil mr-1"></i><b>Ubah
                                 Profil</b></button>
                     </div>
@@ -90,14 +90,14 @@
                                     </div>
                                 </div>
                                 <table class="table text-muted table-sm">
-                                    <thead class="bg-secondary">
+                                    <thead class="bg-transparent">
                                         <tr style="text-align: center;">
                                             <th hidden="true">ID</th>
                                             <th>Nama Instansi</th>
                                             <th>Jurusan</th>
                                             <th>Jenjang</th>
                                             <th>Tahun Lulus</th>
-                                            <th>Act</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -109,7 +109,7 @@
                                                 <td style="text-align: center;">{{ $pend->jenjang }}</td>
                                                 <td style="text-align: center;">{{ $pend->tahun_lulus }}</td>
                                                 <td style="text-align: center;">
-                                                    <button class="btn btn-sm btn-danger hapuspend"
+                                                    <button class="btn btn-sm btn-outline-secondary hapuspend"
                                                         pend-id="{{ $pend->id }}"><i class="fa fa-trash"
                                                             aria-hidden="true" title="Hapus"></i></button>
                                                 </td>
@@ -128,14 +128,14 @@
                                     </div>
                                 </div>
                                 <table class="table text-muted table-sm">
-                                    <thead class="bg-secondary">
+                                    <thead class="bg-transparent">
                                         <tr style="text-align: center;">
                                             <th hidden="true">ID</th>
                                             <th>Nama Organisasi</th>
                                             <th>Jabatan</th>
                                             <th>Tahun</th>
                                             <th>Status</th>
-                                            <th>Act</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -147,7 +147,7 @@
                                                 <td style="text-align: center;">{{ $org->periode_org }}</td>
                                                 <td style="text-align: center;">{{ $org->status_org }}</td>
                                                 <td style="text-align: center;">
-                                                    <button class="btn btn-sm btn-danger hapusorg"
+                                                    <button class="btn btn-sm btn-outline-secondary hapusorg"
                                                         org-id="{{ $org->id }}"><i class="fa fa-trash"
                                                             aria-hidden="true" title="Hapus"></i></button>
                                                 </td>
@@ -166,14 +166,14 @@
                                     </div>
                                 </div>
                                 <table class="table text-muted table-sm">
-                                    <thead class="bg-secondary">
+                                    <thead class="bg-transparent">
                                         <tr style="text-align: center;">
                                             <th>Nama Perusahaan</th>
                                             <th>Jabatan</th>
                                             <th>Tahun Masuk</th>
                                             <th>Tahun Keluar</th>
                                             <th>Alasan Resign</th>
-                                            <th>Act</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -186,7 +186,7 @@
                                                 <td style="text-align: center;">{{ $peng->th_keluar }}</td>
                                                 <td>{{ $peng->alasan_resign }}</td>
                                                 <td style="text-align: center;">
-                                                    <button class="btn btn-sm btn-danger hapuspeng"
+                                                    <button class="btn btn-sm btn-outline-secondary hapuspeng"
                                                         peng-id="{{ $peng->id }}"><i class="fa fa-trash"
                                                             aria-hidden="true" title="Hapus"></i></button>
                                                 </td>
@@ -198,7 +198,7 @@
                                     <strong><i class="far fa-file-alt mr-1"></i> Catatan Pekerjaan Almasoem</strong>
                                 </div>
                                 <table class="table text-muted table-sm">
-                                    <thead class="bg-secondary">
+                                    <thead class="bg-transparent">
                                         <tr style="text-align: center;">
                                             <th>Jabatan</th>
                                             <th>Golongan</th>
@@ -220,7 +220,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <button class="btn btn-primary float-right" onclick="window.print()">
+                                <button class="btn btn-sm btn-primary float-right" onclick="window.print()">
                                     <i class="fas fa-file-alt mr-1"></i>
                                     <b>Print CV</b></button>
                             </div>
@@ -253,12 +253,12 @@
                                     </div>
                                 </form>
                                 <table class="table text-muted table-sm">
-                                    <thead class="bg-secondary">
+                                    <thead class="bg-transparent">
                                         <tr>
                                             <th hidden="true">ID</th>
                                             <th>Nama Keluarga</th>
                                             <th>Kekerabatan</th>
-                                            <th>Act</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -268,7 +268,7 @@
                                                 <td>{{ $kel->nama_keluarga }}</td>
                                                 <td>{{ $kel->status }}</td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-danger hapuskel"
+                                                    <button class="btn btn-sm btn-outline-secondary hapuskel"
                                                         kel-id="{{ $kel->id }}"><i class="fa fa-trash"
                                                             aria-hidden="true" title="Hapus"></i></button>
                                                 </td>
@@ -298,6 +298,7 @@
                 timer: '5000',
                 showCancelButton: true,
                 confirmButtonText: 'Ya',
+                cancelButtonColor: '#ff7777',
                 cancelButtonText: 'Tidak'
             }).then((result) => {
                 if (result.value) {
@@ -317,6 +318,7 @@
                 timer: '5000',
                 showCancelButton: true,
                 confirmButtonText: 'Ya',
+                cancelButtonColor: '#ff7777',
                 cancelButtonText: 'Tidak'
             }).then((result) => {
                 if (result.value) {
@@ -336,6 +338,7 @@
                 timer: '5000',
                 showCancelButton: true,
                 confirmButtonText: 'Ya',
+                cancelButtonColor: '#ff7777',
                 cancelButtonText: 'Tidak'
             }).then((result) => {
                 if (result.value) {
@@ -355,6 +358,7 @@
                 timer: '5000',
                 showCancelButton: true,
                 confirmButtonText: 'Ya',
+                cancelButtonColor: '#ff7777',
                 cancelButtonText: 'Tidak'
             }).then((result) => {
                 if (result.value) {
